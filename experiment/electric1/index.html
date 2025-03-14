@@ -3335,6 +3335,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    操作题整理及实现方法
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3730,6 +3737,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    操作题整理及实现方法
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3877,6 +3891,29 @@
 <p>数电实验无报告，有仿真报告</p>
 <iframe src="../pdf/电路实验/全加器.pdf" width="100%" height="800px" style="border: none;"> This browser does not support PDFs 
 </iframe>
+<h2 id="_4">操作题整理及实现方法</h2>
+<p><strong>注意：记得检查自启动！！！</strong></p>
+<p>1.首先需要做出110-&gt;101-&gt;100-&gt;011-&gt;010-&gt;110五个三位二进制循环，输入1HZ信号，将三位输出接入数码管 再做出三位奇偶校验器并接入前面循环的输出，接到发光二极管上，要求在4和2时亮，6, 5, 3时灭 最后将时钟脉冲接入示波器CH1，奇偶校验器结果接入示波器CH2，并将时钟换成1024HZ </p>
+<p>验收要求是</p>
+<p>(1) 1HZ时观察6，5，4，3，2循环是否正确，奇偶校验器是否正常工作</p>
+<p>(2) 1024HZ时，示波器上半部分显示CH1波形，下班部分显示CH2波形，要求显示两个周期左右，保证波形稳定</p>
+<p><strong>做法：对减法计数器取反可得加法计数器，用161反馈置数法做出1——5循环再取反，奇偶校验器不用直接列异或表达式，可以只考虑出现的情况画卡诺图列真值表</strong></p>
+<p>2.时序电路设计，要求给定输入X与时钟信号CP，输出为Q0Q1Q2，X=0时输出4→5→6→4……的序列，X=1时输出0→1→2→0……的序列 </p>
+<p>（1）X接逻辑开关，CP接1Hz脉冲，用数码管显示结果。 </p>
+<p>（2）CP接1024Hz脉冲，用示波器显示稳定的图像，要求CH1接Q1，CH2接Q0。</p>
+<p><strong>做法：用161做出3进制计数器，再将X取反接到数码管<span class="arithmatex">\(Q_C\)</span>。这个思路很妙，不知道是怎么想到的。</strong></p>
+<p>3.电路实现010-011-100-101-110（搭完此电路，可以先用LED灯给老师验收） 以上述作为输出，进一步搭建奇偶判断电路或者能否被3整除的电路，用示波器观测输入与输出波形</p>
+<p><strong>做法：常规的反馈计数法的加法计数器</strong></p>
+<p>4.利用JK触发器和与非门芯片，实现信号发生器，其能重复输出10011101信号，并完成连线</p>
+<p><strong>做法：先搭000-111的八进制计数器，再画卡诺图列出输出信号的逻辑表达式进行译码。</strong></p>
+<p>5.<img alt="" src="https://file.cc98.org/v4-upload/d/2024/1220/t14tch0f.webp" /></p>
+<p><strong>做法：先做四进制加法计数器（可以161做），再根据X和两个输出端的值画卡诺图求逻辑表达式来编码</strong></p>
+<p>6.</p>
+<p>X=0,00→01→10→11→00 </p>
+<p>X=1,000→001→010→011→100→101→000</p>
+<p><strong>做法：161计数器，<span class="arithmatex">\(\overline{\overline{X}Q_AQ_B+XQ_CQ_A}\)</span>,接到清零端</strong></p>
+<p>7.三位环形计数器</p>
+<p><strong>做法：D触发器实现，<span class="arithmatex">\(Q_C\)</span>接<span class="arithmatex">\(D_B\)</span>，<span class="arithmatex">\(Q_B\)</span>接<span class="arithmatex">\(D_A\)</span>，<span class="arithmatex">\(Q_A\)</span>接<span class="arithmatex">\(D_C\)</span></strong></p>
 
 
 
