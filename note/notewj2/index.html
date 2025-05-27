@@ -10,13 +10,13 @@
         <meta name="author" content="LH">
       
       
-        <link rel="canonical" href="https://LH-study.github.io/note/notec2/">
+        <link rel="canonical" href="https://LH-study.github.io/note/notewj2/">
       
       
-        <link rel="prev" href="../notec1/">
+        <link rel="prev" href="../notewj1/">
       
       
-        <link rel="next" href="../notec3/">
+        <link rel="next" href="../notewj3/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>第2讲 运算符 - LH的资源小站</title>
+        <title>第2章 MCS-51单片机指令系统 - LH的资源小站</title>
       
     
     
@@ -124,7 +124,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#mcs-51" class="md-skip">
           跳转至
         </a>
       
@@ -158,7 +158,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              第2讲 运算符
+              第2章 MCS-51单片机指令系统
             
           </span>
         </div>
@@ -2004,19 +2004,17 @@
                 
   
   
-    
-  
   
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
         
           <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
             
@@ -2029,7 +2027,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_2">
             <span class="md-nav__icon md-icon"></span>
             C程序设计基础及实验
@@ -2060,29 +2058,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    第2讲 运算符
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../notec2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2091,142 +2069,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1.二进制运算符
-  </a>
-  
-    <nav class="md-nav" aria-label="1.二进制运算符">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    &lt;&lt;     &gt;&gt;左移右移
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    符号数移位注意点
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    &amp;与运算，|或运算，^异或运算，~取反
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    异或可逆特性
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    2.逻辑运算
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    3.运算符优先级与结合性
-  </a>
-  
-    <nav class="md-nav" aria-label="3.运算符优先级与结合性">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#xx" class="md-nav__link">
-    ++x与x++
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    一个注意点
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    4.其他运算符
-  </a>
-  
-    <nav class="md-nav" aria-label="4.其他运算符">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    复合赋值运算符
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    逗号运算符和逗号表达式
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sizeof" class="md-nav__link">
-    sizeof
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    条件运算符  ?   :
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3110,17 +2952,19 @@
                 
   
   
+    
+  
   
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_10" checked>
         
           <label class="md-nav__link" for="__nav_4_10" id="__nav_4_10_label" tabindex="0">
             
@@ -3133,7 +2977,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_10_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_10_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_10">
             <span class="md-nav__icon md-icon"></span>
             微机原理及其应用
@@ -3164,9 +3008,27 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../notewj2/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    第2章 MCS-51单片机指令系统
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -3175,6 +3037,155 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mcs-51" class="md-nav__link">
+    第二章 MCS-51单片机指令系统
+  </a>
+  
+    <nav class="md-nav" aria-label="第二章 MCS-51单片机指令系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    常用符号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    寻址方式
+  </a>
+  
+    <nav class="md-nav" aria-label="寻址方式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    立即寻址
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    直接寻址
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    寄存器寻址
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    寄存器间接寻址
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    基址寄存器加变址寄存器间接寻址
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    相对寻址
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    位寻址
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    数据传送类指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    算数运算类指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    逻辑操作类指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    控制转移类指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    位操作类指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    伪指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    指令的字节和周期
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3999,8 +4010,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -4009,71 +4018,73 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1.二进制运算符
+  <a href="#mcs-51" class="md-nav__link">
+    第二章 MCS-51单片机指令系统
   </a>
   
-    <nav class="md-nav" aria-label="1.二进制运算符">
+    <nav class="md-nav" aria-label="第二章 MCS-51单片机指令系统">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    &lt;&lt;     &gt;&gt;左移右移
+  <a href="#_1" class="md-nav__link">
+    常用符号
   </a>
   
 </li>
         
           <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    寻址方式
+  </a>
+  
+    <nav class="md-nav" aria-label="寻址方式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    符号数移位注意点
+    立即寻址
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    &amp;与运算，|或运算，^异或运算，~取反
+    直接寻址
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    异或可逆特性
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    2.逻辑运算
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    3.运算符优先级与结合性
-  </a>
-  
-    <nav class="md-nav" aria-label="3.运算符优先级与结合性">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#xx" class="md-nav__link">
-    ++x与x++
+    寄存器寻址
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    一个注意点
+    寄存器间接寻址
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    基址寄存器加变址寄存器间接寻址
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    相对寻址
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    位寻址
   </a>
   
 </li>
@@ -4082,39 +4093,52 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    4.其他运算符
-  </a>
-  
-    <nav class="md-nav" aria-label="4.其他运算符">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    复合赋值运算符
+  <a href="#_10" class="md-nav__link">
+    数据传送类指令
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    逗号运算符和逗号表达式
+  <a href="#_11" class="md-nav__link">
+    算数运算类指令
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#sizeof" class="md-nav__link">
-    sizeof
+  <a href="#_12" class="md-nav__link">
+    逻辑操作类指令
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    条件运算符  ?   :
+  <a href="#_13" class="md-nav__link">
+    控制转移类指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    位操作类指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    伪指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    指令的字节和周期
   </a>
   
 </li>
@@ -4142,125 +4166,286 @@
   
 
 
-<h1 id="_1">运算符（秋六周、冬一周）</h1>
-<h2 id="1">1.二进制运算符</h2>
-<h3 id="_2"><strong>&lt;&lt;     &gt;&gt;左移右移</strong></h3>
-<p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1112/2mi5es42.webp" /></p>
-<p>格式：a&lt;&lt;b，b必须是正数，左移时低位补0；右移时正数补0，负数补1</p>
-<p>位移运算不改变原变量，需要重新赋值</p>
-<h3 id="_3">符号数移位注意点</h3>
-<p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1107/dpyvehum.webp" /></p>
-<p>符号数在移位时，负数右移高位补1</p>
-<h3 id="_4"><strong>&amp;与运算，|或运算，^异或运算，~取反</strong></h3>
-<p>&amp;与运算是指将两数二进制每一位数进行与运算得到一个新的数，与运算是两个数有一个0则最终结果为0。</p>
-<p>|或运算是指将两数二进制每一位数进行或运算得到一个新的数，或运算是两个数有一个1则最终结果为1。</p>
-<p>^异或运算是指两数二进制每一位数进行异或运算得到一个新的数，异或运算是指相同输出0，不同输出1，我的记忆方法是差的绝对值</p>
-<p>~取反是单目运算符，是指将该数的二进制数的每一位数取反</p>
-<p>使用这些运算可以达到一些目的</p>
-<p>如一个八位二进制数a，a&amp;0111 1110可以把最高位和最低位变成0，其余不变；</p>
-<p>a|1000 0001，可以把最高位和最低位变成1，其余不变；</p>
-<p>a^1000 0001，可以将最高位和最低位取反。</p>
-<h3 id="_5"><strong>异或可逆特性</strong></h3>
-<p>c=a^b,    则b=a^c</p>
-<h2 id="2">2.逻辑运算</h2>
-<p>逻辑运算中，0为假，非0数均为真。</p>
-<p>&amp;&amp;短路性：a &amp;&amp; b，若a为假，程序不会判断b的真假，即使b语句可能会报错或无法判断，程序也直接输出假，而后面语句若有赋值运算符，也不会执行</p>
-<p>||短路性： a || b，若a为真，程序不会判断b的真假，即使b语句可能会报错或无法判断，程序也直接输出真，而后面语句若有赋值运算符，也不会执行。</p>
-<p>优先级：!&gt;&amp;&amp;&gt;||</p>
-<h2 id="3">3.运算符优先级与结合性</h2>
-<p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1107/r1j4yckh.webp" /></p>
-<p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1107/2hwvsxlr.webp" /></p>
-<p><strong>记忆方法：初等&gt;单目&gt;运算&gt;移位&gt;关系&gt;位逻辑&gt;逻辑运算&gt;三目&gt;赋值&gt;逗号</strong></p>
-<p>优先级从上到下，第二优先级的*表示指针</p>
-<p>left to right表示左结合，right to left表示右结合</p>
-<p>=赋值运算是右结合，所以z=(y=x+2)中，（y=x+2）中y的值被赋为右边的值，即x+2的值</p>
-<p>赋值运算过程：</p>
-<p>（1）计算赋值运算符右侧表达式的值</p>
-<p>（2）将赋值运算符右侧的值赋给赋值运算符左边的变量</p>
-<p>（3）将赋值运算符左边的值作为赋值表达式的值</p>
-<p>int n=3.14*2，n被赋值为6，表达式返回6。</p>
-<h3 id="xx"><strong>++x与x++</strong></h3>
-<p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1107/vdmupbt2.webp" /></p>
-<p>++x与x++都能将变量x+1，但++x返回x+1的值，x++返回x的值</p>
-<h3 id="_6"><strong>一个注意点</strong></h3>
-<p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1107/oli5uwlw.webp" /></p>
-<p>因为(-x)++的意思是-x=-x+1，而-x不是一个变量，故报错</p>
-<p>不是变量的数都不能在等号左边</p>
-<p>若y=-(x++)，则先执行x++返回x，再取相反数</p>
-<h2 id="4">4.其他运算符</h2>
-<h3 id="_7"><strong>复合赋值运算符</strong></h3>
-<p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1107/uibclmbn.webp" /></p>
-<p>都是右结合，先计算右边，再赋值给左边</p>
-<h3 id="_8"><strong>逗号运算符和逗号表达式</strong></h3>
-<p>逗号表达式的值等于最后一个表达式的值 </p>
-<p><strong>例：</strong></p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span><span class="w">      </span>
-<span class="n">x</span><span class="o">=</span><span class="p">(</span><span class="n">y</span><span class="o">+=</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="o">++</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">+=</span><span class="n">z</span><span class="p">);</span><span class="w"> </span>
+  <h1>第2章 MCS-51单片机指令系统</h1>
+
+<h2 id="mcs-51">第二章 MCS-51单片机指令系统</h2>
+<h3 id="_1">常用符号</h3>
+<div class="highlight"><pre><span></span><code>Rn（n = 0～7）：当前选中的工作寄存器组R0～R7。它在片内的地址由PSW中的RS1，RS0确定
+Ri（i = 0，1）：当前选中的工作寄存器组中可作为地址指针的两个工作寄存器R0，R1
+#data：8位立即数，即指令中给出的8位常数
+#data16：16位立即数，即指令中给出的16位常数
+direct：8位片内RAM（包括SFR）的直接地址
+addr11：11位目的地址。用于ACALL和AJMP指令中。目的地址必须放在与下一条指令第一字节同2k字节的程序存储器区地址空间内。
+addr16：16位目的地址。用于LCALL和LJMP指令中，它的地址范围是64k字节程序存储器地址空间
+rel：8位带符号的偏移量。用于SJMP和所有的条件转移指令中地址偏移量范围在-128～+127（即偏移量用补码形式表示）
+bit：片内RAM和SFR的直接寻址位地址
+@：间接寻址方式，表示间址寄存器的符号
+/：位操作数前缀，表示对该位操作数求反
+（x）：表示x中内容
+（（x））：表示x寻址的单元中的内容
+←：指令操作流程，将箭头右边的内容送到箭头左边的单元中
 </code></pre></div>
-<p>本例中，x最后被赋值为8，同时y,z的值都改变</p>
-<h3 id="sizeof"><strong>sizeof</strong></h3>
-<p>求某种类型宽度</p>
-<p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1107/km1xsso3.webp" /></p>
-<h3 id="_9"><strong>条件运算符  ?   :</strong></h3>
-<p>条件运算符是三目运算符</p>
-<p>max= a&gt;b   ?   a : b    </p>
-<p>max会赋值为a,b中较大值</p>
-<p>意识是？左边条件符合（为True），返回值为冒号左边的值，条件不成立则返回冒号右边的值</p>
-<p>？  ： 是右结合性，</p>
-<div class="admonition note">
-<p class="admonition-title">例子</p>
-<p>a&gt;0  ?  1 :  a&lt;0  ?  -1  :  0; </p>
-</div>
-<p>本例中，先做(a&lt;0  ?  -1 : 0)</p>
-<p><strong>右结合运算符共三类：=、？：、优先级排第二的所有运算符</strong></p>
+<h3 id="_2">寻址方式</h3>
+<h4 id="_3">立即寻址</h4>
+<p>寻址空间：程序存储器（ROM）</p>
+<p>指令所用到的操作数以指令字节的形式存放在<strong>程序存储器</strong></p>
+<h4 id="_4">直接寻址</h4>
+<p>寻址空间：内部RAM的低128字节，特殊功能寄存器（RAM高128字节）</p>
+<p><strong>直接寻址是访问SFR的唯一方式。</strong>意思是对于52系列单片机，片内RAM高128字节与特殊功能寄存器SFR地址重叠，此时只有直接寻址，才能访问到SFR，如只有寻址80H，才能访问到P0，若要访问RAM高128字节，则只能通过寄存器间接寻址的方式来实现</p>
+<p>操作码后面的一个字节是实际操作数地址。这种直接在指令中给出操作数真实地址的方式称为直接寻址。</p>
+<h4 id="_5">寄存器寻址</h4>
+<p>寻址空间：R0～R7（由PSW中RS1、RS0两位的值选定工作寄存器区），A、B、CY（位），DPTR   </p>
+<p>指令选定的寄存器所存储的内容是实际的操作数</p>
+<p><strong>寄存器寻址无需额外空间存储寄存器变量，即寄存器变量不占字节</strong></p>
+<div class="highlight"><pre><span></span><code>MOV A,#00H  ;该代码中对A的寻址方式为寄存器寻址，只有以Acc形式出现时，对A的寻址方式为直接寻址。
+            ;因此，PUSH、POP指令对A进行出栈、弹栈时，必须要写Acc。因为PUSH、POP只能对direct操作
+</code></pre></div>
+<h4 id="_6">寄存器间接寻址</h4>
+<p>寻址空间：内部RAM（@R0，@R1，SP）， 外部数据存储器（@R0，@R1，@DPTR）   </p>
+<p>指令所选中的寄存器内容是实际操作数的地址（而不是操作数）</p>
+<p><strong>寄存器间接寻址无需额外空间存储寄存器变量地址，即寄存器变量的地址不占字节</strong></p>
+<h4 id="_7">基址寄存器加变址寄存器间接寻址</h4>
+<p>寻址空间：程序存储器（@A+DPTR，@A+PC） </p>
+<p>以DPTR或PC作基址寄存器，A作变址寄存器（存放8位无符号数），两者相加以形成16位程序存储器地址作操作数地址</p>
+<h4 id="_8">相对寻址</h4>
+<p>用于程序控制，利用指令修正PC指针的方式实现转移。即以程序计数器PC的内容为基地址，加上指令中给出的偏移量rel，所得结果为转移目标地址。</p>
+<p>偏移量rel是一个8位有符号补码数，范围-128～+127。</p>
+<p>正向跳转：rel = 目的地址 - 源地址 - 2</p>
+<p>反向跳转时，目的地址小于源地址，rel用负数的补码表示rel=（目的地址 -（源地址 + 2））补</p>
+<h4 id="_9">位寻址</h4>
+<p>寻址空间：片内RAM的20H～2FH，SFR中12个能被8整除的字节   </p>
+<p>位寻址与直接寻址中的字节地址形式完全一样，是访问“字节”还是访问“位”完全以指令来区分</p>
+<div class="highlight"><pre><span></span><code>CLR C
+SETB C
+</code></pre></div>
+<h3 id="_10">数据传送类指令</h3>
+<blockquote>
+<p>重点的4+3+5+3种MOV要给一个总结的话，就是：所有数据迁移指令，只有direct允许全部方式，其他</p>
+<p>目的操作数不允许使用同个或同组寄存器（详细说就是，A不允许使用A，@Ri不允许使用@Ri与Rn，Rn</p>
+<p>不允许使用@Ri与Rn）；</p>
+<p>查表MOVC牢记MOVC   A, @A+DPTR</p>
+</blockquote>
+<p>MOVC查表指令（2条）（必须使用累加器A，访问ROM）</p>
+<div class="highlight"><pre><span></span><code>MOVC A, @A+DPTR ;  (A) &lt;- ((A) + (DPTR))
+MOVC A, @A+PC ;  (A) &lt;- ((A) + (PC))
+</code></pre></div>
+<p>此时PSEN信号有效</p>
+<p>MOVX传送类指令（4条）（必须使用累加器A，使用寄存器间接寻址方式，访问片外RAM）</p>
+<div class="highlight"><pre><span></span><code>MOVX A, @DPTR ; (A) &lt;- ((DPTR))
+MOVX @DPTR, A ; ((DPTR)) &lt;- (A)
+MOVX A, @Ri ; (A) &lt;- ((Ri))
+MOVX @Ri, A ; ((Ri)) &lt;- (A)
+</code></pre></div>
+<p>向DPTR/寄存器读数据时，RD信号有效；向DPTR/寄存器写数据时，WR信号有效</p>
+<p>交换指令（5条）（前3条为字节交换，后2条为半字节交换）</p>
+<div class="highlight"><pre><span></span><code>XCH A, Rn ; (A) &lt;-&gt; (Rn)
+XCH A, direct ; (A) &lt;-&gt; (direct)
+XCH A, @Ri ; (A) &lt;-&gt; ((Ri))
+XCHD A, @Ri ; (A3 ~ 0) &lt;-&gt; ((Ri)3 ~ 0)   半字节交换
+SWAP A ; (A3 ~ 0) &lt;-&gt; (A7 ~ 4)  交换低四位和高四位
+</code></pre></div>
+<p>堆栈类</p>
+<div class="highlight"><pre><span></span><code>PUSH direct ; (SP) &lt;- (SP) + 1
+            ; ((SP)) &lt;- (direct)
+POP direct ; (direct) &lt;- ((SP))
+           ; (SP) &lt;- (SP) - 1
+</code></pre></div>
+<p><strong>注意，若想要对累加器A进行压栈弹栈操作，必须写PUSH Acc</strong>。看到Acc时，才是直接寻址。</p>
+<h3 id="_11">算数运算类指令</h3>
+<p>加法指令（4条）</p>
+<div class="highlight"><pre><span></span><code>ADD A, Rn ; (A) &lt;- (A) + (Rn)
+ADD A, direct ; (A) &lt;- (A) + (direct)
+ADD A, @Ri ; (A) &lt;- (A) + ((Ri))
+ADD A, #data ; (A) &lt;- (A) + #data
+</code></pre></div>
+<p>带进位加法指令（4条）：</p>
+<div class="highlight"><pre><span></span><code>ADDC A, Rn ; (A) &lt;- (A) + (Rn) + (CY)
+ADDC A, direct ; (A) &lt;- (A) + (direct) + (CY)
+ADDC A, @Ri ; (A) &lt;- (A) + ((Ri)) + (CY)
+ADDC A, #data ; (A) &lt;- (A) + #data + (CY)
+</code></pre></div>
+<p>带借位减法指令（4条）（这个借位是指低位从当前这里借走，而不是自己从高位那里借来。因为运算是从低位算到高位的）</p>
+<div class="highlight"><pre><span></span><code>SUBB A, Rn ; (A) &lt;- (A) - (Rn) - (CY)
+SUBB A, direct ; (A) &lt;- (A) - (direct) - (CY)
+SUBB A, @Ri ; (A) &lt;- (A) - ((Ri)) - (CY)
+SUBB A, #data ; (A) &lt;- (A) - #data - (CY)
+</code></pre></div>
+<p>乘法指令（仅1条合法，必须一字不差，空格数除外）：</p>
+<div class="highlight"><pre><span></span><code>MUL AB ; (B)(A) &lt;- (A) * (B)
+</code></pre></div>
+<p>除法指令（仅1条合法，必须一字不差，空格数除外）：</p>
+<div class="highlight"><pre><span></span><code>DIV AB ; (A) &lt;- (A) / (B) 的商
+       ; (B) &lt;- (A) / (B) 的余
+</code></pre></div>
+<p>自增指令（5条）：</p>
+<div class="highlight"><pre><span></span><code>INC A ; (A) &lt;- (A) + 1
+INC Rn ; (Rn) &lt;- (Rn) + 1
+INC direct ; (direct) &lt;- (direct) + 1
+INC @Ri ; ((Ri)) &lt;- ((Ri)) + 1
+INC DPTR ; (DPTR) &lt;- (DPTR) + 1
+</code></pre></div>
+<p>自减指令（4条）（DPTR不允许自减）：</p>
+<div class="highlight"><pre><span></span><code>DEC A ; (A) &lt;- (A) - 1
+DEC Rn ; (Rn) &lt;- (Rn) - 1
+DEC direct ; (direct) &lt;- (direct) - 1
+DEC @Ri ; ((Ri)) &lt;- ((Ri)) - 1
+</code></pre></div>
+<p>无DPTR减1指令。若要做DPTR-1，必须要用一段程序实现。 </p>
+<div class="highlight"><pre><span></span><code>CLR   C
+MOV   A，#DPL    
+SUBB  A，#1  
+MOV   DPL，A 
+MOV   A，DPH 
+SUBB  A，#0
+MOV   DPH，A
+</code></pre></div>
+<p>十进制调整指令（仅1条合法，必须一字不差，空格数除外）：</p>
+<div class="highlight"><pre><span></span><code>DA A
+</code></pre></div>
+<p>这条指令是在进行BCD码运算时，跟在ADD和ADDC指令之后，将相加后存放在累加器A中的结果进行修正。</p>
+<p><strong>不能用于BCD码减法结果调整</strong></p>
+<h3 id="_12">逻辑操作类指令</h3>
+<p>循环移位指令（4条）  </p>
+<div class="highlight"><pre><span></span><code>RL   A   ; A的内容循环左移 
+RR   A   ; A的内容循环右移 
+RLC  A   ; A的内容带C位循环左移  
+RRC  A   ; A的内容带C位循环右移
+</code></pre></div>
+<p><strong>左移/右移可以和乘/除等效</strong></p>
+<p>求反指令（1条）    </p>
+<div class="highlight"><pre><span></span><code>CPL   A 
+</code></pre></div>
+<p>清0指令（1条）    </p>
+<div class="highlight"><pre><span></span><code>CLR   A 
+</code></pre></div>
+<p>逻辑与指令（6条）   </p>
+<div class="highlight"><pre><span></span><code>ANL   A，#data   
+ANL   direct，#data  
+ANL   A，Rn  
+ANL   A，direct  
+ANL   direct，A  
+ANL   A，@Ri
+</code></pre></div>
+<p>逻辑或指令（6条）   </p>
+<div class="highlight"><pre><span></span><code>ORL   A，#data   
+ORL   direct，#data  
+ORL   A，Rn  
+ORL   A，direct  
+ORL   direct，A  
+ORL   A，@Ri
+</code></pre></div>
+<p>逻辑异或指令（6条）  </p>
+<div class="highlight"><pre><span></span><code>XRL   A，#data   
+XRL   direct，#data  
+XRL   A，Rn  
+XRL   A，direct  
+XRL   direct，A  
+XRL   A，@Ri
+</code></pre></div>
+<h3 id="_13">控制转移类指令</h3>
+<p>无条件转移指令（4条）</p>
+<p>LJMP跳转范围为64K</p>
+<p>AJMP为绝对跳转指令，跳转11位地址，执行前PC会先加2，跳转范围为2K</p>
+<p>SJMP为短跳转指令，跳转范围是-128——+127  </p>
+<div class="highlight"><pre><span></span><code>LJMP   addr16   ; (PC) ← addr16，长跳转指令，跳转范围64K   
+AJMP   addr11   ;  (PC) ← （PC）+ 2，                       
+                ; (PC(10-0)) ← addr11，(PC(15-11))保持不变                       
+                ; 绝对跳转指令，跳转范围2K                     
+SJMP   rel      ;  (PC) ← （PC）+ 2 + rel                       
+                ; 短跳转，跳转范围为-128～+127    
+JMP    @A+DPTR  ; (PC) ←（A）+ (DPTR)，散转指令                       
+                ; A的内容为8位无符号数
+</code></pre></div>
+<p>条件转移指令（8条）</p>
+<p>理解：</p>
+<p>JZ——jump if zero</p>
+<p>JNZ——jump if not zero<strong>（这两个后面都不会跟变量，所以默认的是累加器A）</strong></p>
+<p>CJNE——compare jump not equal，先对两个变量做减法，改变进位位，有借位C为1，无借位C为0；然后比较两个变量如果不等则跳转</p>
+<p>DJNZ——decrement jump if not zero</p>
+<div class="highlight"><pre><span></span><code>JZ    rel   ; A=0时跳转，(PC) ← （PC）+ 2 + rel
+            ; A≠0时不跳转，继续顺序向下执行，即(PC) ← (PC) + 2
+JNZ   rel   ; A≠0时跳转，(PC) ← （PC）+ 2 + rel
+            ; A=0时不跳转，继续顺序向下执行，即(PC) ← (PC) + 2
+CJNE  A，direct，rel  ;  (A)≠(direct)时跳转，(PC) ← (PC) + 3 + rel
+                     ;  (A) = (direct)不跳转，(PC) ← (PC) + 3 
+                     ; 会影响进位标志，（A）&gt;（direct）时， (C) ← 0
+                     ;（A）&lt;（direct）时， (C) ← 1                        
+CJNE  A，#data，rel
+CJNE  Rn，#data，rel
+CJNE  @Ri，#data，rel
+DJNZ  Rn，rel        ; （Rn）←（Rn）- 1
+                    ; 若（Rn）≠0则跳转， (PC) ← （PC）+ 2 + rel
+                    ; 若（Rn）=0则不跳转，(PC) ← （PC）+ 2
+
+DJNZ  direct，rel  
+</code></pre></div>
+<p>子程序调用及返回指令（4条）</p>
+<div class="highlight"><pre><span></span><code>LCALL  addr16   ; (PC) ← (PC) + 3               
+                 ; (SP) ← (SP) + 1 ，((SP)) ← (PC(7～0))              
+                 ; (SP) ← (SP) + 1 ，((SP)) ← (PC(15～8))             
+                 ; (PC) ← addr16
+ACALL  addr11   ; (PC) ← (PC) + 2                
+                ; (SP) ← (SP) + 1 ，((SP)) ← (PC(7～0))               
+                ; (SP) ← (SP) + 1 ，((SP)) ← (PC(15～8))              
+                ; (PC(10-0)) ← addr11，(PC(15-11))保持不变
+RET    ; (PC(15～8)) ← ((SP)) ， (SP) ← (SP) - 1       
+       ; (PC(7～0)) ← ((SP)) ，  (SP) ← (SP) - 1
+RETI   ; (PC(15～8)) ← ((SP)) ， (SP) ← (SP) - 1        
+       ; (PC(7～0)) ← ((SP)) ，  (SP) ← (SP) - 1        
+       ; 中断子程序返回，除具有RET的功能外，还可以恢复中断逻辑
+NOP    ;  (PC) ← (PC) + 1（延时用）  
+</code></pre></div>
+<p><strong>RET和RETI不能互换使用</strong></p>
+<h3 id="_14">位操作类指令</h3>
+<p>在指令中，位地址的表达方式有以下4种： </p>
+<p>1.直接用位地址表示：如 0D5H   </p>
+<p>2.点操作符方式：PSW.5  </p>
+<p>3.位名称方式：F0  </p>
+<p>4.用户使用伪指令事先定义的符号地址：USER-FLG  bit  F0</p>
+<p>位数据传送指令（2条）</p>
+<div class="highlight"><pre><span></span><code>MOV   C，bit ; (C) ← (bit)
+MOV   bit，C ; (bit) ← (C)
+            ; bit表示可位寻址的各位（221位）的位地址
+</code></pre></div>
+<p>位状态控制指令（6条）</p>
+<div class="highlight"><pre><span></span><code>CLR   C      ; 清0
+CLR   bit    ; 清0
+CPL   C      ; 求反
+CPL   bit    ; 求反
+SETB  C      ; 置1
+SETB  bit    ; 置1
+</code></pre></div>
+<p>位逻辑运算指令（4条）</p>
+<div class="highlight"><pre><span></span><code>ANL   C，bit  ; 与
+ANL   C，/bit ; 与    
+ORL   C，bit  ; 或
+ORL   C，/bit ; 或
+</code></pre></div>
+<p>位条件转移指令（5条）</p>
+<div class="highlight"><pre><span></span><code>JC   rel        ;（C）=1，跳。 (PC) ← (PC) + 2 + rel
+                ;（C）=0，不跳。 (PC) ← (PC) + 2 ，顺序执行
+JNC  rel        ;（C）=0，跳。 (PC) ← (PC) + 2 + rel
+                ;（C）=1，不跳。 (PC) ← (PC) + 2
+JB   bit，rel    ; bit =1，跳。 (PC) ← (PC) + 3 + rel
+                ; bit =0，不跳。 (PC) ← (PC) + 3
+JNB  bit，rel    ; bit =0，跳。 (PC) ← (PC) + 3 + rel
+                ; bit =1，不跳。 (PC) ← (PC) + 3
+JBC  bit，rel    ; bit =1，则（bit）← 0， (PC) ← (PC) + 3 + rel
+                ; bit =0，则顺序执行，(PC) ← (PC) + 3
+</code></pre></div>
+<h3 id="_15">伪指令</h3>
+<p>ORG、END、DB、DW、DS</p>
+<p>EQU：把一个数据或汇编符号用自定义的字符代替  被定义的字符名称可用作<strong>数据地址、位地址、寄存器或立即数</strong>等</p>
+<p>DATA：把<strong>数据地址或代码地址</strong>用自定义的字符替代（DATA是数据不是地址）</p>
+<p>BIT：把<strong>位地址</strong>用自定义的字符替代</p>
+<h3 id="_16">指令的字节和周期</h3>
+<p>字节的判断：执行这件事需要一个字节，指令中含有的变量需要占用对应的字节（寄存器寻址、寄存器间接寻址不占字节，DPTR的16位数据占用两个字节）</p>
+<p>共分为单字节、双字节、三字节指令三种</p>
+<p>按照周期可分为单周期、双周期、四周期三种，<strong>四周期指令只有乘除</strong>，三字节一定是双周期，其他的似乎只能背了……</p>
 
 
 
 
-
-<script src="https://giscus.app/client.js"
-        data-repo="LH-0124/LHstudy"
-        data-repo-id="R_kgDONJ_OXA"
-        data-category="Announcements"
-        data-category-id="DIC_kwDONJ_OXM4CkE7y"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        crossorigin="anonymous"
-        async>
-</script>
-<script>
-    var giscus = document.querySelector("script[src*=giscus]")
-
-    /* Set palette on initial load */
-    var palette = __md_get("__palette")
-    if (palette && typeof palette.color === "object") {
-        var theme = palette.color.scheme === "slate" ? "dark" : "light"
-        giscus.setAttribute("data-theme", theme)
-    }
-
-    /* Register event handlers after documented loaded */
-    document.addEventListener("DOMContentLoaded", function () {
-        var ref = document.querySelector("[data-md-component=palette]")
-        ref.addEventListener("change", function () {
-            var palette = __md_get("__palette")
-            if (palette && typeof palette.color === "object") {
-                var theme = palette.color.scheme === "slate" ? "dark" : "light"
-
-                /* Instruct Giscus to change theme */
-                var frame = document.querySelector(".giscus-frame")
-                frame.contentWindow.postMessage(
-                    { giscus: { setConfig: { theme } } },
-                    "https://giscus.app"
-                )
-            }
-        })
-    })
-</script>
 
                 
               </article>
