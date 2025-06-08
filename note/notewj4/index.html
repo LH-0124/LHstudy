@@ -3148,6 +3148,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    中断响应被暂时阻止的条件
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4125,6 +4132,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    中断响应被暂时阻止的条件
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4201,6 +4215,10 @@
 LJMP  2000H
 </code></pre></div>
 <p>这样，真正的INT0中断程序是存放在2000H开始处。</p>
+<h3 id="_5">中断响应被暂时阻止的条件</h3>
+<p>CPU在处理同级或高级中断</p>
+<p>现在的机器周期不是当前指令的最后一个机器周期</p>
+<p>正在执行RETI或正在访问IE、IP寄存器</p>
 
 
 

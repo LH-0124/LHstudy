@@ -3123,55 +3123,62 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    一些小题可能会考的结论
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     数据传送类指令
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     算数运算类指令
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     逻辑操作类指令
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     控制转移类指令
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     位操作类指令
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     伪指令
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     指令的字节和周期
   </a>
   
@@ -4209,55 +4216,62 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    一些小题可能会考的结论
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     数据传送类指令
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     算数运算类指令
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     逻辑操作类指令
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     控制转移类指令
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     位操作类指令
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     伪指令
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     指令的字节和周期
   </a>
   
@@ -4326,7 +4340,12 @@ bit：片内RAM和SFR的直接寻址位地址
 <p><strong>寄存器间接寻址无需额外空间存储寄存器变量地址，即寄存器变量的地址不占字节</strong></p>
 <h4 id="_7">基址寄存器加变址寄存器间接寻址</h4>
 <p>寻址空间：程序存储器（@A+DPTR，@A+PC） </p>
+<p><strong>查表用</strong></p>
 <p>以DPTR或PC作基址寄存器，A作变址寄存器（存放8位无符号数），两者相加以形成16位程序存储器地址作操作数地址</p>
+<p>只有这两种 </p>
+<div class="highlight"><pre><span></span><code>MOVC A,@A+PC
+MOVC A,@A+DPTR
+</code></pre></div>
 <h4 id="_8">相对寻址</h4>
 <p>用于程序控制，利用指令修正PC指针的方式实现转移。即以程序计数器PC的内容为基地址，加上指令中给出的偏移量rel，所得结果为转移目标地址。</p>
 <p>偏移量rel是一个8位有符号补码数，范围-128～+127。</p>
@@ -4338,7 +4357,14 @@ bit：片内RAM和SFR的直接寻址位地址
 <div class="highlight"><pre><span></span><code>CLR C
 SETB C
 </code></pre></div>
-<h3 id="_10">数据传送类指令</h3>
+<h4 id="_10">一些小题可能会考的结论</h4>
+<p>直接寻址的寻址空间是ROM</p>
+<p>要访问外部RAM，只能采用寄存器间接寻址</p>
+<p>直接寻址是访问特殊功能寄存器SFR的唯一方式</p>
+<p>8052中，数据缓冲区和特殊功能寄存器地址有部分重合，访问SFR要用直接寻址，访问数据缓冲区要用寄存器寄存器间接寻址</p>
+<p>8051中，若对SFR区采用间接寻址，则数据不确定</p>
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0608/w12uyzga.webp" /></p>
+<h3 id="_11">数据传送类指令</h3>
 <blockquote>
 <p>重点的4+3+5+3种MOV要给一个总结的话，就是：所有数据迁移指令，只有direct允许全部方式，其他</p>
 <p>目的操作数不允许使用同个或同组寄存器（详细说就是，A不允许使用A，@Ri不允许使用@Ri与Rn，Rn</p>
@@ -4371,7 +4397,7 @@ POP direct ; (direct) &lt;- ((SP))
            ; (SP) &lt;- (SP) - 1
 </code></pre></div>
 <p><strong>注意，若想要对累加器A进行压栈弹栈操作，必须写PUSH Acc</strong>。看到Acc时，才是直接寻址。</p>
-<h3 id="_11">算数运算类指令</h3>
+<h3 id="_12">算数运算类指令</h3>
 <p>加法指令（4条）</p>
 <div class="highlight"><pre><span></span><code>ADD A, Rn ; (A) &lt;- (A) + (Rn)
 ADD A, direct ; (A) &lt;- (A) + (direct)
@@ -4424,7 +4450,7 @@ MOV   DPH，A
 </code></pre></div>
 <p>这条指令是在进行BCD码运算时，跟在ADD和ADDC指令之后，将相加后存放在累加器A中的结果进行修正。</p>
 <p><strong>不能用于BCD码减法结果调整</strong></p>
-<h3 id="_12">逻辑操作类指令</h3>
+<h3 id="_13">逻辑操作类指令</h3>
 <p>循环移位指令（4条）  </p>
 <div class="highlight"><pre><span></span><code>RL   A   ; A的内容循环左移 
 RR   A   ; A的内容循环右移 
@@ -4462,7 +4488,7 @@ XRL   A，direct
 XRL   direct，A  
 XRL   A，@Ri
 </code></pre></div>
-<h3 id="_13">控制转移类指令</h3>
+<h3 id="_14">控制转移类指令</h3>
 <p>无条件转移指令（4条）</p>
 <p>LJMP跳转范围为64K</p>
 <p>AJMP为绝对跳转指令，跳转11位地址，执行前PC会先加2，跳转范围为2K</p>
@@ -4516,7 +4542,7 @@ RETI   ; (PC(15～8)) ← ((SP)) ， (SP) ← (SP) - 1
 NOP    ;  (PC) ← (PC) + 1（延时用）  
 </code></pre></div>
 <p><strong>RET和RETI不能互换使用</strong></p>
-<h3 id="_14">位操作类指令</h3>
+<h3 id="_15">位操作类指令</h3>
 <p>在指令中，位地址的表达方式有以下4种： </p>
 <p>1.直接用位地址表示：如 0D5H   </p>
 <p>2.点操作符方式：PSW.5  </p>
@@ -4553,12 +4579,12 @@ JNB  bit，rel    ; bit =0，跳。 (PC) ← (PC) + 3 + rel
 JBC  bit，rel    ; bit =1，则（bit）← 0， (PC) ← (PC) + 3 + rel
                 ; bit =0，则顺序执行，(PC) ← (PC) + 3
 </code></pre></div>
-<h3 id="_15">伪指令</h3>
+<h3 id="_16">伪指令</h3>
 <p>ORG、END、DB、DW、DS</p>
 <p>EQU：把一个数据或汇编符号用自定义的字符代替  被定义的字符名称可用作<strong>数据地址、位地址、寄存器或立即数</strong>等</p>
 <p>DATA：把<strong>数据地址或代码地址</strong>用自定义的字符替代（DATA是数据不是地址）</p>
 <p>BIT：把<strong>位地址</strong>用自定义的字符替代</p>
-<h3 id="_16">指令的字节和周期</h3>
+<h3 id="_17">指令的字节和周期</h3>
 <p>字节的判断：执行这件事需要一个字节，指令中含有的变量需要占用对应的字节（寄存器寻址、寄存器间接寻址不占字节，DPTR的16位数据占用两个字节）</p>
 <p>共分为单字节、双字节、三字节指令三种</p>
 <p>按照周期可分为单周期、双周期、四周期三种，<strong>四周期指令只有乘除</strong>，三字节一定是双周期，其他的似乎只能背了……</p>
