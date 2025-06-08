@@ -3093,70 +3093,57 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    第四章 中断系统
-  </a>
-  
-    <nav class="md-nav" aria-label="第四章 中断系统">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
     基本介绍
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     中断请求源
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#tcon" class="md-nav__link">
     定时器/计数器控制寄存器TCON
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#scon" class="md-nav__link">
     串行口控制寄存器SCON
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#ie" class="md-nav__link">
     中断允许寄存器IE
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#ip" class="md-nav__link">
     中断优先级寄存器IP
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     中断的响应
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     中断响应被暂时阻止的条件
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -4077,70 +4064,57 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    第四章 中断系统
-  </a>
-  
-    <nav class="md-nav" aria-label="第四章 中断系统">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
     基本介绍
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     中断请求源
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#tcon" class="md-nav__link">
     定时器/计数器控制寄存器TCON
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#scon" class="md-nav__link">
     串行口控制寄存器SCON
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#ie" class="md-nav__link">
     中断允许寄存器IE
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#ip" class="md-nav__link">
     中断优先级寄存器IP
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     中断的响应
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     中断响应被暂时阻止的条件
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -4164,8 +4138,7 @@
 
   <h1>第4章 中断系统</h1>
 
-<h2 id="_1">第四章 中断系统</h2>
-<h3 id="_2">基本介绍</h3>
+<h2 id="_1">基本介绍</h2>
 <p>MCS-51单片机有5个中断请求源；</p>
 <p><strong>有4个用于中断控制的特殊功能寄存器IE、IP、TCON（其中6位）、SCON（其中2位）</strong></p>
 <p>可提供2个中断优先级，实现二级中断嵌套</p>
@@ -4173,13 +4146,13 @@
 <p>入口地址需要背：</p>
 <p>按照中断优先级来，第一个入口地址为0003H，后面每个增加一个字节（8位）</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0527/tw0xeas3.webp" /></p>
-<h3 id="_3">中断请求源</h3>
+<h2 id="_2">中断请求源</h2>
 <p>5个中断请求源</p>
 <p>外部中断：INT0（P3.2）和INT1（P3.3）</p>
 <p>内部中断：定时器/计数器（T0、T1）溢出中断             </p>
 <p>以及串行口的数据发送和接收中断</p>
 <p>以上所有中断请求标志分别由特殊功能寄存器TCON和SCON来锁存</p>
-<h3 id="tcon">定时器/计数器控制寄存器TCON</h3>
+<h2 id="tcon">定时器/计数器控制寄存器TCON</h2>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0527/tlq1qr2r.webp" /></p>
 <p>TF0：定时器/计数器T0溢出标志，溢出时由硬件置1，并请求中断（即向CPU请求中断），CPU响应后，由硬件将TF0清0，也可由软件清0（用查询方式时）</p>
 <p>TF1：定时器/计数器T1溢出标志，溢出时由硬件置1，并请求中断（即向CPU请求中断），CPU响应后，由硬件将TF0清0，也可由软件清0（用查询方式时）</p>
@@ -4187,9 +4160,9 @@
 <p>IE0：外部中断0标志。若IE0=1，则外部中断0向CPU请求中断</p>
 <p>IT1：外部中断1触发方式控制位</p>
 <p>IE1：外部中断1标志。若IE1=1，则外部中断1向CPU请求中断</p>
-<h3 id="scon">串行口控制寄存器SCON</h3>
+<h2 id="scon">串行口控制寄存器SCON</h2>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0527/t4coqjgx.webp" /></p>
-<h3 id="ie">中断允许寄存器IE</h3>
+<h2 id="ie">中断允许寄存器IE</h2>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0527/uvppzif4.webp" /></p>
 <p>EA：CPU中断总允许标志。  </p>
 <p>ES：串行口中断允许位。    </p>
@@ -4198,12 +4171,12 @@
 <p>ET0：T0溢出中断允许位。  </p>
 <p>EX0：外部中断0中断允许位。</p>
 <p><strong>单片机复位后，IE中各位均被清0，即禁止所有中断</strong></p>
-<h3 id="ip">中断优先级寄存器IP</h3>
+<h2 id="ip">中断优先级寄存器IP</h2>
 <p>MCS-51单片机中有2个中断优先级，每个中断请求源可编程为高优先级中断或低优先级，可实现二级中断嵌套</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0527/yaq405va.webp" /></p>
 <p>低级中断能被高级中断打断，但不能被同级中断打断；高级中断不能被任何中断打断，一定要返回主程序后再执行一条指令才能响应新的中断请求。   </p>
 <p>当CPU同时接收到几个同优先级的中断请求时，哪一个先得到响应，取决于CPU中断系统内部的查询顺序，即“自然优先级”。</p>
-<h3 id="_4">中断的响应</h3>
+<h2 id="_3">中断的响应</h2>
 <p>CPU响应中断时，其工作过程是：</p>
 <p>置位相应的“优先级状态”触发器，即指出CPU当前正在处理的中断优先级，以阻断同级或低级中断请求</p>
 <p>自动清除中断标志（TI和RI除外）。</p>
@@ -4215,7 +4188,7 @@
 LJMP  2000H
 </code></pre></div>
 <p>这样，真正的INT0中断程序是存放在2000H开始处。</p>
-<h3 id="_5">中断响应被暂时阻止的条件</h3>
+<h2 id="_4">中断响应被暂时阻止的条件</h2>
 <p>CPU在处理同级或高级中断</p>
 <p>现在的机器周期不是当前指令的最后一个机器周期</p>
 <p>正在执行RETI或正在访问IE、IP寄存器</p>

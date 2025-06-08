@@ -124,7 +124,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#7-mcs-51" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -3152,49 +3152,41 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#7-mcs-51" class="md-nav__link">
-    第7章 MCS-51串行口
-  </a>
-  
-    <nav class="md-nav" aria-label="第7章 MCS-51串行口">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     异步传送方式
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     串行数据发送和接收管脚
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#sbuf" class="md-nav__link">
     数据缓冲器SBUF
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#scon" class="md-nav__link">
     串行口控制寄存器SCON
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#pcon" class="md-nav__link">
     特殊功能寄存器PCON
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     串行口工作方式
   </a>
@@ -3234,23 +3226,18 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     波特率设计
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     常用波特率（不用背）
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -4110,49 +4097,41 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#7-mcs-51" class="md-nav__link">
-    第7章 MCS-51串行口
-  </a>
-  
-    <nav class="md-nav" aria-label="第7章 MCS-51串行口">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     异步传送方式
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     串行数据发送和接收管脚
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#sbuf" class="md-nav__link">
     数据缓冲器SBUF
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#scon" class="md-nav__link">
     串行口控制寄存器SCON
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#pcon" class="md-nav__link">
     特殊功能寄存器PCON
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     串行口工作方式
   </a>
@@ -4192,23 +4171,18 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     波特率设计
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     常用波特率（不用背）
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -4232,13 +4206,12 @@
 
   <h1>第7章 串行通讯</h1>
 
-<h2 id="7-mcs-51">第7章 MCS-51串行口</h2>
 <p>MCS-51单片机内部有一个<strong>全双工的串行接口</strong></p>
 <p>只能接收或只能发送的称为单工串行口</p>
 <p>既可以接收又可发送的，但不能同时进行的称为半双工</p>
 <p>能同时接收和发送的串行口称之为全双工串行口</p>
 <p>每秒钟内能发送和接收的二进制位数称为波特率。若发送一位的时间为t，则波特率为1/t。单片机中常用的波特率有1200bps、2400bps、4800bps、9600bps、19200bps等。</p>
-<h3 id="_1">异步传送方式</h3>
+<h2 id="_1">异步传送方式</h2>
 <p>异步传送是通过”<strong>通用异步收发器UART（Universal Asynchronous Receiver/Transmitter）</strong>” 实现的</p>
 <p>在异步传送方式中，字符的发送是随机进行的。对于接收方来说需要判断何时有字符来、何时传输结束</p>
 <p>在异步通信时，对传送字符必须规定一定的格式。通常，异步传送字符格式如下图图所示。</p>
@@ -4248,16 +4221,16 @@
 <p>数据位：紧跟着起始位的是5～8位数据的最低位（LSB），异步传送规定低位在前，高位在后</p>
 <p>奇偶位：紧跟在数据最高位MSB之后，占用1位，奇偶校验时，根据协议置“奇校验”或“偶校验”（可省去）</p>
 <p>停止位：为逻辑“1”信号，可占用一位，也可占用两位。接收端收到停止位时，表示一帧数据结束。同时为接收下一帧数据做好准备，只要再收到一个逻辑“0”就是一个新字</p>
-<h3 id="_2">串行数据发送和接收管脚</h3>
+<h2 id="_2">串行数据发送和接收管脚</h2>
 <p>一共使用2个管脚，分别是RXD（P3.0）和TXD（P3.1）</p>
 <p>通讯时，一台计算机的TXD与另一台计算机的RXD对接</p>
 <p>两台独立的计算机对接时，为了保证参考地电平一致，还需要连接GND</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0529/xoh0c0yb.webp" /></p>
-<h3 id="sbuf">数据缓冲器SBUF</h3>
+<h2 id="sbuf">数据缓冲器SBUF</h2>
 <p>串行口中有<strong>2个物理空间上各自独立</strong>的发送缓冲器和接收缓冲器</p>
 <p>这两个缓冲器共用一个地址99H，<strong>发送缓冲器只写不读，接收缓冲器只读不写</strong></p>
 <p>接收缓冲器是双缓冲的，以避免在接收下一帧之前，CPU未能即时响应接收器中断，没有把上一帧数据读走而产生两帧数据重叠问题</p>
-<h3 id="scon">串行口控制寄存器SCON</h3>
+<h2 id="scon">串行口控制寄存器SCON</h2>
 <p>字节地址98H，<strong>可位寻址</strong>，位地址98H～9FH。格式为：</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0529/b3bfzi1w.webp" /></p>
 <p>SM0、SM1：串行口方式选择位，如下表所示：</p>
@@ -4271,33 +4244,33 @@
 <p>RB8：在方式2和方式3中接收到的第9位数据。在方式1时，如SM2=0，RB8是接收到的停止位在方式0中，不使用RB8。</p>
 <p>TI：<strong>发送中断标志</strong>。在方式0串行发送第8位结束时由硬件置“1”，或在其他方式中串行发送停止位的开始时置“1”。<strong>必须由软件清“0”</strong>。</p>
 <p>RI：<strong>接收中断标志</strong>。在方式0接收到第8位结束时由硬件置“1”，或其他方式接收到停止位的中间时置“1”。<strong>必须由软件清“0”。</strong></p>
-<h3 id="pcon">特殊功能寄存器PCON</h3>
+<h2 id="pcon">特殊功能寄存器PCON</h2>
 <p>字节地址87H，不可位寻址。与串行口有关的只有PCON的最高位。</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0529/1z3k4g5u.webp" /></p>
 <p>SMOD：波特率选择位。当SMOD=1，波特率加倍。</p>
-<h3 id="_3">串行口工作方式</h3>
-<h4 id="0">方式0</h4>
+<h2 id="_3">串行口工作方式</h2>
+<h3 id="0">方式0</h3>
 <p>方式0为移位寄存器输入/输出方式，可外接移位寄存器，用来扩展I/O口</p>
 <p>方式0的<strong>波特率是固定的</strong>，为fosc/12</p>
 <p>这时数据的传送，无论是输入还是输出，均通过引脚RXD（P3.0）端，移位同步脉冲由TXD（P3.1）输出</p>
 <p>发送/接收一帧数据为8位二进制数，低位LSB在先，高位MSB在后</p>
-<h4 id="1">方式1</h4>
+<h3 id="1">方式1</h3>
 <p>传送一帧数据为10位，其中1位起始位、8位数据位、1位停止位</p>
 <p>波特率 = <span class="arithmatex">\(=2^{SMOD}×fosc/32×12×(2^{定时器1位数}-初值)\)</span></p>
 <p>方式1的发送发送中断标志TI=0时，由写发送缓冲器的指令（MOV  SBUF，A）开始启动一次发送</p>
 <p>在发送移位脉冲的作用下，从TXD引脚发出一帧信息10位，1位起始位（自动插入）、8位数据位、1位停止位（自动插入）</p>
 <p>发送完毕时置TI=1，用以通知CPU可以发送下一字节，同时维持TXD引脚为高电平</p>
-<h4 id="2">方式2</h4>
+<h3 id="2">方式2</h3>
 <p>串行口方式2，是11位异步通信接口，其中1位起始位、8位数据位（先低位后高位）、1位附加的可程为“1”或“0”的第9位数据位、1位停止位</p>
 <p>方式2的波特率只有2种选择，波特率为<span class="arithmatex">\(2^{SMOD}/64×fosc\)</span></p>
 <p>在方式2发送时，数据由TXD端输出</p>
 <p>发送一帧信息为11位，附加的第9位数据是SCON中的TB8，可由软件置位或清零。TB8可作多机通信中的地址、数据标志，也可作数据的奇偶校验位</p>
 <p>CPU执行一条写入发送缓冲器指令（MOV SBUF，A），就启动发送器发送，发送完一帧信息，TI中断标志置“1”</p>
-<h4 id="3">方式3</h4>
+<h3 id="3">方式3</h3>
 <p>串行口被定义为方式3时，为波特率可变的9位异步通信方式除了波特率外，方式3与方式2相同波特率<span class="arithmatex">\(=2^{SMOD}×fosc/32×12×(2^{定时器1位数}-初值)\)</span></p>
-<h3 id="_4">波特率设计</h3>
+<h2 id="_4">波特率设计</h2>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0529/msed12x5.webp" /></p>
-<h3 id="_5">常用波特率（不用背）</h3>
+<h2 id="_5">常用波特率（不用背）</h2>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0529/3geomds0.webp" /></p>
 
 

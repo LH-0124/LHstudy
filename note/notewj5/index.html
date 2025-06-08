@@ -124,7 +124,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#io" class="md-skip">
+        <a href="#373" class="md-skip">
           跳转至
         </a>
       
@@ -3112,42 +3112,34 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#io" class="md-nav__link">
-    第五章 存储器和I/O扩展
-  </a>
-  
-    <nav class="md-nav" aria-label="第五章 存储器和I/O扩展">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#373" class="md-nav__link">
     373实现数据地址线分离（基本操作）
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     扩展信号
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#rom" class="md-nav__link">
     扩展ROM
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#ram" class="md-nav__link">
     扩展RAM
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     其他芯片
   </a>
@@ -3173,16 +3165,11 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     扩展实例——抢答器
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -4082,42 +4069,34 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#io" class="md-nav__link">
-    第五章 存储器和I/O扩展
-  </a>
-  
-    <nav class="md-nav" aria-label="第五章 存储器和I/O扩展">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#373" class="md-nav__link">
     373实现数据地址线分离（基本操作）
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     扩展信号
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#rom" class="md-nav__link">
     扩展ROM
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#ram" class="md-nav__link">
     扩展RAM
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     其他芯片
   </a>
@@ -4143,16 +4122,11 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     扩展实例——抢答器
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -4176,19 +4150,18 @@
 
   <h1>第5章 存储器和I/O扩展</h1>
 
-<h2 id="io">第五章 存储器和I/O扩展</h2>
-<h3 id="373">373实现数据地址线分离（基本操作）</h3>
+<h2 id="373">373实现数据地址线分离（基本操作）</h2>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0527/dt2genvt.webp" /></p>
 <p>ALE接OE，P0口为地址低八位，接入锁存器数据输入端，实现地址数据的分离</p>
 <p>P2口为地址高八位</p>
-<h3 id="_1">扩展信号</h3>
+<h2 id="_1">扩展信号</h2>
 <p>扩展所用到的信号：   </p>
 <p>A0----A15   </p>
 <p>D0----D7     </p>
 <p>ALE </p>
 <p><span class="arithmatex">\(\overline{PSEN}\)</span>        （ROM用）     </p>
 <p><span class="arithmatex">\(\overline{RD} ， \overline{WR}\)</span>​        （RAM用）</p>
-<h3 id="rom">扩展ROM</h3>
+<h2 id="rom">扩展ROM</h2>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0528/urrvrz25.webp" /></p>
 <p>基本操作：数据接数据、地址接地址，<span class="arithmatex">\(\overline{PSEN}\)</span>接<span class="arithmatex">\(\overline{OE}\)</span>，剩下的片选信号一般接地址信号。</p>
 <p>需要会判断各芯片所对应的地址</p>
@@ -4207,18 +4180,18 @@
 <p><strong>线译码方式</strong></p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0528/en3oinag.webp" /></p>
 <p>一个地址信号使得片选有效时，由于另外两个地址信号不确定，形成四组地址</p>
-<h3 id="ram">扩展RAM</h3>
+<h2 id="ram">扩展RAM</h2>
 <p>基本操作：数据接数据、地址接地址，<span class="arithmatex">\(\overline{RD}\)</span>接<span class="arithmatex">\(\overline{OE}\)</span>，<span class="arithmatex">\(\overline{WR}\)</span>接<span class="arithmatex">\(\overline{WE}\)</span>。剩下的片选信号一般接地址信号。</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0528/krs5boin.webp" /></p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0528/giwfzgk0.webp" /></p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0528/ipaitqxp.webp" /></p>
 <p>不同芯片地址的判断与ROM大致相同</p>
-<h3 id="_2">其他芯片</h3>
-<h4 id="273">273锁存器</h4>
+<h2 id="_2">其他芯片</h2>
+<h3 id="273">273锁存器</h3>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0528/2aut0kqt.webp" /></p>
-<h4 id="244">244三态门</h4>
+<h3 id="244">244三态门</h3>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0528/0c2flds2.webp" /></p>
-<h3 id="_3">扩展实例——抢答器</h3>
+<h2 id="_3">扩展实例——抢答器</h2>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0528/vwymhonp.webp" /></p>
 <p>硬件部分的基本操作要做好。</p>
 <p>分析如下：</p>

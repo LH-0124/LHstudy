@@ -124,7 +124,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#1" class="md-skip">
           跳转至
         </a>
       
@@ -3072,43 +3072,35 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    第三章  编程语言程序设计
-  </a>
-  
-    <nav class="md-nav" aria-label="第三章 编程语言程序设计">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     例题1
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
     例题2
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
     例题3
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#4" class="md-nav__link">
     例题4
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
     历年题目及参考答案
   </a>
   
@@ -3140,11 +3132,6 @@
   <a href="#20-21" class="md-nav__link">
     20-21春夏
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -4089,43 +4076,35 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    第三章  编程语言程序设计
-  </a>
-  
-    <nav class="md-nav" aria-label="第三章 编程语言程序设计">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     例题1
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
     例题2
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
     例题3
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#4" class="md-nav__link">
     例题4
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
     历年题目及参考答案
   </a>
   
@@ -4164,11 +4143,6 @@
     </nav>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
     </ul>
   
@@ -4190,9 +4164,8 @@
 
   <h1>第3章 51单片机汇编程序设计</h1>
 
-<h2 id="_1">第三章  编程语言程序设计</h2>
 <p>要求：会用汇编写简单的代码，会画流程图</p>
-<h3 id="1">例题1</h3>
+<h2 id="1">例题1</h2>
 <p>假设两个双字节无符号数，分别存放在R1R0和R3R2中，高字节在前，低字节在后。编程使两数相加，和数存放回R2R1R0中。</p>
 <div class="highlight"><pre><span></span><code>        ORG   1000H
 ADD2:   CLR   C
@@ -4208,7 +4181,7 @@ ADD2:   CLR   C
         SJMP  $          ;原地踏步
         END 
 </code></pre></div>
-<h3 id="2">例题2</h3>
+<h2 id="2">例题2</h2>
 <p>将内部RAM 20H单元中的8位无符号二进制数转换为三位BCD码，并将结果存放在FIRST（百位）和SECOND（十位、个位）两单元中。</p>
 <div class="highlight"><pre><span></span><code>FIRST   EQU   22H
 SECOND  EQU   21H
@@ -4227,7 +4200,7 @@ HBCD:   MOV   A，20H     ;取数
         SJMP  $
         END  
 </code></pre></div>
-<h3 id="3">例题3</h3>
+<h2 id="3">例题3</h2>
 <p>将一个字节内的两个BCD码（即一个压缩BCD码）拆开并转换成ASCII码，存入两个RAM单元。设一个压缩BCD码已存放在内部RAM的20H单元，将高半字节的ASCII码存放到21H中，低半字节的ASCII码存放到22H中。</p>
 <p><strong>因为BCD数中的0～9对应的ASCII码为30H～39H，所以，转换时，只需将20H中的BCD码拆开后，将BCD的高四位置成“0011”即可。</strong></p>
 <div class="highlight"><pre><span></span><code>法一：
@@ -4257,26 +4230,26 @@ MOV   21H，A     ;存ASCII码
 SJMP  $
 END
 </code></pre></div>
-<h3 id="4">例题4</h3>
+<h2 id="4">例题4</h2>
 <p>软件延时20ms</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0526/oqwgsqgd.webp" /></p>
 <p>更多例题请参照ppt</p>
-<h3 id="_2">历年题目及参考答案</h3>
-<h4 id="23-24">23-24春夏</h4>
+<h2 id="_1">历年题目及参考答案</h2>
+<h3 id="23-24">23-24春夏</h3>
 <p>1.片外ROM有32字节数据存在TABLE处开始的位置，查询其中有无数值80H，有则将地址保存到R1（高8位）R0（低8位），没有则将R0与R1均置0</p>
 <p>2.实现DPTR自减</p>
 <p>3.微机控制系统，按下按钮，延时10s亮红灯，再延时30s亮绿灯，同时数码管在延时小于10s时显示9 ~ 1的数字倒数，<code>DELAY_1S</code>可以直接使用</p>
 <p>（1）画出硬件图（7pts）</p>
 <p>（2）写出数码管控制代码（5pts）</p>
-<h4 id="22-23">22-23春夏</h4>
+<h3 id="22-23">22-23春夏</h3>
 <p>1.片外RAM中以TAB地址开始有10个字节数据，把它们的最高位都置1 </p>
 <p>2.P1.0口输出周期20ms的方波，使用软件定时</p>
 <p>3.给了电路连接图，P0口连数码管a、b、c、d...dp，共阳极数码管。编写程序实现0-9循环显示，每个数显示1s。并且给出程序框图和代码注释。</p>
-<h4 id="21-22">21-22春夏</h4>
+<h3 id="21-22">21-22春夏</h3>
 <p>1.将ROM中2000H开始的16字节移到RAM的8000H开始 </p>
 <p>2.将R7R6内的两位数求补并放回去</p>
 <p>3.8051外接8个LED，实现LED循环亮起的效果，要求延时1s。画硬件、写流程图、源码和注释</p>
-<h4 id="20-21">20-21春夏</h4>
+<h3 id="20-21">20-21春夏</h3>
 <p>1.两位BCD码分别存在单片机内部RAM20H的低四位和高四位，设计程序将BCD码拆分并转换为ASCII码，其中高位存在21H，低位存在22H</p>
 <p>2.设计1KHz音频在P1.1单音输出，时钟频率12kHz，要求流程框图和注释</p>
 

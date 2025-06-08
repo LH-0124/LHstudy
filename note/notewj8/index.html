@@ -124,7 +124,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#adda" class="md-skip">
+        <a href="#da" class="md-skip">
           跳转至
         </a>
       
@@ -3172,21 +3172,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#adda" class="md-nav__link">
-    AD/DA转换
-  </a>
-  
-    <nav class="md-nav" aria-label="AD/DA转换">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#da" class="md-nav__link">
     DA接口的函数发生器
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#dac0832" class="md-nav__link">
     DAC0832
   </a>
@@ -3219,44 +3211,39 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#12da" class="md-nav__link">
     12位D/A接口
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#dac1208" class="md-nav__link">
     DAC1208
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#adc0809" class="md-nav__link">
     ADC0809
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#8ad" class="md-nav__link">
     8位A/D接口
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#12ad" class="md-nav__link">
     12位A/D接口
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -4096,21 +4083,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#adda" class="md-nav__link">
-    AD/DA转换
-  </a>
-  
-    <nav class="md-nav" aria-label="AD/DA转换">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#da" class="md-nav__link">
     DA接口的函数发生器
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#dac0832" class="md-nav__link">
     DAC0832
   </a>
@@ -4143,44 +4122,39 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#12da" class="md-nav__link">
     12位D/A接口
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#dac1208" class="md-nav__link">
     DAC1208
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#adc0809" class="md-nav__link">
     ADC0809
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#8ad" class="md-nav__link">
     8位A/D接口
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#12ad" class="md-nav__link">
     12位A/D接口
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -4204,44 +4178,43 @@
 
   <h1>第8章 AD/DA接口</h1>
 
-<h2 id="adda">AD/DA转换</h2>
-<h3 id="da">DA接口的函数发生器</h3>
+<h2 id="da">DA接口的函数发生器</h2>
 <p>锯齿波发生器的主要程序如下</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0604/gmh21kub.webp" /></p>
 <p>若为垂直下降的三角波，则可将DOWN子程序部分去掉</p>
 <p>任意函数发生器的程序如下</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0604/vcqilzah.webp" /></p>
 <p>我的理解：DB中存放各个点函数值，通过MOVC A,@A+PC的方式读取，然后再通过MOVX @DPTR,A的方式使WR信号有效，将8位数据通过锁存器送入D/A转换器，输出最终的模拟信号</p>
-<h3 id="dac0832">DAC0832</h3>
+<h2 id="dac0832">DAC0832</h2>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0604/myfm5hms.webp" /></p>
-<h4 id="_1">直通型</h4>
+<h3 id="_1">直通型</h3>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0604/3xqontue.webp" /></p>
 <p>两个片选信号和两个写信号都接地，两级锁存器之间任何时候都连通，信号直通</p>
-<h4 id="_2">单缓冲型</h4>
+<h3 id="_2">单缓冲型</h3>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0604/ga2bxnfk.webp" /></p>
 <p>第一级片选和写信号由51的管脚来控制，当第一级片选和写信号有效时，数据送入第二级寄存器；第二级片选和写信号接地，数据可以直通</p>
-<h4 id="_3">双缓冲型</h4>
+<h3 id="_3">双缓冲型</h3>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0604/syu1wtac.webp" /></p>
 <p>两级都通过片选和写信号来控制</p>
-<h3 id="12da">12位D/A接口</h3>
+<h2 id="12da">12位D/A接口</h2>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0604/4mjpc4gp.webp" /></p>
 <p>当片选1和写信号有效时，低8位数据通过第一级锁存器送入第二级并锁存，当片选0和写信号有效时，高4位数据和原先锁存第二级的低8位的数据一起送入D/A转换器，并输出</p>
-<h3 id="dac1208">DAC1208</h3>
+<h2 id="dac1208">DAC1208</h2>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0604/xf0zogco.webp" /></p>
 <p>12位锁存器，原理同上</p>
-<h3 id="adc0809">ADC0809</h3>
+<h2 id="adc0809">ADC0809</h2>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0604/1xbzmfbd.webp" /></p>
 <p>首先用指令选择0809的一个模拟输入通道，当执行MOVX @DPTR，A时，单片机的WR信号有效，产生一个启动信号给0809的START脚，对选中通道转换。  </p>
 <p>转换结束后，0809发出转换结束EOC信号，该信号可供查询，也可向单片机发出中断请求；当执行指令MOVX A，@DPTR，单片机发出RD信号，加到OE端高电平，把转换完毕的数字量读到A中。  </p>
 <p>可以使用查询、延时等待和中断控制等工作方式。</p>
-<h3 id="8ad">8位A/D接口</h3>
+<h2 id="8ad">8位A/D接口</h2>
 <p>电压波形采集电路</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0604/tx3vjopj.webp" /></p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0604/o4iyrbat.webp" /></p>
 <p>电压测量电路</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0604/rntfu1nk.webp" /></p>
 <p>其中的采集、求和、平均较为综合，建议仔细阅读</p>
-<h3 id="12ad">12位A/D接口</h3>
+<h2 id="12ad">12位A/D接口</h2>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0604/mba3sz3z.webp" /></p>
 <p>原理与12位D/A类似</p>
 
