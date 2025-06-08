@@ -3137,15 +3137,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    程序存储器
+  <a href="#rom" class="md-nav__link">
+    程序存储器ROM
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    数据存储器
+  <a href="#ram" class="md-nav__link">
+    数据存储器RAM
   </a>
   
 </li>
@@ -4255,15 +4255,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    程序存储器
+  <a href="#rom" class="md-nav__link">
+    程序存储器ROM
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    数据存储器
+  <a href="#ram" class="md-nav__link">
+    数据存储器RAM
   </a>
   
 </li>
@@ -4368,21 +4368,23 @@
 <p>P3作第一功能（通用I/O）口使用时同P1，作第二功能口使用时口锁存器自动写1；</p>
 <p>第二功能口定义如下</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0518/f1yfhr24.webp" /></p>
-<p>其中执行指令MOVX  A，@A+DPTR，<strong>RD信号有效</strong></p>
+<p>其中执行指令MOVX  A，@DPTR，<strong>RD信号有效</strong></p>
+<p>执行指令MOVX @DPTR，A，<strong>WR信号有效</strong></p>
 <h3 id="_4">三总线</h3>
-<p><strong>地址总线：</strong>P0口作为地址/数据服用口，在访问外部存储器时，由地址锁存信号ALE把P0口的低八位地址锁存到地址锁存器中；P2口则输出高八位地址，构成16根地址总线</p>
+<p><strong>地址总线：</strong>P0口作为地址/数据复用口，在访问外部存储器时，由地址锁存信号ALE把P0口的低八位地址锁存到地址锁存器中；P2口则输出高八位地址，构成16根地址总线</p>
 <p><strong>数据总线：</strong>在访问外部程序存储器ROM时，当<span class="arithmatex">\(\overline{PSEN}\)</span> 信号有效时，P0口作为数据总线出现指令信号；访问外部数据存储器RAM时，<span class="arithmatex">\(\overline{RD}\)</span>或<span class="arithmatex">\(\overline{WR}\)</span>​读写信号有效时，P0口上将出现数据信号，出现数据信息D0-D7</p>
 <p><strong>控制总线：</strong>掌握控制引脚的功能即可</p>
 <h3 id="_5">存储器</h3>
 <p>MCS-51系列单片机存储器结构的主要特点是程序存储器和数据存储器的寻址空间是分开的，分别可以寻址64K的ROM和64K的RAM</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0608/w12uyzga.webp" /></p>
-<h4 id="_6">程序存储器</h4>
+<h4 id="rom">程序存储器ROM</h4>
 <p>片内片外一共64K，通过EA信号确定访问片内空间还是片外空间</p>
-<p>内部和外部ROM不共存，无论怎样扩展，最多只有64K，若不适用内部，则内部4KROM浪费</p>
+<p>内部和外部ROM不共存，无论怎样扩展，最多只有64K，若不使用内部，则内部4KROM浪费</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0518/noimb3wb.webp" /></p>
 <p><strong>中断入口地址（常考）</strong></p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0518/uye55tdg.webp" /></p>
-<h4 id="_7">数据存储器</h4>
+<p>表上的顺序就是中断的自然优先级，每个分别递增8（1字节）</p>
+<h4 id="ram">数据存储器RAM</h4>
 <p>数据存储器分为片内和片外两种，<strong>二者的地址空间是完全独立的</strong>。片内RAM的地址范围是00H～FFH，片外RAM的地址范围是0000H～FFFFH</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0520/5u1yz5dh.webp" /></p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0518/kcfo4jww.webp" /></p>
