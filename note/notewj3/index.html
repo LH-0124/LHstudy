@@ -4232,21 +4232,126 @@ END
 </code></pre></div>
 <h2 id="4">例题4</h2>
 <p>软件延时20ms</p>
-<p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0526/oqwgsqgd.webp" /></p>
+<p><img alt="img" src="https://file.cc98.org/v4-upload/d/2025/0526/oqwgsqgd.webp" /></p>
 <p>更多例题请参照ppt</p>
 <h2 id="_1">历年题目及参考答案</h2>
 <h3 id="23-24">23-24春夏</h3>
 <p>1.片外ROM有32字节数据存在TABLE处开始的位置，查询其中有无数值80H，有则将地址保存到R1（高8位）R0（低8位），没有则将R0与R1均置0</p>
+<div class="highlight"><pre><span></span><code>    MOV DPTR,#TABLE
+    MOV R7,#32H
+    MOV A,#00H
+LOOP:
+    MOV B,A
+    MOVC A,@A+DPTR
+    CJNE A,#80H,NOTFIND
+    CLR C
+    MOV A,B
+    MOV R6,DPL
+    ADD A,R6
+    MOV R0,A
+    MOV A,DPH
+    ADDC A,#0
+    MOV R1,A
+    RET
+NOTFIND:
+    MOV A,B
+    INC A
+    DJNZ R7,LOOP
+    MOV R0,#00H
+    MOV R1,#00H
+    RET
+</code></pre></div>
 <p>2.实现DPTR自减</p>
+<div class="highlight"><pre><span></span><code>CLR C
+MOV A,DPL
+SUBB A,#1
+MOV DPL,A
+MOV A,DPH
+SUBB A,#0
+MOV DPH,A
+</code></pre></div>
 <p>3.微机控制系统，按下按钮，延时10s亮红灯，再延时30s亮绿灯，同时数码管在延时小于10s时显示9 ~ 1的数字倒数，<code>DELAY_1S</code>可以直接使用</p>
 <p>（1）画出硬件图（7pts）</p>
+<p>连好晶振接到时钟端，P3.2通过按钮接地，也可接上拉电阻</p>
+<p>P1.0,P1.1分别接红LED和绿LED，再连接一个电阻接地</p>
+<p>P2口驱动数码管</p>
 <p>（2）写出数码管控制代码（5pts）</p>
+<div class="highlight"><pre><span></span><code>    ORG 0100H
+    MOV R5,#9
+LOOP:
+    MOV DPTR,#1000H
+    MOV A,R5
+    MOVC A,@A+DPTR
+    MOV P2,A
+    LCALL DELAY_1S
+    DJNZ R5,LOOP
+
+    ORG 1000H
+    DB C0H,F9H,A4H,B0H,99H,92H,82H,0F8H,80H,90H
+</code></pre></div>
 <h3 id="22-23">22-23春夏</h3>
-<p>1.片外RAM中以TAB地址开始有10个字节数据，把它们的最高位都置1 </p>
+<p>1.片外RAM中以TAB地址开始有10个字节数据，把它们的最高位都置1</p>
+<div class="highlight"><pre><span></span><code>    ORG 0000H
+    LJMP MAIN
+    ORG 0100H
+MAIN:   
+    MOV DPTR,#TAB
+    MOV R7,#10
+    MOV A,#00H
+LOOP:    
+    MOVX A,@DPTR
+    ORL A,#80H
+    MOVX @DPTR,A
+    INC DPTR
+    DJNZ R7,LOOP
+    END
+</code></pre></div>
 <p>2.P1.0口输出周期20ms的方波，使用软件定时</p>
+<div class="highlight"><pre><span></span><code>     ORG 0000H
+     LJMP START
+     ORG 0200H
+
+START:SETB P1.0
+LOOP:LCALL DELAY
+     LJMP LOOP
+
+DELAY:MOV R7,#100
+DELY1:MOV R6,#48
+      NOP
+DELY2:DJNZ R6,DELY2
+      DJNZ R7,DELY1
+      CPL P1.0
+      RET
+</code></pre></div>
 <p>3.给了电路连接图，P0口连数码管a、b、c、d...dp，共阳极数码管。编写程序实现0-9循环显示，每个数显示1s。并且给出程序框图和代码注释。</p>
+<div class="highlight"><pre><span></span><code>    ORG 0000H
+    LJMP START
+
+START: 
+    ORG 0100H
+    MOV R0,#0   ;设定R0初值
+LOOP:
+    MOV DPTR,#1000H   ;查表地址
+    MOV A,R0
+    MOVC A,@A+DPTR   ;查表访问数码管段码值
+    MOV P0,A         ;输出到P0口控制
+    LCALL DELAY_1S   ;延时1秒
+    INC R0           ;进行下一次循环
+    CJNE R0,#10,LOOP  ;R0=10时，结束循环    
+
+DELAY_1S:
+       MOV R1,#100
+DELY3: MOV R2,#100
+DELY2: MOV R3,#50
+DELY1: DJNZ R3,DELY1
+       DJNZ R2,DELY2
+       DJNZ R1,DELY3
+
+    ORG 1000H          ;数码管段码表
+    DB C0H,F9H,A4H,B0H,99H,92H,82H,0F8H,80H,90H
+</code></pre></div>
 <h3 id="21-22">21-22春夏</h3>
-<p>1.将ROM中2000H开始的16字节移到RAM的8000H开始 </p>
+<p>1.将ROM中2000H开始的16字节移到RAM的8000H开始</p>
 <p>2.将R7R6内的两位数求补并放回去</p>
 <p>3.8051外接8个LED，实现LED循环亮起的效果，要求延时1s。画硬件、写流程图、源码和注释</p>
 <h3 id="20-21">20-21春夏</h3>

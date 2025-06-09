@@ -4370,18 +4370,21 @@ POP direct ; (direct) &lt;- ((SP))
 <p><strong>注意，若想要对累加器A进行压栈弹栈操作，必须写PUSH Acc</strong>。看到Acc时，才是直接寻址。</p>
 <h2 id="_12">算数运算类指令</h2>
 <p>加法指令（4条）</p>
+<p>只能对累加器A操作</p>
 <div class="highlight"><pre><span></span><code>ADD A, Rn ; (A) &lt;- (A) + (Rn)
 ADD A, direct ; (A) &lt;- (A) + (direct)
 ADD A, @Ri ; (A) &lt;- (A) + ((Ri))
 ADD A, #data ; (A) &lt;- (A) + #data
 </code></pre></div>
 <p>带进位加法指令（4条）：</p>
+<p>只能对累加器A操作</p>
 <div class="highlight"><pre><span></span><code>ADDC A, Rn ; (A) &lt;- (A) + (Rn) + (CY)
 ADDC A, direct ; (A) &lt;- (A) + (direct) + (CY)
 ADDC A, @Ri ; (A) &lt;- (A) + ((Ri)) + (CY)
 ADDC A, #data ; (A) &lt;- (A) + #data + (CY)
 </code></pre></div>
 <p>带借位减法指令（4条）（这个借位是指低位从当前这里借走，而不是自己从高位那里借来。因为运算是从低位算到高位的）</p>
+<p>只能对累加器A操作</p>
 <div class="highlight"><pre><span></span><code>SUBB A, Rn ; (A) &lt;- (A) - (Rn) - (CY)
 SUBB A, direct ; (A) &lt;- (A) - (direct) - (CY)
 SUBB A, @Ri ; (A) &lt;- (A) - ((Ri)) - (CY)
@@ -4409,7 +4412,7 @@ DEC @Ri ; ((Ri)) &lt;- ((Ri)) - 1
 </code></pre></div>
 <p>无DPTR减1指令。若要做DPTR-1，必须要用一段程序实现。 </p>
 <div class="highlight"><pre><span></span><code>CLR   C
-MOV   A，#DPL    
+MOV   A，DPL 
 SUBB  A，#1  
 MOV   DPL，A 
 MOV   A，DPH 
