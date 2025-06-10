@@ -4276,13 +4276,13 @@ NOTFIND:
     RET
 </code></pre></div>
 <p>2.实现DPTR自减</p>
-<div class="highlight"><pre><span></span><code>CLR C
-MOV A,DPL
-SUBB A,#1
-MOV DPL,A
-MOV A,DPH
-SUBB A,#0
-MOV DPH,A
+<div class="highlight"><pre><span></span><code>    CLR C
+    MOV A,DPL
+    SUBB A,#1
+    MOV DPL,A
+    MOV A,DPH
+    SUBB A,#0
+    MOV DPH,A
 </code></pre></div>
 <p>3.微机控制系统，按下按钮，延时10s亮红灯，再延时30s亮绿灯，同时数码管在延时小于10s时显示9 ~ 1的数字倒数，<code>DELAY_1S</code>可以直接使用</p>
 <p>（1）画出硬件图（7pts）</p>
@@ -4450,6 +4450,32 @@ DELY2:DJNZ R1,DELY2
       DJNZ R0,DELY1
 </code></pre></div>
 <h3 id="18-19">18-19春夏</h3>
+<p>将片外RAM地址起始为8000H的16个字节的数据拷贝到起始为9000H的地址中</p>
+<div class="highlight"><pre><span></span><code>    ORG 0000H
+    LJMP MAIN
+    ORG 0100H
+MAIN:
+    MOV R0,#30H
+    MOV DPTR,#8000H
+    MOV R7,#16
+LOOP1:
+    MOVX A,@DPTR
+    MOV @R0,A
+    INC R0
+    INC DPTR
+    DJNZ R7,LOOP1
+
+    MOV R0,#30H
+    MOV DPTR,9000H
+    MOV R7,#16
+LOOP2:
+    MOV A,@R0
+    MOVX @DPTR,A
+    INC R0
+    INC DPTR
+    DJNZ R7,LOOP2
+    END
+</code></pre></div>
 
 
 
