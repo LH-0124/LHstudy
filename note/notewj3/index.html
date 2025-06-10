@@ -3135,6 +3135,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#18-19" class="md-nav__link">
+    18-19春夏
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4139,6 +4146,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#18-19" class="md-nav__link">
+    18-19春夏
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4352,11 +4366,90 @@ DELY1: DJNZ R3,DELY1
 </code></pre></div>
 <h3 id="21-22">21-22春夏</h3>
 <p>1.将ROM中2000H开始的16字节移到RAM的8000H开始</p>
-<p>2.将R7R6内的两位数求补并放回去</p>
+<div class="highlight"><pre><span></span><code>    ORG 0000H
+    LJMP MAIN
+    ORG 0100H
+MAIN:
+    MOV R0,#30H ;数据缓冲区
+    MOV DPTR,#2000H ;ROM初地址
+    MOV R6,#16  ;循环次数
+LOOP1:
+    MOV A,#0   ;第一次查表
+    MOVC A,@A+DPTR ;查表
+    MOV  @R0,A  ;存放到数据缓冲区
+    INC R0    
+    INC DPTR    ;下一次循环
+    DJNZ R7,LOOP1  ;循环结束，开始存放
+
+    MOV R7,#16    ;重置循环次数
+    MOV R0,#30H   ;重置缓冲区
+    MOV DPTR,#8000H ;存放初地址
+LOOP2:
+    MOV A,@R0  ;取数据缓冲区
+    MOV @DPTR,A  ;存放数据
+    INC R0
+    INC DPTR
+    DJNZ R7,LOOP2
+
+    END
+</code></pre></div>
+<p>2.将R7R6内的16位数求补并放回去</p>
+<div class="highlight"><pre><span></span><code>    ORG 0000H
+    LJMP MAIN
+MAIN:
+    MOV A,R7
+    ANL A,#80H
+    CJNE A,#0,CPLD
+    END
+
+CPLD:
+    CLR C
+    MOV A,R6
+    CPL A
+    ADD A,#1
+    MOV R6,A
+    MOV A,R7
+    CPL A
+    ORL A,#80H
+    ADDC A,#0
+    MOV R7,A
+    RET
+</code></pre></div>
 <p>3.8051外接8个LED，实现LED循环亮起的效果，要求延时1s。画硬件、写流程图、源码和注释</p>
 <h3 id="20-21">20-21春夏</h3>
 <p>1.两位BCD码分别存在单片机内部RAM20H的低四位和高四位，设计程序将BCD码拆分并转换为ASCII码，其中高位存在21H，低位存在22H</p>
+<div class="highlight"><pre><span></span><code>   ORG 0000H
+   LJMP MAIN
+   ORG 0100H
+MAIN:
+   MOV A,20H   ;取20H的数据
+   SWAP A      ;高4位换到低4位
+   ANL A,#0FH  ;屏蔽高4位
+   ORL A,#30H  ;高4位置为0011
+   MOV 21H,A   ;高位存到21H
+   MOV A,20H   ;取20H的数据
+   ANL A,#0FH  ;屏蔽高4位
+   ORL A,#30H  ;高4位置为0011
+   MOV 22H,A   ;低位存到22H
+</code></pre></div>
 <p>2.设计1KHz音频在P1.1单音输出，时钟频率12kHz，要求流程框图和注释</p>
+<div class="highlight"><pre><span></span><code>   ORG 0000H
+   LJMP MAIN
+   ORG 0100H
+MAIN:
+   SETB P1.1
+LOOP:
+   LCALL DELAY
+   CPL P1.1
+   LJMP LOOP
+
+DELAY:MOV R0,#10   ;延时0.5ms
+DELY1:MOV R1,#23   
+DELY2:DJNZ R1,DELY2
+      NOP
+      DJNZ R0,DELY1
+</code></pre></div>
+<h3 id="18-19">18-19春夏</h3>
 
 
 
