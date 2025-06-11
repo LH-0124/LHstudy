@@ -4380,7 +4380,7 @@ LOOP1:
 
     MOV R7,#16    ;重置循环次数
     MOV R0,#30H   ;重置缓冲区
-    MOV DPTR,#8000H ;存放初地址
+    MOVX DPTR,#8000H ;存放初地址
 LOOP2:
     MOV A,@R0  ;取数据缓冲区
     MOV @DPTR,A  ;存放数据
@@ -4413,6 +4413,26 @@ CPLD:
     RET
 </code></pre></div>
 <p>3.8051外接8个LED，实现LED循环亮起的效果，要求延时1s。画硬件、写流程图、源码和注释</p>
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0611/dfygsenm.webp" /></p>
+<div class="highlight"><pre><span></span><code>      ORG 0000H 
+      AJMP MAIN; 
+
+      ORG 0030H 
+MAIN: MOV A, #0FEH  ; P2.0端口送0，灯亮  
+MAIN2: MOV P2, A    ;寄存器A中的数据送P2口 
+       ACALL DELAY  ;延迟1秒 
+       RL A   ;累加器的数据按位循环左移 
+       AJMP MAIN2  ;循环，实现依次点亮LED 
+
+;下面DELAY为软件延时函数，通过修改R567的值可改变延时时间 
+DELAY: MOV R7, #10  ;通过多次循环，实现延迟 
+DE1: MOV R6, #200; 
+DE2: MOV R5, #230; 
+     DJNZ R5, $  ;R5减1，不为为零，本地跳转 
+     DJNZ R6, DE2 ;R6减1，不为零，跳转DE2 
+     DJNZ R7, DE1 ;R7减1， 不为零，跳转DE1 
+     RET 
+</code></pre></div>
 <h3 id="20-21">20-21春夏</h3>
 <p>1.两位BCD码分别存在单片机内部RAM20H的低四位和高四位，设计程序将BCD码拆分并转换为ASCII码，其中高位存在21H，低位存在22H</p>
 <div class="highlight"><pre><span></span><code>   ORG 0000H
