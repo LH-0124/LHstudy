@@ -3138,17 +3138,37 @@
     中断的响应
   </a>
   
+    <nav class="md-nav" aria-label="中断的响应">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    响应条件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    工作过程
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     中断响应被暂时阻止的条件
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     中断方式和查询方式的优缺点
   </a>
   
@@ -4116,17 +4136,37 @@
     中断的响应
   </a>
   
+    <nav class="md-nav" aria-label="中断的响应">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    响应条件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    工作过程
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     中断响应被暂时阻止的条件
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     中断方式和查询方式的优缺点
   </a>
   
@@ -4188,12 +4228,21 @@
 <h2 id="ip">中断优先级寄存器IP</h2>
 <p>MCS-51单片机中有2个中断优先级，每个中断请求源可编程为高优先级中断或低优先级，可实现二级中断嵌套</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0527/yaq405va.webp" /></p>
-<p>低级中断能被高级中断打断，但不能被同级中断打断；高级中断不能被任何中断打断，一定要返回主程序后再执行一条指令才能响应新的中断请求。   </p>
-<p>当CPU同时接收到几个同优先级的中断请求时，哪一个先得到响应，取决于CPU中断系统内部的查询顺序，即“自然优先级”。</p>
+<p><strong>低级中断能被高级中断打断，但不能被同级中断打断（即使是自然优先级高也不行）；高级中断不能被任何中断打断，一定要返回主程序后再执行一条指令才能响应新的中断请求。</strong>   </p>
+<p>当CPU同时接收到几个同优先级的中断请求时，哪一个先得到响应，取决于CPU中断系统内部的查询顺序，即“自然优先级”。外部中断0&gt;T0溢出&gt;外部中断1&gt;T1溢出&gt;串行口</p>
 <h2 id="_3">中断的响应</h2>
+<h3 id="_4">响应条件</h3>
+<p>单片机响应中断的条件是： </p>
+<p>中断源有请求（相应的中断标志位置1） </p>
+<p>CPU允许中断请求（EA = 1） </p>
+<p>中断允许寄存器IE相应位置1（中断源允许）</p>
+<p>无同级或高级中断正在服务 </p>
+<p>现行指令已执行完毕 </p>
+<p>若执行指令为RETI或是访问特殊功能寄存器IE或IP指令时，执行完该指令后至少再执行一条指令才响应中断 </p>
+<h3 id="_5">工作过程</h3>
 <p>CPU响应中断时，其工作过程是：</p>
 <p>置位相应的“优先级状态”触发器，即指出CPU当前正在处理的中断优先级，以阻断同级或低级中断请求</p>
-<p>自动清除中断标志（TI和RI除外）。</p>
+<p>自动清除中断标志（<strong>TI和RI除外，必须由软件清0</strong>）。</p>
 <p>自动保护断点，即将现行PC内容压入堆栈，并根据中断源把相应的中断程序入口地址装入PC中。</p>
 <p>5个中断程序的入口地址是固定的，且各入口地址之间只有8个单元的空间，难以容纳一个中断服务程序。</p>
 <p>所以一般情况下，在这些矢量单元中存放一条无条件转移指令，转移目标地址处存放真正的中断服务程序。</p>
@@ -4202,11 +4251,11 @@
 LJMP  2000H
 </code></pre></div>
 <p>这样，真正的INT0中断程序是存放在2000H开始处。</p>
-<h2 id="_4">中断响应被暂时阻止的条件</h2>
+<h2 id="_6">中断响应被暂时阻止的条件</h2>
 <p>CPU在处理同级或高级中断</p>
 <p>现在的机器周期不是当前指令的最后一个机器周期</p>
 <p>正在执行RETI或正在访问IE、IP寄存器</p>
-<h2 id="_5">中断方式和查询方式的优缺点</h2>
+<h2 id="_7">中断方式和查询方式的优缺点</h2>
 <p>历年卷考过这个题，故列出（来源AI）</p>
 <div class="admonition note">
 <p class="admonition-title">中断方式和查询方式的优缺点</p>

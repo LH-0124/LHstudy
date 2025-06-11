@@ -4363,7 +4363,11 @@
 <p>输出时，<strong>需外接上拉电阻</strong>：给P0赋00H，能确定P0口输出为0；若给P0赋FFH，在不确定外部电路结构情况下无法确定P0口输出，因为内部没有上拉电阻</p>
 <p>输入时，<strong>需先写“1”，读“引脚”</strong></p>
 <p><strong>P0～P3口线上的“读-修改-写”功能</strong>：</p>
-<p>ANL P0,A;ORL P0,A;XRL P0,A等指令读“锁存器”</p>
+<div class="highlight"><pre><span></span><code>ANL P0,A
+ORL P0,A
+XRL P0,A
+</code></pre></div>
+<p>等指令读“锁存器”</p>
 <h4 id="p1">P1口</h4>
 <p>准双向口，内部有上拉电阻；输入时需先写1</p>
 <h4 id="p2">P2口</h4>
@@ -4396,7 +4400,7 @@
 <p>00H ~ 1FH为4个工作寄存器区，每个区8个工作寄存器R0 ~ R7，<strong>启用区依靠PSW寄存器中的RS1与RS0决定</strong>（具体参照下表），20H ~ 2FH为内部RAM位寻址区</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0518/w3b4w2cb.webp" /></p>
 <h3 id="sfr">专用寄存器（SFR）</h3>
-<p><strong>程序计数器PC</strong>：存放<strong>下一条</strong>要执行的指令地址（程序指针，重中之重，需要时刻注意）</p>
+<p><strong>程序计数器PC</strong>：是16位寄存器，问地址一定要写四位，DPTR同理。存放<strong>下一条</strong>要执行的指令地址（程序指针，重中之重，需要时刻注意）</p>
 <p><strong>累加器A</strong>：最常用的专用寄存器（许多操作只能通过A实现）</p>
 <p><strong>B寄存器</strong>：一般用于乘除指令（其他时候尽量不使用），A*B=BA（B存高8位，A存低8位），A/B=商存A，余存B</p>
 <p><strong>程序状态字PSW（8位）</strong>：用来存放程序状态信息，表征指令执行结果的状态，供程序查询和判别之用位地址</p>

@@ -3126,6 +3126,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#romram" class="md-nav__link">
+    ROM、RAM芯片
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rom" class="md-nav__link">
     扩展ROM
   </a>
@@ -4083,6 +4090,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#romram" class="md-nav__link">
+    ROM、RAM芯片
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rom" class="md-nav__link">
     扩展ROM
   </a>
@@ -4151,6 +4165,7 @@
   <h1>第5章 存储器和I/O扩展</h1>
 
 <h2 id="373">373实现数据地址线分离（基本操作）</h2>
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0610/g5cmmmv5.webp" /></p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0527/dt2genvt.webp" /></p>
 <p>ALE接LE，P0口为地址低八位，接入锁存器数据输入端，实现地址数据的分离</p>
 <p>P2口为地址高八位</p>
@@ -4160,7 +4175,12 @@
 <p>D0----D7     </p>
 <p>ALE </p>
 <p><span class="arithmatex">\(\overline{PSEN}\)</span>        （ROM用）     </p>
-<p><span class="arithmatex">\(\overline{RD} ， \overline{WR}\)</span>​        （RAM用）</p>
+<p><span class="arithmatex">\(\overline{RD} ， \overline{WR}\)</span>​​        （RAM用）</p>
+<h2 id="romram">ROM、RAM芯片</h2>
+<p>因为有时候考试这两个芯片也不会具体给出，或者说只告诉名字不告诉大小，所以最好还是记一下……</p>
+<p>记住2764和6264分别为8K的ROM和8K的RAM，其他推导得出即可</p>
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0610/xoi412g1.webp" /></p>
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0610/c5nmc0og.webp" /></p>
 <h2 id="rom">扩展ROM</h2>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0528/urrvrz25.webp" /></p>
 <p>基本操作：数据接数据、地址接地址，<span class="arithmatex">\(\overline{PSEN}\)</span>接<span class="arithmatex">\(\overline{OE}\)</span>，剩下的片选信号一般接地址信号。</p>

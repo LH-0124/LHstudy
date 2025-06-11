@@ -4251,29 +4251,26 @@ END
 <h2 id="_1">历年题目及参考答案</h2>
 <h3 id="23-24">23-24春夏</h3>
 <p>1.片外ROM有32字节数据存在TABLE处开始的位置，查询其中有无数值80H，有则将地址保存到R1（高8位）R0（低8位），没有则将R0与R1均置0</p>
-<div class="highlight"><pre><span></span><code>    MOV DPTR,#TABLE
+<div class="highlight"><pre><span></span><code>    ORG 0000H
+    LJMP MAIN
+    ORG 0100H
+MAIN:
+    MOV DPTR,#TABLE
     MOV R7,#32H
-    MOV A,#00H
-LOOP:
-    MOV B,A
-    MOVC A,@A+DPTR
-    CJNE A,#80H,NOTFIND
-    CLR C
-    MOV A,B
-    MOV R6,DPL
-    ADD A,R6
-    MOV R0,A
-    MOV A,DPH
-    ADDC A,#0
-    MOV R1,A
-    RET
-NOTFIND:
-    MOV A,B
-    INC A
-    DJNZ R7,LOOP
     MOV R0,#00H
     MOV R1,#00H
-    RET
+LOOP:
+    MOV A,#00H
+    MOVC A,@A+DPTR
+    CJNE A,#80H,NOTFIND
+    MOV R1,DPH
+    MOV R0,DPL
+    END
+NOTFIND:
+    INC DPTR
+    DJNZ R7,LOOP
+
+    END
 </code></pre></div>
 <p>2.实现DPTR自减</p>
 <div class="highlight"><pre><span></span><code>    CLR C
@@ -4448,6 +4445,7 @@ DELY1:MOV R1,#23
 DELY2:DJNZ R1,DELY2
       NOP
       DJNZ R0,DELY1
+      RET
 </code></pre></div>
 <h3 id="18-19">18-19春夏</h3>
 <p>将片外RAM地址起始为8000H的16个字节的数据拷贝到起始为9000H的地址中</p>
