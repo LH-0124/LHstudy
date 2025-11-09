@@ -4906,13 +4906,13 @@
 <p>在连续时间信号中，对信号的微分与积分表示为
 $$
 x'(t)=\frac{dx}{dt}
-\
+\newline
 \int_{-\infty}^{t}x(\tau)d\tau
 $$
 而在离散时间信号中，表示为差分和求和形式
 $$
 x[n]-x[n-1]
-\
+\newline
 \sum_{-\infty}^{n}x[k]
 $$</p>
 <h3 id="time-shift">时移（Time-shift）</h3>
@@ -4938,7 +4938,7 @@ x(at),x[an]
 <p>对于离散时间信号，<span class="arithmatex">\(a&gt;1\)</span>​，信号与原信号相比被抽取了几个特定的值，反之，信号和原信号相比被插入了值</p>
 <h3 id="periodic-signals">周期信号（Periodic Signals）</h3>
 <div class="arithmatex">\[
-x(t)=x(t+T)\\
+x(t)=x(t+T)\newline
 x[n]=x[n+N]
 \]</div>
 <p>非周期性：aperiodic</p>
@@ -4958,7 +4958,7 @@ Acos(\Omega_0n+\phi)
 <h2 id="3">3.一些基础信号</h2>
 <h3 id="complex-exponential-signal">复指数信号 Complex Exponential Signal</h3>
 <div class="arithmatex">\[
-x(t)=e^{j\omega_0t}\\
+x(t)=e^{j\omega_0t}\newline
 x[n]=e^{j\Omega_0n}=\cos(\Omega_0n)+j\sin(\Omega_0n)
 \]</div>
 <p><span class="arithmatex">\(x(t)\)</span>为周期信号，<span class="arithmatex">\(T=\frac{2\pi}{|\omega_0|}\)</span>​</p>
@@ -4973,21 +4973,21 @@ x[n]=e^{j\Omega_0n}=\cos(\Omega_0n)+j\sin(\Omega_0n)
 \]</div>
 <p>取样性质
 $$
-x[n]\delta[n]=x[0]\delta[n]\
-x[n]\delta[n-n_0]=x[n_0]\delta[n]\
-x[n]=\sum_{k=-\infty}^{k=+\infty}x[k]\delta[n-k]\
+x[n]\delta[n]=x[0]\delta[n]\newline
+x[n]\delta[n-n_0]=x[n_0]\delta[n]\newline
+x[n]=\sum_{k=-\infty}^{k=+\infty}x[k]\delta[n-k]\newline
 $$</p>
 <h4 id="_5">连续形式</h4>
 <div class="arithmatex">\[
-\delta[t]=0,t \neq 0\\
+\delta[t]=0,t \neq 0\newline
 \int_{-\epsilon}^{+\epsilon}\delta(t)dt=1,\epsilon&gt;0
 \]</div>
 <p>取样性质
 $$
-x[t]\delta[t]=x[0]\delta[t]\
-x[t]\delta[t-t_0]=x[t_0]\delta[t]\
-\int_{-\infty}^{+\infty}x(t)\delta(t)dt=x(0)\
-\int_{-\infty}^{+\infty}x(t)\delta(t-t_0)dt=x(t_0)\
+x[t]\delta[t]=x[0]\delta[t]\newline
+x[t]\delta[t-t_0]=x[t_0]\delta[t]\newline
+\int_{-\infty}^{+\infty}x(t)\delta(t)dt=x(0)\newline
+\int_{-\infty}^{+\infty}x(t)\delta(t-t_0)dt=x(t_0)\newline
 $$</p>
 <h3 id="step-function">单位阶跃信号 Step Function</h3>
 <h4 id="_6">离散形式</h4>
@@ -5009,7 +5009,7 @@ r[t]=\cases{t,t\ge0\\0,t&lt; 0}
 \]</div>
 <h3 id="_10">关系</h3>
 <div class="arithmatex">\[
-\delta(t)=\frac{du(t)}{dt},u(t)=\int_{-\infty}^{\tau}\delta(\tau)d\tau\\
+\delta(t)=\frac{du(t)}{dt},u(t)=\int_{-\infty}^{\tau}\delta(\tau)d\tau\newline
 \delta[n]=u[n]-u[n-1],u[n]=\sum_{k=-\infty}^{n}\delta[n]=\sum_{k=0}^{+\infty}\delta[n-k]
 \]</div>
 <h3 id="_11">一些信号可以看作是常用信号的组合</h3>
@@ -5024,12 +5024,12 @@ p_{\tau}(t)=u(t+\frac{\tau}{2})-u(t-\frac{\tau}{2})
 <h3 id="4">4.系统性质</h3>
 <h3 id="linearity">Linearity （线性）</h3>
 <div class="arithmatex">\[
-y_1(t)=f(x_1(t)),y_2(t)=f(x_2(t))\\
+y_1(t)=f(x_1(t)),y_2(t)=f(x_2(t))\newline
 y(t)=f(a_1x_1(t)+a_2x_2(t))=a_1y_1(t)+a_2y_2(t)
 \]</div>
 <h3 id="time-invariance">Time invariance（时不变性）</h3>
 <div class="arithmatex">\[
-y(t)=f(x(t))\\
+y(t)=f(x(t))\newline
 y(t-t_0)=f(x(t-t_0))
 \]</div>
 <h3 id="causality">Causality（因果性）</h3>
