@@ -4579,14 +4579,14 @@
 <h3 id="1_1">定义1</h3>
 <div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="sc">&#39;H&#39;</span><span class="p">,</span><span class="sc">&#39;e&#39;</span><span class="p">,</span><span class="sc">&#39;l&#39;</span><span class="p">,</span><span class="sc">&#39;l&#39;</span><span class="p">,</span><span class="sc">&#39;o&#39;</span><span class="p">,</span><span class="sc">&#39;\0&#39;</span><span class="p">}</span>
 </code></pre></div>
-<p>'\0'是八进制字符常数，ascII码=0，作为字符串结束标注</p>
+<p>'0'是八进制字符常数，ascII码=0，作为字符串结束标注</p>
 <h3 id="2">定义2</h3>
 <div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">=</span><span class="s">&quot;Hello&quot;</span><span class="w">   </span><span class="c1">//注意必须是双引号，有隐藏&#39;\0&#39;,所以s长度为6</span>
 </code></pre></div>
 <h3 id="aa">'A'与"A"区别</h3>
-<p>"A"由'A'和'\0'两个元素组成的字符串，而'A'为字符</p>
+<p>"A"由'A'和'0'两个元素组成的字符串，而'A'为字符</p>
 <h3 id="_2">空串</h3>
-<p>""称为空串，里面只有一个'\0'</p>
+<p>""称为空串，里面只有一个'0'</p>
 <p>''语法错误</p>
 <h2 id="2_1">2.字符串输入输出</h2>
 <h3 id="s"><strong>%s输入输出字符串</strong></h3>
@@ -4596,14 +4596,14 @@
 </code></pre></div>
 <p>想要储存一个字符串，必须用一个数组</p>
 <p>输入时要给出一个地址，是a[0]的地址，虽然a[0]只能存储一个字符，但scanf在识别到%s时，能后续获得数组后面元素的地址</p>
-<p>%s格式会输出'\0'左边的全体元素，但不输出'\0'本身</p>
+<p>%s格式会输出'0'左边的全体元素，但不输出'0'本身</p>
 <div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span><span class="o">=</span><span class="s">&quot;0123456789ABCDEF&quot;</span><span class="p">;</span>
 <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
 <span class="n">printf</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
 </code></pre></div>
 <p>此时输入ABC  xyz  123，输出为ABC</p>
-<p>这是因为scanf在输入时，以空格为边界输入（将空格理解为分隔符），此时a实际值变为"ABC\0456789ABCDEF\0"</p>
-<p>printf输出时，只输出"\0"左边的值，故输出"ABC"，实际上字符串还含有其他内容</p>
+<p>这是因为scanf在输入时，以空格为边界输入（将空格理解为分隔符），此时a实际值变为"ABC0456789ABCDEF0"</p>
+<p>printf输出时，只输出"0"左边的值，故输出"ABC"，实际上字符串还含有其他内容</p>
 <h3 id="gets"><strong>gets()输入</strong></h3>
 <div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
 <span class="n">gets</span><span class="p">(</span><span class="n">a</span><span class="p">);</span><span class="w">     </span><span class="c1">//不可写成a=gets()，因为a不是变量名，而是&amp;a[0]</span>
@@ -4613,8 +4613,8 @@
 <blockquote>
 <p>Q:用scanf()的%s格式输入一个字符串跟用gets()输入一个字符串有什么区别？</p>
 <p>A:假定已定义数组char a[100]，那么scanf("%s", a)与gets(a)有以下区别： </p>
-<p>(1) 不输入具体内容直接敲回车时，scanf()会认为此回车是输入项之间的分隔符，故它会过滤掉此回车并继续等待用户输入非空白的内容；而gets(a)则会认为此回车标志着一行内容输入的结束，于是它会执行a[0]='\0';并返回。</p>
-<p>(2) 当输入一个含有空格的字符串如ABC xyz 123时，scanf()仅读取"ABC"并保存到a中，其中a[0]='A', a[1]='B', a[2]='C', a[3]='\0'，而把" xyz 123"以及回车符(即'\n')留在输入缓冲区中；gets(a)则会把回车前的所有字符全部保存到数组a中，同时丢弃回车符，此时数组a的内容为：a[0]='A', a[1]='B', a[2]='C', a[3]=' ', a[4]='x', a[5]='y', a[6]='z', a[7]=' ', a[8]='1', a[9]='2',a[10]='3', a[11]='\0'。 </p>
+<p>(1) 不输入具体内容直接敲回车时，scanf()会认为此回车是输入项之间的分隔符，故它会过滤掉此回车并继续等待用户输入非空白的内容；而gets(a)则会认为此回车标志着一行内容输入的结束，于是它会执行a[0]='0';并返回。</p>
+<p>(2) 当输入一个含有空格的字符串如ABC xyz 123时，scanf()仅读取"ABC"并保存到a中，其中a[0]='A', a[1]='B', a[2]='C', a[3]='0'，而把" xyz 123"以及回车符(即'n')留在输入缓冲区中；gets(a)则会把回车前的所有字符全部保存到数组a中，同时丢弃回车符，此时数组a的内容为：a[0]='A', a[1]='B', a[2]='C', a[3]=' ', a[4]='x', a[5]='y', a[6]='z', a[7]=' ', a[8]='1', a[9]='2',a[10]='3', a[11]='0'。 </p>
 <p>(3) 当输入一个不含空格的字符串如ABC时，scanf()会读取"ABC"并保存到a中，同时把回车符留在输入缓冲区中；gets(a)也会读取"ABC"并保存到a中，但它会把回车符丢弃，即不会把回车符留在输入缓冲区内。</p>
 </blockquote>
 <p>gets()有返回值，返回字符串第一个字符的地址，输入失败返回NULL</p>
@@ -4639,7 +4639,7 @@
 <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
 <span class="n">n</span><span class="o">=</span><span class="n">strlen</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
 </code></pre></div>
-<p>strlen函数返回'\0'左边的元素个数，也是'\0'元素的索引下标</p>
+<p>strlen函数返回'0'左边的元素个数，也是'0'元素的索引下标</p>
 <p>函数实现：</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">my_strlen</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="p">[])</span><span class="w">  </span><span class="cm">/*这里a是用一维数组做形参，或写成char a[100]*/</span>
 <span class="p">{</span>
@@ -4657,13 +4657,13 @@
 <div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span><span class="o">=</span><span class="s">&quot;ABC&quot;</span><span class="p">,</span><span class="kt">char</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
 <span class="n">strcpy</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">);</span>
 </code></pre></div>
-<p>上述程序将a[0]到a[3]复制到b[0]和b[3]，复制的是'\0'及其左边的元素，这说明假如b[4]之后有其他元素（如b="0123456789"），输出b也只会输出ABC</p>
+<p>上述程序将a[0]到a[3]复制到b[0]和b[3]，复制的是'0'及其左边的元素，这说明假如b[4]之后有其他元素（如b="0123456789"），输出b也只会输出ABC</p>
 <p>不允许用加法运算直接拼接</p>
 <h3 id="puts">puts</h3>
 <div class="highlight"><pre><span></span><code><span class="n">puts</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
 </code></pre></div>
-<p>等价于printf("%s\n",b)，注意自带回车</p>
-<p>有返回值，输出成功返回'\n'，输出失败返回EOF</p>
+<p>等价于printf("%sn",b)，注意自带回车</p>
+<p>有返回值，输出成功返回'n'，输出失败返回EOF</p>
 <h3 id="strcat">strcat</h3>
 <p>字符串连接</p>
 <div class="highlight"><pre><span></span><code><span class="n">strcat</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">);</span>
@@ -4674,7 +4674,7 @@
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
 <span class="n">n</span><span class="o">=</span><span class="n">strcmp</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">);</span>
 </code></pre></div>
-<p>两个字符串元素逐个比较，若a[i]和b[i]不相等，则输出此时a[i]-b[i]的值；若a[i]和b[i]相等，则比较下一个值，直到'\0'或a[i]与b[i]不相等。</p>
+<p>两个字符串元素逐个比较，若a[i]和b[i]不相等，则输出此时a[i]-b[i]的值；若a[i]和b[i]相等，则比较下一个值，直到'0'或a[i]与b[i]不相等。</p>
 <p>n&gt;0，a&gt;b；n=0， a=b；n&lt;0，a&lt;b</p>
 <p>在VC和DEVCPP中，strcmp会把大于0的结果转化成1，小于0的结果转换成-1，等于0则返回0</p>
 <p>在TC中，strcmp的值是最后那次减法的差</p>

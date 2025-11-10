@@ -4905,22 +4905,20 @@
 <h3 id="differential-and-integral">微分与积分（Differential and integral）</h3>
 <p>在连续时间信号中，对信号的微分与积分表示为
 $$
-x'(t)=\frac{dx}{dt}
-\newline
-\int_{-\infty}^{t}x(\tau)d\tau
+x'(t)=frac{dx}{dt} \\
+int_{-infty}^{t}x(tau)dtau
 $$
 而在离散时间信号中，表示为差分和求和形式
 $$
-x[n]-x[n-1]
-\newline
-\sum_{-\infty}^{n}x[k]
+x[n]-x[n-1] \\
+sum_{-infty}^{n}x[k]
 $$</p>
 <h3 id="time-shift">时移（Time-shift）</h3>
 <div class="arithmatex">\[
 x(t-t_0),x[n-n_0]
 \]</div>
 <p><span class="arithmatex">\(t_0&lt;0，n_0&lt;0\)</span>，信号左移，表现为超前（advance）</p>
-<p><span class="arithmatex">\(t_0&gt;0，n_0&gt;0\)</span>​，信号右移，表现为滞后（delay）</p>
+<p><span class="arithmatex">\(t_0&gt;0，n_0&gt;0\)</span>，信号右移，表现为滞后（delay）</p>
 <h3 id="time-reversal">翻褶（Time Reversal）</h3>
 <div class="arithmatex">\[
 x(-t),x[-n]
@@ -4935,10 +4933,10 @@ x(-t),x[-n]
 x(at),x[an]
 \]</div>
 <p>对于连续时间信号，<span class="arithmatex">\(a&gt;1\)</span>，信号被压缩，反之，信号被延伸</p>
-<p>对于离散时间信号，<span class="arithmatex">\(a&gt;1\)</span>​，信号与原信号相比被抽取了几个特定的值，反之，信号和原信号相比被插入了值</p>
+<p>对于离散时间信号，<span class="arithmatex">\(a&gt;1\)</span>，信号与原信号相比被抽取了几个特定的值，反之，信号和原信号相比被插入了值</p>
 <h3 id="periodic-signals">周期信号（Periodic Signals）</h3>
 <div class="arithmatex">\[
-x(t)=x(t+T)\newline
+x(t)=x(t+T) \\\\
 x[n]=x[n+N]
 \]</div>
 <p>非周期性：aperiodic</p>
@@ -4952,16 +4950,16 @@ Acos(\Omega_0n+\phi)
 \]</div>
 <p><span class="arithmatex">\(\frac{2\pi}{\Omega_0}\)</span>为整数或有理数时，为周期信号；为无理数时，为非周期信号</p>
 <h4 id="_2">两个连续周期信号相加</h4>
-<p><span class="arithmatex">\(\frac{T_1}{T_2}\)</span>为有理数时，为周期信号；<span class="arithmatex">\(\frac{T_1}{T_2}\)</span>​为无理数时，为非周期信号</p>
+<p><span class="arithmatex">\(\frac{T_1}{T_2}\)</span>为有理数时，为周期信号；<span class="arithmatex">\(\frac{T_1}{T_2}\)</span>为无理数时，为非周期信号</p>
 <h4 id="_3">两个离散周期信号相加</h4>
 <p>两周期序列之和一定是周期序列。</p>
 <h2 id="3">3.一些基础信号</h2>
 <h3 id="complex-exponential-signal">复指数信号 Complex Exponential Signal</h3>
 <div class="arithmatex">\[
-x(t)=e^{j\omega_0t}\newline
+x(t)=e^{j\omega_0t} \\\\
 x[n]=e^{j\Omega_0n}=\cos(\Omega_0n)+j\sin(\Omega_0n)
 \]</div>
-<p><span class="arithmatex">\(x(t)\)</span>为周期信号，<span class="arithmatex">\(T=\frac{2\pi}{|\omega_0|}\)</span>​</p>
+<p><span class="arithmatex">\(x(t)\)</span>为周期信号，<span class="arithmatex">\(T=\frac{2\pi}{|\omega_0|}\)</span></p>
 <p><span class="arithmatex">\(x[n]\)</span>为周期信号条件是<span class="arithmatex">\(\frac{2\pi}{\Omega_0}\)</span>为有理数，则<span class="arithmatex">\(N=m\frac{2\pi}{\Omega_0}\)</span></p>
 <p>连续正弦信号（或者单位复指数信号）：<span class="arithmatex">\(\omega_0\)</span>越高，频率越高</p>
 <p>离散正弦信号（或者单位复指数信号）：因为受到<span class="arithmatex">\(2\pi\)</span>周期的制约，靠近<span class="arithmatex">\(\pm \pi\)</span>为高频，靠近0为低频</p>
@@ -4969,47 +4967,47 @@ x[n]=e^{j\Omega_0n}=\cos(\Omega_0n)+j\sin(\Omega_0n)
 <h3 id="unit-pulse-signal">单位脉冲信号 Unit Pulse Signal</h3>
 <h4 id="_4">离散形式</h4>
 <div class="arithmatex">\[
-\delta[n]=\cases{1,n=0\\0,n \neq 0}
+\delta[n]=\cases{1,n=0\\\\0,n \neq 0}
 \]</div>
 <p>取样性质
 $$
-x[n]\delta[n]=x[0]\delta[n]\newline
-x[n]\delta[n-n_0]=x[n_0]\delta[n]\newline
-x[n]=\sum_{k=-\infty}^{k=+\infty}x[k]\delta[n-k]\newline
+x[n]delta[n]=x[0]delta[n] \\
+x[n]delta[n-n_0]=x[n_0]delta[n] \\
+x[n]=sum_{k=-infty}^{k=+infty}x[k]delta[n-k] \\
 $$</p>
 <h4 id="_5">连续形式</h4>
 <div class="arithmatex">\[
-\delta[t]=0,t \neq 0\newline
+\delta[t]=0,t \neq 0 \\\\
 \int_{-\epsilon}^{+\epsilon}\delta(t)dt=1,\epsilon&gt;0
 \]</div>
 <p>取样性质
 $$
-x[t]\delta[t]=x[0]\delta[t]\newline
-x[t]\delta[t-t_0]=x[t_0]\delta[t]\newline
-\int_{-\infty}^{+\infty}x(t)\delta(t)dt=x(0)\newline
-\int_{-\infty}^{+\infty}x(t)\delta(t-t_0)dt=x(t_0)\newline
+x[t]delta[t]=x[0]delta[t] \\
+x[t]delta[t-t_0]=x[t_0]delta[t] \\
+int_{-infty}^{+infty}x(t)delta(t)dt=x(0) \\
+int_{-infty}^{+infty}x(t)delta(t-t_0)dt=x(t_0) \\
 $$</p>
 <h3 id="step-function">单位阶跃信号 Step Function</h3>
 <h4 id="_6">离散形式</h4>
 <div class="arithmatex">\[
-u[n]=\cases{1,n\ge0\\0,n&lt; 0}
+u[n]=\cases{1,n\ge0\\\\0,n&lt; 0}
 \]</div>
 <h4 id="_7">连续形式</h4>
 <div class="arithmatex">\[
-u[t]=\cases{1,t\ge0\\0,t&lt; 0}
+u[t]=\cases{1,t\ge0\\\\0,t&lt; 0}
 \]</div>
 <h3 id="ramp-signals">斜坡信号 Ramp Signals</h3>
 <h4 id="_8">离散形式</h4>
 <div class="arithmatex">\[
-r[n]=\cases{n,n\ge0\\0,n&lt; 0}
+r[n]=\cases{n,n\ge0\\\\0,n&lt; 0}
 \]</div>
 <h4 id="_9">连续形式</h4>
 <div class="arithmatex">\[
-r[t]=\cases{t,t\ge0\\0,t&lt; 0}
+r[t]=\cases{t,t\ge0\\\\0,t&lt; 0}
 \]</div>
 <h3 id="_10">关系</h3>
 <div class="arithmatex">\[
-\delta(t)=\frac{du(t)}{dt},u(t)=\int_{-\infty}^{\tau}\delta(\tau)d\tau\newline
+\delta(t)=\frac{du(t)}{dt},u(t)=\int_{-\infty}^{\tau}\delta(\tau)d\tau \\\\
 \delta[n]=u[n]-u[n-1],u[n]=\sum_{k=-\infty}^{n}\delta[n]=\sum_{k=0}^{+\infty}\delta[n-k]
 \]</div>
 <h3 id="_11">一些信号可以看作是常用信号的组合</h3>
@@ -5024,18 +5022,18 @@ p_{\tau}(t)=u(t+\frac{\tau}{2})-u(t-\frac{\tau}{2})
 <h3 id="4">4.系统性质</h3>
 <h3 id="linearity">Linearity （线性）</h3>
 <div class="arithmatex">\[
-y_1(t)=f(x_1(t)),y_2(t)=f(x_2(t))\newline
+y_1(t)=f(x_1(t)),y_2(t)=f(x_2(t)) \\\\
 y(t)=f(a_1x_1(t)+a_2x_2(t))=a_1y_1(t)+a_2y_2(t)
 \]</div>
 <h3 id="time-invariance">Time invariance（时不变性）</h3>
 <div class="arithmatex">\[
-y(t)=f(x(t))\newline
+y(t)=f(x(t)) \\\\
 y(t-t_0)=f(x(t-t_0))
 \]</div>
 <h3 id="causality">Causality（因果性）</h3>
 <p><span class="arithmatex">\(y[n]\)</span>只取决于<span class="arithmatex">\(x[n-1]，x[n-2],...,x[n-n_0]\)</span>，则系统因果，否则为非因果</p>
 <h4 id="memoryless-system">Memoryless system（无记忆性）</h4>
-<p>For any time <span class="arithmatex">\(t_1\)</span>, the value of the output at time <span class="arithmatex">\(t_1\)</span> depends only on the value of the input at time <span class="arithmatex">\(t_1\)</span>​</p>
+<p>For any time <span class="arithmatex">\(t_1\)</span>, the value of the output at time <span class="arithmatex">\(t_1\)</span> depends only on the value of the input at time <span class="arithmatex">\(t_1\)</span></p>
 <p>只取决于当下</p>
 <h4 id="system-with-memory">System with memory（记忆性）</h4>
 <p>The value of the output at time <span class="arithmatex">\(t_1\)</span> depends on the past values of the input before time <span class="arithmatex">\(t_1\)</span></p>

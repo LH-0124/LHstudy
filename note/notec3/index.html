@@ -2380,28 +2380,28 @@
         
           <li class="md-nav__item">
   <a href="#n" class="md-nav__link">
-    '\n'：回车
+    'n'：回车
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#t" class="md-nav__link">
-    '\t' :  制表符
+    't' :  制表符
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#b" class="md-nav__link">
-    '\b'：不能简单理解为退格
+    'b'：不能简单理解为退格
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#a" class="md-nav__link">
-    '\a'：喇叭发声
+    'a'：喇叭发声
   </a>
   
 </li>
@@ -4478,28 +4478,28 @@
         
           <li class="md-nav__item">
   <a href="#n" class="md-nav__link">
-    '\n'：回车
+    'n'：回车
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#t" class="md-nav__link">
-    '\t' :  制表符
+    't' :  制表符
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#b" class="md-nav__link">
-    '\b'：不能简单理解为退格
+    'b'：不能简单理解为退格
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#a" class="md-nav__link">
-    '\a'：喇叭发声
+    'a'：喇叭发声
   </a>
   
 </li>
@@ -4611,26 +4611,26 @@
 <p>常数由<strong>单引号</strong>引住，有且只有一个字符</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1111/uqtjjau2.webp" /></p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1111/yveymrkn.webp" /></p>
-<h3 id="n"><strong>'\n'：回车</strong></h3>
-<h3 id="t"><strong>'\t' :  制表符</strong></h3>
-<p>'A\t'，'AB\t'……输出结果如下</p>
+<h3 id="n"><strong>'n'：回车</strong></h3>
+<h3 id="t"><strong>'t' :  制表符</strong></h3>
+<p>'At'，'ABt'……输出结果如下</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1111/ajt30qzl.webp" /></p>
-<h3 id="b"><strong>'\b'：不能简单理解为退格</strong></h3>
+<h3 id="b"><strong>'b'：不能简单理解为退格</strong></h3>
 <div class="highlight"><pre><span></span><code><span class="n">printf</span><span class="p">(</span><span class="s">&quot;123456789</span><span class="se">\b</span><span class="s">&quot;</span><span class="p">);</span>
 </code></pre></div>
 <p>输出为123456789</p>
 <div class="highlight"><pre><span></span><code><span class="n">printf</span><span class="p">(</span><span class="s">&quot;1234567</span><span class="se">\b\b\b\b</span><span class="s">89&quot;</span><span class="p">);</span>
 </code></pre></div>
 <p>输出1238967</p>
-<p>可以看到，在输出1234567之后，因为紧接着要输出4个\b，这时程序<strong>把光标前（左）移</strong>了4个字符的位置，然后输出了89这两个字符，占用了45这两个字符的位置。但是因为67这两个字符已经输出，所以仍然显示在那里。</p>
-<h3 id="a"><strong>'\a'：喇叭发声</strong></h3>
+<p>可以看到，在输出1234567之后，因为紧接着要输出4个b，这时程序<strong>把光标前（左）移</strong>了4个字符的位置，然后输出了89这两个字符，占用了45这两个字符的位置。但是因为67这两个字符已经输出，所以仍然显示在那里。</p>
+<h3 id="a"><strong>'a'：喇叭发声</strong></h3>
 <h3 id="char"><strong>一些易混淆的char及注意点</strong></h3>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1111/zgd1fdkv.webp" /></p>
 <h3 id="_2"><strong>十六进制字符常数</strong></h3>
-<p>十六进制的字符常数以'\x'开头，后面加16进制的ascII码值</p>
+<p>十六进制的字符常数以'x'开头，后面加16进制的ascII码值</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1111/fisdfbrt.webp" /></p>
 <h3 id="_3"><strong>八进制字符常数</strong></h3>
-<p>八进制的字符常数以'\ '开头，后面加8进制的ascII码值</p>
+<p>八进制的字符常数以' '开头，后面加8进制的ascII码值</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1111/n1v4bjbb.webp" /></p>
 <h2 id="4int">4.int类型常数格式</h2>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1111/zcycv5ba.webp" /></p>

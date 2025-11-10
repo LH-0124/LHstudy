@@ -2525,7 +2525,7 @@
       
         <li class="md-nav__item">
   <a href="#30" class="md-nav__link">
-    3.字符串的'\0'
+    3.字符串的'0'
   </a>
   
 </li>
@@ -4347,7 +4347,7 @@
       
         <li class="md-nav__item">
   <a href="#30" class="md-nav__link">
-    3.字符串的'\0'
+    3.字符串的'0'
   </a>
   
 </li>
@@ -4412,17 +4412,17 @@
 <p>（2）求sizeof(s)</p>
 <div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="mi">80</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="s">&quot;apple</span><span class="se">\0</span><span class="s">grape</span><span class="se">\0</span><span class="s">pear</span><span class="se">\0</span><span class="s">coco</span><span class="se">\0</span><span class="s">&quot;</span><span class="p">};</span>
 </code></pre></div>
-<p>字符串数组初始化时，未被初始化的元素都会直接赋值为'\0'，而sizeof是统计整个s的，不是遇到'\0'就停下来，所以返回80</p>
-<p>需要注意的是strlen(s)是不计入'\0'元素的，并且到了第一个'\0'元素就停下了</p>
+<p>字符串数组初始化时，未被初始化的元素都会直接赋值为'0'，而sizeof是统计整个s的，不是遇到'0'就停下来，所以返回80</p>
+<p>需要注意的是strlen(s)是不计入'0'元素的，并且到了第一个'0'元素就停下了</p>
 <p>（3）二维数组定义时，行号可以省略，列号不可以省略</p>
-<h2 id="30">3.字符串的'\0'</h2>
-<p><strong>做题建议：补充所有字符串被省略的'\0'</strong></p>
+<h2 id="30">3.字符串的'0'</h2>
+<p><strong>做题建议：补充所有字符串被省略的'0'</strong></p>
 <p>（1）求下列字符串常量的字符个数</p>
 <div class="highlight"><pre><span></span><code><span class="s">&quot;zju</span><span class="se">\101\\</span><span class="s">TED&quot;</span>
 </code></pre></div>
-<p>\101表示八进制的字符串常量，101为八进制的ascii码值</p>
-<p>\ \表示单个反斜杠，第一个反斜杠是转义符</p>
-<p>但是字符串结尾最后一定有的'\0'不能忘记！</p>
+<p>101表示八进制的字符串常量，101为八进制的ascii码值</p>
+<p> 表示单个反斜杠，第一个反斜杠是转义符</p>
+<p>但是字符串结尾最后一定有的'0'不能忘记！</p>
 <p>（2）</p>
 <div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="s">&quot;ABC&quot;</span><span class="p">,</span><span class="s">&quot;DEF&quot;</span><span class="p">,</span><span class="s">&quot;XYZ&quot;</span><span class="p">};</span>
 <span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">q</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]};</span>
@@ -4433,7 +4433,7 @@
 <h2 id="4">4.逻辑表达式</h2>
 <p>（1）-6&lt;=x&lt;=-2与x&gt;=-6 &amp;&amp; x&lt;=-2不等价，千万别被骗，-6&lt;=2的返回值不是0就是1，一定大于-2，所以该表达式恒为0</p>
 <p>（2）字符串指针非空为真，空为假</p>
-<p>（3）'\0'代表ascll码0，值为假；'0'代表ascll码48，值为真</p>
+<p>（3）'0'代表ascll码0，值为假；'0'代表ascll码48，值为真</p>
 <h2 id="5">5、数组、指针和结构</h2>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span><span class="w"> </span><span class="c1">//数组</span>
 <span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span><span class="w"> </span><span class="c1">//指针数组，数组的每个元素类型是int*</span>

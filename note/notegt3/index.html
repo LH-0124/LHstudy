@@ -4574,7 +4574,7 @@ F(x,y)=\int_{-\infty}^x \int_{-\infty}^yf(u,v)dudv
 <h3 id="_7">边际分布</h3>
 <p>边际密度函数
 $$
-f_X(x)=\int_{-\infty}^{+\infty}f(x,y)dy
+f_X(x)=int_{-infty}^{+infty}f(x,y)dy
 $$</p>
 <div class="arithmatex">\[
 f_Y(y)=\int_{-\infty}^{+\infty}f(x,y)dx
@@ -4582,7 +4582,7 @@ f_Y(y)=\int_{-\infty}^{+\infty}f(x,y)dx
 <h3 id="_8">条件分布</h3>
 <p>条件密度函数
 $$
-f_{Y|X}(y|x)=\frac{f(x,y)}{f_X(x)}
+f_{Y|X}(y|x)=frac{f(x,y)}{f_X(x)}
 $$</p>
 <div class="arithmatex">\[
 f_{X|Y}(x|y)=\frac{f(x,y)}{f_Y(y)}
@@ -4618,7 +4618,7 @@ f(x)=\begin{cases}
 <p>其他形式可以通过积分变量替换来推导，推导时要从概率分布函数开始，关键是求出雅可比行列式，交换积分次序，得概率分布函数，最后求导得密度函数，见书p107。</p>
 <p>特别地，<span class="arithmatex">\(X,Y\)</span>​相互独立时
 $$
-f_Z(z)=\int_{-\infty}^{+\infty}f_X(x)f_Y(z-x)dx
+f_Z(z)=int_{-infty}^{+infty}f_X(x)f_Y(z-x)dx
 $$</p>
 <div class="arithmatex">\[
 f_Z(z)=\int_{-\infty}^{+\infty}f_X(z-y)f_Y(y)dx

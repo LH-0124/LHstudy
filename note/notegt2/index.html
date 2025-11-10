@@ -4369,21 +4369,21 @@ $$</p>
 <p>记为<span class="arithmatex">\(X\)</span>~<span class="arithmatex">\(B(n,p)\)</span></p>
 <p><strong>泊松分布</strong>
 $$
-P({X=k})=\frac{e^{-\lambda}\lambda^k}{k!},k=0,1,2,...,
+P({X=k})=frac{e^{-lambda}lambda^k}{k!},k=0,1,2,...,
 $$</p>
 <p>泊松分布有着非常广泛的应用。当n足够大，p充分小（一般要求p&lt;0.1）时，且np保持适当大小，参数为（n，p）的二项分布可用泊松分布近似描述，且<span class="arithmatex">\(\lambda=np\)</span>​</p>
 <p><strong>泊松分布具有可加性</strong>
 $$
-P(\lambda_1)+P(\lambda_2)=P(\lambda_1+\lambda_2)
+P(lambda_1)+P(lambda_2)=P(lambda_1+lambda_2)
 $$</p>
 <h2 id="_2">概率分布函数</h2>
 <p><strong>定义</strong>
 $$
-F(x)=P(X\le x)
+F(x)=P(Xle x)
 $$
 则
 $$
-P(x_1&lt; X \le x_2)=F(x_2)-F(x_1)
+P(x_1&lt; X le x_2)=F(x_2)-F(x_1)
 $$
 <strong>性质</strong></p>
 <p>（1）<span class="arithmatex">\(F(x)\)</span>单调不减</p>
@@ -4392,7 +4392,7 @@ $$
 <h2 id="_3">连续型随机变量</h2>
 <p><strong>定义</strong>
 $$
-F(x)=\int_{-\infty}^xf(t)dt,f(x)\ge0
+F(x)=int_{-infty}^xf(t)dt,f(x)ge0
 $$
  则称<span class="arithmatex">\(X\)</span>为连续型随机变量,<span class="arithmatex">\(f(x)\)</span>为概率密度函数，简称密度函数</p>
 <p><strong>性质</strong></p>
@@ -4403,15 +4403,15 @@ $$
 <p>（5）在<span class="arithmatex">\(f(x)\)</span>的连续点处，<span class="arithmatex">\(F'(x)=f(x)\)</span></p>
 <p><strong>均匀分布</strong>
 $$
-f(x)=\begin{cases}
-\frac{1}{b-a} ,x \in(a,b)\
+f(x)=begin{cases}
+frac{1}{b-a} ,x in(a,b)\
 0,  其他
-\end{cases}
+end{cases}
 $$</p>
 <p>称X服从区间<span class="arithmatex">\((a,b)\)</span>的均匀分布，记为<span class="arithmatex">\(X\)</span>~<span class="arithmatex">\(U(a,b)\)</span></p>
 <p><strong>正态分布</strong>
 $$
-f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}
+f(x)=frac{1}{sqrt{2pi}sigma}e^{-frac{(x-mu)^2}{2sigma^2}}
 $$</p>
 <p>称X服从参数为<span class="arithmatex">\((\mu,\sigma)\)</span>的正态分布，记为<span class="arithmatex">\(X\)</span>~<span class="arithmatex">\(N(\mu,\sigma^2)\)</span></p>
 <p><strong>性质</strong></p>
@@ -4419,10 +4419,10 @@ $$</p>
 <p>（2）<span class="arithmatex">\(N(0,1)\)</span>为标准正态分布，分布函数<span class="arithmatex">\(\Phi(x)+\Phi(-x)=1\)</span>，普通的正态分布函数<span class="arithmatex">\(F(a)=\Phi(\frac{a-\mu}{\sigma})\)</span></p>
 <p><strong>指数分布</strong>
 $$
-f(x)=\begin{cases}
-\lambda e^{-\lambda x} ,  x&gt;0\
-0 ,x \le 0
-\end{cases}
+f(x)=begin{cases}
+lambda e^{-lambda x} ,  x&gt;0\
+0 ,x le 0
+end{cases}
 $$</p>
 <div class="arithmatex">\[
 F(x)=\begin{cases}
