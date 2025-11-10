@@ -2701,15 +2701,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#zxy" class="md-nav__link">
-    \(Z=X+Y\)的分布
+  <a href="#zxyzxy" class="md-nav__link">
+    Z=X+YZ=X+Y的分布
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#xy" class="md-nav__link">
-    \(X,Y\)最大值最小值的分布
+  <a href="#xyxy" class="md-nav__link">
+    X,YX,Y最大值最小值的分布
   </a>
   
 </li>
@@ -4482,15 +4482,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#zxy" class="md-nav__link">
-    \(Z=X+Y\)的分布
+  <a href="#zxyzxy" class="md-nav__link">
+    Z=X+YZ=X+Y的分布
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#xy" class="md-nav__link">
-    \(X,Y\)最大值最小值的分布
+  <a href="#xyxy" class="md-nav__link">
+    X,YX,Y最大值最小值的分布
   </a>
   
 </li>
@@ -4519,91 +4519,118 @@
 <h2 id="_1">二维随机变量分布函数</h2>
 <h3 id="_2">联合分布函数</h3>
 <p><strong>定义</strong></p>
-<p><span class="arithmatex">\(F(x,y)=P\{X\le x,Y\le y\}\)</span>为<span class="arithmatex">\((X,Y)\)</span>的联合概率分布函数</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">F(x,y)=P\{X\le x,Y\le y\}</span><script type="math/tex">F(x,y)=P\{X\le x,Y\le y\}</script></span>为<span class="arithmatex"><span class="MathJax_Preview">(X,Y)</span><script type="math/tex">(X,Y)</script></span>的联合概率分布函数</p>
 <p><strong>性质</strong></p>
-<p>（1）<span class="arithmatex">\(F(x_0,y)\)</span>关于<span class="arithmatex">\(y\)</span>单调不减；<span class="arithmatex">\(F(x,y_0)\)</span>关于<span class="arithmatex">\(x\)</span>​单调不减</p>
-<p>（2）<span class="arithmatex">\(F(x,-\infty)=F(-\infty,y)=F(-\infty,-\infty)=0,F(+\infty,+\infty)=1\)</span></p>
-<p>（3）<span class="arithmatex">\(F(x,y)\)</span>关于<span class="arithmatex">\(x\)</span>右连续，关于<span class="arithmatex">\(y\)</span>右连续</p>
-<p>（4）<span class="arithmatex">\(F(x_2,y_2)-F(x_1,y_2)-F(x_2,y_1)+F(x_1,y_1)=P\{x_1&lt; X\le x_2,y_1&lt;Y\le y_2\}\ge0\)</span></p>
+<p>（1）<span class="arithmatex"><span class="MathJax_Preview">F(x_0,y)</span><script type="math/tex">F(x_0,y)</script></span>关于<span class="arithmatex"><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span>单调不减；<span class="arithmatex"><span class="MathJax_Preview">F(x,y_0)</span><script type="math/tex">F(x,y_0)</script></span>关于<span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>​单调不减</p>
+<p>（2）<span class="arithmatex"><span class="MathJax_Preview">F(x,-\infty)=F(-\infty,y)=F(-\infty,-\infty)=0,F(+\infty,+\infty)=1</span><script type="math/tex">F(x,-\infty)=F(-\infty,y)=F(-\infty,-\infty)=0,F(+\infty,+\infty)=1</script></span></p>
+<p>（3）<span class="arithmatex"><span class="MathJax_Preview">F(x,y)</span><script type="math/tex">F(x,y)</script></span>关于<span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>右连续，关于<span class="arithmatex"><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span>右连续</p>
+<p>（4）<span class="arithmatex"><span class="MathJax_Preview">F(x_2,y_2)-F(x_1,y_2)-F(x_2,y_1)+F(x_1,y_1)=P\{x_1&lt; X\le x_2,y_1&lt;Y\le y_2\}\ge0</span><script type="math/tex">F(x_2,y_2)-F(x_1,y_2)-F(x_2,y_1)+F(x_1,y_1)=P\{x_1< X\le x_2,y_1<Y\le y_2\}\ge0</script></span></p>
 <h3 id="_3">边际分布函数</h3>
-<p><span class="arithmatex">\(F_X(x)=P\{X\le x\}=P\{X\le x,Y&lt;+\infty\}=F(x,+\infty)\)</span></p>
-<p>同理<span class="arithmatex">\(F_Y(y)=F(+\infty,y)\)</span></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">F_X(x)=P\{X\le x\}=P\{X\le x,Y&lt;+\infty\}=F(x,+\infty)</span><script type="math/tex">F_X(x)=P\{X\le x\}=P\{X\le x,Y<+\infty\}=F(x,+\infty)</script></span></p>
+<p>同理<span class="arithmatex"><span class="MathJax_Preview">F_Y(y)=F(+\infty,y)</span><script type="math/tex">F_Y(y)=F(+\infty,y)</script></span></p>
 <h3 id="_4">条件分布函数</h3>
-<p><span class="arithmatex">\(F_{Y|X}(y|x_i)=P\{Y\le y|X=x_i\}\)</span></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">F_{Y|X}(y|x_i)=P\{Y\le y|X=x_i\}</span><script type="math/tex">F_{Y|X}(y|x_i)=P\{Y\le y|X=x_i\}</script></span></p>
 <h2 id="_5">二维连续型随机变量</h2>
 <h3 id="_6">联合分布</h3>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 F(x,y)=\int_{-\infty}^x \int_{-\infty}^yf(u,v)dudv
-\]</div>
-<p>则称<span class="arithmatex">\(f(x,y)\)</span>为<span class="arithmatex">\((X,Y)\)</span>的联合概率密度函数</p>
+</div>
+<script type="math/tex; mode=display">
+F(x,y)=\int_{-\infty}^x \int_{-\infty}^yf(u,v)dudv
+</script>
+</div>
+<p>则称<span class="arithmatex"><span class="MathJax_Preview">f(x,y)</span><script type="math/tex">f(x,y)</script></span>为<span class="arithmatex"><span class="MathJax_Preview">(X,Y)</span><script type="math/tex">(X,Y)</script></span>的联合概率密度函数</p>
 <p><strong>性质</strong></p>
-<p>（1）<span class="arithmatex">\(\int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty}f(u,v)dudv=1\)</span></p>
-<p>（2）在<span class="arithmatex">\(f(x,y)\)</span>连续处，<span class="arithmatex">\(\frac{\partial^2F(x,y)}{\partial x\partial y}=f(x,y)\)</span></p>
-<p>（3）<span class="arithmatex">\(P\{(X,Y)\in D\}=\underset{D}{\iint}f(x,y)dxdy\)</span>​</p>
+<p>（1）<span class="arithmatex"><span class="MathJax_Preview">\int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty}f(u,v)dudv=1</span><script type="math/tex">\int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty}f(u,v)dudv=1</script></span></p>
+<p>（2）在<span class="arithmatex"><span class="MathJax_Preview">f(x,y)</span><script type="math/tex">f(x,y)</script></span>连续处，<span class="arithmatex"><span class="MathJax_Preview">\frac{\partial^2F(x,y)}{\partial x\partial y}=f(x,y)</span><script type="math/tex">\frac{\partial^2F(x,y)}{\partial x\partial y}=f(x,y)</script></span></p>
+<p>（3）<span class="arithmatex"><span class="MathJax_Preview">P\{(X,Y)\in D\}=\underset{D}{\iint}f(x,y)dxdy</span><script type="math/tex">P\{(X,Y)\in D\}=\underset{D}{\iint}f(x,y)dxdy</script></span>​</p>
 <h3 id="_7">边际分布</h3>
 <p>边际密度函数
 $$
 f_X(x)=\int_{-\infty}^{+\infty}f(x,y)dy
 $$</p>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 f_Y(y)=\int_{-\infty}^{+\infty}f(x,y)dx
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+f_Y(y)=\int_{-\infty}^{+\infty}f(x,y)dx
+</script>
+</div>
 <h3 id="_8">条件分布</h3>
 <p>条件密度函数
 $$
 f_{Y|X}(y|x)=\frac{f(x,y)}{f_X(x)}
 $$</p>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 f_{X|Y}(x|y)=\frac{f(x,y)}{f_Y(y)}
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+f_{X|Y}(x|y)=\frac{f(x,y)}{f_Y(y)}
+</script>
+</div>
 <p>条件密度函数=联合密度函数/边际密度函数</p>
 <h3 id="_9">二元均匀分布</h3>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 f(x)=\begin{cases} 
 \frac{1}{D的面积} ,(x,y) \in D\\ 
 0,其他 \end{cases}
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+f(x)=\begin{cases} 
+\frac{1}{D的面积} ,(x,y) \in D\\ 
+0,其他 \end{cases}
+</script>
+</div>
 <h3 id="_10">二元正态分布</h3>
-<p>表达式不要求掌握，共5个参数，<span class="arithmatex">\(\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho\)</span></p>
-<p>当且仅当<span class="arithmatex">\(\rho=0\)</span>时，<span class="arithmatex">\(X,Y\)</span>独立</p>
-<p><span class="arithmatex">\(X,Y\)</span>​的边际分布和条件分布也是正态分布</p>
+<p>表达式不要求掌握，共5个参数，<span class="arithmatex"><span class="MathJax_Preview">\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho</span><script type="math/tex">\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho</script></span></p>
+<p>当且仅当<span class="arithmatex"><span class="MathJax_Preview">\rho=0</span><script type="math/tex">\rho=0</script></span>时，<span class="arithmatex"><span class="MathJax_Preview">X,Y</span><script type="math/tex">X,Y</script></span>独立</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">X,Y</span><script type="math/tex">X,Y</script></span>​的边际分布和条件分布也是正态分布</p>
 <h2 id="_11">随机变量独立性</h2>
-<p><span class="arithmatex">\(P\{X\in D_1,Y \in D_2\}=P\{X\in D_1\}\cdot P\{Y\in D_2\}\)</span></p>
-<p>则称<span class="arithmatex">\(X,Y\)</span>​独立</p>
-<p><span class="arithmatex">\(f(x,y)=f_X(x)\cdot f_Y(y)\)</span><strong>几乎处处成立</strong>为<span class="arithmatex">\(X,Y\)</span>独立的等价定义</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">P\{X\in D_1,Y \in D_2\}=P\{X\in D_1\}\cdot P\{Y\in D_2\}</span><script type="math/tex">P\{X\in D_1,Y \in D_2\}=P\{X\in D_1\}\cdot P\{Y\in D_2\}</script></span></p>
+<p>则称<span class="arithmatex"><span class="MathJax_Preview">X,Y</span><script type="math/tex">X,Y</script></span>​独立</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">f(x,y)=f_X(x)\cdot f_Y(y)</span><script type="math/tex">f(x,y)=f_X(x)\cdot f_Y(y)</script></span><strong>几乎处处成立</strong>为<span class="arithmatex"><span class="MathJax_Preview">X,Y</span><script type="math/tex">X,Y</script></span>独立的等价定义</p>
 <p><strong>二维型随机变量相互独立的充分必要条件</strong></p>
-<p><span class="arithmatex">\(f(x,y)=m(x)\cdot n(y)\)</span>几乎处处成立</p>
-<p>在实际运用时，要注意<span class="arithmatex">\(x,y\)</span>​的取值范围不能与另一个变量有关，有关时也是视为不可分解的</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">f(x,y)=m(x)\cdot n(y)</span><script type="math/tex">f(x,y)=m(x)\cdot n(y)</script></span>几乎处处成立</p>
+<p>在实际运用时，要注意<span class="arithmatex"><span class="MathJax_Preview">x,y</span><script type="math/tex">x,y</script></span>​的取值范围不能与另一个变量有关，有关时也是视为不可分解的</p>
 <p><strong>一个重要结论</strong></p>
-<p>若<span class="arithmatex">\((X_1,X_2,...,X_m)\)</span>与<span class="arithmatex">\((Y_1,Y_2,...,Y_n)\)</span>相互独立，<span class="arithmatex">\(g_1\)</span>和<span class="arithmatex">\(g_2\)</span>是两个连续函数，则<span class="arithmatex">\(g_1(X_1,X_2,...,X_m)\)</span>与<span class="arithmatex">\(g_2(Y_1,Y_2,...,Y_n)\)</span>​相互独立</p>
+<p>若<span class="arithmatex"><span class="MathJax_Preview">(X_1,X_2,...,X_m)</span><script type="math/tex">(X_1,X_2,...,X_m)</script></span>与<span class="arithmatex"><span class="MathJax_Preview">(Y_1,Y_2,...,Y_n)</span><script type="math/tex">(Y_1,Y_2,...,Y_n)</script></span>相互独立，<span class="arithmatex"><span class="MathJax_Preview">g_1</span><script type="math/tex">g_1</script></span>和<span class="arithmatex"><span class="MathJax_Preview">g_2</span><script type="math/tex">g_2</script></span>是两个连续函数，则<span class="arithmatex"><span class="MathJax_Preview">g_1(X_1,X_2,...,X_m)</span><script type="math/tex">g_1(X_1,X_2,...,X_m)</script></span>与<span class="arithmatex"><span class="MathJax_Preview">g_2(Y_1,Y_2,...,Y_n)</span><script type="math/tex">g_2(Y_1,Y_2,...,Y_n)</script></span>​相互独立</p>
 <div class="admonition note">
 <p class="admonition-title">例</p>
-<p>若<span class="arithmatex">\(X\)</span>与<span class="arithmatex">\(Y\)</span>独立，则<span class="arithmatex">\(X^2\)</span>与<span class="arithmatex">\(Y\)</span>独立</p>
+<p>若<span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span>与<span class="arithmatex"><span class="MathJax_Preview">Y</span><script type="math/tex">Y</script></span>独立，则<span class="arithmatex"><span class="MathJax_Preview">X^2</span><script type="math/tex">X^2</script></span>与<span class="arithmatex"><span class="MathJax_Preview">Y</span><script type="math/tex">Y</script></span>独立</p>
 </div>
 <h2 id="_12">多元随机变量的分布</h2>
-<h3 id="zxy"><span class="arithmatex">\(Z=X+Y\)</span>的分布</h3>
+<h3 id="zxyzxy"><span class="arithmatex"><span class="MathJax_Preview">Z=X+Y</span><script type="math/tex">Z=X+Y</script></span>的分布</h3>
 <p><strong>卷积公式</strong></p>
-<p><span class="arithmatex">\(f_Z(z)=\int_{-\infty}^{+\infty}f(x,z-x)dx=\int_{-\infty}^{+\infty}f(z-y,y)dy\)</span></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">f_Z(z)=\int_{-\infty}^{+\infty}f(x,z-x)dx=\int_{-\infty}^{+\infty}f(z-y,y)dy</span><script type="math/tex">f_Z(z)=\int_{-\infty}^{+\infty}f(x,z-x)dx=\int_{-\infty}^{+\infty}f(z-y,y)dy</script></span></p>
 <p>其他形式可以通过积分变量替换来推导，推导时要从概率分布函数开始，关键是求出雅可比行列式，交换积分次序，得概率分布函数，最后求导得密度函数，见书p107。</p>
-<p>特别地，<span class="arithmatex">\(X,Y\)</span>​相互独立时
+<p>特别地，<span class="arithmatex"><span class="MathJax_Preview">X,Y</span><script type="math/tex">X,Y</script></span>​相互独立时
 $$
 f_Z(z)=\int_{-\infty}^{+\infty}f_X(x)f_Y(z-x)dx
 $$</p>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 f_Z(z)=\int_{-\infty}^{+\infty}f_X(z-y)f_Y(y)dx
-\]</div>
-<p>当密度函数不复杂时，如均匀分布，可考虑面积之比求概率密度函数；其他不复杂的函数，可以通过求概率分布函数的方法来求<span class="arithmatex">\(Z\)</span>的概率密度函数，此方法变形也可适用，如<span class="arithmatex">\(Z=2X-3Y\)</span>等形式</p>
+</div>
+<script type="math/tex; mode=display">
+f_Z(z)=\int_{-\infty}^{+\infty}f_X(z-y)f_Y(y)dx
+</script>
+</div>
+<p>当密度函数不复杂时，如均匀分布，可考虑面积之比求概率密度函数；其他不复杂的函数，可以通过求概率分布函数的方法来求<span class="arithmatex"><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span>的概率密度函数，此方法变形也可适用，如<span class="arithmatex"><span class="MathJax_Preview">Z=2X-3Y</span><script type="math/tex">Z=2X-3Y</script></span>等形式</p>
 <details class="note">
 <summary>例题</summary>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1119/2jj1tqkv.webp" /><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1119/3jfrqhfe.webp" /></p>
 </details>
 <p><strong>推导出的一个结论</strong></p>
-<p><span class="arithmatex">\(n\)</span>个相互独立的服从泊松分布的随机变量的和仍服从泊松分布，其参数为<span class="arithmatex">\(n\)</span>个分布的参数的和</p>
-<h3 id="xy"><span class="arithmatex">\(X,Y\)</span>最大值最小值的分布</h3>
+<p><span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>个相互独立的服从泊松分布的随机变量的和仍服从泊松分布，其参数为<span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>个分布的参数的和</p>
+<h3 id="xyxy"><span class="arithmatex"><span class="MathJax_Preview">X,Y</span><script type="math/tex">X,Y</script></span>最大值最小值的分布</h3>
 <p><strong>基本公式</strong></p>
-<p><span class="arithmatex">\(M=max\{X,Y\},N=min\{X,Y\}\)</span></p>
-<p><span class="arithmatex">\(F_M(t)=F_X(t)\cdot F_Y(t)\)</span></p>
-<p><span class="arithmatex">\(1-F_N(t)=(1-F_X(t))(1-F_Y(t))\)</span></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">M=max\{X,Y\},N=min\{X,Y\}</span><script type="math/tex">M=max\{X,Y\},N=min\{X,Y\}</script></span></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">F_M(t)=F_X(t)\cdot F_Y(t)</span><script type="math/tex">F_M(t)=F_X(t)\cdot F_Y(t)</script></span></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">1-F_N(t)=(1-F_X(t))(1-F_Y(t))</span><script type="math/tex">1-F_N(t)=(1-F_X(t))(1-F_Y(t))</script></span></p>
 <p>推广到多变量思想相同</p>
 
 

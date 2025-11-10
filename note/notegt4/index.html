@@ -4778,133 +4778,212 @@
 <h1 id="chapter-4">Chapter 4  随机变量的数字特征</h1>
 <h2 id="_1">数学期望</h2>
 <h3 id="_2">定义</h3>
-<p>离散型随机变量，若级数<span class="arithmatex">\(\overset{+\infty}{\underset{i=1}{\Sigma}}x_ip_i\)</span>绝对收敛，则称该级数为该随机变量的数学期望，记为
+<p>离散型随机变量，若级数<span class="arithmatex"><span class="MathJax_Preview">\overset{+\infty}{\underset{i=1}{\Sigma}}x_ip_i</span><script type="math/tex">\overset{+\infty}{\underset{i=1}{\Sigma}}x_ip_i</script></span>绝对收敛，则称该级数为该随机变量的数学期望，记为
 $$
 E(X)=\overset{+\infty}{\underset{i=1}{\sum}}x_ip_i
 $$
-该级数为<span class="arithmatex">\(+\infty\)</span>时，期望不存在</p>
+该级数为<span class="arithmatex"><span class="MathJax_Preview">+\infty</span><script type="math/tex">+\infty</script></span>时，期望不存在</p>
 <p>同理可定义连续型随机变量：
 $$
 E(X)=\int^{+\infty}_{-\infty}xf(x)dx
 $$</p>
 <h3 id="_3">泊松分布数学期望</h3>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 E(X)=\lambda
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+E(X)=\lambda
+</script>
+</div>
 <h3 id="_4">指数分布数学期望</h3>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 E(X)=\frac{1}{\lambda}
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+E(X)=\frac{1}{\lambda}
+</script>
+</div>
 <h3 id="_5">正态分布数学期望</h3>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 E(X)=\mu
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+E(X)=\mu
+</script>
+</div>
 <h3 id="_6">均匀分布数学期望</h3>
-<p><span class="arithmatex">\(X\)</span>~<span class="arithmatex">\(U(a,b)\)</span>
+<p><span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span>~<span class="arithmatex"><span class="MathJax_Preview">U(a,b)</span><script type="math/tex">U(a,b)</script></span>
 $$
 E(X)=\frac{a+b}{2}
 $$</p>
 <h3 id="by">懒人公式（by 赵敏智老师）</h3>
 <h4 id="_7">离散型</h4>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 E(g(X))=\overset{+\infty}{\underset{i=1}{\sum}}g(x_i)p_i
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+E(g(X))=\overset{+\infty}{\underset{i=1}{\sum}}g(x_i)p_i
+</script>
+</div>
 <h4 id="_8">连续型</h4>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 E(g(X))=\int^{+\infty}_{-\infty}g(x)f(x)dx
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+E(g(X))=\int^{+\infty}_{-\infty}g(x)f(x)dx
+</script>
+</div>
 <h4 id="_9">二维离散型</h4>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 E(h(X,Y))=\overset{+\infty}{\underset{i=1}{\sum}}\overset{+\infty}{\underset{j=1}{\sum}}h(x_i,y_i)p_{ij}
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+E(h(X,Y))=\overset{+\infty}{\underset{i=1}{\sum}}\overset{+\infty}{\underset{j=1}{\sum}}h(x_i,y_i)p_{ij}
+</script>
+</div>
 <h4 id="_10">二维连续型</h4>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 E(h(X,Y))=\int^{+\infty}_{-\infty}\int^{+\infty}_{-\infty}h(x,y)f(x,y)dxdy
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+E(h(X,Y))=\int^{+\infty}_{-\infty}\int^{+\infty}_{-\infty}h(x,y)f(x,y)dxdy
+</script>
+</div>
 <h3 id="_11">数学期望性质</h3>
-<p>1.线性性：<span class="arithmatex">\(E(aX+b)=aE(X)+b\)</span></p>
-<p>2.可加性：<span class="arithmatex">\(E(X_1+X_2+...+X_n)=E(X_1)+E(X_2)+...+E(X_n)\)</span></p>
-<p>3.独立可乘性：<span class="arithmatex">\(X,Y\)</span>独立，<span class="arithmatex">\(E(XY)=E(X)E(Y)\)</span>，多变量同理</p>
+<p>1.线性性：<span class="arithmatex"><span class="MathJax_Preview">E(aX+b)=aE(X)+b</span><script type="math/tex">E(aX+b)=aE(X)+b</script></span></p>
+<p>2.可加性：<span class="arithmatex"><span class="MathJax_Preview">E(X_1+X_2+...+X_n)=E(X_1)+E(X_2)+...+E(X_n)</span><script type="math/tex">E(X_1+X_2+...+X_n)=E(X_1)+E(X_2)+...+E(X_n)</script></span></p>
+<p>3.独立可乘性：<span class="arithmatex"><span class="MathJax_Preview">X,Y</span><script type="math/tex">X,Y</script></span>独立，<span class="arithmatex"><span class="MathJax_Preview">E(XY)=E(X)E(Y)</span><script type="math/tex">E(XY)=E(X)E(Y)</script></span>，多变量同理</p>
 <h2 id="_12">方差</h2>
 <h3 id="_13">定义和计算</h3>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 Var(X)=E[(X-E(X))^2]=E(X^2)-(E(X))^2
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+Var(X)=E[(X-E(X))^2]=E(X^2)-(E(X))^2
+</script>
+</div>
 <h3 id="_14">泊松分布方差</h3>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 Var(X)=\lambda
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+Var(X)=\lambda
+</script>
+</div>
 <h3 id="_15">指数分布方差</h3>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 Var(X)=\frac{1}{\lambda^2}
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+Var(X)=\frac{1}{\lambda^2}
+</script>
+</div>
 <h3 id="_16">二项分布方差</h3>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 Var(X)=np(1-p)
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+Var(X)=np(1-p)
+</script>
+</div>
 <h3 id="_17">均匀分布方差</h3>
-<p><span class="arithmatex">\(X\)</span>~<span class="arithmatex">\(U(a,b)\)</span>
+<p><span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span>~<span class="arithmatex"><span class="MathJax_Preview">U(a,b)</span><script type="math/tex">U(a,b)</script></span>
 $$
 Var(X)=\frac{(b-a)^2}{12}
 $$</p>
 <h3 id="_18">性质</h3>
-<p>1.<span class="arithmatex">\(Var(aX+b)=a^2Var(X)\)</span></p>
-<p>2.<span class="arithmatex">\(Var(X)\le E[(X-c)^2]\)</span>，当且仅当<span class="arithmatex">\(E(X)=c\)</span>时等号成立</p>
-<p>3.若<span class="arithmatex">\(Var(X)=0\)</span>，则<span class="arithmatex">\(X\)</span>恒为常数</p>
-<p>4.独立可加性：<span class="arithmatex">\(Var(X_1+X_2+...+X_n)=Var(X_1)+Var(X_2)+...+Var(X_n)\)</span></p>
-<p>5.<span class="arithmatex">\(Var(X+Y)=Var(X)+Var(Y)+2Cov(X,Y)\)</span></p>
+<p>1.<span class="arithmatex"><span class="MathJax_Preview">Var(aX+b)=a^2Var(X)</span><script type="math/tex">Var(aX+b)=a^2Var(X)</script></span></p>
+<p>2.<span class="arithmatex"><span class="MathJax_Preview">Var(X)\le E[(X-c)^2]</span><script type="math/tex">Var(X)\le E[(X-c)^2]</script></span>，当且仅当<span class="arithmatex"><span class="MathJax_Preview">E(X)=c</span><script type="math/tex">E(X)=c</script></span>时等号成立</p>
+<p>3.若<span class="arithmatex"><span class="MathJax_Preview">Var(X)=0</span><script type="math/tex">Var(X)=0</script></span>，则<span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span>恒为常数</p>
+<p>4.独立可加性：<span class="arithmatex"><span class="MathJax_Preview">Var(X_1+X_2+...+X_n)=Var(X_1)+Var(X_2)+...+Var(X_n)</span><script type="math/tex">Var(X_1+X_2+...+X_n)=Var(X_1)+Var(X_2)+...+Var(X_n)</script></span></p>
+<p>5.<span class="arithmatex"><span class="MathJax_Preview">Var(X+Y)=Var(X)+Var(Y)+2Cov(X,Y)</span><script type="math/tex">Var(X+Y)=Var(X)+Var(Y)+2Cov(X,Y)</script></span></p>
 <h2 id="_19">协方差</h2>
 <h3 id="_20">定义及计算</h3>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 Cov(X,Y)=E[(X-E(X))(Y-E(Y))]=E(XY)-E(X)E(Y)
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+Cov(X,Y)=E[(X-E(X))(Y-E(Y))]=E(XY)-E(X)E(Y)
+</script>
+</div>
 <h3 id="_21">性质</h3>
-<p>1.<span class="arithmatex">\(Cov(X,Y)=Cov(Y,X)\)</span></p>
-<p>2.<span class="arithmatex">\(Cov(X,X)=Var(X)\)</span></p>
-<p>3.<span class="arithmatex">\(Cov(aX,bY)=abCov(X,Y)\)</span></p>
-<p>4.<span class="arithmatex">\(Cov(X_1+X_2,Y)=Cov(X_1,Y)+Cov(X_2,Y)\)</span></p>
-<p>5.若<span class="arithmatex">\(X,Y\)</span>相互独立，则<span class="arithmatex">\(Cov(X,Y)=0\)</span>，<strong>反之则不然</strong></p>
-<p>6.<span class="arithmatex">\((Cov(X,Y))^2\le Var(X)Var(Y)\)</span>，当且仅当<span class="arithmatex">\(X,Y\)</span>​严格线性相关时等号成立</p>
+<p>1.<span class="arithmatex"><span class="MathJax_Preview">Cov(X,Y)=Cov(Y,X)</span><script type="math/tex">Cov(X,Y)=Cov(Y,X)</script></span></p>
+<p>2.<span class="arithmatex"><span class="MathJax_Preview">Cov(X,X)=Var(X)</span><script type="math/tex">Cov(X,X)=Var(X)</script></span></p>
+<p>3.<span class="arithmatex"><span class="MathJax_Preview">Cov(aX,bY)=abCov(X,Y)</span><script type="math/tex">Cov(aX,bY)=abCov(X,Y)</script></span></p>
+<p>4.<span class="arithmatex"><span class="MathJax_Preview">Cov(X_1+X_2,Y)=Cov(X_1,Y)+Cov(X_2,Y)</span><script type="math/tex">Cov(X_1+X_2,Y)=Cov(X_1,Y)+Cov(X_2,Y)</script></span></p>
+<p>5.若<span class="arithmatex"><span class="MathJax_Preview">X,Y</span><script type="math/tex">X,Y</script></span>相互独立，则<span class="arithmatex"><span class="MathJax_Preview">Cov(X,Y)=0</span><script type="math/tex">Cov(X,Y)=0</script></span>，<strong>反之则不然</strong></p>
+<p>6.<span class="arithmatex"><span class="MathJax_Preview">(Cov(X,Y))^2\le Var(X)Var(Y)</span><script type="math/tex">(Cov(X,Y))^2\le Var(X)Var(Y)</script></span>，当且仅当<span class="arithmatex"><span class="MathJax_Preview">X,Y</span><script type="math/tex">X,Y</script></span>​严格线性相关时等号成立</p>
 <h2 id="_22">相关系数</h2>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 \rho_{XY}=\frac{Cov(X,Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}
-\]</div>
-<p>反映随机变量<span class="arithmatex">\(X,Y\)</span>的线性关系</p>
+</div>
+<script type="math/tex; mode=display">
+\rho_{XY}=\frac{Cov(X,Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}
+</script>
+</div>
+<p>反映随机变量<span class="arithmatex"><span class="MathJax_Preview">X,Y</span><script type="math/tex">X,Y</script></span>的线性关系</p>
 <h3 id="_23">性质</h3>
-<p>1.若<span class="arithmatex">\(X,Y\)</span>独立，则相关系数<span class="arithmatex">\(\rho_{XY}=0\)</span>​，<strong>但反之不然</strong></p>
-<p>2.<span class="arithmatex">\(|\rho_{XY}|\le 1\)</span>，等号成立时<span class="arithmatex">\(X,Y\)</span>严格线性相关，为正时正相关，为负时负相关，为0时不相关</p>
+<p>1.若<span class="arithmatex"><span class="MathJax_Preview">X,Y</span><script type="math/tex">X,Y</script></span>独立，则相关系数<span class="arithmatex"><span class="MathJax_Preview">\rho_{XY}=0</span><script type="math/tex">\rho_{XY}=0</script></span>​，<strong>但反之不然</strong></p>
+<p>2.<span class="arithmatex"><span class="MathJax_Preview">|\rho_{XY}|\le 1</span><script type="math/tex">|\rho_{XY}|\le 1</script></span>，等号成立时<span class="arithmatex"><span class="MathJax_Preview">X,Y</span><script type="math/tex">X,Y</script></span>严格线性相关，为正时正相关，为负时负相关，为0时不相关</p>
 <h3 id="_24">注意</h3>
 <p><strong>独立可以推出不相关，不相关不能推出独立</strong></p>
-<p>不相关<span class="arithmatex">\(\rho_{XY}=0\)</span>可由以下条件等价：</p>
-<p>（1）<span class="arithmatex">\(Cov(X,Y)=0\)</span></p>
-<p>（2）<span class="arithmatex">\(E(XY)=E(X)E(Y)\)</span></p>
-<p>（3）<span class="arithmatex">\(Var(X+Y)=Var(X)+Var(Y)\)</span></p>
+<p>不相关<span class="arithmatex"><span class="MathJax_Preview">\rho_{XY}=0</span><script type="math/tex">\rho_{XY}=0</script></span>可由以下条件等价：</p>
+<p>（1）<span class="arithmatex"><span class="MathJax_Preview">Cov(X,Y)=0</span><script type="math/tex">Cov(X,Y)=0</script></span></p>
+<p>（2）<span class="arithmatex"><span class="MathJax_Preview">E(XY)=E(X)E(Y)</span><script type="math/tex">E(XY)=E(X)E(Y)</script></span></p>
+<p>（3）<span class="arithmatex"><span class="MathJax_Preview">Var(X+Y)=Var(X)+Var(Y)</span><script type="math/tex">Var(X+Y)=Var(X)+Var(Y)</script></span></p>
 <h2 id="_25">分位数</h2>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 P(X&gt;\alpha)=\int_{x_\alpha}^{+\infty}f(x)dx=\alpha
-\]</div>
-<p>则<span class="arithmatex">\(x_\alpha\)</span>为<span class="arithmatex">\(\alpha\)</span>分位数。</p>
-<p>对于偶函数（如标准正态分布），<span class="arithmatex">\(x_{\alpha}=-x_{1-\alpha}\)</span></p>
+</div>
+<script type="math/tex; mode=display">
+P(X>\alpha)=\int_{x_\alpha}^{+\infty}f(x)dx=\alpha
+</script>
+</div>
+<p>则<span class="arithmatex"><span class="MathJax_Preview">x_\alpha</span><script type="math/tex">x_\alpha</script></span>为<span class="arithmatex"><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span>分位数。</p>
+<p>对于偶函数（如标准正态分布），<span class="arithmatex"><span class="MathJax_Preview">x_{\alpha}=-x_{1-\alpha}</span><script type="math/tex">x_{\alpha}=-x_{1-\alpha}</script></span></p>
 <h2 id="_26">多维正态变量</h2>
 <h3 id="_27">协方差矩阵</h3>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 Cov(\pmb{X})=(Cov(X_i,X_j))_{n×n}
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+Cov(\pmb{X})=(Cov(X_i,X_j))_{n×n}
+</script>
+</div>
 <h3 id="_28">多维正态变量表示</h3>
-<p><span class="arithmatex">\(n\)</span>维随机变量<span class="arithmatex">\(\pmb{X}=(X_1,X_2,...,X_n)^{T}\)</span>，协方差矩阵<span class="arithmatex">\(\pmb{B}=Cov(\pmb{X})\)</span>，数学期望<span class="arithmatex">\(\pmb{a}=(E(X_1),E(X_2),...,E(X_n))^{T}\)</span>，则<span class="arithmatex">\(n\)</span>元正态分布记为<span class="arithmatex">\(X\sim N(\pmb{a},\pmb{B})\)</span></p>
-<p><span class="arithmatex">\(n=2\)</span>​时，协方差矩阵为：<span class="arithmatex">\(B=
+<p><span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>维随机变量<span class="arithmatex"><span class="MathJax_Preview">\pmb{X}=(X_1,X_2,...,X_n)^{T}</span><script type="math/tex">\pmb{X}=(X_1,X_2,...,X_n)^{T}</script></span>，协方差矩阵<span class="arithmatex"><span class="MathJax_Preview">\pmb{B}=Cov(\pmb{X})</span><script type="math/tex">\pmb{B}=Cov(\pmb{X})</script></span>，数学期望<span class="arithmatex"><span class="MathJax_Preview">\pmb{a}=(E(X_1),E(X_2),...,E(X_n))^{T}</span><script type="math/tex">\pmb{a}=(E(X_1),E(X_2),...,E(X_n))^{T}</script></span>，则<span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>元正态分布记为<span class="arithmatex"><span class="MathJax_Preview">X\sim N(\pmb{a},\pmb{B})</span><script type="math/tex">X\sim N(\pmb{a},\pmb{B})</script></span></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">n=2</span><script type="math/tex">n=2</script></span>​时，协方差矩阵为：<span class="arithmatex"><span class="MathJax_Preview">B=
 \begin{pmatrix}
 \sigma_1^2 &amp; \sigma_1\sigma_2\rho \\
 \sigma_1\sigma_2\rho &amp; \sigma_2^2 \\
-\end{pmatrix}\)</span></p>
+\end{pmatrix}</span><script type="math/tex">B=
+\begin{pmatrix}
+\sigma_1^2 & \sigma_1\sigma_2\rho \\
+\sigma_1\sigma_2\rho & \sigma_2^2 \\
+\end{pmatrix}</script></span></p>
 <h3 id="_29">性质</h3>
-<p>（1）<span class="arithmatex">\(n\)</span>维正态变量任意<span class="arithmatex">\(k\)</span>维子向量也服从<span class="arithmatex">\(k\)</span>元正态分布。特别地，<span class="arithmatex">\(n\)</span>维正态变量中的每个分量都服从一元正态分布。即联合正态能推导出每一个随机变量服从边际正态分布。边际正态不能直接推出联合正态，边际正态+相互独立可以推出联合正态</p>
-<p>（2）<span class="arithmatex">\(\pmb{X}=(X_1,X_2,...,X_n)^T\)</span>服从<span class="arithmatex">\(n\)</span>元正态分布的充要条件是各个分量的任意线性组合服从一元正态分布。</p>
-<p>（3）<span class="arithmatex">\(\pmb{X}=(X_1,X_2,...,X_n)^T\)</span>服从<span class="arithmatex">\(n\)</span>元正态分布，<span class="arithmatex">\(\pmb{Y}=(Y_1,Y_2,...,Y_k)^T\)</span>每个分量都是<span class="arithmatex">\(X\)</span>的线性函数，则<span class="arithmatex">\(\pmb{Y}\)</span>服从<span class="arithmatex">\(k\)</span>元正态分布。此性质称为“正态变量的<strong>线性变换不变性</strong>”</p>
-<p>（4）服从<span class="arithmatex">\(n\)</span>元正态分布的随机变量<span class="arithmatex">\(X\)</span>中的分量<span class="arithmatex">\(X_1,X_2,...,X_n\)</span>相互独立的<strong>充要条件</strong>是他们两两不相关，等价于<span class="arithmatex">\(Cov(X)\)</span>​​的矩阵为对角矩阵。<strong>在联合二元正态分布中，不相关等价于独立</strong></p>
+<p>（1）<span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>维正态变量任意<span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>维子向量也服从<span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>元正态分布。特别地，<span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>维正态变量中的每个分量都服从一元正态分布。即联合正态能推导出每一个随机变量服从边际正态分布。边际正态不能直接推出联合正态，边际正态+相互独立可以推出联合正态</p>
+<p>（2）<span class="arithmatex"><span class="MathJax_Preview">\pmb{X}=(X_1,X_2,...,X_n)^T</span><script type="math/tex">\pmb{X}=(X_1,X_2,...,X_n)^T</script></span>服从<span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>元正态分布的充要条件是各个分量的任意线性组合服从一元正态分布。</p>
+<p>（3）<span class="arithmatex"><span class="MathJax_Preview">\pmb{X}=(X_1,X_2,...,X_n)^T</span><script type="math/tex">\pmb{X}=(X_1,X_2,...,X_n)^T</script></span>服从<span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>元正态分布，<span class="arithmatex"><span class="MathJax_Preview">\pmb{Y}=(Y_1,Y_2,...,Y_k)^T</span><script type="math/tex">\pmb{Y}=(Y_1,Y_2,...,Y_k)^T</script></span>每个分量都是<span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span>的线性函数，则<span class="arithmatex"><span class="MathJax_Preview">\pmb{Y}</span><script type="math/tex">\pmb{Y}</script></span>服从<span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>元正态分布。此性质称为“正态变量的<strong>线性变换不变性</strong>”</p>
+<p>（4）服从<span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>元正态分布的随机变量<span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span>中的分量<span class="arithmatex"><span class="MathJax_Preview">X_1,X_2,...,X_n</span><script type="math/tex">X_1,X_2,...,X_n</script></span>相互独立的<strong>充要条件</strong>是他们两两不相关，等价于<span class="arithmatex"><span class="MathJax_Preview">Cov(X)</span><script type="math/tex">Cov(X)</script></span>​​的矩阵为对角矩阵。<strong>在联合二元正态分布中，不相关等价于独立</strong></p>
 <div class="admonition note">
 <p class="admonition-title">例</p>
-<p>例如，若<span class="arithmatex">\(X,Y\)</span>服从联合正态分布（边际正态分布不成立），<span class="arithmatex">\(X,Y\)</span>不相关等价于<span class="arithmatex">\(X,Y\)</span>独立。</p>
+<p>例如，若<span class="arithmatex"><span class="MathJax_Preview">X,Y</span><script type="math/tex">X,Y</script></span>服从联合正态分布（边际正态分布不成立），<span class="arithmatex"><span class="MathJax_Preview">X,Y</span><script type="math/tex">X,Y</script></span>不相关等价于<span class="arithmatex"><span class="MathJax_Preview">X,Y</span><script type="math/tex">X,Y</script></span>独立。</p>
 </div>
 <details class="note">
 <summary>例题</summary>

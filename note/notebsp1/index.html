@@ -4865,9 +4865,9 @@
 
 <h2 id="1">1.信号的分类</h2>
 <h3 id="continuous-time-signal">连续时间信号 continuous-time signal</h3>
-<p>时间和幅值均为连续的信号<span class="arithmatex">\(x(t)\)</span></p>
+<p>时间和幅值均为连续的信号<span class="arithmatex"><span class="MathJax_Preview">x(t)</span><script type="math/tex">x(t)</script></span></p>
 <h3 id="discrete-time-signals">离散时间信号 Discrete-Time Signals</h3>
-<p>时间是离散的，幅值是连续的信号<span class="arithmatex">\(x[n]\)</span></p>
+<p>时间是离散的，幅值是连续的信号<span class="arithmatex"><span class="MathJax_Preview">x[n]</span><script type="math/tex">x[n]</script></span></p>
 <h3 id="digital-signal">数字信号 Digital Signal</h3>
 <p>时间和幅值均为离散的信号</p>
 <h2 id="2">2.信号的变化</h2>
@@ -4884,61 +4884,98 @@ x[n]-x[n-1]
 \sum_{-\infty}^{n}x[k]
 $$</p>
 <h3 id="time-shift">时移（Time-shift）</h3>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 x(t-t_0),x[n-n_0]
-\]</div>
-<p><span class="arithmatex">\(t_0&lt;0，n_0&lt;0\)</span>，信号左移，表现为超前（advance）</p>
-<p><span class="arithmatex">\(t_0&gt;0，n_0&gt;0\)</span>，信号右移，表现为滞后（delay）</p>
+</div>
+<script type="math/tex; mode=display">
+x(t-t_0),x[n-n_0]
+</script>
+</div>
+<p><span class="arithmatex"><span class="MathJax_Preview">t_0&lt;0，n_0&lt;0</span><script type="math/tex">t_0<0，n_0<0</script></span>，信号左移，表现为超前（advance）</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">t_0&gt;0，n_0&gt;0</span><script type="math/tex">t_0>0，n_0>0</script></span>，信号右移，表现为滞后（delay）</p>
 <h3 id="time-reversal">翻褶（Time Reversal）</h3>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 x(-t),x[-n]
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+x(-t),x[-n]
+</script>
+</div>
 <p>表现为关于纵轴镜像对称</p>
 <div class="admonition note">
 <p class="admonition-title">注意</p>
 <p>实际操作时，如果一个信号同时包括reverse和shift，一般先时移不容易出错</p>
 </div>
 <h3 id="time-scaling">尺度变换（Time Scaling）</h3>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 x(at),x[an]
-\]</div>
-<p>对于连续时间信号，<span class="arithmatex">\(a&gt;1\)</span>，信号被压缩，反之，信号被延伸</p>
-<p>对于离散时间信号，<span class="arithmatex">\(a&gt;1\)</span>，信号与原信号相比被抽取了几个特定的值，反之，信号和原信号相比被插入了值</p>
+</div>
+<script type="math/tex; mode=display">
+x(at),x[an]
+</script>
+</div>
+<p>对于连续时间信号，<span class="arithmatex"><span class="MathJax_Preview">a&gt;1</span><script type="math/tex">a>1</script></span>，信号被压缩，反之，信号被延伸</p>
+<p>对于离散时间信号，<span class="arithmatex"><span class="MathJax_Preview">a&gt;1</span><script type="math/tex">a>1</script></span>，信号与原信号相比被抽取了几个特定的值，反之，信号和原信号相比被插入了值</p>
 <h3 id="periodic-signals">周期信号（Periodic Signals）</h3>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 x(t)=x(t+T)\newline
 x[n]=x[n+N]
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+x(t)=x(t+T)\newline
+x[n]=x[n+N]
+</script>
+</div>
 <p>非周期性：aperiodic</p>
 <div class="admonition note">
 <p class="admonition-title">小结论</p>
 <p>①连续正弦信号一定是周期信号，而正弦序列不一定是周期序列。②两连续周期信号之和不一定是周期信号，而两周期序列之和一定是周期序列。</p>
 </div>
 <h4 id="_1">判断正弦/余弦序列信号周期性</h4>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 Acos(\Omega_0n+\phi)
-\]</div>
-<p><span class="arithmatex">\(\frac{2\pi}{\Omega_0}\)</span>为整数或有理数时，为周期信号；为无理数时，为非周期信号</p>
+</div>
+<script type="math/tex; mode=display">
+Acos(\Omega_0n+\phi)
+</script>
+</div>
+<p><span class="arithmatex"><span class="MathJax_Preview">\frac{2\pi}{\Omega_0}</span><script type="math/tex">\frac{2\pi}{\Omega_0}</script></span>为整数或有理数时，为周期信号；为无理数时，为非周期信号</p>
 <h4 id="_2">两个连续周期信号相加</h4>
-<p><span class="arithmatex">\(\frac{T_1}{T_2}\)</span>为有理数时，为周期信号；<span class="arithmatex">\(\frac{T_1}{T_2}\)</span>为无理数时，为非周期信号</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">\frac{T_1}{T_2}</span><script type="math/tex">\frac{T_1}{T_2}</script></span>为有理数时，为周期信号；<span class="arithmatex"><span class="MathJax_Preview">\frac{T_1}{T_2}</span><script type="math/tex">\frac{T_1}{T_2}</script></span>为无理数时，为非周期信号</p>
 <h4 id="_3">两个离散周期信号相加</h4>
 <p>两周期序列之和一定是周期序列。</p>
 <h2 id="3">3.一些基础信号</h2>
 <h3 id="complex-exponential-signal">复指数信号 Complex Exponential Signal</h3>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 x(t)=e^{j\omega_0t} \\
 x[n]=e^{j\Omega_0n}=\cos(\Omega_0n)+j\sin(\Omega_0n)
-\]</div>
-<p><span class="arithmatex">\(x(t)\)</span>为周期信号，<span class="arithmatex">\(T=\frac{2\pi}{|\omega_0|}\)</span></p>
-<p><span class="arithmatex">\(x[n]\)</span>为周期信号条件是<span class="arithmatex">\(\frac{2\pi}{\Omega_0}\)</span>为有理数，则<span class="arithmatex">\(N=m\frac{2\pi}{\Omega_0}\)</span></p>
-<p>连续正弦信号（或者单位复指数信号）：<span class="arithmatex">\(\omega_0\)</span>越高，频率越高</p>
-<p>离散正弦信号（或者单位复指数信号）：因为受到<span class="arithmatex">\(2\pi\)</span>周期的制约，靠近<span class="arithmatex">\(\pm \pi\)</span>为高频，靠近0为低频</p>
+</div>
+<script type="math/tex; mode=display">
+x(t)=e^{j\omega_0t} \\
+x[n]=e^{j\Omega_0n}=\cos(\Omega_0n)+j\sin(\Omega_0n)
+</script>
+</div>
+<p><span class="arithmatex"><span class="MathJax_Preview">x(t)</span><script type="math/tex">x(t)</script></span>为周期信号，<span class="arithmatex"><span class="MathJax_Preview">T=\frac{2\pi}{|\omega_0|}</span><script type="math/tex">T=\frac{2\pi}{|\omega_0|}</script></span></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">x[n]</span><script type="math/tex">x[n]</script></span>为周期信号条件是<span class="arithmatex"><span class="MathJax_Preview">\frac{2\pi}{\Omega_0}</span><script type="math/tex">\frac{2\pi}{\Omega_0}</script></span>为有理数，则<span class="arithmatex"><span class="MathJax_Preview">N=m\frac{2\pi}{\Omega_0}</span><script type="math/tex">N=m\frac{2\pi}{\Omega_0}</script></span></p>
+<p>连续正弦信号（或者单位复指数信号）：<span class="arithmatex"><span class="MathJax_Preview">\omega_0</span><script type="math/tex">\omega_0</script></span>越高，频率越高</p>
+<p>离散正弦信号（或者单位复指数信号）：因为受到<span class="arithmatex"><span class="MathJax_Preview">2\pi</span><script type="math/tex">2\pi</script></span>周期的制约，靠近<span class="arithmatex"><span class="MathJax_Preview">\pm \pi</span><script type="math/tex">\pm \pi</script></span>为高频，靠近0为低频</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/1109/loc3vz3l.webp" /></p>
 <h3 id="unit-pulse-signal">单位脉冲信号 Unit Pulse Signal</h3>
 <h4 id="_4">离散形式</h4>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 \delta[n]=\cases{1,n=0\\0,n \neq 0}
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+\delta[n]=\cases{1,n=0\\0,n \neq 0}
+</script>
+</div>
 <p>取样性质
 $$
 x[n]\delta[n]=x[0]\delta[n] \
@@ -4946,10 +4983,16 @@ x[n]\delta[n-n_0]=x[n_0]\delta[n] \
 x[n]=\sum_{k=-\infty}^{k=+\infty}x[k]\delta[n-k] \
 $$</p>
 <h4 id="_5">连续形式</h4>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 \delta[t]=0,t \neq 0 \\
 \int_{-\epsilon}^{+\epsilon}\delta(t)dt=1,\epsilon&gt;0
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+\delta[t]=0,t \neq 0 \\
+\int_{-\epsilon}^{+\epsilon}\delta(t)dt=1,\epsilon>0
+</script>
+</div>
 <p>取样性质
 $$
 x[t]\delta[t]=x[0]\delta[t] \
@@ -4959,56 +5002,104 @@ x[t]\delta[t-t_0]=x[t_0]\delta[t] \
 $$</p>
 <h3 id="step-function">单位阶跃信号 Step Function</h3>
 <h4 id="_6">离散形式</h4>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 u[n]=\cases{1,n\ge0\\0,n&lt; 0}
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+u[n]=\cases{1,n\ge0\\0,n< 0}
+</script>
+</div>
 <h4 id="_7">连续形式</h4>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 u[t]=\cases{1,t\ge0\\0,t&lt; 0}
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+u[t]=\cases{1,t\ge0\\0,t< 0}
+</script>
+</div>
 <h3 id="ramp-signals">斜坡信号 Ramp Signals</h3>
 <h4 id="_8">离散形式</h4>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 r[n]=\cases{n,n\ge0\\0,n&lt; 0}
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+r[n]=\cases{n,n\ge0\\0,n< 0}
+</script>
+</div>
 <h4 id="_9">连续形式</h4>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 r[t]=\cases{t,t\ge0\\0,t&lt; 0}
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+r[t]=\cases{t,t\ge0\\0,t< 0}
+</script>
+</div>
 <h3 id="_10">关系</h3>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 \delta(t)=\frac{du(t)}{dt},u(t)=\int_{-\infty}^{\tau}\delta(\tau)d\tau \\
 \delta[n]=u[n]-u[n-1],u[n]=\sum_{k=-\infty}^{n}\delta[n]=\sum_{k=0}^{+\infty}\delta[n-k]
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+\delta(t)=\frac{du(t)}{dt},u(t)=\int_{-\infty}^{\tau}\delta(\tau)d\tau \\
+\delta[n]=u[n]-u[n-1],u[n]=\sum_{k=-\infty}^{n}\delta[n]=\sum_{k=0}^{+\infty}\delta[n-k]
+</script>
+</div>
 <h3 id="_11">一些信号可以看作是常用信号的组合</h3>
 <h4 id="rectangular-pulse-function">Rectangular pulse function(矩形脉冲函数/窗函数)</h4>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 p_{\tau}(t)=u(t+\frac{\tau}{2})-u(t-\frac{\tau}{2})
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+p_{\tau}(t)=u(t+\frac{\tau}{2})-u(t-\frac{\tau}{2})
+</script>
+</div>
 <h4 id="signum">Signum(符号函数)</h4>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 \text{sgn}(t)=2u(t)-1
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+\text{sgn}(t)=2u(t)-1
+</script>
+</div>
 <h3 id="4">4.系统性质</h3>
 <h3 id="linearity">Linearity （线性）</h3>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 y_1(t)=f(x_1(t)),y_2(t)=f(x_2(t)) \\
 y(t)=f(a_1x_1(t)+a_2x_2(t))=a_1y_1(t)+a_2y_2(t)
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+y_1(t)=f(x_1(t)),y_2(t)=f(x_2(t)) \\
+y(t)=f(a_1x_1(t)+a_2x_2(t))=a_1y_1(t)+a_2y_2(t)
+</script>
+</div>
 <h3 id="time-invariance">Time invariance（时不变性）</h3>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 y(t)=f(x(t)) \\
 y(t-t_0)=f(x(t-t_0))
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+y(t)=f(x(t)) \\
+y(t-t_0)=f(x(t-t_0))
+</script>
+</div>
 <h3 id="causality">Causality（因果性）</h3>
-<p><span class="arithmatex">\(y[n]\)</span>只取决于<span class="arithmatex">\(x[n-1]，x[n-2],...,x[n-n_0]\)</span>，则系统因果，否则为非因果</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">y[n]</span><script type="math/tex">y[n]</script></span>只取决于<span class="arithmatex"><span class="MathJax_Preview">x[n-1]，x[n-2],...,x[n-n_0]</span><script type="math/tex">x[n-1]，x[n-2],...,x[n-n_0]</script></span>，则系统因果，否则为非因果</p>
 <h4 id="memoryless-system">Memoryless system（无记忆性）</h4>
-<p>For any time <span class="arithmatex">\(t_1\)</span>, the value of the output at time <span class="arithmatex">\(t_1\)</span> depends only on the value of the input at time <span class="arithmatex">\(t_1\)</span></p>
+<p>For any time <span class="arithmatex"><span class="MathJax_Preview">t_1</span><script type="math/tex">t_1</script></span>, the value of the output at time <span class="arithmatex"><span class="MathJax_Preview">t_1</span><script type="math/tex">t_1</script></span> depends only on the value of the input at time <span class="arithmatex"><span class="MathJax_Preview">t_1</span><script type="math/tex">t_1</script></span></p>
 <p>只取决于当下</p>
 <h4 id="system-with-memory">System with memory（记忆性）</h4>
-<p>The value of the output at time <span class="arithmatex">\(t_1\)</span> depends on the past values of the input before time <span class="arithmatex">\(t_1\)</span></p>
+<p>The value of the output at time <span class="arithmatex"><span class="MathJax_Preview">t_1</span><script type="math/tex">t_1</script></span> depends on the past values of the input before time <span class="arithmatex"><span class="MathJax_Preview">t_1</span><script type="math/tex">t_1</script></span></p>
 <p>取决于之前和当下</p>
-<p>后续判断，单位脉冲响应信号<span class="arithmatex">\(h(t)=0\)</span> when <span class="arithmatex">\(t&lt;0\)</span></p>
+<p>后续判断，单位脉冲响应信号<span class="arithmatex"><span class="MathJax_Preview">h(t)=0</span><script type="math/tex">h(t)=0</script></span> when <span class="arithmatex"><span class="MathJax_Preview">t&lt;0</span><script type="math/tex">t<0</script></span></p>
 
 
 

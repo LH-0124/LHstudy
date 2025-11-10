@@ -4384,36 +4384,36 @@
 <h1 id="_1">触发器与锁存器</h1>
 <h2 id="1rs">1.基本RS锁存器</h2>
 <p>分与非门和或非门两种，与非门00保持，或非门11保持</p>
-<p><span class="arithmatex">\(S_D\)</span>为置位端（set），<span class="arithmatex">\(S_D\)</span>有效时<span class="arithmatex">\(Q=1\)</span>，<span class="arithmatex">\(S_D\)</span>是0有效还是1有效看器件符号</p>
-<p><span class="arithmatex">\(R_D\)</span>为复位端（reset），<span class="arithmatex">\(R_D\)</span>有效时<span class="arithmatex">\(Q=0\)</span>，<span class="arithmatex">\(R_D\)</span>是0有效还是1有效看器件符号</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">S_D</span><script type="math/tex">S_D</script></span>为置位端（set），<span class="arithmatex"><span class="MathJax_Preview">S_D</span><script type="math/tex">S_D</script></span>有效时<span class="arithmatex"><span class="MathJax_Preview">Q=1</span><script type="math/tex">Q=1</script></span>，<span class="arithmatex"><span class="MathJax_Preview">S_D</span><script type="math/tex">S_D</script></span>是0有效还是1有效看器件符号</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">R_D</span><script type="math/tex">R_D</script></span>为复位端（reset），<span class="arithmatex"><span class="MathJax_Preview">R_D</span><script type="math/tex">R_D</script></span>有效时<span class="arithmatex"><span class="MathJax_Preview">Q=0</span><script type="math/tex">Q=0</script></span>，<span class="arithmatex"><span class="MathJax_Preview">R_D</span><script type="math/tex">R_D</script></span>是0有效还是1有效看器件符号</p>
 <h2 id="2rs">2.同步RS锁存器</h2>
-<p><span class="arithmatex">\(CP=1\)</span>时触发，<span class="arithmatex">\(CP=0\)</span>时保持</p>
-<p><span class="arithmatex">\(Q^{n+1}=S+\overline{R}Q^{n}\)</span></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">CP=1</span><script type="math/tex">CP=1</script></span>时触发，<span class="arithmatex"><span class="MathJax_Preview">CP=0</span><script type="math/tex">CP=0</script></span>时保持</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">Q^{n+1}=S+\overline{R}Q^{n}</span><script type="math/tex">Q^{n+1}=S+\overline{R}Q^{n}</script></span></p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1127/iweahbki.webp" /></p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1127/spfhlvd2.webp" /></p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1127/zggwekbo.webp" /></p>
 <p><strong>状态转换图的理解记忆</strong></p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1127/nmi3nwpv.webp" /></p>
 <h2 id="3d">3.同步D锁存器</h2>
-<p><span class="arithmatex">\(CP=1\)</span>时触发，<span class="arithmatex">\(CP=0\)</span>时保持</p>
-<p><span class="arithmatex">\(Q^{n+1}=D\)</span></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">CP=1</span><script type="math/tex">CP=1</script></span>时触发，<span class="arithmatex"><span class="MathJax_Preview">CP=0</span><script type="math/tex">CP=0</script></span>时保持</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">Q^{n+1}=D</span><script type="math/tex">Q^{n+1}=D</script></span></p>
 <h2 id="4d">4.边沿D触发器</h2>
 <p>分上升沿和下降沿触发，不是上升沿/下降沿时保持</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1127/wcebb0ip.webp" /></p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1127/r4swi0gl.webp" /></p>
 <h2 id="5jk">5.JK触发器</h2>
-<p><span class="arithmatex">\(Q^{n+1}=J\overline{Q^n}+\overline{K}Q^n\)</span></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">Q^{n+1}=J\overline{Q^n}+\overline{K}Q^n</span><script type="math/tex">Q^{n+1}=J\overline{Q^n}+\overline{K}Q^n</script></span></p>
 <p>上升沿还是下降沿触发看符号</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1127/ngdcczqw.webp" /></p>
-<p><span class="arithmatex">\(J\)</span>为置位端，<span class="arithmatex">\(K\)</span>为复位端</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">J</span><script type="math/tex">J</script></span>为置位端，<span class="arithmatex"><span class="MathJax_Preview">K</span><script type="math/tex">K</script></span>为复位端</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1127/ms40tlwh.webp" /></p>
 <p>状态改变时可能是置另一种状态，也可能翻转</p>
 <h2 id="6t">6.T'触发器</h2>
-<p>分上升沿和触发沿，无输入端，<span class="arithmatex">\(Q^{n+1}=\overline{Q^n}\)</span>​</p>
+<p>分上升沿和触发沿，无输入端，<span class="arithmatex"><span class="MathJax_Preview">Q^{n+1}=\overline{Q^n}</span><script type="math/tex">Q^{n+1}=\overline{Q^n}</script></span>​</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1127/d10vpa5y.webp" /></p>
 <h2 id="7t">7.T触发器</h2>
-<p><span class="arithmatex">\(T\)</span>为输入端，<span class="arithmatex">\(T=0\)</span>保持，<span class="arithmatex">\(T=1\)</span>，翻转<span class="arithmatex">\(Q^{n+1}=\overline{Q^n}\)</span>​</p>
-<p><span class="arithmatex">\(Q^{n+1}=T\overline{Q^n}+\overline{T}Q^n=T\oplus Q^n\)</span></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">T</span><script type="math/tex">T</script></span>为输入端，<span class="arithmatex"><span class="MathJax_Preview">T=0</span><script type="math/tex">T=0</script></span>保持，<span class="arithmatex"><span class="MathJax_Preview">T=1</span><script type="math/tex">T=1</script></span>，翻转<span class="arithmatex"><span class="MathJax_Preview">Q^{n+1}=\overline{Q^n}</span><script type="math/tex">Q^{n+1}=\overline{Q^n}</script></span>​</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">Q^{n+1}=T\overline{Q^n}+\overline{T}Q^n=T\oplus Q^n</span><script type="math/tex">Q^{n+1}=T\overline{Q^n}+\overline{T}Q^n=T\oplus Q^n</script></span></p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1127/dx5bsurf.webp" /></p>
 
 

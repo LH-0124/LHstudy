@@ -4588,13 +4588,13 @@
 <h1 id="chapter-7">Chapter 7 参数估计</h1>
 <h2 id="_1">点估计</h2>
 <h3 id="_2">矩估计法</h3>
-<p>​        <strong>统计思想：以样本矩估计总体矩，以样本矩的函数估计总体矩的函数，矩包括<span class="arithmatex">\(k\)</span>阶原点矩和<span class="arithmatex">\(k\)</span>阶中心矩</strong></p>
-<p>​   根据大数定理，当样本容量<span class="arithmatex">\(n\rightarrow+\infty\)</span>时，样本矩依概率收敛于相应的总体矩，即
+<p>​        <strong>统计思想：以样本矩估计总体矩，以样本矩的函数估计总体矩的函数，矩包括<span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>阶原点矩和<span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>阶中心矩</strong></p>
+<p>​   根据大数定理，当样本容量<span class="arithmatex"><span class="MathJax_Preview">n\rightarrow+\infty</span><script type="math/tex">n\rightarrow+\infty</script></span>时，样本矩依概率收敛于相应的总体矩，即
 $$
 A_k\stackrel P\longrightarrow \mu_k,    B_k\stackrel{P}\longrightarrow \nu_k
 $$
-​   我们将待估参数<span class="arithmatex">\(\theta_m\)</span>​写成这些总体矩的函数</p>
-<p>​        有几个待估参数总体矩数量<span class="arithmatex">\(k\)</span>就用多少
+​   我们将待估参数<span class="arithmatex"><span class="MathJax_Preview">\theta_m</span><script type="math/tex">\theta_m</script></span>​写成这些总体矩的函数</p>
+<p>​        有几个待估参数总体矩数量<span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>就用多少
 $$
 \theta_m=h_m(\mu_1,\mu_2,\ldots,\mu_k)
 $$</p>
@@ -4602,18 +4602,18 @@ $$</p>
 $$
 \hat \theta_m=h_m(A_1,A_2,\ldots,A_k)
 $$
-​   将<span class="arithmatex">\(\hat \theta_m\)</span>称为参数<span class="arithmatex">\(\theta_m\)</span>​的矩估计量</p>
+​   将<span class="arithmatex"><span class="MathJax_Preview">\hat \theta_m</span><script type="math/tex">\hat \theta_m</script></span>称为参数<span class="arithmatex"><span class="MathJax_Preview">\theta_m</span><script type="math/tex">\theta_m</script></span>​的矩估计量</p>
 <p><strong>特别地，矩估计中用样本二阶中心矩来估计总体方差</strong></p>
 <h3 id="_3">极大似然法</h3>
-<p>​   若事件A发生的概率依赖于待估参数<span class="arithmatex">\(\theta\)</span>，且观察到A事件已经发生，则用使事件A发生的概率达到最大的<span class="arithmatex">\(\theta\)</span>值作为<span class="arithmatex">\(\theta\)</span>的估计。</p>
-<p>​   对于离散总体，设其概率分布为<span class="arithmatex">\(P\{X=x\}=p(x;\theta)\)</span>, <span class="arithmatex">\(\theta \in \Theta\)</span>, <span class="arithmatex">\(\Theta\)</span>是参数空间,则样本<span class="arithmatex">\(X_1,X_2,\ldots ,X_n\)</span>取到<span class="arithmatex">\(x_1,x_2,\ldots ,x_n\)</span>的概率为<span class="arithmatex">\(\prod\limits_{i=1}^nP\{X_i=x_i\}=\prod\limits_{i=1}^np(x_i;\theta)\)</span></p>
-<p>记<span class="arithmatex">\(L(\theta)=\prod\limits_{i=1}^nP\{X_i=x_i\}=\prod\limits_{i=1}^np(x_i;\theta)\)</span></p>
-<p>​      对于连续型随机变量，<span class="arithmatex">\(L(\theta)=\prod\limits_{i=1}^nf(x_i;\theta)\)</span>，其中<span class="arithmatex">\(f(x)\)</span>为连续型随机变量的密度函数</p>
-<p>​      我们称<span class="arithmatex">\(L(\theta)\)</span>为似然函数，若
+<p>​   若事件A发生的概率依赖于待估参数<span class="arithmatex"><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span>，且观察到A事件已经发生，则用使事件A发生的概率达到最大的<span class="arithmatex"><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span>值作为<span class="arithmatex"><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span>的估计。</p>
+<p>​   对于离散总体，设其概率分布为<span class="arithmatex"><span class="MathJax_Preview">P\{X=x\}=p(x;\theta)</span><script type="math/tex">P\{X=x\}=p(x;\theta)</script></span>, <span class="arithmatex"><span class="MathJax_Preview">\theta \in \Theta</span><script type="math/tex">\theta \in \Theta</script></span>, <span class="arithmatex"><span class="MathJax_Preview">\Theta</span><script type="math/tex">\Theta</script></span>是参数空间,则样本<span class="arithmatex"><span class="MathJax_Preview">X_1,X_2,\ldots ,X_n</span><script type="math/tex">X_1,X_2,\ldots ,X_n</script></span>取到<span class="arithmatex"><span class="MathJax_Preview">x_1,x_2,\ldots ,x_n</span><script type="math/tex">x_1,x_2,\ldots ,x_n</script></span>的概率为<span class="arithmatex"><span class="MathJax_Preview">\prod\limits_{i=1}^nP\{X_i=x_i\}=\prod\limits_{i=1}^np(x_i;\theta)</span><script type="math/tex">\prod\limits_{i=1}^nP\{X_i=x_i\}=\prod\limits_{i=1}^np(x_i;\theta)</script></span></p>
+<p>记<span class="arithmatex"><span class="MathJax_Preview">L(\theta)=\prod\limits_{i=1}^nP\{X_i=x_i\}=\prod\limits_{i=1}^np(x_i;\theta)</span><script type="math/tex">L(\theta)=\prod\limits_{i=1}^nP\{X_i=x_i\}=\prod\limits_{i=1}^np(x_i;\theta)</script></span></p>
+<p>​      对于连续型随机变量，<span class="arithmatex"><span class="MathJax_Preview">L(\theta)=\prod\limits_{i=1}^nf(x_i;\theta)</span><script type="math/tex">L(\theta)=\prod\limits_{i=1}^nf(x_i;\theta)</script></span>，其中<span class="arithmatex"><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span>为连续型随机变量的密度函数</p>
+<p>​      我们称<span class="arithmatex"><span class="MathJax_Preview">L(\theta)</span><script type="math/tex">L(\theta)</script></span>为似然函数，若
 $$
 L(\hat \theta)=L(\hat \theta;x_1,x_2,...,x_n)=\underset{\theta \in \Theta}{\text{max}}L(\theta;x_1,x_2,...,x_n)
 $$
-由此获得的<span class="arithmatex">\(\hat \theta=\theta(x_1,x_2,...,x_n)\)</span>称为参数<span class="arithmatex">\(\theta\)</span>的极大似然估计值，相应的统计量<span class="arithmatex">\(\hat \theta=\theta(X_1,X_2,...,X_n)\)</span>称为<span class="arithmatex">\(\theta\)</span>的极大似然估计量（MLE）。</p>
+由此获得的<span class="arithmatex"><span class="MathJax_Preview">\hat \theta=\theta(x_1,x_2,...,x_n)</span><script type="math/tex">\hat \theta=\theta(x_1,x_2,...,x_n)</script></span>称为参数<span class="arithmatex"><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span>的极大似然估计值，相应的统计量<span class="arithmatex"><span class="MathJax_Preview">\hat \theta=\theta(X_1,X_2,...,X_n)</span><script type="math/tex">\hat \theta=\theta(X_1,X_2,...,X_n)</script></span>称为<span class="arithmatex"><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span>的极大似然估计量（MLE）。</p>
 <p>常用微分法
 $$
 l(\theta)=lnL(\theta)=\sum\limits_{i=1}^{n}lnp(x_i;\theta)
@@ -4635,27 +4635,27 @@ $$</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1220/te2wpyvw.webp" /></p>
 <h2 id="_9">区间估计</h2>
 <h3 id="_10">定义</h3>
-<p>​   设总体为<span class="arithmatex">\(X\)</span>,<span class="arithmatex">\(\theta \in \Theta\)</span>是待估参数，<span class="arithmatex">\(X_1,X_2,\ldots ,X_n\)</span>是来自总体X的样本，统计量<span class="arithmatex">\(\hat \theta_L(X_1,X_2,\ldots ,X_n), \hat \theta_U(X_1,X_2,\ldots ,X_n)\)</span>满足<span class="arithmatex">\(\hat \theta_L &lt; \hat \theta_U\)</span>, 且对于给定的<span class="arithmatex">\(\alpha\)</span>，对于任意的<span class="arithmatex">\(\theta \in \Theta\)</span>, 有<span class="arithmatex">\(P\{\hat \theta_L &lt; \theta &lt; \hat\theta_U\}\ge 1-\alpha\)</span></p>
-<p>则称区间<span class="arithmatex">\((\hat \theta_L , \hat \theta_U)\)</span>是参数<span class="arithmatex">\(\theta\)</span>的<strong>置信水平</strong>为<span class="arithmatex">\(1-\alpha\)</span>的<strong>双侧置信区间</strong>，<span class="arithmatex">\(\hat \theta_L\)</span>和 <span class="arithmatex">\(\hat \theta_U\)</span>​分别为<strong>双侧置信下限</strong>和<strong>双侧置信上限</strong></p>
-<p><strong>单侧置信上限</strong>和<strong>单侧置信下限</strong>只考虑一侧，<span class="arithmatex">\(\hat \theta_L\)</span>是<span class="arithmatex">\(\theta\)</span>的置信度为<span class="arithmatex">\(1-\frac{\alpha}{2}\)</span>的单侧置信下限，<span class="arithmatex">\(\hat \theta_U\)</span>是<span class="arithmatex">\(\theta\)</span>的置信度为<span class="arithmatex">\(1-\frac{\alpha}{2}\)</span>的单侧置信上限</p>
+<p>​   设总体为<span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span>,<span class="arithmatex"><span class="MathJax_Preview">\theta \in \Theta</span><script type="math/tex">\theta \in \Theta</script></span>是待估参数，<span class="arithmatex"><span class="MathJax_Preview">X_1,X_2,\ldots ,X_n</span><script type="math/tex">X_1,X_2,\ldots ,X_n</script></span>是来自总体X的样本，统计量<span class="arithmatex"><span class="MathJax_Preview">\hat \theta_L(X_1,X_2,\ldots ,X_n), \hat \theta_U(X_1,X_2,\ldots ,X_n)</span><script type="math/tex">\hat \theta_L(X_1,X_2,\ldots ,X_n), \hat \theta_U(X_1,X_2,\ldots ,X_n)</script></span>满足<span class="arithmatex"><span class="MathJax_Preview">\hat \theta_L &lt; \hat \theta_U</span><script type="math/tex">\hat \theta_L < \hat \theta_U</script></span>, 且对于给定的<span class="arithmatex"><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span>，对于任意的<span class="arithmatex"><span class="MathJax_Preview">\theta \in \Theta</span><script type="math/tex">\theta \in \Theta</script></span>, 有<span class="arithmatex"><span class="MathJax_Preview">P\{\hat \theta_L &lt; \theta &lt; \hat\theta_U\}\ge 1-\alpha</span><script type="math/tex">P\{\hat \theta_L < \theta < \hat\theta_U\}\ge 1-\alpha</script></span></p>
+<p>则称区间<span class="arithmatex"><span class="MathJax_Preview">(\hat \theta_L , \hat \theta_U)</span><script type="math/tex">(\hat \theta_L , \hat \theta_U)</script></span>是参数<span class="arithmatex"><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span>的<strong>置信水平</strong>为<span class="arithmatex"><span class="MathJax_Preview">1-\alpha</span><script type="math/tex">1-\alpha</script></span>的<strong>双侧置信区间</strong>，<span class="arithmatex"><span class="MathJax_Preview">\hat \theta_L</span><script type="math/tex">\hat \theta_L</script></span>和 <span class="arithmatex"><span class="MathJax_Preview">\hat \theta_U</span><script type="math/tex">\hat \theta_U</script></span>​分别为<strong>双侧置信下限</strong>和<strong>双侧置信上限</strong></p>
+<p><strong>单侧置信上限</strong>和<strong>单侧置信下限</strong>只考虑一侧，<span class="arithmatex"><span class="MathJax_Preview">\hat \theta_L</span><script type="math/tex">\hat \theta_L</script></span>是<span class="arithmatex"><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span>的置信度为<span class="arithmatex"><span class="MathJax_Preview">1-\frac{\alpha}{2}</span><script type="math/tex">1-\frac{\alpha}{2}</script></span>的单侧置信下限，<span class="arithmatex"><span class="MathJax_Preview">\hat \theta_U</span><script type="math/tex">\hat \theta_U</script></span>是<span class="arithmatex"><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span>的置信度为<span class="arithmatex"><span class="MathJax_Preview">1-\frac{\alpha}{2}</span><script type="math/tex">1-\frac{\alpha}{2}</script></span>的单侧置信上限</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1205/yqenvpxl.webp" /></p>
-<p><span class="arithmatex">\(E(\hat \theta_U-\hat \theta_L)\)</span>为区间的<strong>精确度</strong>，精确度的一半为<strong>误差限</strong></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">E(\hat \theta_U-\hat \theta_L)</span><script type="math/tex">E(\hat \theta_U-\hat \theta_L)</script></span>为区间的<strong>精确度</strong>，精确度的一半为<strong>误差限</strong></p>
 <h3 id="_11">枢轴量</h3>
-<p>​   总体<span class="arithmatex">\(X\)</span>的密度函数为<span class="arithmatex">\(f(x;\theta)\)</span>，其中<span class="arithmatex">\(\theta\)</span>是待估参数，如果样本和参数的函数<span class="arithmatex">\(G(X_1,X_2,\ldots ,X_n,\theta)\)</span>的分布完全已知，且不依赖与其他参数，则称<span class="arithmatex">\(G(X_1,X_2,\ldots ,X_n,\theta)\)</span>为枢轴量</p>
+<p>​   总体<span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span>的密度函数为<span class="arithmatex"><span class="MathJax_Preview">f(x;\theta)</span><script type="math/tex">f(x;\theta)</script></span>，其中<span class="arithmatex"><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span>是待估参数，如果样本和参数的函数<span class="arithmatex"><span class="MathJax_Preview">G(X_1,X_2,\ldots ,X_n,\theta)</span><script type="math/tex">G(X_1,X_2,\ldots ,X_n,\theta)</script></span>的分布完全已知，且不依赖与其他参数，则称<span class="arithmatex"><span class="MathJax_Preview">G(X_1,X_2,\ldots ,X_n,\theta)</span><script type="math/tex">G(X_1,X_2,\ldots ,X_n,\theta)</script></span>为枢轴量</p>
 <h3 id="_12">寻求区间估计的步骤</h3>
 <ol>
 <li>
-<p>构造一个枢轴量<span class="arithmatex">\(G(X_1,X_2,\ldots ,X_n,\theta)\)</span>​</p>
+<p>构造一个枢轴量<span class="arithmatex"><span class="MathJax_Preview">G(X_1,X_2,\ldots ,X_n,\theta)</span><script type="math/tex">G(X_1,X_2,\ldots ,X_n,\theta)</script></span>​</p>
 </li>
 <li>
-<p>对给定的置信水平<span class="arithmatex">\(1-\alpha\)</span>，根据枢轴量<span class="arithmatex">\(G(X_1,X_2,\ldots ,X_n,\theta)\)</span>的分布，选择两常数<span class="arithmatex">\(a\)</span>和<span class="arithmatex">\(b\)</span>,使<span class="arithmatex">\(P_\theta\{a&lt;G(X_1,X_2,\ldots ,X_n,\theta)&lt;b\}=1-\alpha\)</span>。若对离散随机变量，可能没有办法使概率正好等于<span class="arithmatex">\(1-\alpha\)</span>,因此，<span class="arithmatex">\(a\)</span>和<span class="arithmatex">\(b\)</span>应使<span class="arithmatex">\(P_\theta\{a&lt;G(X_1,X_2,\ldots ,X_n,\theta)&lt;b\}\ge1-\alpha\)</span>且尽可能接近<span class="arithmatex">\(1-\alpha\)</span></p>
+<p>对给定的置信水平<span class="arithmatex"><span class="MathJax_Preview">1-\alpha</span><script type="math/tex">1-\alpha</script></span>，根据枢轴量<span class="arithmatex"><span class="MathJax_Preview">G(X_1,X_2,\ldots ,X_n,\theta)</span><script type="math/tex">G(X_1,X_2,\ldots ,X_n,\theta)</script></span>的分布，选择两常数<span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span>和<span class="arithmatex"><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span>,使<span class="arithmatex"><span class="MathJax_Preview">P_\theta\{a&lt;G(X_1,X_2,\ldots ,X_n,\theta)&lt;b\}=1-\alpha</span><script type="math/tex">P_\theta\{a<G(X_1,X_2,\ldots ,X_n,\theta)<b\}=1-\alpha</script></span>。若对离散随机变量，可能没有办法使概率正好等于<span class="arithmatex"><span class="MathJax_Preview">1-\alpha</span><script type="math/tex">1-\alpha</script></span>,因此，<span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span>和<span class="arithmatex"><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span>应使<span class="arithmatex"><span class="MathJax_Preview">P_\theta\{a&lt;G(X_1,X_2,\ldots ,X_n,\theta)&lt;b\}\ge1-\alpha</span><script type="math/tex">P_\theta\{a<G(X_1,X_2,\ldots ,X_n,\theta)<b\}\ge1-\alpha</script></span>且尽可能接近<span class="arithmatex"><span class="MathJax_Preview">1-\alpha</span><script type="math/tex">1-\alpha</script></span></p>
 </li>
 <li>
-<p>根据分布，取出尽可能小的区间<span class="arithmatex">\((a,b)\)</span>，并据此解出<span class="arithmatex">\(\hat \theta_L, \hat \theta_U\)</span></p>
+<p>根据分布，取出尽可能小的区间<span class="arithmatex"><span class="MathJax_Preview">(a,b)</span><script type="math/tex">(a,b)</script></span>，并据此解出<span class="arithmatex"><span class="MathJax_Preview">\hat \theta_L, \hat \theta_U</span><script type="math/tex">\hat \theta_L, \hat \theta_U</script></span></p>
 </li>
 </ol>
-<p>习惯上，取<span class="arithmatex">\(a\)</span>和<span class="arithmatex">\(b\)</span>满足<span class="arithmatex">\(P_\theta\{G(X_1,X_2,\ldots ,X_n,\theta)\le a\}=P_\theta\{G(X_1,X_2,\ldots ,X_n,\theta)\ge b\}=\frac{\alpha}{2}\)</span>​</p>
-<p>若求单侧上限或单侧下限，把<span class="arithmatex">\(1-\alpha\)</span>换成<span class="arithmatex">\(\alpha\)</span>即可</p>
+<p>习惯上，取<span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span>和<span class="arithmatex"><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span>满足<span class="arithmatex"><span class="MathJax_Preview">P_\theta\{G(X_1,X_2,\ldots ,X_n,\theta)\le a\}=P_\theta\{G(X_1,X_2,\ldots ,X_n,\theta)\ge b\}=\frac{\alpha}{2}</span><script type="math/tex">P_\theta\{G(X_1,X_2,\ldots ,X_n,\theta)\le a\}=P_\theta\{G(X_1,X_2,\ldots ,X_n,\theta)\ge b\}=\frac{\alpha}{2}</script></span>​</p>
+<p>若求单侧上限或单侧下限，把<span class="arithmatex"><span class="MathJax_Preview">1-\alpha</span><script type="math/tex">1-\alpha</script></span>换成<span class="arithmatex"><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span>即可</p>
 <h3 id="_13">枢轴量的选择原则</h3>
 <ol>
 <li>
@@ -4668,46 +4668,56 @@ $$</p>
 <p>例子：</p>
 </li>
 </ol>
-<p><strong>一、单正态总体 <span class="arithmatex">\(N\left(\mu, \sigma^2\right)\)</span> 常用枢轴量</strong></p>
-<p>(1) <span class="arithmatex">\(\sigma^2\)</span> 已知, 求 <span class="arithmatex">\(\mu\)</span> 的区间估计: <span class="arithmatex">\(G=\frac{\bar{X}-\mu}{\sigma / \sqrt{n}} \sim N(0,1)\)</span>​</p>
+<p><strong>一、单正态总体 <span class="arithmatex"><span class="MathJax_Preview">N\left(\mu, \sigma^2\right)</span><script type="math/tex">N\left(\mu, \sigma^2\right)</script></span> 常用枢轴量</strong></p>
+<p>(1) <span class="arithmatex"><span class="MathJax_Preview">\sigma^2</span><script type="math/tex">\sigma^2</script></span> 已知, 求 <span class="arithmatex"><span class="MathJax_Preview">\mu</span><script type="math/tex">\mu</script></span> 的区间估计: <span class="arithmatex"><span class="MathJax_Preview">G=\frac{\bar{X}-\mu}{\sigma / \sqrt{n}} \sim N(0,1)</span><script type="math/tex">G=\frac{\bar{X}-\mu}{\sigma / \sqrt{n}} \sim N(0,1)</script></span>​</p>
 <p><strong>区间为</strong>
    $$
    (\overline{X}-\frac{\sigma}{\sqrt{n}}z_{\alpha /2}，\overline{X}+\frac{\sigma}{\sqrt{n}}z_{\alpha /2})
    $$</p>
-<p>(2) <span class="arithmatex">\(\sigma^2\)</span> 未知, 求 <span class="arithmatex">\(\mu\)</span> 的区间估计: <span class="arithmatex">\(\frac{\bar{X}-\mu}{S / \sqrt{n}} \sim t(n-1)\)</span>​</p>
+<p>(2) <span class="arithmatex"><span class="MathJax_Preview">\sigma^2</span><script type="math/tex">\sigma^2</script></span> 未知, 求 <span class="arithmatex"><span class="MathJax_Preview">\mu</span><script type="math/tex">\mu</script></span> 的区间估计: <span class="arithmatex"><span class="MathJax_Preview">\frac{\bar{X}-\mu}{S / \sqrt{n}} \sim t(n-1)</span><script type="math/tex">\frac{\bar{X}-\mu}{S / \sqrt{n}} \sim t(n-1)</script></span>​</p>
 <p><strong>区间为</strong>
    $$
    (\overline{X}-\frac{S}{\sqrt{n}}t_{\alpha /2}(n-1)，\overline{X}+\frac{S}{\sqrt{n}}t_{\alpha /2}(n-1))
    $$</p>
-<p>(3) <span class="arithmatex">\(\mu\)</span> 未知, 求 <span class="arithmatex">\(\sigma^2\)</span> 的区间估计: <span class="arithmatex">\(\frac{(n-1) S^2}{\sigma^2}=\sum_{i=1}^n\left(\frac{X_i-\bar{X}}{\sigma}\right)^2 \sim \chi^2(n-1)\)</span></p>
+<p>(3) <span class="arithmatex"><span class="MathJax_Preview">\mu</span><script type="math/tex">\mu</script></span> 未知, 求 <span class="arithmatex"><span class="MathJax_Preview">\sigma^2</span><script type="math/tex">\sigma^2</script></span> 的区间估计: <span class="arithmatex"><span class="MathJax_Preview">\frac{(n-1) S^2}{\sigma^2}=\sum_{i=1}^n\left(\frac{X_i-\bar{X}}{\sigma}\right)^2 \sim \chi^2(n-1)</span><script type="math/tex">\frac{(n-1) S^2}{\sigma^2}=\sum_{i=1}^n\left(\frac{X_i-\bar{X}}{\sigma}\right)^2 \sim \chi^2(n-1)</script></span></p>
 <p><strong>区间为</strong>
    $$
    (\frac{(n-1)S^2}{\chi^2_{\alpha/2}(n-1)}，\frac{(n-1)S^2}{\chi^2_{1-\alpha/2}(n-1)})
    $$</p>
-<p>*(4) <span class="arithmatex">\(\mu\)</span> 已知, 求 <span class="arithmatex">\(\sigma^2\)</span> 的区间估计: <span class="arithmatex">\(\sum_{i=1}^n\left(\frac{X_i-\mu}{\sigma}\right)^2 \sim \chi^2(n)\)</span>​​​​​</p>
+<p>*(4) <span class="arithmatex"><span class="MathJax_Preview">\mu</span><script type="math/tex">\mu</script></span> 已知, 求 <span class="arithmatex"><span class="MathJax_Preview">\sigma^2</span><script type="math/tex">\sigma^2</script></span> 的区间估计: <span class="arithmatex"><span class="MathJax_Preview">\sum_{i=1}^n\left(\frac{X_i-\mu}{\sigma}\right)^2 \sim \chi^2(n)</span><script type="math/tex">\sum_{i=1}^n\left(\frac{X_i-\mu}{\sigma}\right)^2 \sim \chi^2(n)</script></span>​​​​​</p>
 <p><strong>二、双正态总体的常用枢轴量</strong></p>
-<p>(1) <span class="arithmatex">\(\sigma_1^2, \sigma_2^2\)</span> 己知, 求 <span class="arithmatex">\(\mu_1-\mu_2\)</span> 的区间估计: <span class="arithmatex">\(\frac{(\bar{X}-\bar{Y})-\left(\mu_1-\mu_2\right)}{\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}} \sim N(0,1)\)</span>​</p>
+<p>(1) <span class="arithmatex"><span class="MathJax_Preview">\sigma_1^2, \sigma_2^2</span><script type="math/tex">\sigma_1^2, \sigma_2^2</script></span> 己知, 求 <span class="arithmatex"><span class="MathJax_Preview">\mu_1-\mu_2</span><script type="math/tex">\mu_1-\mu_2</script></span> 的区间估计: <span class="arithmatex"><span class="MathJax_Preview">\frac{(\bar{X}-\bar{Y})-\left(\mu_1-\mu_2\right)}{\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}} \sim N(0,1)</span><script type="math/tex">\frac{(\bar{X}-\bar{Y})-\left(\mu_1-\mu_2\right)}{\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}} \sim N(0,1)</script></span>​</p>
 <p><strong>区间为</strong>
    $$
    (\overline{X}-\overline{Y}\pm z_{\alpha/2}\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}})
    $$</p>
-<p>(2) <span class="arithmatex">\(\sigma_1^2=\sigma_2^2\)</span> 未知, 求 <span class="arithmatex">\(\mu_1-\mu_2\)</span>​​的区间估计:</p>
-<div class="arithmatex">\[
+<p>(2) <span class="arithmatex"><span class="MathJax_Preview">\sigma_1^2=\sigma_2^2</span><script type="math/tex">\sigma_1^2=\sigma_2^2</script></span> 未知, 求 <span class="arithmatex"><span class="MathJax_Preview">\mu_1-\mu_2</span><script type="math/tex">\mu_1-\mu_2</script></span>​​的区间估计:</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
 \frac{(\bar{X}-\bar{Y})-\left(\mu_1-\mu_2\right)}{S_{w}\sqrt{{\frac{1}{n_1}+\frac{1}{n_2}}}} \sim t\left(n_1+n_2-2\right)
-\]</div>
-<div class="arithmatex">\[
+</div>
+<script type="math/tex; mode=display">
+\frac{(\bar{X}-\bar{Y})-\left(\mu_1-\mu_2\right)}{S_{w}\sqrt{{\frac{1}{n_1}+\frac{1}{n_2}}}} \sim t\left(n_1+n_2-2\right)
+</script>
+</div>
+<div class="arithmatex">
+<div class="MathJax_Preview">
 S^2_w=\frac{(n_1-1)S^2_1+(n_2-1)S_2^2}{n_1+n_2-2},S_w=\sqrt{S^2_w}
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+S^2_w=\frac{(n_1-1)S^2_1+(n_2-1)S_2^2}{n_1+n_2-2},S_w=\sqrt{S^2_w}
+</script>
+</div>
 <p>​      <strong>区间为</strong>
 $$
 (\overline{X}-\overline{Y}\pm t_{\alpha/2}(n_1+n_2-2)S_w\sqrt{\frac{1}{n_1}+\frac{1}{n_2}})
 $$</p>
-<p>​      (3) <span class="arithmatex">\(\mu_1, \mu_2\)</span> 未知, 求 <span class="arithmatex">\(\frac{\sigma_1^2}{\sigma_2^2}\)</span> 的区间估计: <span class="arithmatex">\(\frac{S_1^2/S_2^2}{\sigma_1^2/\sigma_2^2} \sim F\left(n_1-1, n_2-1\right)\)</span></p>
+<p>​      (3) <span class="arithmatex"><span class="MathJax_Preview">\mu_1, \mu_2</span><script type="math/tex">\mu_1, \mu_2</script></span> 未知, 求 <span class="arithmatex"><span class="MathJax_Preview">\frac{\sigma_1^2}{\sigma_2^2}</span><script type="math/tex">\frac{\sigma_1^2}{\sigma_2^2}</script></span> 的区间估计: <span class="arithmatex"><span class="MathJax_Preview">\frac{S_1^2/S_2^2}{\sigma_1^2/\sigma_2^2} \sim F\left(n_1-1, n_2-1\right)</span><script type="math/tex">\frac{S_1^2/S_2^2}{\sigma_1^2/\sigma_2^2} \sim F\left(n_1-1, n_2-1\right)</script></span></p>
 <p>​     <strong>区间为</strong>
 $$
 (\frac{S_1^2/S_2^2}{F_{\alpha/2}(n_1-1,n_2-1)},\frac{S_1^2/S_2^2}{F_{1-\alpha/2}(n_1-1,n_2-1)})
 $$</p>
-<p>​      *(4) <span class="arithmatex">\(\mu_1, \mu_2\)</span> 已知, 求 <span class="arithmatex">\(\frac{\sigma_1^2}{\sigma_2^2}\)</span> 的区间估计: <span class="arithmatex">\(\frac{\sum_{m=1}^n\left(X_1-\mu_1\right)^2 / n_1}{\sum_{i=1}^2\left(Y_1-\mu_2\right)^2 / n_2} / \frac{\sigma_1^2}{\sigma_2^2} \sim F\left(n_1, n_2\right)\)</span>​</p>
+<p>​      *(4) <span class="arithmatex"><span class="MathJax_Preview">\mu_1, \mu_2</span><script type="math/tex">\mu_1, \mu_2</script></span> 已知, 求 <span class="arithmatex"><span class="MathJax_Preview">\frac{\sigma_1^2}{\sigma_2^2}</span><script type="math/tex">\frac{\sigma_1^2}{\sigma_2^2}</script></span> 的区间估计: <span class="arithmatex"><span class="MathJax_Preview">\frac{\sum_{m=1}^n\left(X_1-\mu_1\right)^2 / n_1}{\sum_{i=1}^2\left(Y_1-\mu_2\right)^2 / n_2} / \frac{\sigma_1^2}{\sigma_2^2} \sim F\left(n_1, n_2\right)</span><script type="math/tex">\frac{\sum_{m=1}^n\left(X_1-\mu_1\right)^2 / n_1}{\sum_{i=1}^2\left(Y_1-\mu_2\right)^2 / n_2} / \frac{\sigma_1^2}{\sigma_2^2} \sim F\left(n_1, n_2\right)</script></span>​</p>
 <h2 id="_14">估计量的评价准则</h2>
 <h3 id="_15">无偏性准则</h3>
 <p>无偏估计
@@ -4724,18 +4734,18 @@ $$
 $$
 <img alt="" src="https://file.cc98.org/v4-upload/d/2024/1205/1c4vwkco.webp" /></p>
 <h3 id="_16">有效性准则</h3>
-<p>​   若<span class="arithmatex">\(\hat\theta_1, \hat \theta_2\)</span><strong>都是无偏估计</strong>，且<span class="arithmatex">\(\forall \theta \in \Theta, Var_\theta(\hat \theta_1)\le Var_\theta(\hat \theta_2)\)</span>，要求至少有一个<span class="arithmatex">\(\theta\)</span>使不等号成立，则称<span class="arithmatex">\(\hat \theta_1\)</span>比<span class="arithmatex">\(\hat \theta_2\)</span>更有效。</p>
+<p>​   若<span class="arithmatex"><span class="MathJax_Preview">\hat\theta_1, \hat \theta_2</span><script type="math/tex">\hat\theta_1, \hat \theta_2</script></span><strong>都是无偏估计</strong>，且<span class="arithmatex"><span class="MathJax_Preview">\forall \theta \in \Theta, Var_\theta(\hat \theta_1)\le Var_\theta(\hat \theta_2)</span><script type="math/tex">\forall \theta \in \Theta, Var_\theta(\hat \theta_1)\le Var_\theta(\hat \theta_2)</script></span>，要求至少有一个<span class="arithmatex"><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span>使不等号成立，则称<span class="arithmatex"><span class="MathJax_Preview">\hat \theta_1</span><script type="math/tex">\hat \theta_1</script></span>比<span class="arithmatex"><span class="MathJax_Preview">\hat \theta_2</span><script type="math/tex">\hat \theta_2</script></span>更有效。</p>
 <p>简单理解：方差越小越有效</p>
 <h3 id="_17">均方误差准则</h3>
-<p>称<span class="arithmatex">\(\text{Mse}(\hat \theta)\)</span>为估计量<span class="arithmatex">\(\hat \theta\)</span>的均方误差，要使<span class="arithmatex">\(\text{Mse}(\hat \theta)=E[(\hat \theta -\theta)^2]\)</span>​尽量小</p>
-<p><span class="arithmatex">\(\text{Mse}(\hat \theta)=E[(\hat \theta -\theta)^2]=Var(\hat \theta-\theta)+(E(\hat \theta)-\theta)^2=Var(\hat \theta)+(E(\hat \theta)-\theta)^2\)</span>​</p>
-<p>无偏时，<span class="arithmatex">\(\text{Mse}(\hat \theta)=Var(\hat \theta)\)</span></p>
+<p>称<span class="arithmatex"><span class="MathJax_Preview">\text{Mse}(\hat \theta)</span><script type="math/tex">\text{Mse}(\hat \theta)</script></span>为估计量<span class="arithmatex"><span class="MathJax_Preview">\hat \theta</span><script type="math/tex">\hat \theta</script></span>的均方误差，要使<span class="arithmatex"><span class="MathJax_Preview">\text{Mse}(\hat \theta)=E[(\hat \theta -\theta)^2]</span><script type="math/tex">\text{Mse}(\hat \theta)=E[(\hat \theta -\theta)^2]</script></span>​尽量小</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">\text{Mse}(\hat \theta)=E[(\hat \theta -\theta)^2]=Var(\hat \theta-\theta)+(E(\hat \theta)-\theta)^2=Var(\hat \theta)+(E(\hat \theta)-\theta)^2</span><script type="math/tex">\text{Mse}(\hat \theta)=E[(\hat \theta -\theta)^2]=Var(\hat \theta-\theta)+(E(\hat \theta)-\theta)^2=Var(\hat \theta)+(E(\hat \theta)-\theta)^2</script></span>​</p>
+<p>无偏时，<span class="arithmatex"><span class="MathJax_Preview">\text{Mse}(\hat \theta)=Var(\hat \theta)</span><script type="math/tex">\text{Mse}(\hat \theta)=Var(\hat \theta)</script></span></p>
 <h3 id="_18">相合性准则</h3>
 <p>满足
 $$
 \hat \theta\stackrel{P}\longrightarrow\theta
 $$</p>
-<p>则称<span class="arithmatex">\(\hat \theta\)</span>为<span class="arithmatex">\(\theta\)</span>的相合估计量或一致估计量</p>
+<p>则称<span class="arithmatex"><span class="MathJax_Preview">\hat \theta</span><script type="math/tex">\hat \theta</script></span>为<span class="arithmatex"><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span>的相合估计量或一致估计量</p>
 
 
 

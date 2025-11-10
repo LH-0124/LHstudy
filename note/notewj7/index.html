@@ -4522,18 +4522,18 @@
 <p>发送/接收一帧数据为8位二进制数，低位LSB在先，高位MSB在后</p>
 <h3 id="1">方式1</h3>
 <p>传送一帧数据为10位，其中1位起始位、8位数据位、1位停止位</p>
-<p>波特率 = <span class="arithmatex">\(=2^{SMOD}×fosc/32×12×(2^{定时器1位数}-初值)\)</span></p>
+<p>波特率 = <span class="arithmatex"><span class="MathJax_Preview">=2^{SMOD}×fosc/32×12×(2^{定时器1位数}-初值)</span><script type="math/tex">=2^{SMOD}×fosc/32×12×(2^{定时器1位数}-初值)</script></span></p>
 <p>方式1的发送发送中断标志TI=0时，由写发送缓冲器的指令（MOV  SBUF，A）开始启动一次发送</p>
 <p>在发送移位脉冲的作用下，从TXD引脚发出一帧信息10位，1位起始位（自动插入）、8位数据位、1位停止位（自动插入）</p>
 <p>发送完毕时置TI=1，用以通知CPU可以发送下一字节，同时维持TXD引脚为高电平</p>
 <h3 id="2">方式2</h3>
 <p>串行口方式2，是11位异步通信接口，其中1位起始位、8位数据位（先低位后高位）、1位附加的可程为“1”或“0”的第9位数据位、1位停止位</p>
-<p>方式2的波特率只有2种选择，波特率为<span class="arithmatex">\(2^{SMOD}/64×fosc\)</span></p>
+<p>方式2的波特率只有2种选择，波特率为<span class="arithmatex"><span class="MathJax_Preview">2^{SMOD}/64×fosc</span><script type="math/tex">2^{SMOD}/64×fosc</script></span></p>
 <p>在方式2发送时，数据由TXD端输出</p>
 <p>发送一帧信息为11位，附加的第9位数据是SCON中的TB8，可由软件置位或清零。TB8可作多机通信中的地址、数据标志，也可作数据的奇偶校验位</p>
 <p>CPU执行一条写入发送缓冲器指令（MOV SBUF，A），就启动发送器发送，发送完一帧信息，TI中断标志置“1”</p>
 <h3 id="3">方式3</h3>
-<p>串行口被定义为方式3时，为波特率可变的9位异步通信方式除了波特率外，方式3与方式2相同波特率<span class="arithmatex">\(=2^{SMOD}×fosc/32×12×(2^{定时器1位数}-初值)\)</span></p>
+<p>串行口被定义为方式3时，为波特率可变的9位异步通信方式除了波特率外，方式3与方式2相同波特率<span class="arithmatex"><span class="MathJax_Preview">=2^{SMOD}×fosc/32×12×(2^{定时器1位数}-初值)</span><script type="math/tex">=2^{SMOD}×fosc/32×12×(2^{定时器1位数}-初值)</script></span></p>
 <h2 id="_4">波特率设计</h2>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0529/msed12x5.webp" /></p>
 <h2 id="_5">常用波特率（不用背）</h2>

@@ -4492,8 +4492,8 @@
 <p>定时/计数器的方式寄存器，是一可编程的特殊功能寄存器，字节地址为89H，<strong>不可位寻址</strong></p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0529/l5ebr4qv.webp" /></p>
 <p>前四位控制定时器/计数器T1，后四位控制定时器/计数器T0</p>
-<p>GATE：门控位。当GATE=1时，计数器受外部信号<span class="arithmatex">\(\overline{INTx}\)</span> 控制，当运行控制位TR0（或TR1）为“1”且<span class="arithmatex">\(\overline{INTx}\)</span>为高电平时开始计数，否则停止计数</p>
-<p><span class="arithmatex">\(C/\overline{T}\)</span>：计数器方式还是定时器方式选择位。当<span class="arithmatex">\(C/\overline{T}=0\)</span>时为定时器方式，其计数器输入为晶振的12分频，即对机器周期计数；当<span class="arithmatex">\(C/\overline{T}=1\)</span>时为计数器方式，计数器的触发输入来自T0（P3.4）或T1（P3.5）端输入的外部脉冲。</p>
+<p>GATE：门控位。当GATE=1时，计数器受外部信号<span class="arithmatex"><span class="MathJax_Preview">\overline{INTx}</span><script type="math/tex">\overline{INTx}</script></span> 控制，当运行控制位TR0（或TR1）为“1”且<span class="arithmatex"><span class="MathJax_Preview">\overline{INTx}</span><script type="math/tex">\overline{INTx}</script></span>为高电平时开始计数，否则停止计数</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">C/\overline{T}</span><script type="math/tex">C/\overline{T}</script></span>：计数器方式还是定时器方式选择位。当<span class="arithmatex"><span class="MathJax_Preview">C/\overline{T}=0</span><script type="math/tex">C/\overline{T}=0</script></span>时为定时器方式，其计数器输入为晶振的12分频，即对机器周期计数；当<span class="arithmatex"><span class="MathJax_Preview">C/\overline{T}=1</span><script type="math/tex">C/\overline{T}=1</script></span>时为计数器方式，计数器的触发输入来自T0（P3.4）或T1（P3.5）端输入的外部脉冲。</p>
 <p>M1和M0：操作方式选择位</p>
 <p><strong>单片机复位时，TMOD各位均为“0”</strong></p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0529/k3qobpch.webp" /></p>

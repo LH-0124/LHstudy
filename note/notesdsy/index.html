@@ -4341,7 +4341,7 @@
 <p>2.时序电路设计，要求给定输入X与时钟信号CP，输出为Q0Q1Q2，X=0时输出4→5→6→4……的序列，X=1时输出0→1→2→0……的序列 </p>
 <p>（1）X接逻辑开关，CP接1Hz脉冲，用数码管显示结果。 </p>
 <p>（2）CP接1024Hz脉冲，用示波器显示稳定的图像，要求CH1接Q1，CH2接Q0。</p>
-<p><strong>做法：用161做出3进制计数器，再将X取反接到数码管<span class="arithmatex">\(Q_C\)</span>。这个思路很妙，不知道是怎么想到的。</strong></p>
+<p><strong>做法：用161做出3进制计数器，再将X取反接到数码管<span class="arithmatex"><span class="MathJax_Preview">Q_C</span><script type="math/tex">Q_C</script></span>。这个思路很妙，不知道是怎么想到的。</strong></p>
 <p>3.电路实现010-011-100-101-110（搭完此电路，可以先用LED灯给老师验收） 以上述作为输出，进一步搭建奇偶判断电路或者能否被3整除的电路，用示波器观测输入与输出波形</p>
 <p><strong>做法：常规的反馈计数法的加法计数器</strong></p>
 <p>4.利用JK触发器和与非门芯片，实现信号发生器，其能重复输出10011101信号，并完成连线</p>
@@ -4351,9 +4351,9 @@
 <p>6.</p>
 <p>X=0,00→01→10→11→00 </p>
 <p>X=1,000→001→010→011→100→101→000</p>
-<p><strong>做法：161计数器，<span class="arithmatex">\(\overline{\overline{X}Q_AQ_B+XQ_CQ_A}\)</span>,接到清零端</strong></p>
+<p><strong>做法：161计数器，<span class="arithmatex"><span class="MathJax_Preview">\overline{\overline{X}Q_AQ_B+XQ_CQ_A}</span><script type="math/tex">\overline{\overline{X}Q_AQ_B+XQ_CQ_A}</script></span>,接到清零端</strong></p>
 <p>7.三位环形计数器</p>
-<p><strong>做法：D触发器实现，<span class="arithmatex">\(Q_C\)</span>接<span class="arithmatex">\(D_B\)</span>，<span class="arithmatex">\(Q_B\)</span>接<span class="arithmatex">\(D_A\)</span>，<span class="arithmatex">\(Q_A\)</span>接<span class="arithmatex">\(D_C\)</span></strong></p>
+<p><strong>做法：D触发器实现，<span class="arithmatex"><span class="MathJax_Preview">Q_C</span><script type="math/tex">Q_C</script></span>接<span class="arithmatex"><span class="MathJax_Preview">D_B</span><script type="math/tex">D_B</script></span>，<span class="arithmatex"><span class="MathJax_Preview">Q_B</span><script type="math/tex">Q_B</script></span>接<span class="arithmatex"><span class="MathJax_Preview">D_A</span><script type="math/tex">D_A</script></span>，<span class="arithmatex"><span class="MathJax_Preview">Q_A</span><script type="math/tex">Q_A</script></span>接<span class="arithmatex"><span class="MathJax_Preview">D_C</span><script type="math/tex">D_C</script></span></strong></p>
 
 
 

@@ -4427,8 +4427,8 @@
 <p>A0----A15   </p>
 <p>D0----D7     </p>
 <p>ALE </p>
-<p><span class="arithmatex">\(\overline{PSEN}\)</span>        （ROM用）     </p>
-<p><span class="arithmatex">\(\overline{RD} ， \overline{WR}\)</span>​​        （RAM用）</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">\overline{PSEN}</span><script type="math/tex">\overline{PSEN}</script></span>        （ROM用）     </p>
+<p><span class="arithmatex"><span class="MathJax_Preview">\overline{RD} ， \overline{WR}</span><script type="math/tex">\overline{RD} ， \overline{WR}</script></span>​​        （RAM用）</p>
 <h2 id="romram">ROM、RAM芯片</h2>
 <p>因为有时候考试这两个芯片也不会具体给出，或者说只告诉名字不告诉大小，所以最好还是记一下……</p>
 <p>记住2764和6264分别为8K的ROM和8K的RAM，其他推导得出即可</p>
@@ -4436,7 +4436,7 @@
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0610/c5nmc0og.webp" /></p>
 <h2 id="rom">扩展ROM</h2>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0528/urrvrz25.webp" /></p>
-<p>基本操作：数据接数据、地址接地址，<span class="arithmatex">\(\overline{PSEN}\)</span>接<span class="arithmatex">\(\overline{OE}\)</span>，剩下的片选信号一般接地址信号。</p>
+<p>基本操作：数据接数据、地址接地址，<span class="arithmatex"><span class="MathJax_Preview">\overline{PSEN}</span><script type="math/tex">\overline{PSEN}</script></span>接<span class="arithmatex"><span class="MathJax_Preview">\overline{OE}</span><script type="math/tex">\overline{OE}</script></span>，剩下的片选信号一般接地址信号。</p>
 <p>需要会判断各芯片所对应的地址</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0528/zigfdnjq.webp" /></p>
 <p>如图所示。将一个A15信号取反和不取反接到两个芯片的片选端。</p>
@@ -4454,7 +4454,7 @@
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0528/en3oinag.webp" /></p>
 <p>一个地址信号使得片选有效时，由于另外两个地址信号不确定，形成四组地址</p>
 <h2 id="ram">扩展RAM</h2>
-<p>基本操作：数据接数据、地址接地址，<span class="arithmatex">\(\overline{RD}\)</span>接<span class="arithmatex">\(\overline{OE}\)</span>，<span class="arithmatex">\(\overline{WR}\)</span>接<span class="arithmatex">\(\overline{WE}\)</span>。剩下的片选信号一般接地址信号。</p>
+<p>基本操作：数据接数据、地址接地址，<span class="arithmatex"><span class="MathJax_Preview">\overline{RD}</span><script type="math/tex">\overline{RD}</script></span>接<span class="arithmatex"><span class="MathJax_Preview">\overline{OE}</span><script type="math/tex">\overline{OE}</script></span>，<span class="arithmatex"><span class="MathJax_Preview">\overline{WR}</span><script type="math/tex">\overline{WR}</script></span>接<span class="arithmatex"><span class="MathJax_Preview">\overline{WE}</span><script type="math/tex">\overline{WE}</script></span>。剩下的片选信号一般接地址信号。</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0528/krs5boin.webp" /></p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0528/giwfzgk0.webp" /></p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0528/ipaitqxp.webp" /></p>

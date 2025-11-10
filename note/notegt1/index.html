@@ -4355,58 +4355,88 @@
 
 <h1 id="chapter-1">Chapter 1   概率论的基本概念</h1>
 <h2 id="_1">概率加法公式</h2>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 P(A\cup B)=P(A)+P(B)-P(AB)
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+P(A\cup B)=P(A)+P(B)-P(AB)
+</script>
+</div>
 <p>推广：</p>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 P(A\cup B \cup C)=P(A)+P(B)+P(C)-P(AB)-P(AC)-P(BC)+P(ABC)
-\]</div>
-<div class="arithmatex">\[
+</div>
+<script type="math/tex; mode=display">
+P(A\cup B \cup C)=P(A)+P(B)+P(C)-P(AB)-P(AC)-P(BC)+P(ABC)
+</script>
+</div>
+<div class="arithmatex">
+<div class="MathJax_Preview">
 P(\overset{n}{\underset{j=1}{\cup}}A_j)=\overset{n}{\underset{i=1}{\sum}}P(A_i)-\underset {i&lt;j}{\sum}P(A_iA_j)+\underset {i&lt;j&lt;k}{\sum}P(A_iA_jA_k)-...+(-1)^{n-1}P(A_1A_2...A_n),n\ge1
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+P(\overset{n}{\underset{j=1}{\cup}}A_j)=\overset{n}{\underset{i=1}{\sum}}P(A_i)-\underset {i<j}{\sum}P(A_iA_j)+\underset {i<j<k}{\sum}P(A_iA_jA_k)-...+(-1)^{n-1}P(A_1A_2...A_n),n\ge1
+</script>
+</div>
 <h2 id="_2">条件概率公式</h2>
 <p>$$
 P(A|B)=\frac{P(AB)}{P(B)}
 $$
 <strong>条件概率乘法公式：</strong>
-当<span class="arithmatex">\(P(A)\neq0,P(B)\neq0\)</span>时
+当<span class="arithmatex"><span class="MathJax_Preview">P(A)\neq0,P(B)\neq0</span><script type="math/tex">P(A)\neq0,P(B)\neq0</script></span>时
 $$
 P(AB)=P(A)\cdot P(B|A)=P(B)\cdot P(A|B)
 $$
 推广：</p>
-<p><span class="arithmatex">\(P(AB)\neq0\)</span>时
+<p><span class="arithmatex"><span class="MathJax_Preview">P(AB)\neq0</span><script type="math/tex">P(AB)\neq0</script></span>时
 $$
 P(ABC)=P(A)\cdot P(B|A) \cdot P(C|AB)
 $$</p>
 <h2 id="_3">全概率公式</h2>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 P(A)=\overset{n}{\underset{j=1}{\sum}}P(B_j)P(A|B_j)
-\]</div>
+</div>
+<script type="math/tex; mode=display">
+P(A)=\overset{n}{\underset{j=1}{\sum}}P(B_j)P(A|B_j)
+</script>
+</div>
 <h2 id="_4">贝叶斯公式</h2>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 P(B_k|A)=\frac{P(B_kA)}{P(A)}=\frac{P(B_k)P(A|B_k)}{\overset{n}{\underset{j=1}{\sum}}P(B_j)P(A|B_j)},k=1,2,..,n.
-\]</div>
-<p><span class="arithmatex">\(P(B_k|A)\)</span>称为后验概率，当<span class="arithmatex">\(A,B_k\)</span>不独立时，先验概率和后验概率不等。</p>
+</div>
+<script type="math/tex; mode=display">
+P(B_k|A)=\frac{P(B_kA)}{P(A)}=\frac{P(B_k)P(A|B_k)}{\overset{n}{\underset{j=1}{\sum}}P(B_j)P(A|B_j)},k=1,2,..,n.
+</script>
+</div>
+<p><span class="arithmatex"><span class="MathJax_Preview">P(B_k|A)</span><script type="math/tex">P(B_k|A)</script></span>称为后验概率，当<span class="arithmatex"><span class="MathJax_Preview">A,B_k</span><script type="math/tex">A,B_k</script></span>不独立时，先验概率和后验概率不等。</p>
 <h2 id="_5">事件的独立性</h2>
-<p>当<span class="arithmatex">\(P(AB)=P(A)\cdot P(B)\)</span>时，称事件<span class="arithmatex">\(A,B\)</span>独立</p>
-<p>事件<span class="arithmatex">\(A,B\)</span>独立时，条件概率等于无条件概率，即<span class="arithmatex">\(P(B|A)=P(B)\)</span>或<span class="arithmatex">\(P(A|B)=P(A)\)</span></p>
-<p>事件<span class="arithmatex">\(A,B\)</span>独立时，<span class="arithmatex">\(A\)</span>与<span class="arithmatex">\(\overline{B}\)</span>,   <span class="arithmatex">\(\overline{A}\)</span>与<span class="arithmatex">\({B}\)</span> ,  <span class="arithmatex">\(\overline{A}\)</span>与<span class="arithmatex">\(\overline{B}\)</span>​均相互独立</p>
-<p>若事件<span class="arithmatex">\(A,B,C\)</span>满足:
+<p>当<span class="arithmatex"><span class="MathJax_Preview">P(AB)=P(A)\cdot P(B)</span><script type="math/tex">P(AB)=P(A)\cdot P(B)</script></span>时，称事件<span class="arithmatex"><span class="MathJax_Preview">A,B</span><script type="math/tex">A,B</script></span>独立</p>
+<p>事件<span class="arithmatex"><span class="MathJax_Preview">A,B</span><script type="math/tex">A,B</script></span>独立时，条件概率等于无条件概率，即<span class="arithmatex"><span class="MathJax_Preview">P(B|A)=P(B)</span><script type="math/tex">P(B|A)=P(B)</script></span>或<span class="arithmatex"><span class="MathJax_Preview">P(A|B)=P(A)</span><script type="math/tex">P(A|B)=P(A)</script></span></p>
+<p>事件<span class="arithmatex"><span class="MathJax_Preview">A,B</span><script type="math/tex">A,B</script></span>独立时，<span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>与<span class="arithmatex"><span class="MathJax_Preview">\overline{B}</span><script type="math/tex">\overline{B}</script></span>,   <span class="arithmatex"><span class="MathJax_Preview">\overline{A}</span><script type="math/tex">\overline{A}</script></span>与<span class="arithmatex"><span class="MathJax_Preview">{B}</span><script type="math/tex">{B}</script></span> ,  <span class="arithmatex"><span class="MathJax_Preview">\overline{A}</span><script type="math/tex">\overline{A}</script></span>与<span class="arithmatex"><span class="MathJax_Preview">\overline{B}</span><script type="math/tex">\overline{B}</script></span>​均相互独立</p>
+<p>若事件<span class="arithmatex"><span class="MathJax_Preview">A,B,C</span><script type="math/tex">A,B,C</script></span>满足:
 $$
 P(AB)=P(A)P(B)
 $$
 $$
 P(AC)=P(A)P(C)
 $$</p>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<div class="MathJax_Preview">
 P(BC)=P(B)P(C)
-\]</div>
-<p>都成立，则<span class="arithmatex">\(A,B,C\)</span>两两独立。若<span class="arithmatex">\(A,B,C\)</span>还满足：
+</div>
+<script type="math/tex; mode=display">
+P(BC)=P(B)P(C)
+</script>
+</div>
+<p>都成立，则<span class="arithmatex"><span class="MathJax_Preview">A,B,C</span><script type="math/tex">A,B,C</script></span>两两独立。若<span class="arithmatex"><span class="MathJax_Preview">A,B,C</span><script type="math/tex">A,B,C</script></span>还满足：
 $$
 P(ABC)=P(A)P(B)P(C)
 $$
-则称事件<span class="arithmatex">\(A,B,C\)</span>相互独立</p>
+则称事件<span class="arithmatex"><span class="MathJax_Preview">A,B,C</span><script type="math/tex">A,B,C</script></span>相互独立</p>
 
 
 

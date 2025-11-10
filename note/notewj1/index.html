@@ -4590,12 +4590,12 @@
 <p>电源、地（VCC，GND）2条</p>
 <p>时钟电路引脚（XTAL1、XTAL2）2条，时钟电路如下：</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0518/5rkdvj4y.webp" /></p>
-<p><strong>控制信号引脚（<span class="arithmatex">\(ALE\)</span>、<span class="arithmatex">\(\overline{PSEN}\)</span> 、<span class="arithmatex">\(\overline{EA}\)</span> 、<span class="arithmatex">\(RST\)</span>）4条</strong></p>
-<p><span class="arithmatex">\(ALE/ \overline{PROG}\)</span>​ （Address Latch Enable/Programming）：地址锁存允许信号输出端。在存取片外存储器时，用于锁存<strong>低8位地址</strong>。地址锁存有效时，ALE输出高电平。<strong>不访问片外存储器时，ALE以六分之一的时钟频率固定输出正脉冲。</strong></p>
-<p><span class="arithmatex">\(\overline{PSEN}\)</span> （Program Store Enable）：片外程序存储器允许输出端。是片外程序存储器ROM的选通信号，低电平有效。在执行MOVC指令时，会访问到片外程序存储器ROM，此时PSEN低电平有效</p>
-<p><span class="arithmatex">\(\overline{EA}\)</span> （External Access）：片外ROM允许输入端。当<span class="arithmatex">\(\overline{EA}=1\)</span>时，CPU执行片内ROM指令，但当PC的值超过4K（0FFFH）或8K（1FFFH）时，将<strong>自动</strong>转向片外ROM取地址。当<span class="arithmatex">\(\overline{EA}=0\)</span>时，CPU只执行片外ROM的指令。</p>
-<p><strong>对于无片内ROM的芯片（8031）， <span class="arithmatex">\(\overline{EA}\)</span>必须为0</strong></p>
-<p><span class="arithmatex">\(RST\)</span>：复位信号输入端。高电平有效，在此输入端保持两个机器周期的高电平，就可以完成复位操作。</p>
+<p><strong>控制信号引脚（<span class="arithmatex"><span class="MathJax_Preview">ALE</span><script type="math/tex">ALE</script></span>、<span class="arithmatex"><span class="MathJax_Preview">\overline{PSEN}</span><script type="math/tex">\overline{PSEN}</script></span> 、<span class="arithmatex"><span class="MathJax_Preview">\overline{EA}</span><script type="math/tex">\overline{EA}</script></span> 、<span class="arithmatex"><span class="MathJax_Preview">RST</span><script type="math/tex">RST</script></span>）4条</strong></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">ALE/ \overline{PROG}</span><script type="math/tex">ALE/ \overline{PROG}</script></span>​ （Address Latch Enable/Programming）：地址锁存允许信号输出端。在存取片外存储器时，用于锁存<strong>低8位地址</strong>。地址锁存有效时，ALE输出高电平。<strong>不访问片外存储器时，ALE以六分之一的时钟频率固定输出正脉冲。</strong></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">\overline{PSEN}</span><script type="math/tex">\overline{PSEN}</script></span> （Program Store Enable）：片外程序存储器允许输出端。是片外程序存储器ROM的选通信号，低电平有效。在执行MOVC指令时，会访问到片外程序存储器ROM，此时PSEN低电平有效</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">\overline{EA}</span><script type="math/tex">\overline{EA}</script></span> （External Access）：片外ROM允许输入端。当<span class="arithmatex"><span class="MathJax_Preview">\overline{EA}=1</span><script type="math/tex">\overline{EA}=1</script></span>时，CPU执行片内ROM指令，但当PC的值超过4K（0FFFH）或8K（1FFFH）时，将<strong>自动</strong>转向片外ROM取地址。当<span class="arithmatex"><span class="MathJax_Preview">\overline{EA}=0</span><script type="math/tex">\overline{EA}=0</script></span>时，CPU只执行片外ROM的指令。</p>
+<p><strong>对于无片内ROM的芯片（8031）， <span class="arithmatex"><span class="MathJax_Preview">\overline{EA}</span><script type="math/tex">\overline{EA}</script></span>必须为0</strong></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">RST</span><script type="math/tex">RST</script></span>：复位信号输入端。高电平有效，在此输入端保持两个机器周期的高电平，就可以完成复位操作。</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/0518/i4odwg5v.webp" /></p>
 <p>重点记PC、SP、DPTR、P0-P3</p>
 <p><strong>注意PC和DPTR都是16位寄存器，所以一定要写0000H</strong></p>
@@ -4633,7 +4633,7 @@ XRL P0,A
 <p>执行指令MOVX @DPTR，A，<strong>WR信号有效</strong></p>
 <h3 id="_4">三总线</h3>
 <p><strong>地址总线：</strong>P0口作为地址/数据复用口，在访问外部存储器时，由地址锁存信号ALE把P0口的低八位地址锁存到地址锁存器中；P2口则输出高八位地址，构成16根地址总线</p>
-<p><strong>数据总线：</strong>在访问外部程序存储器ROM时，当<span class="arithmatex">\(\overline{PSEN}\)</span> 信号有效时，P0口作为数据总线出现指令信号；访问外部数据存储器RAM时，<span class="arithmatex">\(\overline{RD}\)</span>或<span class="arithmatex">\(\overline{WR}\)</span>​读写信号有效时，P0口上将出现数据信号，出现数据信息D0-D7</p>
+<p><strong>数据总线：</strong>在访问外部程序存储器ROM时，当<span class="arithmatex"><span class="MathJax_Preview">\overline{PSEN}</span><script type="math/tex">\overline{PSEN}</script></span> 信号有效时，P0口作为数据总线出现指令信号；访问外部数据存储器RAM时，<span class="arithmatex"><span class="MathJax_Preview">\overline{RD}</span><script type="math/tex">\overline{RD}</script></span>或<span class="arithmatex"><span class="MathJax_Preview">\overline{WR}</span><script type="math/tex">\overline{WR}</script></span>​读写信号有效时，P0口上将出现数据信号，出现数据信息D0-D7</p>
 <p><strong>控制总线：</strong>掌握控制引脚的功能即可</p>
 <h3 id="_5">存储器</h3>
 <p>MCS-51系列单片机存储器结构的主要特点是程序存储器和数据存储器的寻址空间是分开的，分别可以寻址64K的ROM和64K的RAM</p>
@@ -4673,7 +4673,7 @@ XRL P0,A
 <p><strong>其他控制寄存器</strong>：IP、IE、TMOD、TCON、T2CON、SCON、PCON等</p>
 <h3 id="cpu">CPU时序</h3>
 <p>1个机器周期=6个状态=12个振荡周期</p>
-<p>若采用12MHz振荡源，则每个机器周期位<span class="arithmatex">\(1\mu s\)</span></p>
+<p>若采用12MHz振荡源，则每个机器周期位<span class="arithmatex"><span class="MathJax_Preview">1\mu s</span><script type="math/tex">1\mu s</script></span></p>
 <p>振荡周期是晶振的周期，由晶振频率直接给出</p>
 <p>1个状态执行了2个节拍，P1完成算术逻辑运算，P2在内部寄存器间传送</p>
 <p>1个机器周期内执行了6个固定时序，因此1个机器周期由6个状态组成</p>

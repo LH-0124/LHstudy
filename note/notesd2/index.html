@@ -4633,17 +4633,17 @@
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1202/kfehppeg.webp" /></p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1202/g40ocuyc.webp" /></p>
 <h2 id="6">6.数据分配器</h2>
-<p>数据分配器是将一路串行输入数据，在<span class="arithmatex">\(n\)</span>位地址的控制下，依次分配到<span class="arithmatex">\(2^n\)</span>​个通道上去。</p>
+<p>数据分配器是将一路串行输入数据，在<span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>位地址的控制下，依次分配到<span class="arithmatex"><span class="MathJax_Preview">2^n</span><script type="math/tex">2^n</script></span>​个通道上去。</p>
 <p><strong>例：1/4数据分配器</strong></p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1202/ayjurk1t.webp" /></p>
-<p>数据分配器实际上是一个译码器，<span class="arithmatex">\(A_1A_0\)</span>当作译码器的代码输入，<span class="arithmatex">\(D_i\)</span>作译码器的使能控制。因此，一个具有使能控制端的译码器可以用作数据分配器。</p>
+<p>数据分配器实际上是一个译码器，<span class="arithmatex"><span class="MathJax_Preview">A_1A_0</span><script type="math/tex">A_1A_0</script></span>当作译码器的代码输入，<span class="arithmatex"><span class="MathJax_Preview">D_i</span><script type="math/tex">D_i</script></span>作译码器的使能控制。因此，一个具有使能控制端的译码器可以用作数据分配器。</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1202/2p1qlmry.webp" /></p>
 <h2 id="7">7.加法器</h2>
 <h3 id="_2">半加器</h3>
-<p>仅由两个数字相加。半加器电路的输入是两个输入<span class="arithmatex">\(A_i\)</span>、<span class="arithmatex">\(B_i\)</span>，输出结果为半加和<span class="arithmatex">\(S_i\)</span> 、向高位的进位信号<span class="arithmatex">\(C_i\)</span>。</p>
+<p>仅由两个数字相加。半加器电路的输入是两个输入<span class="arithmatex"><span class="MathJax_Preview">A_i</span><script type="math/tex">A_i</script></span>、<span class="arithmatex"><span class="MathJax_Preview">B_i</span><script type="math/tex">B_i</script></span>，输出结果为半加和<span class="arithmatex"><span class="MathJax_Preview">S_i</span><script type="math/tex">S_i</script></span> 、向高位的进位信号<span class="arithmatex"><span class="MathJax_Preview">C_i</span><script type="math/tex">C_i</script></span>。</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1202/vcsisu4b.webp" /></p>
 <h3 id="_3">全加器</h3>
-<p>全加器是实现被加数、加数、以及来自相邻低位的进位一起相加的加法运算电路。因此，输入是被加数<span class="arithmatex">\(A_i\)</span>、加数<span class="arithmatex">\(B_i\)</span>、以及低位的进位<span class="arithmatex">\(C_{i-1}\)</span>，输出结果为和<span class="arithmatex">\(S_i\)</span> 、向高位的进位信号<span class="arithmatex">\(C_i\)</span>。</p>
+<p>全加器是实现被加数、加数、以及来自相邻低位的进位一起相加的加法运算电路。因此，输入是被加数<span class="arithmatex"><span class="MathJax_Preview">A_i</span><script type="math/tex">A_i</script></span>、加数<span class="arithmatex"><span class="MathJax_Preview">B_i</span><script type="math/tex">B_i</script></span>、以及低位的进位<span class="arithmatex"><span class="MathJax_Preview">C_{i-1}</span><script type="math/tex">C_{i-1}</script></span>，输出结果为和<span class="arithmatex"><span class="MathJax_Preview">S_i</span><script type="math/tex">S_i</script></span> 、向高位的进位信号<span class="arithmatex"><span class="MathJax_Preview">C_i</span><script type="math/tex">C_i</script></span>。</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1202/inzyr25x.webp" /></p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1202/1gbobsy0.webp" /></p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1202/vci3rlle.webp" /></p>
@@ -4653,8 +4653,8 @@
 <h2 id="8">8.数据比较器</h2>
 <p>比较两个二进制数值的大小、是否相等，可以用数值比较器来完成。它经常用在逻辑判断，判断结果决定程序运行的跳转路经或下一步要执行的某种操作。</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1204/wouoq0u4.webp" /></p>
-<p>按照数值比较原理，多位数值比较通常利用“高位优先”的比较原则，如两个4位的数值比较器A和B，<span class="arithmatex">\(A=A_3A_2A_1A_0、B=B_3B_2B_1B_0\)</span>，若<span class="arithmatex">\(A_3&gt;B_3\)</span>，则<span class="arithmatex">\(A&gt;B\)</span>；若<span class="arithmatex">\(A_3&lt;B_3\)</span>，则<span class="arithmatex">\(A&lt;B\)</span>；若高位相等<span class="arithmatex">\(A_3 ＝B_3\)</span>，按同样的原则比较次高位，如此进行，直到最低位比较完毕。</p>
-<p>若4位数值全相等（<span class="arithmatex">\(A_3A_2A_1A_0 =B_3B_2B_1B_0\)</span>），则要比较低一级输入，这样还可以进行级联来扩展。不需要级联时，只需将<span class="arithmatex">\(l_{a=b}=1\)</span>。</p>
+<p>按照数值比较原理，多位数值比较通常利用“高位优先”的比较原则，如两个4位的数值比较器A和B，<span class="arithmatex"><span class="MathJax_Preview">A=A_3A_2A_1A_0、B=B_3B_2B_1B_0</span><script type="math/tex">A=A_3A_2A_1A_0、B=B_3B_2B_1B_0</script></span>，若<span class="arithmatex"><span class="MathJax_Preview">A_3&gt;B_3</span><script type="math/tex">A_3>B_3</script></span>，则<span class="arithmatex"><span class="MathJax_Preview">A&gt;B</span><script type="math/tex">A>B</script></span>；若<span class="arithmatex"><span class="MathJax_Preview">A_3&lt;B_3</span><script type="math/tex">A_3<B_3</script></span>，则<span class="arithmatex"><span class="MathJax_Preview">A&lt;B</span><script type="math/tex">A<B</script></span>；若高位相等<span class="arithmatex"><span class="MathJax_Preview">A_3 ＝B_3</span><script type="math/tex">A_3 ＝B_3</script></span>，按同样的原则比较次高位，如此进行，直到最低位比较完毕。</p>
+<p>若4位数值全相等（<span class="arithmatex"><span class="MathJax_Preview">A_3A_2A_1A_0 =B_3B_2B_1B_0</span><script type="math/tex">A_3A_2A_1A_0 =B_3B_2B_1B_0</script></span>），则要比较低一级输入，这样还可以进行级联来扩展。不需要级联时，只需将<span class="arithmatex"><span class="MathJax_Preview">l_{a=b}=1</span><script type="math/tex">l_{a=b}=1</script></span>。</p>
 <h2 id="9">9.奇偶校验器</h2>
 <p>功能：用来校验某一组传输的数据是否有错误。</p>
 <p>方法：在被传输的数据后面加一位奇偶校验位，使这一组数据中含1的个数成为奇数(或者偶数)，再在接收端检测含1的个数是奇数还是偶数，可以判断数据传输是否有误。</p>
@@ -4665,7 +4665,7 @@
 <p>组合逻辑电路在实际应用时，由于电路中存在传输延迟时间，有时会使逻辑电路产生误动作（不必要的尖峰脉冲），称为竞争-冒险现象。</p>
 <h3 id="-_1">竞争-冒险的判别方法</h3>
 <p>检查输出函数是否在一定条件下被简化成：</p>
-<p><span class="arithmatex">\(A\cdot \overline{A}\)</span>或<span class="arithmatex">\(A+\overline{A}\)</span>​</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">A\cdot \overline{A}</span><script type="math/tex">A\cdot \overline{A}</script></span>或<span class="arithmatex"><span class="MathJax_Preview">A+\overline{A}</span><script type="math/tex">A+\overline{A}</script></span>​</p>
 <h3 id="_5">竞争冒险的消除方法</h3>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1204/dpmfb0os.webp" /></p>
 

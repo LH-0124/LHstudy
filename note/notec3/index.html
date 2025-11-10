@@ -4550,7 +4550,7 @@
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1111/hm4q3epf.webp" /></p>
 <p>char 以%c输出为字符，以%d输出为字符的ascall码十进制值</p>
 <p>char 1字节，short int 2字节，long int 4字节</p>
-<p>unsigned表示非符号数，从0开始，最高位为<span class="arithmatex">\(2^n-1\)</span>​​​，n为变量的位数，unsigned类型可以用%u输入输出，unsigned long int 以%lu输入输出</p>
+<p>unsigned表示非符号数，从0开始，最高位为<span class="arithmatex"><span class="MathJax_Preview">2^n-1</span><script type="math/tex">2^n-1</script></span>​​​，n为变量的位数，unsigned类型可以用%u输入输出，unsigned long int 以%lu输入输出</p>
 <p>double和float可以用%le和%e输入指数形式的浮点数，double可以用%e输出指数形式浮点数（小数点前有且仅有一位非零的数字）</p>
 <div class="admonition 注意">
 <p class="admonition-title">注意</p>
@@ -4560,7 +4560,7 @@
 <p>记忆：</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1111/5o2cc1pw.webp" /></p>
 <p>short int之所以取%hd，即short的第二个字母是因为%s表示字符串</p>
-<p>非符号数的范围为<span class="arithmatex">\([-2^{n-1},2^n-1]，n\)</span>​为类型的位数，这与二进制的编码有关。负数部分，最高位为1，其余几位为0时该数为负数的最小值，如1000 0000，先取反再+1，得1000 0000，为128，故负数最小值为-128；正数部分，最高位为0，其余全取1，取得正数最大值，如0111 1111表示为127。</p>
+<p>非符号数的范围为<span class="arithmatex"><span class="MathJax_Preview">[-2^{n-1},2^n-1]，n</span><script type="math/tex">[-2^{n-1},2^n-1]，n</script></span>​为类型的位数，这与二进制的编码有关。负数部分，最高位为1，其余几位为0时该数为负数的最小值，如1000 0000，先取反再+1，得1000 0000，为128，故负数最小值为-128；正数部分，最高位为0，其余全取1，取得正数最大值，如0111 1111表示为127。</p>
 <p>计算机内部以补码存储数据。</p>
 <p>double精度比float高，float输入输出用%f，double输入输出用%lf</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2024/1111/s0vxlvxm.webp" /></p>
