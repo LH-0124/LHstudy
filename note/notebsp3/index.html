@@ -140,6 +140,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#1convolution" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -3941,6 +3946,19 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    第3章 卷积
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -3952,6 +3970,218 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1convolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.用卷积（Convolution）求解离散系统方程
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.用卷积（Convolution）求解离散系统方程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unit-impulse-responsehn" class="md-nav__link">
+    <span class="md-ellipsis">
+      求解系统单位脉冲响应（unit impulse response）\(h[n]\)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yn" class="md-nav__link">
+    <span class="md-ellipsis">
+      利用卷积求解\(y[n]\)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      计算卷积的方法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="计算卷积的方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analytical-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      解析法（Analytical form）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#array-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      数组法（Array Method）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      图解法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      重要结论
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.卷积的性质
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.卷积的性质">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#associativity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Associativity 结合律
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commutativity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commutativity 交换律
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distributivity-with-addition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Distributivity with addition 分配律
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shift-property" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shift property 平移性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convolution-with-the-unit-pulse" class="md-nav__link">
+    <span class="md-ellipsis">
+      Convolution with the unit pulse 与单位脉冲的卷积
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      卷积的作用：滤波
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.连续信号卷积
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.连续信号卷积">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      微分特性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      积分特性
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.系统因果性判断
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -4901,6 +5131,209 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1convolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.用卷积（Convolution）求解离散系统方程
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.用卷积（Convolution）求解离散系统方程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unit-impulse-responsehn" class="md-nav__link">
+    <span class="md-ellipsis">
+      求解系统单位脉冲响应（unit impulse response）\(h[n]\)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yn" class="md-nav__link">
+    <span class="md-ellipsis">
+      利用卷积求解\(y[n]\)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      计算卷积的方法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="计算卷积的方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analytical-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      解析法（Analytical form）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#array-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      数组法（Array Method）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      图解法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      重要结论
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.卷积的性质
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.卷积的性质">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#associativity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Associativity 结合律
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commutativity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commutativity 交换律
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distributivity-with-addition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Distributivity with addition 分配律
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shift-property" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shift property 平移性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convolution-with-the-unit-pulse" class="md-nav__link">
+    <span class="md-ellipsis">
+      Convolution with the unit pulse 与单位脉冲的卷积
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      卷积的作用：滤波
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.连续信号卷积
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.连续信号卷积">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      微分特性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      积分特性
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.系统因果性判断
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -4917,7 +5350,96 @@
 
   <h1>第3章 卷积</h1>
 
-
+<h2 id="1convolution">1.用卷积（Convolution）求解离散系统方程</h2>
+<p>根据冲激信号的性质，任意一个离散的输入信号可以写为
+$$
+x[n]=\sum_{k=-\infty}^{+\infty}x[k]\delta[n-k]
+$$
+对于一个线性时不变系统（LTI system），我们可以通过以下步骤求解一个系统方程</p>
+<h3 id="unit-impulse-responsehn">求解系统单位脉冲响应（unit impulse response）<span class="arithmatex">\(h[n]\)</span></h3>
+<div class="arithmatex">\[
+x[n]=\delta[n]\rightarrow y[n]=h[n]
+\]</div>
+<div class="arithmatex">\[
+h[n]=f(\delta[n])
+\]</div>
+<h3 id="yn">利用卷积求解<span class="arithmatex">\(y[n]\)</span></h3>
+<p>由于<span class="arithmatex">\(x[n]=\sum_{k=-\infty}^{+\infty}x[k]\delta[n-k]\)</span>，根据线性时不变系统性质，我们可以得到
+$$
+y[n]=\sum_{k=-\infty}^{+\infty}x[k]h[n-k]
+$$
+我们把<span class="arithmatex">\(\sum_{k=-\infty}^{+\infty}x[k]h[n-k]\)</span>的计算形式叫作卷积，可以记为
+$$
+y[n]=x[n]*h[n]
+$$</p>
+<h3 id="_1">计算卷积的方法</h3>
+<h4 id="analytical-form">解析法（Analytical form）</h4>
+<p>直接根据卷积的公式求解</p>
+<h4 id="array-method">数组法（Array Method）</h4>
+<p>适用于简单序列，将卷积的两个信号写成<span class="arithmatex">\(\{a_1,a_2,...,a_n\}_{n}\)</span>的形式，<span class="arithmatex">\(a_1\)</span>为第一个非零量，<span class="arithmatex">\(n\)</span>​为第一个非零量的起始横坐标，然后用矩阵法或竖式法求解</p>
+<p>竖式法如下图</p>
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/1111/gpyuybjv.webp" /></p>
+<h4 id="_2">图解法</h4>
+<p>适用于稍复杂一些的信号</p>
+<div class="admonition note">
+<p class="admonition-title">例题</p>
+</div>
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/1111/k5cydnab.webp" />
+  <img alt="" src="https://file.cc98.org/v4-upload/d/2025/1111/kqruhvho.webp" />
+  <img alt="" src="https://file.cc98.org/v4-upload/d/2025/1111/yn24d2ra.webp" />
+  <img alt="" src="https://file.cc98.org/v4-upload/d/2025/1111/mtig3gkg.webp" />
+  <img alt="" src="https://file.cc98.org/v4-upload/d/2025/1111/smmbh1h1.webp" />
+  <img alt="" src="https://file.cc98.org/v4-upload/d/2025/1111/i2sadzto.webp" /></p>
+<h3 id="_3">重要结论</h3>
+<p>两个序列卷积后的长度为<span class="arithmatex">\(L_1+L_2-1\)</span>,首个非零起始位置为<span class="arithmatex">\(n_1+n_2\)</span></p>
+<p>矩形窗序列与矩形窗序列卷积后为三角窗</p>
+<h2 id="2">2.卷积的性质</h2>
+<h3 id="associativity">Associativity 结合律</h3>
+<div class="arithmatex">\[
+x[n]*(v[n]*w[n])=(x[n]*v[n])*w[n]
+\]</div>
+<h3 id="commutativity">Commutativity 交换律</h3>
+<div class="arithmatex">\[
+x[n]*v[n]=v[n]*x[n]
+\]</div>
+<div class="arithmatex">\[
+\sum_{i=-\infty}^{+\infty}x[i]v[n-i]=\sum_{i=-\infty}^{+\infty}v[i]x[n-i]
+\]</div>
+<h3 id="distributivity-with-addition">Distributivity with addition 分配律</h3>
+<div class="arithmatex">\[
+x[n]*(v[n]+w[n])=x[n]*v[n]+x[n]*w[n]
+\]</div>
+<h3 id="shift-property">Shift property 平移性</h3>
+<div class="arithmatex">\[
+w[n]=x[n]*v[n]
+\]</div>
+<div class="arithmatex">\[
+w[n-q]=x[n-q]*v[n]=x[n]*v[n-q]
+\]</div>
+<h3 id="convolution-with-the-unit-pulse">Convolution with the unit pulse 与单位脉冲的卷积</h3>
+<div class="arithmatex">\[
+x[n]*\delta[n]=x[n]
+\]</div>
+<div class="arithmatex">\[
+x[n]*\delta[n-q]=x[n-q]
+\]</div>
+<h3 id="_4">卷积的作用：滤波</h3>
+<h2 id="3">3.连续信号卷积</h2>
+<div class="arithmatex">\[
+x[t]*h[t]=\int_{-\infty}^{+\infty}x(\tau)h(t-\tau)d\tau
+\]</div>
+<h3 id="_5">微分特性</h3>
+<div class="arithmatex">\[
+\frac{d(x(t)*v(t))}{dt}=\frac{dx(t)}{dt}*v(t)=x(t)*\frac{dv(t)}{dt}
+\]</div>
+<h3 id="_6">积分特性</h3>
+<div class="arithmatex">\[
+\int_{-\infty}^t(x(\tau)*v(\tau))d\tau=(\int_{-\infty}^tx(\tau)d\tau)*v(t)=x(t)*(\int_{-\infty}^tv(\tau)d\tau)
+\]</div>
+<p>根据积分和微分性质，可以求解单位阶跃信号<span class="arithmatex">\(u[n]\)</span>或<span class="arithmatex">\(u(t)\)</span>的系统响应</p>
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/1111/mzkrsjcv.webp" /></p>
+<h2 id="4">4.系统因果性判断</h2>
+<p>当<span class="arithmatex">\(n&lt;0\)</span>时，<span class="arithmatex">\(h[n]=0\)</span>，则系统因果</p>
 
 
 
