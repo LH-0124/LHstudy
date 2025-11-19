@@ -5027,6 +5027,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#e-anundtft" class="md-nav__link">
+    <span class="md-ellipsis">
+      \(e^{-an}u[n]\)DTFT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#dtft" class="md-nav__link">
     <span class="md-ellipsis">
       一些广义DTFT
@@ -5122,12 +5131,17 @@ x[n]=\int_{0}^{2\pi}X(\Omega)e^{j\Omega n}d\Omega
 <div class="arithmatex">\[
 \sum_{n=-\infty}^{+\infty}|x[n]|&lt;\infty
 \]</div>
-<p>一个有限长序列，他的傅里叶变换一定存在</p>
+<p><strong>一个有限长序列，它的傅里叶变换一定存在</strong></p>
 <h3 id="xomega"><span class="arithmatex">\(X(\Omega)\)</span>周期性</h3>
 <div class="arithmatex">\[
 X(\Omega+2\pi)=X(\Omega)
 \]</div>
 <p>从采样角度看，由于<span class="arithmatex">\(X_s(\omega)\)</span>是<span class="arithmatex">\(X(\omega)\)</span>的复制搬移，而<span class="arithmatex">\(X(\Omega)\)</span>和<span class="arithmatex">\(X_s(\omega)\)</span>相比只是对横坐标做了一个归一化处理，所以必然是周期的，且周期为<span class="arithmatex">\(2\pi\)</span></p>
+<h3 id="e-anundtft"><span class="arithmatex">\(e^{-an}u[n]\)</span>DTFT</h3>
+<div class="arithmatex">\[
+e^{-an}u[n]\leftrightarrow \frac{1}{1+e^{-a}e^{-j\Omega}}
+\]</div>
+<p>若要计算幅值，把<span class="arithmatex">\(e^{-j\Omega}\)</span>用欧拉公式展开</p>
 <h3 id="dtft">一些广义DTFT</h3>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/1119/e1wzd3mo.webp" /></p>
 <h3 id="dtft_1">DTFT的性质</h3>
