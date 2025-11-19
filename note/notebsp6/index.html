@@ -5038,6 +5038,15 @@
           <li class="md-nav__item">
   <a href="#dtft_1" class="md-nav__link">
     <span class="md-ellipsis">
+      DTFT的性质
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dtft_2" class="md-nav__link">
+    <span class="md-ellipsis">
       DTFT的高频和低频
     </span>
   </a>
@@ -5121,8 +5130,15 @@ X(\Omega+2\pi)=X(\Omega)
 <p>从采样角度看，由于<span class="arithmatex">\(X_s(\omega)\)</span>是<span class="arithmatex">\(X(\omega)\)</span>的复制搬移，而<span class="arithmatex">\(X(\Omega)\)</span>和<span class="arithmatex">\(X_s(\omega)\)</span>相比只是对横坐标做了一个归一化处理，所以必然是周期的，且周期为<span class="arithmatex">\(2\pi\)</span></p>
 <h3 id="dtft">一些广义DTFT</h3>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/1119/e1wzd3mo.webp" /></p>
-<h3 id="dtft_1">DTFT的高频和低频</h3>
+<h3 id="dtft_1">DTFT的性质</h3>
+<p><img alt="image.png" src="https://s2.loli.net/2025/11/19/tV5JsTZuzPOBqkY.png" /></p>
+<h3 id="dtft_2">DTFT的高频和低频</h3>
+<p>将任意<span class="arithmatex">\(x(t)\)</span>以<span class="arithmatex">\(\omega_s\)</span> 的采样角频率采样后，频谱中最高频率理论上为<span class="arithmatex">\(\frac{\omega_s}{2}\)</span></p>
+<p>对应的<span class="arithmatex">\(\Omega\)</span>​值又为π</p>
+<p>以<span class="arithmatex">\((-\pi,\pi)\)</span>为例，<span class="arithmatex">\(|\Omega|\)</span>越接近<span class="arithmatex">\(\pi\)</span>，为高频；<span class="arithmatex">\(|\Omega|\)</span>越接近0，为低频</p>
 <h4 id="_3">低通/高通/带通滤波器的判断</h4>
+<p><img alt="image.png" src="https://s2.loli.net/2025/11/19/pWjZaMekTU6wdHX.png" /></p>
+<p>判断DTFT的滤波器，主要看<span class="arithmatex">\((-\pi,\pi)\)</span>的区域，若为<span class="arithmatex">\((0,2\pi)\)</span>，建议将<span class="arithmatex">\((\pi,2\pi)\)</span>的段对称到<span class="arithmatex">\((-\pi,0)\)</span></p>
 <h2 id="2-dft">2.离散傅里叶变换 DFT</h2>
 <p>DTFT无法在工程上被分析，连续的频域也无法被计算机处理，用DFT来离散化DTFT来观测DTFT</p>
 <p>前提条件：<span class="arithmatex">\(x[n]\)</span>有限长，<span class="arithmatex">\(l\le N\)</span></p>
