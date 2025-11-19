@@ -3996,7 +3996,7 @@
   
   
   <span class="md-ellipsis">
-    第4章 傅里叶级数与傅里叶变换
+    第4章 连续时间信号的傅里叶级数与傅里叶变换
     
   </span>
   
@@ -4180,9 +4180,51 @@
           <li class="md-nav__item">
   <a href="#nyquist-sampling-theorem" class="md-nav__link">
     <span class="md-ellipsis">
-      奈奎斯特抽样定理 Nyquist Sampling Theorem
+      奈奎斯特采样定理 Nyquist Sampling Theorem
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      混叠时信号频域变化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何避免混叠
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="如何避免混叠">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      提高采样率
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      抗混叠滤波
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -4195,6 +4237,29 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebsp.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第6章 离散时间信号和系统的频域分析
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -5270,9 +5335,51 @@
           <li class="md-nav__item">
   <a href="#nyquist-sampling-theorem" class="md-nav__link">
     <span class="md-ellipsis">
-      奈奎斯特抽样定理 Nyquist Sampling Theorem
+      奈奎斯特采样定理 Nyquist Sampling Theorem
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      混叠时信号频域变化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何避免混叠
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="如何避免混叠">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      提高采样率
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      抗混叠滤波
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -5314,7 +5421,7 @@ $$</p>
 <h3 id="_1">微分方程的系统分析</h3>
 <div class="arithmatex">\[
 y^{(N)}(t) + \sum_{i=0}^{N-1} a_i y^{(i)}(t) = \sum_{i=0}^{M} b_i x^{(i)}(t) 
-\quad \xrightarrow{\frac{d^n}{dt^n} x(t) \leftrightarrow (j\omega)^n X(\omega)} \quad 
+ \leftrightarrow 
 (j\omega)^N Y(\omega) + \sum_{i=0}^{N-1} a_i (j\omega)^i Y(\omega) = \sum_{i=0}^{M} b_i (j\omega)^i X(\omega)
 \]</div>
 <div class="arithmatex">\[
@@ -5362,7 +5469,7 @@ $$
 <h2 id="3-sampling-reconstruction">3.采样信号的重建 Sampling Reconstruction</h2>
 <p>在频域内的采样信号为原信号在不同频率脉冲的搬移，所以先取到<span class="arithmatex">\(\omega=0\)</span>的<span class="arithmatex">\(X(\omega)\)</span></p>
 <p>取低通滤波器lowpass filter <span class="arithmatex">\(H(\omega)=T_s\cdot p_{2B}(\omega)\)</span>，则<span class="arithmatex">\(X(\omega)=X_s(\omega)H(\omega)\)</span>，即<span class="arithmatex">\(x(t)=x_s(t)*h(t)\)</span>​</p>
-<p>低通滤波器<span class="arithmatex">\(\omega_{max}&lt;B\le\frac{\omega_s}{2}\)</span></p>
+<p><strong>低通滤波器<span class="arithmatex">\(\omega_{max}&lt;B\le\frac{\omega_s}{2}\)</span></strong></p>
 <p>通过傅里叶反变换得到<span class="arithmatex">\(h(t)\)</span>
 $$
 h(t)=\frac{BT_s}{\pi}\text{sinc}Bt
@@ -5378,9 +5485,17 @@ $$</p>
 $$
 x(t)=\frac{BT}{\pi}\sum_{n=-\infty}^{+\infty}x(nT)\text{sinc}[B(t-nT)]
 $$</p>
-<h3 id="nyquist-sampling-theorem">奈奎斯特抽样定理 Nyquist Sampling Theorem</h3>
+<h3 id="nyquist-sampling-theorem">奈奎斯特采样定理 Nyquist Sampling Theorem</h3>
 <p>信号若能重建，必须满足采样频率<span class="arithmatex">\(\omega_s&gt;2W\)</span>，<span class="arithmatex">\(W\)</span>为原始信号在频域上宽度的一半，<span class="arithmatex">\(2W\)</span>称为奈奎斯特频率</p>
 <p>若<span class="arithmatex">\(\omega_s&lt;2W\)</span>，则信号会出现混叠Aliasing</p>
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/1119/s4jcu3kg.webp" /></p>
+<h3 id="_6">混叠时信号频域变化</h3>
+<p>不满足奈奎斯特采样定理，信号出现混叠，<span class="arithmatex">\(f_h\)</span>​的频率被误判为<span class="arithmatex">\(f_s-f_h\)</span></p>
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/1119/a4w43tir.webp" /></p>
+<h3 id="_7">如何避免混叠</h3>
+<h4 id="_8">提高采样率</h4>
+<h4 id="_9">抗混叠滤波</h4>
+<p>先对原信号滤波，适当舍弃高频率部分</p>
 
 
 
@@ -5410,7 +5525,7 @@ $$</p>
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../notebsp4/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 第4章 傅里叶级数与傅里叶变换">
+          <a href="../notebsp4/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 第4章 连续时间信号的傅里叶级数与傅里叶变换">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -5420,7 +5535,7 @@ $$</p>
                 上一页
               </span>
               <div class="md-ellipsis">
-                第4章 傅里叶级数与傅里叶变换
+                第4章 连续时间信号的傅里叶级数与傅里叶变换
               </div>
             </div>
           </a>
