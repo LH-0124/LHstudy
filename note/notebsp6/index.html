@@ -4228,6 +4228,39 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="DFT的性质">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      时移：圆周移位
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      圆周频移
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -4236,11 +4269,53 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
-      傅里叶变换总结回顾
+      3.傅里叶变换总结回顾
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="3.傅里叶变换总结回顾">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      连续周期信号傅里叶级数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      连续非周期信号的傅里叶变换
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dtft_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      DTFT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dft_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      DFT
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -5348,6 +5423,39 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="DFT的性质">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      时移：圆周移位
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      圆周频移
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -5356,11 +5464,53 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
-      傅里叶变换总结回顾
+      3.傅里叶变换总结回顾
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="3.傅里叶变换总结回顾">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      连续周期信号傅里叶级数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      连续非周期信号的傅里叶变换
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dtft_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      DTFT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dft_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      DFT
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -5441,13 +5591,49 @@ x[n]=\frac{1}{N}\sum_{k=0}^{N-1}X_ke^{\frac{j2\pi k n}{N}},n=0,1,...,N-1
 \]</div>
 <h3 id="dft_1">DFT隐藏时域周期化</h3>
 <p>DFT对DTFT在频率域采样时，会使得<span class="arithmatex">\(x[n]\)</span>在时域上进行以<span class="arithmatex">\(N\)</span>为周期的周期延拓，因此<span class="arithmatex">\(N\ge L\)</span>，否则信号会混叠</p>
-<p>因此我们对<span class="arithmatex">\(X(\Omega)\)</span>取了<span class="arithmatex">\(0-2\pi\)</span>的主值周期，即<span class="arithmatex">\(X_k\)</span>中<span class="arithmatex">\(k=0,1,...,N-1\)</span>，所以<span class="arithmatex">\(x[n]\)</span>仍然是原信号，或者说是原信号周期延拓后取了主值周期的结果。<span class="arithmatex">\(N\)</span>代表一个周期的采样点个数</p>
-<p><img alt="" src="https://file.cc98.org/v4-upload/d/2025/1126/pw2yacwm.webp" /></p>
+<p>因此我们对<span class="arithmatex">\(X(\Omega)\)</span>取了<span class="arithmatex">\(0-2\pi\)</span>的主值周期，即<span class="arithmatex">\(X_k\)</span>中<span class="arithmatex">\(k=0,1,...,N-1\)</span>，所以<span class="arithmatex">\(x[n]\)</span>仍然是原信号，或者说是原信号周期延拓后取了主值周期的结果。<span class="arithmatex">\(N\)</span>代表一个周期的采样点个数，<span class="arithmatex">\(N&gt;L\)</span>时相当于对原信号补零</p>
+<p><img alt="image.png" src="https://s2.loli.net/2025/11/27/o7NqY5pBU3JSfg6.png" /></p>
 <h3 id="dft_2">DFT的性质</h3>
-<p>线性</p>
-<p>时移：循环移位</p>
-<p>循环频移</p>
-<h2 id="_4">傅里叶变换总结回顾</h2>
+<h4 id="_4">线性</h4>
+<div class="arithmatex">\[
+\text{DFT} (ax[n]+bv[n])=aX_k+bV_k
+\]</div>
+<h4 id="_5">时移：圆周移位</h4>
+<div class="arithmatex">\[
+x[n-q,\text{mod } N]\leftrightarrow e^{-jq\frac{2\pi}{N}k}X_k=W_N^{qk}X_k
+\]</div>
+<p>圆周移位的概念可理解为<span class="arithmatex">\(x[n]\)</span>经历周期延拓后再移位再取主值</p>
+<h4 id="_6">圆周频移</h4>
+<div class="arithmatex">\[
+e^{j q \frac{2\pi}{N}k}x[n] \leftrightarrow X_{k-q,\text{mod} N }
+\]</div>
+<h2 id="3">3.傅里叶变换总结回顾</h2>
+<h3 id="_7">连续周期信号傅里叶级数</h3>
+<div class="arithmatex">\[
+x(t)=\sum_{k=-\infty}^{+\infty}c_ke^{jk\omega_0t},\omega_0=\frac{2\pi}{T_0}
+\]</div>
+<div class="arithmatex">\[
+c_k=\frac{1}{T}\int_{0}^{T}x(t)e^{-jk\omega_0t}dt
+\]</div>
+<div class="arithmatex">\[
+X(\omega)=2\pi  \sum_{k=-\infty}^{+\infty} c_k\delta(\omega-k\omega_0)
+\]</div>
+<p>连续周期信号的傅里叶变换后的信号是离散，非周期的</p>
+<h3 id="_8">连续非周期信号的傅里叶变换</h3>
+<div class="arithmatex">\[
+X(\omega)=\int_{-\infty}^{+\infty}x(t)e^{-j\omega t}dt
+\]</div>
+<p>连续非周期信号傅里叶变换后的信号是连续</p>
+<h3 id="dtft_4">DTFT</h3>
+<div class="arithmatex">\[
+X(\Omega)=\sum_{n=-\infty}^{+\infty}x[n]e^{-j\Omega n}
+\]</div>
+<p>离散时间信号的傅里叶变换<span class="arithmatex">\(X(\Omega)\)</span>是周期、连续的</p>
+<h3 id="dft_3">DFT</h3>
+<div class="arithmatex">\[
+X_k=\sum_{n=0}^{N-1}x[n]e^{\frac{-j2\pi}{N}k},k=0,1,...,N-1
+\]</div>
+<p>DFT是对DTFT的采样，是离散的</p>
 
 
 
