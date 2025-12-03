@@ -4346,9 +4346,51 @@
         <li class="md-nav__item">
   <a href="#5fft" class="md-nav__link">
     <span class="md-ellipsis">
-      5.FFT
+      5.FFT(快速傅里叶变换)
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="5.FFT(快速傅里叶变换)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      算法思路与分组
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dft_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      子序列的 DFT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      推导过程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fft" class="md-nav__link">
+    <span class="md-ellipsis">
+      完整 FFT 算法 (蝶形运算)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4363,7 +4405,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       连续周期信号傅里叶级数
     </span>
@@ -4372,7 +4414,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
       连续非周期信号的傅里叶变换
     </span>
@@ -4390,7 +4432,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#dft_3" class="md-nav__link">
+  <a href="#dft_4" class="md-nav__link">
     <span class="md-ellipsis">
       DFT
     </span>
@@ -5648,9 +5690,51 @@
         <li class="md-nav__item">
   <a href="#5fft" class="md-nav__link">
     <span class="md-ellipsis">
-      5.FFT
+      5.FFT(快速傅里叶变换)
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="5.FFT(快速傅里叶变换)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      算法思路与分组
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dft_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      子序列的 DFT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      推导过程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fft" class="md-nav__link">
+    <span class="md-ellipsis">
+      完整 FFT 算法 (蝶形运算)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -5665,7 +5749,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       连续周期信号傅里叶级数
     </span>
@@ -5674,7 +5758,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
       连续非周期信号的傅里叶变换
     </span>
@@ -5692,7 +5776,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#dft_3" class="md-nav__link">
+  <a href="#dft_4" class="md-nav__link">
     <span class="md-ellipsis">
       DFT
     </span>
@@ -5882,9 +5966,63 @@ $$</p>
 <h3 id="lti-dft">LTI 系统的频域DFT分析</h3>
 <p>需要解决的问题是已知<span class="arithmatex">\(X_k,H_k\)</span>，求<span class="arithmatex">\(y[n]\)</span></p>
 <p><span class="arithmatex">\(y[n]=x[n]*h[n]，X_kH_k\leftrightarrow x[n]\circledast h[n]\)</span>，此时，需要圆周卷积=线性卷积</p>
-<h2 id="5fft">5.FFT</h2>
+<h2 id="5fft">5.FFT(快速傅里叶变换)</h2>
+<p>FFT 并不是一种新的变换，而是 DFT 的一种高效算法。这里介绍的是按时间抽取的基2-FFT算法 (Decimation-in-Time, DIT-FFT)。</p>
+<h3 id="_10">算法思路与分组</h3>
+<p>设序列 <span class="arithmatex">\(x[n]\)</span> 的长度为 <span class="arithmatex">\(N\)</span>，且满足 <span class="arithmatex">\(N=2^L\)</span>（即 <span class="arithmatex">\(N\)</span> 为 2 的整数次幂）。</p>
+<p>将序列 <span class="arithmatex">\(x[n]\)</span> 按 <span class="arithmatex">\(n\)</span> 的奇偶性分为两组，每组长度为 <span class="arithmatex">\(N/2\)</span>：
+$$
+\begin{cases}  a[n] = x[2n] \ b[n] = x[2n+1] \end{cases} , \quad n = 0, 1, 2, ..., \frac{N}{2}-1
+$$</p>
+<h3 id="dft_3">子序列的 DFT</h3>
+<p>分别对偶数序列 <span class="arithmatex">\(a[n]\)</span> 和奇数序列 <span class="arithmatex">\(b[n]\)</span> 进行 <span class="arithmatex">\(N/2\)</span> 点的 DFT：
+$$
+A_k = \text{DFT}(a[n]) = \sum_{n=0}^{N/2-1} a[n]W_{N/2}^{kn}
+$$</p>
+<div class="arithmatex">\[
+B_k = \text{DFT}(b[n]) = \sum_{n=0}^{N/2-1} b[n]W_{N/2}^{kn}
+\]</div>
+<p>其中 <span class="arithmatex">\(k = 0, 1, ..., \frac{N}{2}-1\)</span>。</p>
+<h3 id="_11">推导过程</h3>
+<p>利用旋转因子 <span class="arithmatex">\(W_N\)</span> 的性质：</p>
+<ol>
+<li>可约性：<span class="arithmatex">\(W_N^{2n} = W_{N/2}^n\)</span></li>
+<li>周期性：<span class="arithmatex">\(A_k\)</span> 和 <span class="arithmatex">\(B_k\)</span> 的周期均为 <span class="arithmatex">\(N/2\)</span>，即 <span class="arithmatex">\(A_{k+N/2} = A_k\)</span></li>
+<li>对称性：<span class="arithmatex">\(W_N^{k+N/2} = -W_N^k\)</span></li>
+</ol>
+<p>原信号 <span class="arithmatex">\(x[n]\)</span> 的 <span class="arithmatex">\(N\)</span> 点 DFT 可以表示为：
+$$
+X_k = \sum_{n=0}^{N-1} x[n]W_N^{kn}
+$$
+将其拆分为偶数项和奇数项的和：
+$$
+X_k = \sum_{n=0}^{N/2-1} x[2n]W_N^{k(2n)} + \sum_{n=0}^{N/2-1} x[2n+1]W_N^{k(2n+1)}
+$$</p>
+<div class="arithmatex">\[
+= \sum_{n=0}^{N/2-1} a[n]W_{N/2}^{kn} + W_N^k \sum_{n=0}^{N/2-1} b[n]W_{N/2}^{kn}
+\]</div>
+<p>由此得到前一半区间 (<span class="arithmatex">\(0 \le k &lt; N/2\)</span>​) 的公式：
+$$
+X_k = A_k + W_N^k B_k
+$$</p>
+<h3 id="fft">完整 FFT 算法 (蝶形运算)</h3>
+<p>由于 <span class="arithmatex">\(A_k\)</span> 和 <span class="arithmatex">\(B_k\)</span> 只有 <span class="arithmatex">\(N/2\)</span> 个点，对于后一半区间 (<span class="arithmatex">\(N/2 \le k &lt; N\)</span>)，我们需要利用对称性求解。</p>
+<p>令 <span class="arithmatex">\(k' = k + N/2\)</span>，其中 <span class="arithmatex">\(k\)</span> 的范围仍为 <span class="arithmatex">\(0\)</span> 到 <span class="arithmatex">\(N/2-1\)</span>。
+$$
+X_{k+N/2} = \sum_{n=0}^{N/2-1} a[n]W_{N/2}^{(k+N/2)n} + W_N^{k+N/2} \sum_{n=0}^{N/2-1} b[n]W_{N/2}^{(k+N/2)n}
+$$
+利用 和 <span class="arithmatex">\(W_N^{k+N/2} = -W_N^k\)</span>，可得：
+$$
+X_{k+N/2} = A_k - W_N^k B_k
+$$
+<strong>综上所述，完整的 FFT 蝶形运算公式为：</strong></p>
+<p>对于 <span class="arithmatex">\(k = 0, 1, ..., \frac{N}{2}-1\)</span>：
+$$
+\begin{cases}  X_k = A_k + W_N^k B_k \ X_{k+N/2} = A_k - W_N^k B_k \end{cases}
+$$
+通过这种方式，将一个 <span class="arithmatex">\(N\)</span> 点的 DFT 分解为两个 <span class="arithmatex">\(N/2\)</span> 点的 DFT，并通过加减运算（蝶形运算）组合，极大地降低了运算量。</p>
 <h2 id="6">6.傅里叶变换总结回顾</h2>
-<h3 id="_10">连续周期信号傅里叶级数</h3>
+<h3 id="_12">连续周期信号傅里叶级数</h3>
 <div class="arithmatex">\[
 x(t)=\sum_{k=-\infty}^{+\infty}c_ke^{jk\omega_0t},\omega_0=\frac{2\pi}{T_0}
 \]</div>
@@ -5895,7 +6033,7 @@ c_k=\frac{1}{T}\int_{0}^{T}x(t)e^{-jk\omega_0t}dt
 X(\omega)=2\pi  \sum_{k=-\infty}^{+\infty} c_k\delta(\omega-k\omega_0)
 \]</div>
 <p>连续周期信号的傅里叶变换后的信号是离散，非周期的</p>
-<h3 id="_11">连续非周期信号的傅里叶变换</h3>
+<h3 id="_13">连续非周期信号的傅里叶变换</h3>
 <div class="arithmatex">\[
 X(\omega)=\int_{-\infty}^{+\infty}x(t)e^{-j\omega t}dt
 \]</div>
@@ -5906,7 +6044,7 @@ X(\Omega)=\sum_{n=-\infty}^{+\infty}x[n]e^{-j\Omega n}
 \]</div>
 <p>离散非周期时间信号的傅里叶变换<span class="arithmatex">\(X(\Omega)\)</span>​是周期、连续的</p>
 <p>离散周期时间信号的傅里叶变换<span class="arithmatex">\(X(\Omega)\)</span>是周期、离散的，如<span class="arithmatex">\(\cos(\Omega_0 n)\)</span></p>
-<h3 id="dft_3">DFT</h3>
+<h3 id="dft_4">DFT</h3>
 <div class="arithmatex">\[
 X_k=\sum_{n=0}^{N-1}x[n]e^{\frac{-j2\pi}{N}k},k=0,1,...,N-1
 \]</div>
