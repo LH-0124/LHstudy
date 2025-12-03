@@ -5972,7 +5972,8 @@ $$</p>
 <p>设序列 <span class="arithmatex">\(x[n]\)</span> 的长度为 <span class="arithmatex">\(N\)</span>，且满足 <span class="arithmatex">\(N=2^L\)</span>（即 <span class="arithmatex">\(N\)</span> 为 2 的整数次幂）。</p>
 <p>将序列 <span class="arithmatex">\(x[n]\)</span> 按 <span class="arithmatex">\(n\)</span> 的奇偶性分为两组，每组长度为 <span class="arithmatex">\(N/2\)</span>：
 $$
-\begin{cases}  a[n] = x[2n] \ b[n] = x[2n+1] \end{cases} , \quad n = 0, 1, 2, ..., \frac{N}{2}-1
+\begin{cases}  a[n] = x[2n] \ </p>
+<p>b[n] = x[2n+1] \end{cases} , \quad n = 0, 1, 2, ..., \frac{N}{2}-1
 $$</p>
 <h3 id="dft_3">子序列的 DFT</h3>
 <p>分别对偶数序列 <span class="arithmatex">\(a[n]\)</span> 和奇数序列 <span class="arithmatex">\(b[n]\)</span> 进行 <span class="arithmatex">\(N/2\)</span> 点的 DFT：
@@ -6018,7 +6019,8 @@ $$
 <strong>综上所述，完整的 FFT 蝶形运算公式为：</strong></p>
 <p>对于 <span class="arithmatex">\(k = 0, 1, ..., \frac{N}{2}-1\)</span>：
 $$
-\begin{cases}  X_k = A_k + W_N^k B_k \ X_{k+N/2} = A_k - W_N^k B_k \end{cases}
+\begin{cases}  X_k = A_k + W_N^k B_k \</p>
+<p>X_{k+N/2} = A_k - W_N^k B_k \end{cases}
 $$
 通过这种方式，将一个 <span class="arithmatex">\(N\)</span> 点的 DFT 分解为两个 <span class="arithmatex">\(N/2\)</span> 点的 DFT，并通过加减运算（蝶形运算）组合，极大地降低了运算量。</p>
 <h2 id="6">6.傅里叶变换总结回顾</h2>
