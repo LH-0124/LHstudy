@@ -16,7 +16,7 @@
         <link rel="prev" href="../notebsp6/">
       
       
-        <link rel="next" href="../notesyt0/">
+        <link rel="next" href="../notebsp8/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -4042,7 +4042,7 @@
   
   
   <span class="md-ellipsis">
-    第6章 离散时间信号和系统的频域分析
+    第6章 离散时间信号和系统的频域分析DTFT和DFT
     
   </span>
   
@@ -4401,9 +4401,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#42-transfer-function" class="md-nav__link">
+  <a href="#transfer-function" class="md-nav__link">
     <span class="md-ellipsis">
-      4.2 传递函数 (Transfer Function)
+      传递函数 (Transfer Function)
     </span>
   </a>
   
@@ -4418,6 +4418,29 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebsp8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第8章 Z变换
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -6062,9 +6085,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#42-transfer-function" class="md-nav__link">
+  <a href="#transfer-function" class="md-nav__link">
     <span class="md-ellipsis">
-      4.2 传递函数 (Transfer Function)
+      传递函数 (Transfer Function)
     </span>
   </a>
   
@@ -6098,7 +6121,7 @@
 
 <h2 id="1">1.拉普拉斯变换</h2>
 <h3 id="_1">公式</h3>
-<p>原因：部分信号的傅里叶变换不收敛，选择给信号的函数乘上一个<span class="arithmatex">\(e^{-\sigma t}\)</span>，使得信号傅里叶变换可以收敛</p>
+<p>原因：部分信号的傅里叶变换不收敛，选择给信号的函数乘上一个<span class="arithmatex">\(e^{-\sigma t}\)</span>，使得信号傅里叶变换可以收敛，这样的变换叫做拉普拉斯变换</p>
 <p>变化形式
 $$
 F(\omega)=\int_{0}^{+\infty}f(t)e^{-\sigma t}e^{-j \omega t}dt=\int_{0}^{+\infty}f(t)e^{-(\sigma+j \omega) t}dt
@@ -6126,12 +6149,12 @@ L[e^{kt}] = \frac{1}{s-k}
 \]</div>
 <h4 id="_7"><strong>幂函数</strong></h4>
 <div class="arithmatex">\[
-$L[t^n] = \frac{n!}{s^{n+1}}, \quad n=0,1,2...
+L[t^n] = \frac{n!}{s^{n+1}}, \quad n=0,1,2...
 \]</div>
 <p>广义形式: <span class="arithmatex">\(L[t^a] = \frac{\Gamma(a+1)}{s^{a+1}}, \quad a&gt;-1\)</span></p>
 <h4 id="_8"><strong>三角函数</strong></h4>
 <div class="arithmatex">\[
-$L[\sin \omega t] = \frac{\omega}{s^2 + \omega^2}
+L[\sin \omega t] = \frac{\omega}{s^2 + \omega^2}
 \]</div>
 <div class="arithmatex">\[
 L[\cos \omega t] = \frac{s}{s^2 + \omega^2}
@@ -6212,7 +6235,7 @@ $$
 <p>1.对微分方程两边取拉氏变换（注意利用时域微分性质处理初值 <span class="arithmatex">\(y(0), y'(0)\)</span> 等）。</p>
 <p>2.求解代数方程得到 <span class="arithmatex">\(Y(s)\)</span>。</p>
 <p>3.对 <span class="arithmatex">\(Y(s)\)</span> 求反变换得到 <span class="arithmatex">\(y(t)\)</span>。</p>
-<h3 id="42-transfer-function">4.2 传递函数 (Transfer Function)</h3>
+<h3 id="transfer-function">传递函数 (Transfer Function)</h3>
 <p>对于二阶系统：
 $$
 \frac{d^{2}y(t)}{dt^{2}}+a_{1}\frac{dy(t)}{dt}+a_{0}y(t)=b_{1}\frac{dx(t)}{dt}+b_{0}x(t)
@@ -6250,7 +6273,7 @@ $$</p>
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../notebsp6/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 第6章 离散时间信号和系统的频域分析">
+          <a href="../notebsp6/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 第6章 离散时间信号和系统的频域分析DTFT和DFT">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -6260,20 +6283,20 @@ $$</p>
                 上一页
               </span>
               <div class="md-ellipsis">
-                第6章 离散时间信号和系统的频域分析
+                第6章 离散时间信号和系统的频域分析DTFT和DFT
               </div>
             </div>
           </a>
         
         
           
-          <a href="../notesyt0/" class="md-footer__link md-footer__link--next" aria-label="下一页: 第0章 绪论">
+          <a href="../notebsp8/" class="md-footer__link md-footer__link--next" aria-label="下一页: 第8章 Z变换">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                第0章 绪论
+                第8章 Z变换
               </div>
             </div>
             <div class="md-footer__button md-icon">
