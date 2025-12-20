@@ -4426,6 +4426,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      简单线性回归的步骤
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4442,7 +4451,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       绘制散点图
     </span>
@@ -4451,7 +4460,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       线性回归方程
     </span>
@@ -4535,7 +4544,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       预测
     </span>
@@ -4544,7 +4553,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       控制
     </span>
@@ -5658,6 +5667,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      简单线性回归的步骤
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5674,7 +5692,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       绘制散点图
     </span>
@@ -5683,7 +5701,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       线性回归方程
     </span>
@@ -5767,7 +5785,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       预测
     </span>
@@ -5776,7 +5794,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       控制
     </span>
@@ -5822,7 +5840,7 @@
 <h2 id="1">1. 回归概述</h2>
 <h3 id="_1">回归与相关</h3>
 <p>在第8章中，我们学习了<strong>相关分析</strong>，用于研究两个变量之间联系的<strong>紧密程度</strong>。</p>
-<p>而<strong>回归分析 ** 则是进一步研究变量间的</strong>数量依存关系**。</p>
+<p>而<strong>回归分析</strong>则是进一步研究变量间的<strong>数量依存关系</strong>。</p>
 <ul>
 <li>
 <p><strong>相关分析 (Correlation)</strong>：</p>
@@ -5859,17 +5877,17 @@
 </li>
 </ul>
 <p>本章的直线回归其目标是：研究应变量Y对自变量X的数量依存关系。其特点是： 统计关系，X值和Y值的均数的关系，不同于一般数学上的X 和Y的一一对应的函数关系。</p>
-<p>简单线性回归的步骤</p>
+<h3 id="_2">简单线性回归的步骤</h3>
 <p>（1）要以专业知识为依据，确定研究某两个变量之间回归关系的必要性。<strong>避免</strong>纯粹“玩弄数字游戏”。</p>
 <p>（2）绘制两个变量变化的<strong>散点图</strong>，根据图中各散点的分布情况判断是否值得作线性回归分析。若各散点在不平行于X轴也不垂直于X轴的一条<strong>不太宽</strong>的带内随机地分布着，则可以继续进行回归分析，否则，没有必要。</p>
 <p>（3）统计描述：建立两个变量的回归方程，即求直线方程的截距和斜率。</p>
 <p>（4）统计推断：通过假设检验，确定回归方程的统计学意义。</p>
 <p>（5）统计应用：利用已建立的回归模型（方程）计算未测量的数据，即插值计算。</p>
 <h2 id="2">2. 简单线性回归模型的建立</h2>
-<h3 id="_2">绘制散点图</h3>
+<h3 id="_3">绘制散点图</h3>
 <p>在进行计算前，<strong>必须先绘制散点图</strong>。
 * <strong>作用</strong>：直观判断变量间是否存在线性趋势。如果散点呈现“圆盘状”则不宜做直线回归；<strong>如果散点分布在一条不太宽的带内，则适合进行直线回归分析。</strong></p>
-<h3 id="_3">线性回归方程</h3>
+<h3 id="_4">线性回归方程</h3>
 <ul>
 <li>
 <p><strong>总体回归方程</strong>：
@@ -6030,23 +6048,22 @@ $$
 <p><strong>联系</strong>：在简单线性回归中，<span class="arithmatex">\(R^2 = r^2\)</span>​（相关系数的平方）。</p>
 </li>
 </ul>
-<p>!!! note "例题：相关系数与变异分解 (r=0)"
-      <strong>如果变量 <span class="arithmatex">\(X, Y\)</span> 直线相关系数 <span class="arithmatex">\(r=0\)</span>，正确的是（ ）。</strong></p>
-<pre><code>  **A.** 直线回归的截距等于0
-  **B.** 不是线性相关，但可能有多复杂的相依关系
-  **C.** 直线回归的 $SS_{残}$ 等于 $SS_{总}$
-  **D.** 直线回归的 $SS_{残} = SS_{回}$
-  **E.** 直线回归的 $SS_{残}$ 等于0
-
-  **正确答案: B, C**
-
-  **解析:**
-  * **B正确**：相关系数 $r=0$ 仅表示两变量间无**线性**相关关系，并不排除它们之间存在非线性（如曲线）关系。
-  * **C正确**：当 $r=0$ 时，决定系数 $R^2 = r^2 = 0$。这意味着回归模型无法解释任何变异，即 $SS_{回} = 0$。根据公式 $SS_{总} = SS_{回} + SS_{残}$，可得 $SS_{残} = SS_{总}$。
-  * A错误：当 $r=0$ 时，斜率 $b=0$，回归方程简化为 $\hat{Y} = \bar{Y}$（均值），截距为 $\bar{Y}$，不一定等于0。
-</code></pre>
+<div class="admonition note">
+<p class="admonition-title">例题：相关系数与变异分解 (r=0)</p>
+<p><strong>如果变量 <span class="arithmatex">\(X, Y\)</span> 直线相关系数 <span class="arithmatex">\(r=0\)</span>，正确的是（ ）。</strong></p>
+<p><strong>A.</strong> 直线回归的截距等于0
+<strong>B.</strong> 不是线性相关，但可能有多复杂的相依关系
+<strong>C.</strong> 直线回归的 <span class="arithmatex">\(SS_{残}\)</span> 等于 <span class="arithmatex">\(SS_{总}\)</span>
+<strong>D.</strong> 直线回归的 <span class="arithmatex">\(SS_{残} = SS_{回}\)</span>
+<strong>E.</strong> 直线回归的 <span class="arithmatex">\(SS_{残}\)</span> 等于0</p>
+<p><strong>正确答案: B, C</strong></p>
+<p><strong>解析:</strong>
+* <strong>B正确</strong>：相关系数 <span class="arithmatex">\(r=0\)</span> 仅表示两变量间无<strong>线性</strong>相关关系，并不排除它们之间存在非线性（如曲线）关系。
+* <strong>C正确</strong>：当 <span class="arithmatex">\(r=0\)</span> 时，决定系数 <span class="arithmatex">\(R^2 = r^2 = 0\)</span>。这意味着回归模型无法解释任何变异，即 <span class="arithmatex">\(SS_{回} = 0\)</span>。根据公式 <span class="arithmatex">\(SS_{总} = SS_{回} + SS_{残}\)</span>，可得 <span class="arithmatex">\(SS_{残} = SS_{总}\)</span>。
+* A错误：当 <span class="arithmatex">\(r=0\)</span> 时，斜率 <span class="arithmatex">\(b=0\)</span>，回归方程简化为 <span class="arithmatex">\(\hat{Y} = \bar{Y}\)</span>（均值），截距为 <span class="arithmatex">\(\bar{Y}\)</span>，不一定等于0。</p>
+</div>
 <h2 id="4">4. 线性回归的应用</h2>
-<h3 id="_4">预测</h3>
+<h3 id="_5">预测</h3>
 <p>利用回归方程 <span class="arithmatex">\(\hat{Y} = a + bX\)</span>，根据已知的 <span class="arithmatex">\(X\)</span> 值推测 <span class="arithmatex">\(Y\)</span> 值。包括两种类型的区间估计：</p>
 <ol>
 <li><strong>总体均数的置信区间 (Confidence Interval for Mean)</strong>：<ul>
@@ -6058,13 +6075,14 @@ $$
 <li><strong>个体值的容许区间/预测区间 (Prediction Interval for Individual)</strong>：<ul>
 <li>估计 <span class="arithmatex">\(X\)</span> 取某值时，<strong>某一个体观察值 <span class="arithmatex">\(Y\)</span></strong> 的波动范围。</li>
 <li>公式涉及标准差 <span class="arithmatex">\(S_Y\)</span>（包含了残差变异和抽样误差）。</li>
-<li>区间较宽。<img alt="image.png" src="https://s2.loli.net/2025/12/20/SgBkxuph63aGFdI.png" /></li>
+<li>区间较宽。</li>
 </ul>
 </li>
 </ol>
+<p><img alt="image.png" src="https://s2.loli.net/2025/12/20/SgBkxuph63aGFdI.png" /></p>
 <p>在相同回归线的置信度下，个体值的预测区间比均值的置信区间带更宽。 对于给定的自变量值，这个区间给出了一个新的个体观测值有 95% 的概率会落入的范围。它比置信区间更宽，<strong>因为它不仅要考虑总体均值的不确定性，还要考虑个体观测值本身的波动</strong>。由于标准误是<em>X</em>的函数，所以在均数位置的置信带宽度最小，越远离该均数点，置信带宽度越大。</p>
 <p>如果我们重复进行抽样和回归分析，每次都计算自变量为某个值时的 95% 置信区间，那么大约有 95% 的这些区间会包含真实的总体均值。这个区间有很大的概率（95%）包含这个真实的均值。它反映的是我们对总体参数（均值）估计的不确定性。</p>
-<h3 id="_5">控制</h3>
+<h3 id="_6">控制</h3>
 <p>如果要将 <span class="arithmatex">\(Y\)</span> 控制在某个范围内，可以通过回归方程反推需要将 <span class="arithmatex">\(X\)</span> 控制在什么范围。</p>
 <h2 id="5">5. 小结与注意事项</h2>
 <ol>
