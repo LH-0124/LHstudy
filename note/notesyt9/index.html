@@ -6030,16 +6030,16 @@
 <div class="admonition note">
 <p class="admonition-title">例题：参数间的关系</p>
 <p><strong>记 <span class="arithmatex">\(\rho\)</span> 为总体相关系数，<span class="arithmatex">\(r\)</span> 为样本相关系数，<span class="arithmatex">\(b\)</span> 为样本回归系数，下列（ ）正确。</strong></p>
-<p><strong>A.</strong> <span class="arithmatex">\(\rho=0\)</span>时，<span class="arithmatex">\(r=0\)</span>
-<strong>B.</strong> <span class="arithmatex">\(|r|&gt;0\)</span>时，<span class="arithmatex">\(b&gt;0\)</span>
-<strong>C.</strong> <span class="arithmatex">\(r&gt;0\)</span>时，<span class="arithmatex">\(b&lt;0\)</span>
-<strong>D.</strong> <span class="arithmatex">\(r&lt;0\)</span>时，<span class="arithmatex">\(b&lt;0\)</span>
-<strong>E.</strong> <span class="arithmatex">\(|r|=1\)</span>时，<span class="arithmatex">\(b=1\)</span></p>
+<p><strong>A.</strong> <span class="arithmatex">\(\rho=0\)</span>时，<span class="arithmatex">\(r=0\)</span></p>
+<p><strong>B.</strong> <span class="arithmatex">\(|r|&gt;0\)</span>时，<span class="arithmatex">\(b&gt;0\)</span></p>
+<p><strong>C.</strong> <span class="arithmatex">\(r&gt;0\)</span>时，<span class="arithmatex">\(b&lt;0\)</span></p>
+<p><strong>D.</strong> <span class="arithmatex">\(r&lt;0\)</span>时，<span class="arithmatex">\(b&lt;0\)</span></p>
+<p><strong>E.</strong> <span class="arithmatex">\(|r|=1\)</span>时，<span class="arithmatex">\(b=1\)</span></p>
 <p><strong>正确答案: D</strong></p>
-<p><strong>解析:</strong> 样本回归系数 <span class="arithmatex">\(b\)</span> 与样本相关系数 <span class="arithmatex">\(r\)</span> 的符号是一致的。
-公式关系为：<span class="arithmatex">\(b = r \cdot \frac{S_Y}{S_X}\)</span>。
-由于标准差 <span class="arithmatex">\(S_Y\)</span> 和 <span class="arithmatex">\(S_X\)</span> 均为正数，所以 <span class="arithmatex">\(b\)</span> 的正负完全取决于 <span class="arithmatex">\(r\)</span>。
-即：<span class="arithmatex">\(r &gt; 0 \Rightarrow b &gt; 0\)</span>（正相关，斜率为正）；<span class="arithmatex">\(r &lt; 0 \Rightarrow b &lt; 0\)</span>（负相关，斜率为负）。</p>
+<p><strong>解析:</strong> 样本回归系数 <span class="arithmatex">\(b\)</span> 与样本相关系数 <span class="arithmatex">\(r\)</span> 的符号是一致的。</p>
+<p>公式关系为：<span class="arithmatex">\(b = r \cdot \frac{S_Y}{S_X}\)</span>。</p>
+<p>由于标准差 <span class="arithmatex">\(S_Y\)</span> 和 <span class="arithmatex">\(S_X\)</span> 均为正数，所以 <span class="arithmatex">\(b\)</span> 的正负完全取决于 <span class="arithmatex">\(r\)</span>。</p>
+<p>即：<span class="arithmatex">\(r &gt; 0 \Rightarrow b &gt; 0\)</span>（正相关，斜率为正）；<span class="arithmatex">\(r &lt; 0 \Rightarrow b &lt; 0\)</span>（负相关，斜率为负）。</p>
 </div>
 <h3 id="ab">最小二乘法估计参数估计<span class="arithmatex">\(a,b\)</span></h3>
 <ul>
@@ -6065,11 +6065,11 @@
 <div class="admonition note">
 <p class="admonition-title">例题：最小二乘法的含义</p>
 <p><strong>用最小二乘法确定直线回归方程的含义是（ ）。</strong></p>
-<p><strong>A.</strong> 各观测点距直线的纵向距离相等
-<strong>B.</strong> 各观测点距直线的纵向距离平方和最小
-<strong>C.</strong> 各观测点距直线的垂直距离相等
-<strong>D.</strong> 各观测点距直线的垂直距离平方和最小
-<strong>E.</strong> 各观测点距直线的纵向距离等于零</p>
+<p><strong>A.</strong> 各观测点距直线的纵向距离相等</p>
+<p><strong>B.</strong> 各观测点距直线的纵向距离平方和最小</p>
+<p><strong>C.</strong> 各观测点距直线的垂直距离相等</p>
+<p><strong>D.</strong> 各观测点距直线的垂直距离平方和最小</p>
+<p><strong>E.</strong> 各观测点距直线的纵向距离等于零</p>
 <p><strong>正确答案: B</strong></p>
 <p><strong>解析:</strong> 最小二乘法（Least Squares）的核心思想是使“残差”的平方和最小。在回归分析中，残差定义为实际观测值 <span class="arithmatex">\(Y\)</span> 与预测值 <span class="arithmatex">\(\hat{Y}\)</span> 之间的差（<span class="arithmatex">\(Y - \hat{Y}\)</span>），这在几何上表现为点到直线的<strong>纵向距离</strong>（Vertical distance），而不是垂直距离（Perpendicular distance）。</p>
 </div>
@@ -6107,29 +6107,29 @@ $$
 <div class="admonition note">
 <p class="admonition-title">例题：相关系数与变异分解 (r=1)</p>
 <p><strong>如果直线相关系数 <span class="arithmatex">\(r=1\)</span>，则一定有（ ）。</strong></p>
-<p><strong>A.</strong> <span class="arithmatex">\(SS_{总} = SS_{残}\)</span>
-<strong>B.</strong> <span class="arithmatex">\(SS_{残} = SS_{回}\)</span>
-<strong>C.</strong> <span class="arithmatex">\(SS_{总} = SS_{回}\)</span>
-<strong>D.</strong> <span class="arithmatex">\(SS_{总} \ge SS_{回}\)</span>
-<strong>E.</strong> 以上都不正确</p>
+<p><strong>A.</strong> <span class="arithmatex">\(SS_{总} = SS_{残}\)</span></p>
+<p><strong>B.</strong> <span class="arithmatex">\(SS_{残} = SS_{回}\)</span></p>
+<p><strong>C.</strong> <span class="arithmatex">\(SS_{总} = SS_{回}\)</span></p>
+<p><strong>D.</strong> <span class="arithmatex">\(SS_{总} \ge SS_{回}\)</span></p>
+<p><strong>E.</strong> 以上都不正确</p>
 <p><strong>正确答案: C</strong></p>
 <p><strong>解析:</strong>
-当 <span class="arithmatex">\(r=1\)</span> 时（完全相关），所有观测点完全落在回归直线上，预测值与实际值没有偏差，因此残差平方和 <span class="arithmatex">\(SS_{残} = 0\)</span>。
-根据总变异分解公式：<span class="arithmatex">\(SS_{总} = SS_{回} + SS_{残}\)</span>。
-因为 <span class="arithmatex">\(SS_{残} = 0\)</span>，所以 <span class="arithmatex">\(SS_{总} = SS_{回}\)</span>。这说明自变量 <span class="arithmatex">\(X\)</span> 解释了因变量 <span class="arithmatex">\(Y\)</span> 的全部变异。</p>
+当 <span class="arithmatex">\(r=1\)</span> 时（完全相关），所有观测点完全落在回归直线上，预测值与实际值没有偏差，因此残差平方和 <span class="arithmatex">\(SS_{残} = 0\)</span>。</p>
+<p>根据总变异分解公式：<span class="arithmatex">\(SS_{总} = SS_{回} + SS_{残}\)</span>。</p>
+<p>因为 <span class="arithmatex">\(SS_{残} = 0\)</span>，所以 <span class="arithmatex">\(SS_{总} = SS_{回}\)</span>。这说明自变量 <span class="arithmatex">\(X\)</span> 解释了因变量 <span class="arithmatex">\(Y\)</span> 的全部变异。</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">例题：逐步回归中的变异变化</p>
 <p><strong>逐步回归分析中，若增加自变量的个数，则（ ）。</strong></p>
-<p><strong>A.</strong> 回归平方和与残差平方和均增大
-<strong>B.</strong> 回归平方和与残差平方和均减小
-<strong>C.</strong> 总平方和与回归平方和均增大
-<strong>D.</strong> 回归平方和增大，残差平方和减小
-<strong>E.</strong> 总平方和与回归平方和均减小</p>
+<p><strong>A.</strong> 回归平方和与残差平方和均增大</p>
+<p><strong>B.</strong> 回归平方和与残差平方和均减小</p>
+<p><strong>C.</strong> 总平方和与回归平方和均增大</p>
+<p><strong>D.</strong> 回归平方和增大，残差平方和减小</p>
+<p><strong>E.</strong> 总平方和与回归平方和均减小</p>
 <p><strong>正确答案: D</strong></p>
-<p><strong>解析:</strong> 总平方和 (<span class="arithmatex">\(SS_{总}\)</span>) 是固定的（取决于因变量 <span class="arithmatex">\(Y\)</span> 的数据本身）。
-当模型中加入新的自变量时，模型对数据的拟合程度通常会提高（至少不会变差），这意味着模型能解释的变异 (<span class="arithmatex">\(SS_{回归}\)</span>) 会增大。
-根据公式 <span class="arithmatex">\(SS_{总} = SS_{回归} + SS_{残差}\)</span>，既然 <span class="arithmatex">\(SS_{总}\)</span> 不变且 <span class="arithmatex">\(SS_{回归}\)</span> 增大，那么 <span class="arithmatex">\(SS_{残差}\)</span> 必然减小。</p>
+<p><strong>解析:</strong> 总平方和 (<span class="arithmatex">\(SS_{总}\)</span>) 是固定的（取决于因变量 <span class="arithmatex">\(Y\)</span> 的数据本身）。</p>
+<p>当模型中加入新的自变量时，模型对数据的拟合程度通常会提高（至少不会变差），这意味着模型能解释的变异 (<span class="arithmatex">\(SS_{回归}\)</span>) 会增大。</p>
+<p>根据公式 <span class="arithmatex">\(SS_{总} = SS_{回归} + SS_{残差}\)</span>，既然 <span class="arithmatex">\(SS_{总}\)</span> 不变且 <span class="arithmatex">\(SS_{回归}\)</span> 增大，那么 <span class="arithmatex">\(SS_{残差}\)</span> 必然减小。</p>
 </div>
 <h3 id="betat">回归系数<span class="arithmatex">\(\beta\)</span>的检验——<span class="arithmatex">\(t\)</span> 检验</h3>
 <p>用于检验总体回归系数 <span class="arithmatex">\(\beta\)</span> 是否为 0。
@@ -6139,17 +6139,17 @@ $$
 <div class="admonition note">
 <p class="admonition-title">例题：相关系数与回归统计量的关系</p>
 <p><strong>如果两样本的相关系数 <span class="arithmatex">\(r_1 = r_2\)</span>，样本量 <span class="arithmatex">\(n_1 = n_2\)</span>，那么（ ）。</strong></p>
-<p><strong>A.</strong> 回归系数 <span class="arithmatex">\(b_1 = b_2\)</span>
-<strong>B.</strong> 回归系数 <span class="arithmatex">\(b_1 &lt; b_2\)</span>
-<strong>C.</strong> 回归系数 <span class="arithmatex">\(b_1 &gt; b_2\)</span>
-<strong>D.</strong> <span class="arithmatex">\(t\)</span> 统计量 <span class="arithmatex">\(t_{b1} = t_{r1}\)</span>
-<strong>E.</strong> 以上均错</p>
+<p><strong>A.</strong> 回归系数 <span class="arithmatex">\(b_1 = b_2\)</span></p>
+<p><strong>B.</strong> 回归系数 <span class="arithmatex">\(b_1 &lt; b_2\)</span></p>
+<p><strong>C.</strong> 回归系数 <span class="arithmatex">\(b_1 &gt; b_2\)</span></p>
+<p><strong>D.</strong> <span class="arithmatex">\(t\)</span> 统计量 <span class="arithmatex">\(t_{b1} = t_{r1}\)</span></p>
+<p><strong>E.</strong> 以上均错</p>
 <p><strong>正确答案: D</strong></p>
-<p><strong>解析:</strong> 在简单线性回归中，对回归系数 <span class="arithmatex">\(\beta=0\)</span> 的检验（<span class="arithmatex">\(t\)</span> 检验）与对相关系数 <span class="arithmatex">\(\rho=0\)</span> 的检验是等价的。
-检验统计量的公式在数值上是相同的：
-<span class="arithmatex">\(t_b = \frac{b}{S_b}\)</span> 和 <span class="arithmatex">\(t_r = \frac{r}{\sqrt{(1-r^2)/(n-2)}}\)</span>。
-虽然本题选项D表述略显模糊（可能指第一组的回归t值等于第一组的相关t值，这是对的；或者指两组的t值相等），但在已知 <span class="arithmatex">\(r_1=r_2\)</span> 且 <span class="arithmatex">\(n_1=n_2\)</span> 的情况下，两组数据的 <span class="arithmatex">\(t\)</span> 统计量计算结果必然相等，且对于同一组数据，回归系数的假设检验 <span class="arithmatex">\(t\)</span> 值等于相关系数的假设检验 <span class="arithmatex">\(t\)</span> 值。
-选项 A, B, C 不一定成立，因为 <span class="arithmatex">\(b = r \frac{S_Y}{S_X}\)</span>，即使 <span class="arithmatex">\(r\)</span> 相同，如果两组数据的标准差 <span class="arithmatex">\(S_Y, S_X\)</span> 不同，<span class="arithmatex">\(b\)</span> 也会不同。</p>
+<p><strong>解析:</strong> 在简单线性回归中，对回归系数 <span class="arithmatex">\(\beta=0\)</span> 的检验（<span class="arithmatex">\(t\)</span> 检验）与对相关系数 <span class="arithmatex">\(\rho=0\)</span> 的检验是等价的。</p>
+<p>检验统计量的公式在数值上是相同的：</p>
+<p><span class="arithmatex">\(t_b = \frac{b}{S_b}\)</span> 和 <span class="arithmatex">\(t_r = \frac{r}{\sqrt{(1-r^2)/(n-2)}}\)</span>。</p>
+<p>虽然本题选项D表述略显模糊（可能指第一组的回归t值等于第一组的相关t值，这是对的；或者指两组的t值相等），但在已知 <span class="arithmatex">\(r_1=r_2\)</span> 且 <span class="arithmatex">\(n_1=n_2\)</span> 的情况下，两组数据的 <span class="arithmatex">\(t\)</span> 统计量计算结果必然相等，且对于同一组数据，回归系数的假设检验 <span class="arithmatex">\(t\)</span> 值等于相关系数的假设检验 <span class="arithmatex">\(t\)</span> 值。</p>
+<p>选项 A, B, C 不一定成立，因为 <span class="arithmatex">\(b = r \frac{S_Y}{S_X}\)</span>，即使 <span class="arithmatex">\(r\)</span> 相同，如果两组数据的标准差 <span class="arithmatex">\(S_Y, S_X\)</span> 不同，<span class="arithmatex">\(b\)</span> 也会不同。</p>
 </div>
 <h3 id="r2">决定系数 (<span class="arithmatex">\(R^2\)</span>)</h3>
 <ul>
@@ -6169,11 +6169,11 @@ $$
 <div class="admonition note">
 <p class="admonition-title">例题：相关系数与变异分解 (r=0)</p>
 <p><strong>如果变量 <span class="arithmatex">\(X, Y\)</span> 直线相关系数 <span class="arithmatex">\(r=0\)</span>，正确的是（ ）。</strong></p>
-<p><strong>A.</strong> 直线回归的截距等于0
-<strong>B.</strong> 不是线性相关，但可能有多复杂的相依关系
-<strong>C.</strong> 直线回归的 <span class="arithmatex">\(SS_{残}\)</span> 等于 <span class="arithmatex">\(SS_{总}\)</span>
-<strong>D.</strong> 直线回归的 <span class="arithmatex">\(SS_{残} = SS_{回}\)</span>
-<strong>E.</strong> 直线回归的 <span class="arithmatex">\(SS_{残}\)</span> 等于0</p>
+<p><strong>A.</strong> 直线回归的截距等于0</p>
+<p><strong>B.</strong> 不是线性相关，但可能有多复杂的相依关系</p>
+<p><strong>C.</strong> 直线回归的 <span class="arithmatex">\(SS_{残}\)</span> 等于 <span class="arithmatex">\(SS_{总}\)</span></p>
+<p><strong>D.</strong> 直线回归的 <span class="arithmatex">\(SS_{残} = SS_{回}\)</span></p>
+<p><strong>E.</strong> 直线回归的 <span class="arithmatex">\(SS_{残}\)</span> 等于0</p>
 <p><strong>正确答案: B, C</strong></p>
 <p><strong>解析:</strong></p>
 <p><strong>B正确</strong>：相关系数 <span class="arithmatex">\(r=0\)</span> 仅表示两变量间无<strong>线性</strong>相关关系，并不排除它们之间存在非线性（如曲线）关系。</p>
