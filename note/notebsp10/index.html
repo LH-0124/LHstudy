@@ -10,13 +10,13 @@
         <meta name="author" content="LH">
       
       
-        <link rel="canonical" href="https://LH-study.github.io/note/notesyt8/">
+        <link rel="canonical" href="https://LH-study.github.io/note/notebsp10/">
       
       
-        <link rel="prev" href="../notesyt7/">
+        <link rel="prev" href="../notebsp9/">
       
       
-        <link rel="next" href="../notesyt9/">
+        <link rel="next" href="../notesyt0/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>第8章 关联性分析 - LH的资源小站</title>
+        <title>第10章 滤波器设计 - LH的资源小站</title>
       
     
     
@@ -141,7 +141,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#1" class="md-skip">
+        <a href="#filter" class="md-skip">
           跳转至
         </a>
       
@@ -175,7 +175,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              第8章 关联性分析
+              第10章 滤波器设计
             
           </span>
         </div>
@@ -3994,6 +3994,8 @@
                 
   
   
+    
+  
   
   
     
@@ -4004,11 +4006,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_12" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_12" checked>
         
           
           <label class="md-nav__link" for="__nav_4_12" id="__nav_4_12_label" tabindex="0">
@@ -4024,7 +4026,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_12_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_12_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_12">
             <span class="md-nav__icon md-icon"></span>
             生物医学信号处理
@@ -4242,10 +4244,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../notebsp10/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    第10章 滤波器设计
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -4256,6 +4278,75 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      滤波器（Filter）基本知识
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="滤波器（Filter）基本知识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      分类
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      理想滤波器的问题
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iirfir" class="md-nav__link">
+    <span class="md-ellipsis">
+      IIR滤波器和FIR滤波器
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4273,8 +4364,6 @@
                 
   
   
-    
-  
   
   
     
@@ -4285,11 +4374,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_13" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_13" >
         
           
           <label class="md-nav__link" for="__nav_4_13" id="__nav_4_13_label" tabindex="0">
@@ -4305,7 +4394,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_13_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_13_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_13">
             <span class="md-nav__icon md-icon"></span>
             生物医学统计学
@@ -4500,30 +4589,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    第8章 关联性分析
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../notesyt8/" class="md-nav__link">
         
   
   
@@ -4534,192 +4603,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. 概述：关联性和依存性
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. 概述：关联性和依存性">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      分析方法的选择
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. 两个连续型随机变量间的相关分析
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. 两个连续型随机变量间的相关分析">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      线性相关分析基础
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#r" class="md-nav__link">
-    <span class="md-ellipsis">
-      相关系数 \(r\)​​
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      相关系数的假设检验
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#spearman-r_s" class="md-nav__link">
-    <span class="md-ellipsis">
-      Spearman 秩相关 (\(r_s\))
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      注意事项
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. 两个分类变量间的关联分析
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. 两个分类变量间的关联分析">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      基本原理
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      关联系数
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      具体类型的关联分析
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="具体类型的关联分析">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#2-times-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      交叉分类 \(2 \times 2\) 表
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-times-2_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      \(2 \times 2\) 配对资料
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#r-times-c" class="md-nav__link">
-    <span class="md-ellipsis">
-      多分类资料 (\(R \times C\))
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.小结
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -5813,52 +5696,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#filter" class="md-nav__link">
     <span class="md-ellipsis">
-      1. 概述：关联性和依存性
+      滤波器（Filter）基本知识
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. 概述：关联性和依存性">
+    <nav class="md-nav" aria-label="滤波器（Filter）基本知识">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      分析方法的选择
+      定义
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. 两个连续型随机变量间的相关分析
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. 两个连续型随机变量间的相关分析">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      线性相关分析基础
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#r" class="md-nav__link">
-    <span class="md-ellipsis">
-      相关系数 \(r\)​​
+      分类
     </span>
   </a>
   
@@ -5867,25 +5726,16 @@
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      相关系数的假设检验
+      理想滤波器的问题
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#spearman-r_s" class="md-nav__link">
+  <a href="#iirfir" class="md-nav__link">
     <span class="md-ellipsis">
-      Spearman 秩相关 (\(r_s\))
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      注意事项
+      IIR滤波器和FIR滤波器
     </span>
   </a>
   
@@ -5893,90 +5743,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. 两个分类变量间的关联分析
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. 两个分类变量间的关联分析">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      基本原理
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      关联系数
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      具体类型的关联分析
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="具体类型的关联分析">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#2-times-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      交叉分类 \(2 \times 2\) 表
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-times-2_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      \(2 \times 2\) 配对资料
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#r-times-c" class="md-nav__link">
-    <span class="md-ellipsis">
-      多分类资料 (\(R \times C\))
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.小结
-    </span>
-  </a>
   
 </li>
       
@@ -5999,196 +5765,28 @@
   
 
 
-  <h1>第8章 关联性分析</h1>
+  <h1>第10章 滤波器设计</h1>
 
-<h2 id="1">1. 概述：关联性和依存性</h2>
-<p>在统计分析中，研究两个变量之间的关系主要分为两种类型：</p>
-<ol>
-<li><strong>关联性 (Association)</strong>：<ul>
-<li>研究两个变量之间<strong>是否存在</strong>某种联系，以及联系的<strong>程度</strong>和<strong>方向</strong>。</li>
-<li>两个变量均为<strong>随机变量</strong>，地位对等，不区分自变量和因变量。</li>
-</ul>
-</li>
-<li><strong>依存性 (Dependence)</strong>：<ul>
-<li>研究一个变量（自变量）的变化会在多大程度上引起另一个变量（因变量）的变化。</li>
-<li>即<strong>回归分析</strong>（第9章内容）。</li>
-</ul>
-</li>
-</ol>
-<h3 id="_1">分析方法的选择</h3>
-<p>根据变量的数据类型，选择不同的分析指标：</p>
-<ul>
-<li><strong>定量变量（连续变量）</strong> <span class="arithmatex">\(\rightarrow\)</span> <strong>相关分析</strong> (Correlation Analysis) <span class="arithmatex">\(\rightarrow\)</span> 计算 <strong>相关系数</strong> (Correlation Coefficient)。</li>
-<li><strong>定性变量（分类变量）</strong> <span class="arithmatex">\(\rightarrow\)</span> <strong>关联分析</strong> (Association Analysis) <span class="arithmatex">\(\rightarrow\)</span> 计算 <strong>关联系数</strong> (Association Coefficient)。</li>
-</ul>
-<h2 id="2">2. 两个连续型随机变量间的相关分析</h2>
-<h3 id="_2">线性相关分析基础</h3>
-<ul>
-<li><strong>目的</strong>：推断两个连续变量之间是否存在<strong>直线（线性）</strong>相关关系。</li>
-<li><strong>散点图 (Scatter Plot)</strong>：<ul>
-<li><strong>第一步</strong>：在进行任何相关计算前，<strong>必须先绘制散点图</strong>。</li>
-<li><strong>作用</strong>：直观判断是否存在相关趋势、是线性还是非线性、是否存在异常值（Outliers）。</li>
-<li><strong>类型</strong>：正相关、负相关、零相关、非线性相关。</li>
-</ul>
-</li>
-</ul>
-<h3 id="r">相关系数 <span class="arithmatex">\(r\)</span>​​</h3>
-<ul>
-<li>
-<p><strong>名称：</strong>相关系数、积矩相关系数、Pearson相关系数。</p>
-</li>
-<li>
-<p><strong>定义</strong>：用于说明具有直线关系的两个变量间相关关系的密切程度和方向。</p>
-</li>
-<li>
-<p><strong>符号</strong>：总体相关系数 <span class="arithmatex">\(\rho\)</span>，样本相关系数 <span class="arithmatex">\(r\)</span>。</p>
-</li>
-<li>
-<p><strong>计算公式</strong>：</p>
-</li>
-</ul>
-<div class="arithmatex">\[
-r = \frac{\sum(X-\bar{X})(Y-\bar{Y})}{\sqrt{\sum(X-\bar{X})^2 \sum(Y-\bar{Y})^2}}
-\]</div>
-<p>即：协方差 / 标准差的乘积</p>
-<ul>
-<li>
-<p><strong>取值范围</strong>：<span class="arithmatex">\(-1 \le r \le 1\)</span>。</p>
-<ul>
-<li><span class="arithmatex">\(r &gt; 0\)</span>：正相关。</li>
-<li><span class="arithmatex">\(r &lt; 0\)</span>：负相关。</li>
-<li><span class="arithmatex">\(|r|\)</span> 越接近 1，相关性越强；<span class="arithmatex">\(|r|\)</span> 越接近 0，线性相关性越差。</li>
-</ul>
-</li>
-<li>
-<p><strong>适用条件</strong>：</p>
-<ol>
-<li>两个变量均为<strong>随机变量</strong>。</li>
-<li>两个变量服从<strong>双变量正态分布</strong>。</li>
-</ol>
-</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">例题：积矩相关系数的要求</p>
-<p><strong>计算积矩相关系数要求（ ）。</strong></p>
-<p><strong>A.</strong> <span class="arithmatex">\(X\)</span>是正态变量，<span class="arithmatex">\(Y\)</span>可以不满足正态的要求</p>
-<p><strong>B.</strong> <span class="arithmatex">\(Y\)</span>是正态变量，<span class="arithmatex">\(X\)</span>可以不满足正态的要求</p>
-<p><strong>C.</strong> 两变量都要求满足正态分布规律</p>
-<p><strong>D.</strong> 两变量只要是测量指标就行</p>
-<p><strong>E.</strong> <span class="arithmatex">\(X\)</span>是定量指标，<span class="arithmatex">\(Y\)</span>可以是任何类型的数据</p>
-<p><strong>正确答案: C</strong></p>
-<p><strong>解析:</strong> Pearson积矩相关系数要求两变量均为服从双变量正态分布的定量变量。</p>
-</div>
-<h3 id="_3">相关系数的假设检验</h3>
-<p>相关系数也是一个统计量，由于样本存在抽样误差，计算出的 <span class="arithmatex">\(r \ne 0\)</span> 并不代表总体相关系数 <span class="arithmatex">\(\rho \ne 0\)</span>，必须进行假设检验。</p>
-<ul>
-<li><strong>建立假设</strong>：<ul>
-<li><span class="arithmatex">\(H_0: \rho = 0\)</span> （两变量间无线性相关关系）</li>
-<li><span class="arithmatex">\(H_1: \rho \ne 0\)</span> （两变量间有线性相关关系）</li>
-</ul>
-</li>
-<li><strong>检验方法</strong>：<strong>t 检验</strong><ul>
-<li>统计量：<span class="arithmatex">\(t = \frac{r}{\sqrt{\frac{1-r^2}{n-2}}}\)</span></li>
-<li>自由度：<span class="arithmatex">\(\nu = n-2\)</span></li>
-</ul>
-</li>
-<li><strong>结论判断</strong>：<ul>
-<li>若 <span class="arithmatex">\(P &lt; \alpha\)</span>（或 <span class="arithmatex">\(t &gt; t_{\alpha/2, \nu}\)</span>），拒绝 <span class="arithmatex">\(H_0\)</span>，认为两变量间存在线性相关关系。</li>
-</ul>
-</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">例题：相关系数假设检验结论</p>
-<p><strong>对简单相关系数作假设检验，若 <span class="arithmatex">\(t &gt; t_\nu\)</span>，统计结论为（ ）。</strong></p>
-<p><strong>A.</strong> 两变量不相关</p>
-<p><strong>B.</strong> 两变量有线性关系</p>
-<p><strong>C.</strong> 两变量无线性关系</p>
-<p><strong>D.</strong> 两变量不会是曲线关系，一定是线性关系</p>
-<p><strong>E.</strong> 上述说法都不准确</p>
-<p><strong>正确答案: B</strong></p>
-<p><strong>解析:</strong> 当检验统计量 <span class="arithmatex">\(t &gt; t_\nu\)</span> 时，拒绝原假设 <span class="arithmatex">\(H_0: \rho = 0\)</span>，说明两变量存在线性关系。注意：这并不排除两者同时存在非线性关系的可能性，也不代表“一定是”严格的线性关系，只是说明线性分量显著。</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">例题：P值含义</p>
-<p><strong>由样本算得相关系数 <span class="arithmatex">\(r\)</span>，检验结果为 <span class="arithmatex">\(P &lt; 0.01\)</span>，说明（ ）。</strong></p>
-<p><strong>A.</strong> 两变量之间有高度相关性</p>
-<p><strong>B.</strong> 来自高度相关的总体</p>
-<p><strong>C.</strong> 来自总体相关系数为0的总体</p>
-<p><strong>D.</strong> 来自总体相关系数不为0的总体</p>
-<p><strong>E.</strong> 来自总体相关系数大于0的总体</p>
-<p><strong>正确答案: D</strong></p>
-<p><strong>解析:</strong> <span class="arithmatex">\(P &lt; 0.01\)</span> 表示在 <span class="arithmatex">\(\alpha = 0.01\)</span> 水平下拒绝 <span class="arithmatex">\(H_0: \rho = 0\)</span>，说明样本来自总体相关系数不为0的总体（即存在统计学意义上的相关关系）。<strong>注意</strong>：P值大小反映的是拒绝零假设的理由强弱（统计学显著性），而不是相关程度的强弱（<span class="arithmatex">\(r\)</span> 的大小才反映相关程度）。</p>
-</div>
-<h3 id="spearman-r_s">Spearman 秩相关 (<span class="arithmatex">\(r_s\)</span>)</h3>
-<ul>
-<li><strong>适用条件</strong>：<ol>
-<li>不满足正态分布。</li>
-<li>总体分布类型未知。</li>
-<li>原始数据是<strong>等级资料</strong>。</li>
-<li>数据本身有不确定值（如 &gt;65岁）。</li>
-</ol>
-</li>
-<li><strong>方法</strong>：先将原始数据 <span class="arithmatex">\(X, Y\)</span> 转换为秩次（编秩），然后计算秩次之间的 Pearson 相关系数，称为<strong>秩相关系数 (<span class="arithmatex">\(r_s\)</span>)</strong>。</li>
-</ul>
-<h3 id="_4">注意事项</h3>
-<ol>
-<li><strong>相关 <span class="arithmatex">\(\ne\)</span> 因果</strong>：两变量相关可能只是伴随关系，未必有内在联系。</li>
-<li><strong>异常值影响</strong>：离群点对 Pearson 相关系数影响很大，需慎用。</li>
-<li><strong>人为选定变量</strong>：如果其中一个变量是人为选定的（非随机），不宜作相关分析（应作回归分析）。</li>
-</ol>
-<h2 id="3">3. 两个分类变量间的关联分析</h2>
-<h3 id="_5">基本原理</h3>
-<ul>
-<li><strong>数据结构</strong>：交叉分类的列联表（Contingency Table）。</li>
-<li><strong>分析目的</strong>：判断两个分类属性之间是否相互独立。</li>
-<li><strong>统计方法</strong>：基于 <span class="arithmatex">\(\chi^2\)</span> 检验（独立性检验）。<ul>
-<li><span class="arithmatex">\(H_0\)</span>：两种属性相互独立。</li>
-<li><span class="arithmatex">\(H_1\)</span>：两种属性相互关联。</li>
-</ul>
-</li>
-</ul>
-<h3 id="_6">关联系数</h3>
-<p><span class="arithmatex">\(\chi^2\)</span> 值的大小受样本含量 <span class="arithmatex">\(n\)</span> 的影响，不能直接用来比较关联程度。需计算<strong>关联系数</strong>（如 Pearson 列联系数）：</p>
-<div class="arithmatex">\[r = \sqrt{\frac{\chi^2}{\chi^2 + n}}\]</div>
-<div class="admonition note">
-<p class="admonition-title">例题：关联性分析指标</p>
-<p><strong>对两个分类变量的频数表资料作关联性分析，可用（ ）。</strong></p>
-<p><strong>A.</strong> 积矩相关</p>
-<p><strong>B.</strong> 秩相关</p>
-<p><strong>C.</strong> 关联系数</p>
-<p><strong>D.</strong> 线性相关</p>
-<p><strong>E.</strong> 以上均可</p>
-<p><strong>正确答案: C</strong></p>
-<p><strong>解析:</strong> 积矩相关用于定量正态数据，秩相关用于等级或非正态数据。对于分类变量（名义变量）的列联表资料，衡量其关联强度应计算关联系数（contingency coefficient, <span class="arithmatex">\(C\)</span> 或 <span class="arithmatex">\(r\)</span>）。</p>
-</div>
-<h3 id="_7">具体类型的关联分析</h3>
-<h4 id="2-times-2">交叉分类 <span class="arithmatex">\(2 \times 2\)</span> 表</h4>
-<ul>
-<li><strong>背景</strong>：一份样本，按两个属性分类。</li>
-<li><strong>步骤</strong>：<ol>
-<li>建立假设（独立 vs 关联）。</li>
-<li>计算 <span class="arithmatex">\(\chi^2\)</span> 值。</li>
-<li>若 <span class="arithmatex">\(P &lt; \alpha\)</span>（拒绝独立假设），则计算关联系数 <span class="arithmatex">\(r\)</span>。</li>
-</ol>
-</li>
-</ul>
-<h4 id="2-times-2_1"><span class="arithmatex">\(2 \times 2\)</span> 配对资料</h4>
-<ul>
-<li><strong>区别</strong>：<ul>
-<li><strong>McNemar 检验（第7章）</strong>：关注<strong>差异性</strong>（阳性率是否不同），只利用非一致对子（<span class="arithmatex">\(b, c\)</span>）。</li>
-<li><strong>关联性分析（第8章）</strong>：关注<strong>一致性</strong>（两种方法结果是否相关），利用所有数据计算普通 <span class="arithmatex">\(\chi^2\)</span>​ 和关联系数。</li>
-</ul>
-</li>
-<li><strong>公式</strong>：关联分析使用 <span class="arithmatex">\(\chi^2 = \sum \frac{(A-T)^2}{T}\)</span>（同独立样本公式），而非 McNemar 的 <span class="arithmatex">\(\frac{(b-c)^2}{b+c}\)</span>。</li>
-</ul>
-<h4 id="r-times-c">多分类资料 (<span class="arithmatex">\(R \times C\)</span>)</h4>
-<ul>
-<li><strong>方法</strong>：计算 <span class="arithmatex">\(\chi^2\)</span> 统计量。</li>
-<li><strong>自由度</strong>：<span class="arithmatex">\(\nu = (R-1)(C-1)\)</span>。</li>
-<li><strong>关联系数</strong>：<span class="arithmatex">\(r = \sqrt{\frac{\chi^2}{\chi^2 + n}}\)</span>。</li>
-</ul>
-<h2 id="4">4.小结</h2>
-<p><img alt="image.png" src="https://s2.loli.net/2025/12/14/dtes6bfFACr3oJi.png" /></p>
+<h2 id="filter">滤波器（Filter）基本知识</h2>
+<h3 id="_1">定义</h3>
+<p><strong>滤波器：</strong>一种特别重要的线性时不变系统</p>
+<p><strong>选频滤波器：</strong>对信号的频率成分进行选择（通过或拒绝）的系统</p>
+<p><strong>滤波器的广义定义</strong>：能对某些频率进行修正的系统</p>
+<h3 id="_2">分类</h3>
+<p>低通滤波器(Low-pass)</p>
+<p>高通滤波器(High-pass)</p>
+<p>带通滤波器(Band-pass)</p>
+<p>带阻滤波器(Band-stop)</p>
+<p>全通滤波器(All-pass)</p>
+<p><img alt="image.png" src="https://s2.loli.net/2025/12/24/hMrFLcW517dwb9U.png" /></p>
+<p>判断可看半谱</p>
+<h3 id="_3">理想滤波器的问题</h3>
+<p>理想滤波器时域无限长，为非因果的，实际上无法实现，因此要引入平缓的过渡带</p>
+<p><img alt="image.png" src="https://s2.loli.net/2025/12/24/eaNG7YohkZpJP3X.png" /></p>
+<p><strong>具体的滤波器设计：</strong>确定符合频率指标要求的系统函数（频率响应、脉冲响应）</p>
+<h3 id="iirfir">IIR滤波器和FIR滤波器</h3>
+<p><img alt="image.png" src="https://s2.loli.net/2025/12/24/OMHqYFB9ZSmcjhW.png" /></p>
+<p>在FIR系统中，<span class="arithmatex">\(h[n]=b_n\)</span></p>
 
 
 
@@ -6218,7 +5816,7 @@ r = \frac{\sum(X-\bar{X})(Y-\bar{Y})}{\sqrt{\sum(X-\bar{X})^2 \sum(Y-\bar{Y})^2}
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../notesyt7/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 第7章 定性资料的比较">
+          <a href="../notebsp9/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 第9章 系统稳定性">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -6228,20 +5826,20 @@ r = \frac{\sum(X-\bar{X})(Y-\bar{Y})}{\sqrt{\sum(X-\bar{X})^2 \sum(Y-\bar{Y})^2}
                 上一页
               </span>
               <div class="md-ellipsis">
-                第7章 定性资料的比较
+                第9章 系统稳定性
               </div>
             </div>
           </a>
         
         
           
-          <a href="../notesyt9/" class="md-footer__link md-footer__link--next" aria-label="下一页: 第9章 简单线性回归分析">
+          <a href="../notesyt0/" class="md-footer__link md-footer__link--next" aria-label="下一页: 第0章 绪论">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                第9章 简单线性回归分析
+                第0章 绪论
               </div>
             </div>
             <div class="md-footer__button md-icon">
