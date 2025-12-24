@@ -6008,19 +6008,39 @@
 <h1 id="20-logistic-logistic-regression">第20章 Logistic回归 (Logistic Regression) 复习笔记</h1>
 <h2 id="1">1. 概述与适用场景</h2>
 <h3 id="_1">回归分析的分类</h3>
-<p>根据<strong>因变量 (Y)</strong> 的类型不同，回归分析可分为：
-* <strong>简单/多重线性回归</strong>：适用于 <span class="arithmatex">\(Y\)</span> 为<strong>连续型定量变量</strong>（且满足正态分布、方差齐性等条件）。
-* <strong>Logistic 回归</strong>：适用于 <span class="arithmatex">\(Y\)</span> 为<strong>分类变量</strong>（定性资料）,<span class="arithmatex">\(X\)</span>可以为分类变量也可以为定量变量。</p>
+<p>根据<strong>因变量 (Y)</strong> 的类型不同，回归分析可分为：</p>
+<ul>
+<li>
+<p><strong>简单/多重线性回归</strong>：适用于 <span class="arithmatex">\(Y\)</span> 为<strong>连续型定量变量</strong>（且满足正态分布、方差齐性等条件）。</p>
+</li>
+<li>
+<p><strong>Logistic 回归</strong>：适用于 <span class="arithmatex">\(Y\)</span> 为<strong>分类变量</strong>（定性资料）,<span class="arithmatex">\(X\)</span>可以为分类变量也可以为定量变量。</p>
+</li>
+</ul>
 <h3 id="logistic">Logistic回归的类型</h3>
-<p>根据因变量 <span class="arithmatex">\(Y\)</span> 的分类情况，分为：
-1.  <strong>二分类 Logistic 回归</strong>：<span class="arithmatex">\(Y\)</span> 只有两个取值（如：发病/不发病，生存/死亡，0/1）。
-2.  <strong>有序多分类 Logistic 回归</strong>：<span class="arithmatex">\(Y\)</span> 为有序等级资料（如：疗效为无效、好转、显效、治愈）。
-3.  <strong>无序多分类 Logistic 回归</strong>：<span class="arithmatex">\(Y\)</span> 为无序分类资料（如：血型 A/B/O/AB，肿瘤类型）。</p>
+<p>根据因变量 <span class="arithmatex">\(Y\)</span> 的分类情况，分为：</p>
+<ol>
+<li>
+<p><strong>二分类 Logistic 回归</strong>：<span class="arithmatex">\(Y\)</span> 只有两个取值（如：发病/不发病，生存/死亡，0/1）。</p>
+</li>
+<li>
+<p><strong>有序多分类 Logistic 回归</strong>：<span class="arithmatex">\(Y\)</span> 为有序等级资料（如：疗效为无效、好转、显效、治愈）。</p>
+</li>
+<li>
+<p><strong>无序多分类 Logistic 回归</strong>：<span class="arithmatex">\(Y\)</span> 为无序分类资料（如：血型 A/B/O/AB，肿瘤类型）。</p>
+</li>
+</ol>
 <h3 id="_2">主要用途</h3>
 <ol>
-<li><strong>影响因素分析</strong>：筛选并解释影响结果的危险因素或保护因素。</li>
-<li><strong>校正混杂因素</strong>：在多因素分析中控制混杂偏倚。</li>
-<li><strong>预测</strong>：利用模型预测某事件发生的概率。</li>
+<li>
+<p><strong>影响因素分析</strong>：筛选并解释影响结果的危险因素或保护因素。</p>
+</li>
+<li>
+<p><strong>校正混杂因素</strong>：在多因素分析中控制混杂偏倚。</p>
+</li>
+<li>
+<p><strong>预测</strong>：利用模型预测某事件发生的概率。</p>
+</li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">例题：Logistic回归的适用性</p>
@@ -6079,16 +6099,24 @@ $$OR_1 = \frac{ad}{bc} = \frac{286 \times 220}{200 \times 130} = 2.42$$
 <h3 id="logit">回归方程 (Logit 变换)</h3>
 <p>Logistic 回归通过 <strong>Logit 变换</strong> 将取值范围在 <span class="arithmatex">\((0,1)\)</span> 的概率 <span class="arithmatex">\(P\)</span> 转化为取值范围在 <span class="arithmatex">\((-\infty, +\infty)\)</span> 的线性形式。</p>
 <ul>
-<li><strong>线性表达式</strong>：
-    <span class="arithmatex">\(<span class="arithmatex">\(\text{logit}(P) = \ln\left(\frac{P}{1-P}\right) = \beta_0 + \beta_1 X_1 + \dots + \beta_m X_m\)</span>\)</span></li>
-<li><strong>概率预测模型</strong> (S型曲线/Sigmoid函数)：
-    <span class="arithmatex">\(<span class="arithmatex">\(P = \frac{e^{\beta_0 + \beta_1 X_1 + \dots + \beta_m X_m}}{1 + e^{\beta_0 + \beta_1 X_1 + \dots + \beta_m X_m}}\)</span>\)</span></li>
+<li>
+<p><strong>线性表达式</strong>：
+    <span class="arithmatex">\(<span class="arithmatex">\(\text{logit}(P) = \ln\left(\frac{P}{1-P}\right) = \beta_0 + \beta_1 X_1 + \dots + \beta_m X_m\)</span>\)</span></p>
+</li>
+<li>
+<p><strong>概率预测模型</strong> (S型曲线/Sigmoid函数)：
+    <span class="arithmatex">\(<span class="arithmatex">\(P = \frac{e^{\beta_0 + \beta_1 X_1 + \dots + \beta_m X_m}}{1 + e^{\beta_0 + \beta_1 X_1 + \dots + \beta_m X_m}}\)</span>\)</span></p>
+</li>
 </ul>
 <h3 id="beta-or">回归系数 <span class="arithmatex">\(\beta\)</span> 与 <span class="arithmatex">\(OR\)</span> 的关系</h3>
 <p>回归系数 <span class="arithmatex">\(\beta_i\)</span> 表示在控制其他变量时，<span class="arithmatex">\(X_i\)</span> 每增加一个单位，优势 (Odds) 的对数的变化量。</p>
 <ul>
-<li><strong>数量关系</strong>：<span class="arithmatex">\(OR = e^{\beta}\)</span>。</li>
-<li><strong>判断准则</strong>：<ul>
+<li>
+<p><strong>数量关系</strong>：<span class="arithmatex">\(OR = e^{\beta}\)</span>。</p>
+</li>
+<li>
+<p><strong>判断准则</strong>：</p>
+<ul>
 <li><span class="arithmatex">\(\beta &gt; 0 \Rightarrow OR &gt; 1\)</span>：<strong>危险因素</strong>，促进事件发生。</li>
 <li><span class="arithmatex">\(\beta = 0 \Rightarrow OR = 1\)</span>：<strong>无关</strong>，无统计学关联。</li>
 <li><span class="arithmatex">\(\beta &lt; 0 \Rightarrow OR &lt; 1\)</span>：<strong>保护因素</strong>，抑制事件发生。</li>
@@ -6118,31 +6146,51 @@ $$OR_1 = \frac{ad}{bc} = \frac{286 \times 220}{200 \times 130} = 2.42$$
 <li>
 <p><strong>整体模型检验</strong>：</p>
 <ul>
-<li><strong>似然比检验 (Likelihood Ratio Test)</strong>：统计量为 <span class="arithmatex">\(G\)</span> 或 <span class="arithmatex">\(\chi^2\)</span>。</li>
-<li>公式：<span class="arithmatex">\(G = -2 \ln(L_0 / L_1)\)</span>，服从 <span class="arithmatex">\(\chi^2\)</span> 分布。</li>
-<li>意义：检验所有自变量作为一个整体是否有效。</li>
+<li>
+<p><strong>似然比检验 (Likelihood Ratio Test)</strong>：统计量为 <span class="arithmatex">\(G\)</span> 或 <span class="arithmatex">\(\chi^2\)</span>。</p>
+</li>
+<li>
+<p>公式：<span class="arithmatex">\(G = -2 \ln(L_0 / L_1)\)</span>，服从 <span class="arithmatex">\(\chi^2\)</span> 分布。</p>
+</li>
+<li>
+<p>意义：检验所有自变量作为一个整体是否有效。</p>
+</li>
 </ul>
 </li>
 <li>
 <p><strong>单个回归系数检验</strong>：</p>
 <ul>
-<li><strong>Wald <span class="arithmatex">\(\chi^2\)</span> 检验</strong>：最常用。统计量 <span class="arithmatex">\(Z = \frac{b}{S_b}\)</span> 或 <span class="arithmatex">\(\chi^2 = (\frac{b}{S_b})^2\)</span>。</li>
-<li><strong>记分检验 (Score Test)</strong>。</li>
+<li>
+<p><strong>Wald <span class="arithmatex">\(\chi^2\)</span> 检验</strong>：最常用。统计量 <span class="arithmatex">\(Z = \frac{b}{S_b}\)</span> 或 <span class="arithmatex">\(\chi^2 = (\frac{b}{S_b})^2\)</span>。</p>
+</li>
+<li>
+<p><strong>记分检验 (Score Test)</strong>。</p>
+</li>
 </ul>
 </li>
 <li>
 <p><strong>拟合优度检验</strong>：</p>
 <ul>
-<li><strong>Hosmer-Lemeshow 检验</strong>：检验模型预测值与观测值是否吻合。</li>
-<li><em>注意</em>：这里希望 <strong><span class="arithmatex">\(P &gt; 0.05\)</span></strong>，即差异无统计学意义，说明模型拟合得好。</li>
+<li>
+<p><strong>Hosmer-Lemeshow 检验</strong>：检验模型预测值与观测值是否吻合。</p>
+</li>
+<li>
+<p><em>注意</em>：这里希望 <strong><span class="arithmatex">\(P &gt; 0.05\)</span></strong>，即差异无统计学意义，说明模型拟合得好。</p>
+</li>
 </ul>
 </li>
 </ol>
 <h3 id="_5">变量筛选与哑变量</h3>
 <ul>
-<li><strong>逐步回归法</strong>：常用方法，自动筛选自变量。</li>
-<li><strong>哑变量 (Dummy Variable)</strong>：当自变量为多分类（如血型：A, B, O, AB）时，不能直接赋值 1,2,3,4，必须设置哑变量。</li>
-<li><strong>同进同出原则</strong>：一个多分类变量生成的多个哑变量（如3个哑变量代表4个血型），必须作为一个整体进入或剔除出模型，不能只保留其中某一个。</li>
+<li>
+<p><strong>逐步回归法</strong>：常用方法，自动筛选自变量。</p>
+</li>
+<li>
+<p><strong>哑变量 (Dummy Variable)</strong>：当自变量为多分类（如血型：A, B, O, AB）时，不能直接赋值 1,2,3,4，必须设置哑变量。</p>
+</li>
+<li>
+<p><strong>同进同出原则</strong>：一个多分类变量生成的多个哑变量（如3个哑变量代表4个血型），必须作为一个整体进入或剔除出模型，不能只保留其中某一个。</p>
+</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">例题：哑变量的处理</p>
@@ -6167,9 +6215,15 @@ $$OR_1 = \frac{ad}{bc} = \frac{286 \times 220}{200 \times 130} = 2.42$$
 <p><img alt="image.png" src="https://s2.loli.net/2025/12/24/IiaMpF1rA2R6nd7.png" /></p>
 <h3 id="ordinal-logit">有序多分类 (Ordinal) —— 累积 Logit 模型</h3>
 <ul>
-<li>适用于等级资料（轻度、中度、重度）。</li>
-<li><strong>平行性假设 (Parallelism Assumption)</strong>：这是一个关键的前提条件。假设自变量对不同等级的累积概率的影响是相同的（即回归系数 <span class="arithmatex">\(\beta\)</span> 相同，只有常数项不同）。</li>
-<li><strong>平行性检验</strong>：<ul>
+<li>
+<p>适用于等级资料（轻度、中度、重度）。</p>
+</li>
+<li>
+<p><strong>平行性假设 (Parallelism Assumption)</strong>：这是一个关键的前提条件。假设自变量对不同等级的累积概率的影响是相同的（即回归系数 <span class="arithmatex">\(\beta\)</span> 相同，只有常数项不同）。</p>
+</li>
+<li>
+<p><strong>平行性检验</strong>：</p>
+<ul>
 <li>如果 <span class="arithmatex">\(P &gt; 0.05\)</span>（不拒绝）：满足平行性假设，可以使用有序 Logistic 回归。</li>
 <li>如果 <span class="arithmatex">\(P \le 0.05\)</span>​（拒绝）：不满足平行性，<strong>不能</strong>用有序回归，应改用无序多分类 Logistic </li>
 </ul>
