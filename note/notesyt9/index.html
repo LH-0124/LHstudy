@@ -6121,10 +6121,18 @@
 </div>
 <h3 id="line">模型的前提条件 (LINE)</h3>
 <p>应用线性回归模型需满足四个条件，通常通过<strong>残差分析</strong>来检验：
-1. <strong>线性 (Linearity)</strong>：反应变量<span class="arithmatex">\(Y\)</span> 的总体均值与自变量 <span class="arithmatex">\(X\)</span> 呈线性关系。
-2. <strong>独立 (Independence)</strong>：任意两个<strong>观察值</strong>互相独立。
-3. <strong>正态 (Normality)：</strong>在一定范围内任意给定 <span class="arithmatex">\(X\)</span>，对应的 <span class="arithmatex">\(Y\)</span> 服从正态分布。
-4. <strong>等方差 (Equal Variance / Homoscedasticity)</strong>：在一定范围内不同 <span class="arithmatex">\(X\)</span> 值对应的 <strong><span class="arithmatex">\(Y\)</span>​ 的总体变异程度（方差）相同。</strong></p>
+1. <strong>线性 (Linearity)</strong>：反应变量<span class="arithmatex">\(Y\)</span> 的总体均值与自变量 <span class="arithmatex">\(X\)</span>​ 呈线性关系。</p>
+<ol>
+<li>
+<p><strong>独立 (Independence)</strong>：任意两个<strong>观察值</strong>互相独立。</p>
+</li>
+<li>
+<p><strong>正态 (Normality)：</strong>在一定范围内任意给定 <span class="arithmatex">\(X\)</span>，对应的 <span class="arithmatex">\(Y\)</span> 服从正态分布。</p>
+</li>
+<li>
+<p><strong>等方差 (Equal Variance / Homoscedasticity)</strong>：在一定范围内不同 <span class="arithmatex">\(X\)</span> 值对应的 <strong><span class="arithmatex">\(Y\)</span>​ 的总体变异程度（方差）相同。</strong></p>
+</li>
+</ol>
 <p>画残差散点图。若残差散点图残差散点随机、均匀地分布在 0 水平线上下，则可定性地满足线性条件；若残差不随预测值的增大而呈现明显的趋势，可以定性地认为满足齐方差条件。</p>
 <p>正态性检验要画正态概率图，独立性要做D-W检验。</p>
 <p><img alt="image.png" src="https://s2.loli.net/2025/12/20/3sbJBkVRyxQmrF5.png" /></p>
