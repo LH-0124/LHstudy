@@ -6143,7 +6143,9 @@ $$
 \chi^2=n(\sum_{i=1}^R\sum_{j=1}^C\frac{A_{ij}^2}{n_im_j}-1)
 $$
 对于 <span class="arithmatex">\(R\)</span> 行 <span class="arithmatex">\(C\)</span> 列的列联表，自由度为：
-<span class="arithmatex">\(<span class="arithmatex">\(v = (R-1) \times (C-1)\)</span>\)</span></p>
+$$
+v = (R-1) \times (C-1)
+$$</p>
 <div class="admonition note">
 <p class="admonition-title">例题：RxC表自由度</p>
 <p><strong>12. <span class="arithmatex">\(6 \times 4\)</span> 列联表卡方检验的自由度是（ ）。</strong></p>
@@ -6159,7 +6161,7 @@ $$
 <ol>
 <li><strong>理论频数要求</strong>：一般要求各格 <span class="arithmatex">\(T \ge 1\)</span>，且 <span class="arithmatex">\(T &lt; 5\)</span> 的格子数不宜超过总格子数的 1/5。</li>
 <li><strong>处理方法</strong>：若 <span class="arithmatex">\(T\)</span> 太小，可增大样本量、合并邻近行/列、或使用确切概率法。</li>
-<li><strong>多重比较</strong>：若总体检验拒绝 <span class="arithmatex">\(H_0\)</span>，需进行两两比较时，应调整检验水准 <span class="arithmatex">\(\alpha\)</span>（如 Bonferroni 法），以避免 I 类错误膨胀。</li>
+<li><strong>多重比较</strong>：若总体检验拒绝 <span class="arithmatex">\(H_0\)</span>，需将<em>R</em>×2表分成多个四格表进行两两比较时，必须重新设定检验水准，以保证假设检验的I型错误<em>α</em>的概率不变。应调整检验水准 <span class="arithmatex">\(\alpha\)</span>​（如 Bonferroni 法），以避免 I 类错误膨胀。</li>
 </ol>
 <h2 id="4">4. 有序资料（等级资料）的比较</h2>
 <h3 id="chi2_2"><span class="arithmatex">\(\chi^2\)</span>检验问题所在</h3>
