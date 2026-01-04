@@ -6475,7 +6475,7 @@ e^{-an}u[n]\leftrightarrow \frac{1}{1+e^{-a}e^{-j\Omega}}
 <p>前提条件：<span class="arithmatex">\(x[n]\)</span>有限长，<span class="arithmatex">\(l\le N\)</span>，<strong><span class="arithmatex">\(N\)</span>和信号长度不一定要相等</strong></p>
 <p>将<span class="arithmatex">\(\Omega\)</span>离散化，令<span class="arithmatex">\(\Omega=\frac{2\pi}{N}k\)</span>，<span class="arithmatex">\(k\)</span>为频域的离散值
 $$
-X_k=\sum_{n=0}^{N-1}x[n]e^{\frac{-j2\pi}{N}k},k=0,1,...,N-1
+X_k=\sum_{n=0}^{N-1}x[n]e^{\frac{-j2\pi k n}{N}},k=0,1,...,N-1
 $$</p>
 <h3 id="dftidft">DFT反变换IDFT</h3>
 <div class="arithmatex">\[
