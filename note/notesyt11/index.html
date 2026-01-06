@@ -6077,17 +6077,21 @@
 <p>D. 4.11</p>
 <p>E.0.73</p>
 <p><strong>解析</strong>：
-1.  先算吸烟的单因素OR（<span class="arithmatex">\(OR_1\)</span>）：</p>
+1.  先算吸烟的单因素<span class="arithmatex">\(OR_1\)</span>：</p>
 <pre><code>病例组：吸烟286，不吸烟 $416-286=130$。
 
 对照组：吸烟200，不吸烟 $420-200=220$。
 
-$$OR_1 = \frac{ad}{bc} = \frac{286 \times 220}{200 \times 130} = 2.42$$
+$$
+OR_1 = \frac{ad}{bc} = \frac{286 \times 220}{200 \times 130} = 2.42
+$$
 </code></pre>
 <ol>
 <li>
 <p>计算联合OR：在Logistic回归模型中（假设无交互作用），联合效应通常是相乘关系。</p>
-<div class="arithmatex">\[OR_{总} = OR_1 \times OR_2 = 2.42 \times 1.69 \approx 4.09\]</div>
+<div class="arithmatex">\[
+OR_{总} = OR_1 \times OR_2 = 2.42 \times 1.69 \approx 4.09
+\]</div>
 </li>
 </ol>
 </div>
