@@ -5992,10 +5992,18 @@
 <li><strong>空间/组织嵌套</strong>：学生嵌套在班级中，班级嵌套在学校中；病人嵌套在医院中。</li>
 <li><strong>时间/重复测量嵌套</strong>：同一个体在不同时间点的多次测量（如儿童生长发育），由于源自同一人，数据具有相关性。</li>
 </ul>
-<p>如果忽略这种层次结构，强行使用传统回归，会导致：
-1.  <strong>标准误 (Standard Error)</strong> 被错误低估。
-2.  <strong>统计推断</strong>失效（假阳性增加）。
-3.  <strong>辛普森悖论 (Simpson's Paradox)</strong>：部分组别的趋势在合并后消失甚至反转。</p>
+<p>如果忽略这种层次结构，强行使用传统回归，会导致：</p>
+<ol>
+<li>
+<p><strong>标准误 (Standard Error)</strong> 被错误低估。</p>
+</li>
+<li>
+<p><strong>统计推断</strong>失效（假阳性增加）。</p>
+</li>
+<li>
+<p><strong>辛普森悖论 (Simpson's Paradox)</strong>：部分组别的趋势在合并后消失甚至反转。</p>
+</li>
+</ol>
 <p><img alt="image.png" src="https://s2.loli.net/2025/12/27/mbBsnoPRpgZxSE7.png" /></p>
 <h3 id="_2">数据结构定义</h3>
 <ul>
@@ -6030,10 +6038,16 @@
 <ul>
 <li>
 <p><strong>零模型 (Null Model)</strong>：不含任何自变量，仅用于拆分方差。
-    <span class="arithmatex">\(<span class="arithmatex">\(y_{ij} = \beta_{0j} + e_{ij}\)</span>\)</span>
-    <span class="arithmatex">\(<span class="arithmatex">\(\beta_{0j} = \beta_0 + u_{0j}\)</span>\)</span>
-    合并后：
-    <span class="arithmatex">\(<span class="arithmatex">\(y_{ij} = \beta_0 + u_{0j} + e_{ij}\)</span>\)</span></p>
+    $$
+    y_{ij} = \beta_{0j} + e_{ij}
+    $$</p>
+<div class="arithmatex">\[
+\beta_{0j} = \beta_0 + u_{0j}
+\]</div>
+<p>合并后：
+$$
+y_{ij} = \beta_0 + u_{0j} + e_{ij}
+$$</p>
 <ul>
 <li><span class="arithmatex">\(y_{ij}\)</span>：第 <span class="arithmatex">\(j\)</span> 个组中第 <span class="arithmatex">\(i\)</span> 个个体的观测值。</li>
 <li><span class="arithmatex">\(\beta_0\)</span>：<strong>固定截距</strong>（所有组的平均截距）。</li>
@@ -6044,7 +6058,9 @@
 </ul>
 <h3 id="icc">组内相关系数 (ICC)</h3>
 <p>用于衡量组间差异占总变异的比例，判断是否有必要使用多水平模型。</p>
-<div class="arithmatex">\[ICC = \rho = \frac{\sigma^2_{u0}}{\sigma^2_{u0} + \sigma^2_e}\]</div>
+<div class="arithmatex">\[
+ICC = \rho = \frac{\sigma^2_{u0}}{\sigma^2_{u0} + \sigma^2_e}
+\]</div>
 <ul>
 <li><strong>含义</strong>：因变量的总变异中，可以由组间差异解释的比例，组间方差与总方差之比。</li>
 <li><strong>判断标准</strong>：<ul>
@@ -6076,9 +6092,13 @@
 <p>似然比检验</p>
 <p>置信区间</p>
 <h3 id="_6">加入自变量的随机截距模型</h3>
-<p><span class="arithmatex">\(<span class="arithmatex">\(y_{ij} = \beta_0 + \beta_1 x_{ij} + u_{0j} + e_{ij}\)</span>\)</span>
-* <span class="arithmatex">\(\beta_1\)</span> 是<strong>固定斜率</strong>：表示 <span class="arithmatex">\(x\)</span> 每增加1单位，<span class="arithmatex">\(y\)</span> 平均改变的量，这对所有组都是一样的。
-* <span class="arithmatex">\(u_{0j}\)</span> 使得不同组有不同的起始水平（截距）。</p>
+<div class="arithmatex">\[
+y_{ij} = \beta_0 + \beta_1 x_{ij} + u_{0j} + e_{ij}
+\]</div>
+<ul>
+<li><span class="arithmatex">\(\beta_1\)</span> 是<strong>固定斜率</strong>：表示 <span class="arithmatex">\(x\)</span> 每增加1单位，<span class="arithmatex">\(y\)</span> 平均改变的量，这对所有组都是一样的。</li>
+<li><span class="arithmatex">\(u_{0j}\)</span> 使得不同组有不同的起始水平（截距）。</li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">例题：随机截距模型的理解</p>
 <p><strong>关于随机截距模型，以下哪个表述是正确的？</strong></p>
