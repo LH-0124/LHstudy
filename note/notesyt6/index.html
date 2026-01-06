@@ -6297,8 +6297,10 @@ $$
 <p><strong>原理</strong>：先将受试对象按<strong>非处理因素</strong>（如体重、性别）配成<strong>区组 (Block)</strong>，使区组内性质尽可能一致，区组间差异尽可能大，再将区组内对象随机分配到各处理组。</p>
 <p><strong>优势</strong>：随机区组设计确定区组的因素应是对试验结果有影响的非处理因素。区组内各试验对象应均衡，区组之间试验对象具有较大的差异为好，这样就可以利用区组控制非处理因素的影响，并在方差分析时将区组间的变异从组内变异中分解出来。当区组间差别有统计学意义时，这种设计的误差比完全随机设计小，试验效率得以提高。</p>
 <p><strong>变异分解</strong>：</p>
-<p><span class="arithmatex">\(<span class="arithmatex">\(SS_{总} = SS_{处理} + SS_{区组} + SS_{误差}\)</span>\)</span>​</p>
-<p><strong>例子</strong></p>
+<p>$$
+SS_{总} = SS_{处理} + SS_{区组} + SS_{误差}
+$$
+<strong>例子</strong></p>
 <p><img alt="image.png" src="https://s2.loli.net/2025/12/13/y6CbSDi7Rlcr8dX.png" /></p>
 <p><strong>处理方法：</strong>将区组作为另一个处理因素</p>
 <p><img alt="image.png" src="https://s2.loli.net/2025/12/13/gzk3mHftpbvZr47.png" /></p>
@@ -6306,12 +6308,11 @@ $$
 <p class="admonition-title">例题：随机区组变异分解</p>
 <p><strong>10. 随机区组设计资料的方差分析中，以下正确的是（ ）。</strong></p>
 <p><strong>A.</strong> <span class="arithmatex">\(SS_{总} = SS_{组间} + SS_{组内}\)</span></p>
-<p><strong>B.</strong> <span class="arithmatex">\(SS_{总} = SS_{处理} + SS_{误差}\)</span></p>
-<p><strong>C.</strong> <span class="arithmatex">\(SS_{总} = SS_{处理} + SS_{区组} + MS_{误差}\)</span></p>
+<p><strong>B.</strong> <span class="arithmatex">\(SS_{总} = SS_{处理} + SS_{误差} + MS_{误差}\)</span></p>
+<p><strong>C.</strong> <span class="arithmatex">\(SS_{总} = SS_{处理} + SS_{区组} + SS_{误差}\)</span></p>
 <p><strong>D.</strong> <span class="arithmatex">\(MS_{总} = MS_{组间} + MS_{组内}\)</span></p>
 <p><strong>E.</strong> <span class="arithmatex">\(MS_{总} = MS_{组间} + MS_{区组} + MS_{组内}\)</span></p>
-<p><strong>正确答案: A</strong>
-<em>(注：此题选项A在部分教材中指代One-way ANOVA的分解。但在随机区组语境下，最准确的描述应是 <span class="arithmatex">\(SS_{总} = SS_{处理} + SS_{区组} + SS_{误差}\)</span>。若必须选A，通常是因为将“组内”理解为包含了区组和误差的剩余部分，但C/D/E明显错误)</em></p>
+<p><strong>正确答案: C</strong></p>
 </div>
 <h3 id="_3">拉丁方设计</h3>
 <p><img alt="image.png" src="https://s2.loli.net/2025/12/13/CWpMozabYuPiR3K.png" /></p>
@@ -6333,15 +6334,15 @@ $$
 </ol>
 <h2 id="6-post-hoc-tests">6.多个均数间的两两比较 (Post-hoc Tests)</h2>
 <p>当方差分析结果显示“均数不全相等”（拒绝 <span class="arithmatex">\(H_0\)</span>）时，需进一步进行两两比较。</p>
-<h3 id="lsd-t"><strong>LSD-t 检验 (最小显著差异法)</strong></h3>
+<h3 id="lsd-t">LSD-t 检验 (最小显著差异法)</h3>
 <p>实质是 t 检验，但采用统一的误差 (<span class="arithmatex">\(MS_{误差}\)</span>) 和自由度。</p>
 <p><strong>灵敏度最高</strong>，但容易犯 I 类错误。</p>
-<h3 id="bonferroni"><strong>Bonferroni 法</strong></h3>
+<h3 id="bonferroni">Bonferroni 法</h3>
 <p>原理：调整检验水准 <span class="arithmatex">\(\alpha' = \alpha / m\)</span> (<span class="arithmatex">\(m\)</span> 为比较次数)。</p>
 <p>严格控制总体 I 类错误，但结论偏<strong>保守</strong>，容易犯 II 类错误。</p>
-<h3 id="fdr-false-discovery-rate"><strong>FDR (False Discovery Rate, 假发现率)</strong></h3>
+<h3 id="fdr-false-discovery-rate">FDR (False Discovery Rate, 假发现率)</h3>
 <p>核心思想：控制错误发现（假阳性）的比例，而非完全避免。</p>
-<h3 id="benjamini-hochberg-b-h"><strong>Benjamini-Hochberg (B-H) 算法</strong></h3>
+<h3 id="benjamini-hochberg-b-h">Benjamini-Hochberg (B-H) 算法</h3>
 <p>对 P 值排序，寻找阈值，适合高维数据（如基因数据）。</p>
 <div class="admonition note">
 <p class="admonition-title">例题：多重比较方法辨析</p>
