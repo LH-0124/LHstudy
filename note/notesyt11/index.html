@@ -6088,15 +6088,14 @@
 <p>先算吸烟的单因素<span class="arithmatex">\(OR_1\)</span>：</p>
 <p>病例组：吸烟286，不吸烟 <span class="arithmatex">\(416-286=130\)</span>。</p>
 <p>对照组：吸烟200，不吸烟 <span class="arithmatex">\(420-200=220\)</span>。</p>
+<p><span class="arithmatex">\(OR_1 = \frac{ad}{bc} = \frac{286 \times 220}{200 \times 130} = 2.42\)</span></p>
+</li>
+<li>
+<p>计算联合OR：在Logistic回归模型中（假设无交互作用），联合效应通常是相乘关系。</p>
+<p><span class="arithmatex">\(OR_{总} = OR_1 \times OR_2 = 2.42 \times 1.69 \approx 4.09\)</span></p>
 </li>
 </ol>
 </div>
-<p>​      <br />
-<span class="arithmatex">\(OR_1 = \frac{ad}{bc} = \frac{286 \times 220}{200 \times 130} = 2.42\)</span></p>
-<p>​      <br />
-    2.  计算联合OR：在Logistic回归模型中（假设无交互作用），联合效应通常是相乘关系。</p>
-<pre><code>    $OR_{总} = OR_1 \times OR_2 = 2.42 \times 1.69 \approx 4.09$
-</code></pre>
 <h3 id="logit">回归方程 (Logit 变换)</h3>
 <p>Logistic 回归通过 <strong>Logit 变换</strong> 将取值范围在 <span class="arithmatex">\((0,1)\)</span> 的概率 <span class="arithmatex">\(P\)</span> 转化为取值范围在 <span class="arithmatex">\((-\infty, +\infty)\)</span> 的线性形式。</p>
 <ul>
