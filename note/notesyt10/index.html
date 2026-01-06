@@ -6379,10 +6379,18 @@ $$</p>
 <p>为了建立“最优”回归方程，需要在模型拟合度和简洁性之间取得平衡。</p>
 <h3 id="_9">筛选标准</h3>
 <p>好的模型应满足：
-1.  <strong><span class="arithmatex">\(R^2\)</span> 或 <span class="arithmatex">\(R_{ad}^2\)</span></strong> 较大。
-2.  <strong>残差均方 (<span class="arithmatex">\(MS_{残差}\)</span>)</strong> 较小。
-3.  <strong>AIC (赤池信息准则)</strong> 较小。
-4.  <strong><span class="arithmatex">\(C_p\)</span> 统计量</strong> 较小且接近 <span class="arithmatex">\(p\)</span>（<span class="arithmatex">\(p\)</span> 为自变量个数+1，即参数个数）。</p>
+1.  <strong><span class="arithmatex">\(R^2\)</span> 或 <span class="arithmatex">\(R_{ad}^2\)</span></strong> 较大。</p>
+<ol>
+<li>
+<p><strong>残差均方 (<span class="arithmatex">\(MS_{残差}\)</span>)</strong> 较小。</p>
+</li>
+<li>
+<p><strong>AIC (赤池信息准则)</strong> 较小。</p>
+</li>
+<li>
+<p><strong><span class="arithmatex">\(C_p\)</span> 统计量</strong> 较小且接近 <span class="arithmatex">\(p\)</span>（<span class="arithmatex">\(p\)</span> 为自变量个数+1，即参数个数）。</p>
+</li>
+</ol>
 <div class="admonition note">
 <p class="admonition-title">例题：自变量筛选标准</p>
 <p><strong>下面关于自变量筛选的统计学标准中错误的是（ ）。</strong></p>
@@ -6412,7 +6420,7 @@ $$</p>
 <p>如果实际关系是非线性的（如抛物线），而你强行用直线去拟合，算出来的斜率 <span class="arithmatex">\(b\)</span> 和截距 <span class="arithmatex">\(a\)</span> 无法反映真实的变量关系。此时模型设定错误，估计量不再是无偏的，预测也是完全错误的。</p>
 <h4 id="_12">独立性</h4>
 <ul>
-<li><strong>含义</strong>：任意两个观察值的误差项互相独立，互不影响。</li>
+<li><strong>含义</strong>：任意两个观察值的误差项，互不影响。</li>
 </ul>
 <p>独立性不满足时</p>
 <ul>
@@ -6427,7 +6435,7 @@ $$</p>
 </ul>
 <h4 id="_13">正态性</h4>
 <ul>
-<li><strong>含义</strong>：对于给定的 <span class="arithmatex">\(X\)</span>，对应的 <span class="arithmatex">\(Y\)</span> 服从正态分布 3。</li>
+<li><strong>含义</strong>：对于给定的 <span class="arithmatex">\(X\)</span>，对应的 <span class="arithmatex">\(Y\)</span> 服从正态分布 。</li>
 </ul>
 <p>正态性不满足时</p>
 <ul>
