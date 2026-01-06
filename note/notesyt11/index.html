@@ -4672,7 +4672,7 @@
           <li class="md-nav__item">
   <a href="#odds-or" class="md-nav__link">
     <span class="md-ellipsis">
-      核心概念：优势 (Odds) 与 优势比 (OR)
+      优势 (Odds) 与 优势比 (OR)
     </span>
   </a>
   
@@ -4746,26 +4746,26 @@
         <li class="md-nav__item">
   <a href="#4-logistic" class="md-nav__link">
     <span class="md-ellipsis">
-      4. 多分类 Logistic 回归 (扩展)
+      4. 多分类 Logistic 回归
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="4. 多分类 Logistic 回归 (扩展)">
+    <nav class="md-nav" aria-label="4. 多分类 Logistic 回归">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#multinomial" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
-      无序多分类 (Multinomial)
+      无序多分类
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ordinal-logit" class="md-nav__link">
+  <a href="#logit_1" class="md-nav__link">
     <span class="md-ellipsis">
-      有序多分类 (Ordinal) —— 累积 Logit 模型
+      有序多分类—— 累积 Logit 模型
     </span>
   </a>
   
@@ -5867,7 +5867,7 @@
           <li class="md-nav__item">
   <a href="#odds-or" class="md-nav__link">
     <span class="md-ellipsis">
-      核心概念：优势 (Odds) 与 优势比 (OR)
+      优势 (Odds) 与 优势比 (OR)
     </span>
   </a>
   
@@ -5941,26 +5941,26 @@
         <li class="md-nav__item">
   <a href="#4-logistic" class="md-nav__link">
     <span class="md-ellipsis">
-      4. 多分类 Logistic 回归 (扩展)
+      4. 多分类 Logistic 回归
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="4. 多分类 Logistic 回归 (扩展)">
+    <nav class="md-nav" aria-label="4. 多分类 Logistic 回归">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#multinomial" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
-      无序多分类 (Multinomial)
+      无序多分类
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ordinal-logit" class="md-nav__link">
+  <a href="#logit_1" class="md-nav__link">
     <span class="md-ellipsis">
-      有序多分类 (Ordinal) —— 累积 Logit 模型
+      有序多分类—— 累积 Logit 模型
     </span>
   </a>
   
@@ -6057,13 +6057,19 @@
 <p><strong>解析</strong>：Logistic回归家族非常强大，只要因变量是分类的（无论二分、有序还是无序）都适用，且功能涵盖了解释（归因）和预测。</p>
 </div>
 <h2 id="2-logistic">2. 二分类 Logistic 回归模型</h2>
-<h3 id="odds-or">核心概念：优势 (Odds) 与 优势比 (OR)</h3>
+<h3 id="odds-or">优势 (Odds) 与 优势比 (OR)</h3>
 <p>在 Logistic 回归中，我们不直接分析概率 <span class="arithmatex">\(P\)</span>，而是分析<strong>优势 (Odds)</strong>。</p>
 <ul>
 <li><strong>优势 (Odds)</strong>：某事件发生的概率 <span class="arithmatex">\(P\)</span> 与不发生概率 <span class="arithmatex">\(1-P\)</span> 的比值。
-    <span class="arithmatex">\(<span class="arithmatex">\(Odds = \frac{P}{1-P}\)</span>\)</span></li>
-<li><strong>优势比 (OR, Odds Ratio)</strong>：两组优势的比值（如暴露组 vs 非暴露组）。
-    <span class="arithmatex">(<span class="arithmatex">\(OR = \frac{Odds_1}{Odds_0} = \frac{P_1/(1-P_1)}{P_0/(1-P_0)}\)</span>\)</span><ul>
+    $$
+    Odds = \frac{P}{1-P}
+    $$</li>
+<li>
+<p><strong>优势比 (OR, Odds Ratio)</strong>：两组优势的比值（如暴露组 vs 非暴露组）。
+    $$
+    OR = \frac{Odds_1}{Odds_0} = \frac{P_1/(1-P_1)}{P_0/(1-P_0)}
+    $$</p>
+<ul>
 <li><strong>样本估计</strong>：在病例对照研究或列联表中，<span class="arithmatex">\(\hat{OR} = \frac{ad}{bc}\)</span>。</li>
 </ul>
 </li>
@@ -6082,24 +6088,29 @@
 <p>先算吸烟的单因素<span class="arithmatex">\(OR_1\)</span>：</p>
 <p>病例组：吸烟286，不吸烟 <span class="arithmatex">\(416-286=130\)</span>。</p>
 <p>对照组：吸烟200，不吸烟 <span class="arithmatex">\(420-200=220\)</span>。</p>
-<p><span class="arithmatex">\(OR_1 = \frac{ad}{bc} = \frac{286 \times 220}{200 \times 130} = 2.42\)</span></p>
-</li>
-<li>
-<p>计算联合OR：在Logistic回归模型中（假设无交互作用），联合效应通常是相乘关系。</p>
-<p><span class="arithmatex">\(OR_{总} = OR_1 \times OR_2 = 2.42 \times 1.69 \approx 4.09\)</span></p>
 </li>
 </ol>
 </div>
+<p>​      <br />
+<span class="arithmatex">\(OR_1 = \frac{ad}{bc} = \frac{286 \times 220}{200 \times 130} = 2.42\)</span></p>
+<p>​      <br />
+    2.  计算联合OR：在Logistic回归模型中（假设无交互作用），联合效应通常是相乘关系。</p>
+<pre><code>    $OR_{总} = OR_1 \times OR_2 = 2.42 \times 1.69 \approx 4.09$
+</code></pre>
 <h3 id="logit">回归方程 (Logit 变换)</h3>
 <p>Logistic 回归通过 <strong>Logit 变换</strong> 将取值范围在 <span class="arithmatex">\((0,1)\)</span> 的概率 <span class="arithmatex">\(P\)</span> 转化为取值范围在 <span class="arithmatex">\((-\infty, +\infty)\)</span> 的线性形式。</p>
 <ul>
 <li>
 <p><strong>线性表达式</strong>：
-    <span class="arithmatex">\(<span class="arithmatex">\(\text{logit}(P) = \ln\left(\frac{P}{1-P}\right) = \beta_0 + \beta_1 X_1 + \dots + \beta_m X_m\)</span>\)</span></p>
+    $$
+    \text{logit}(P) = \ln\left(\frac{P}{1-P}\right) = \beta_0 + \beta_1 X_1 + \dots + \beta_m X_m
+    $$</p>
 </li>
 <li>
 <p><strong>概率预测模型</strong> (S型曲线/Sigmoid函数)：
-    <span class="arithmatex">\(<span class="arithmatex">\(P = \frac{e^{\beta_0 + \beta_1 X_1 + \dots + \beta_m X_m}}{1 + e^{\beta_0 + \beta_1 X_1 + \dots + \beta_m X_m}}\)</span>\)</span></p>
+    $$
+    P = \frac{e^{\beta_0 + \beta_1 X_1 + \dots + \beta_m X_m}}{1 + e^{\beta_0 + \beta_1 X_1 + \dots + \beta_m X_m}}
+    $$</p>
 </li>
 </ul>
 <h3 id="beta-or">回归系数 <span class="arithmatex">\(\beta\)</span> 与 <span class="arithmatex">\(OR\)</span> 的关系</h3>
@@ -6196,8 +6207,8 @@
 <p>E.A、B、C均可</p>
 <p><strong>解析</strong>：如果只保留了部分哑变量，该变量的分类含义就被破坏了，因此必须整体考虑。</p>
 </div>
-<h2 id="4-logistic">4. 多分类 Logistic 回归 (扩展)</h2>
-<h3 id="multinomial">无序多分类 (Multinomial)</h3>
+<h2 id="4-logistic">4. 多分类 Logistic 回归</h2>
+<h3 id="_6">无序多分类</h3>
 <ul>
 <li>
 <p>设定一个参照组（如以 <span class="arithmatex">\(Y=3\)</span> 为参照），分别建立 <span class="arithmatex">\(k-1\)</span> 个二分类 Logit 模型。</p>
@@ -6207,7 +6218,7 @@
 </li>
 </ul>
 <p><img alt="image.png" src="https://s2.loli.net/2025/12/24/IiaMpF1rA2R6nd7.png" /></p>
-<h3 id="ordinal-logit">有序多分类 (Ordinal) —— 累积 Logit 模型</h3>
+<h3 id="logit_1">有序多分类—— 累积 Logit 模型</h3>
 <ul>
 <li>
 <p>适用于等级资料（轻度、中度、重度）。</p>

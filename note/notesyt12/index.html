@@ -4674,13 +4674,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-random-intercept-model" class="md-nav__link">
+  <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
-      2. 随机截距模型 (Random Intercept Model)
+      2. 随机截距模型
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. 随机截距模型 (Random Intercept Model)">
+    <nav class="md-nav" aria-label="2. 随机截距模型">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -4734,13 +4734,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-random-slope-model" class="md-nav__link">
+  <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
-      3. 随机斜率模型 (Random Slope Model)
+      3. 随机斜率模型
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="3. 随机斜率模型 (Random Slope Model)">
+    <nav class="md-nav" aria-label="3. 随机斜率模型">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -4786,9 +4786,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#cross-level-interaction" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
-      跨级交互作用 (Cross-level Interaction)
+      跨级交互作用
     </span>
   </a>
   
@@ -5837,13 +5837,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-random-intercept-model" class="md-nav__link">
+  <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
-      2. 随机截距模型 (Random Intercept Model)
+      2. 随机截距模型
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. 随机截距模型 (Random Intercept Model)">
+    <nav class="md-nav" aria-label="2. 随机截距模型">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -5897,13 +5897,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-random-slope-model" class="md-nav__link">
+  <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
-      3. 随机斜率模型 (Random Slope Model)
+      3. 随机斜率模型
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="3. 随机斜率模型 (Random Slope Model)">
+    <nav class="md-nav" aria-label="3. 随机斜率模型">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -5949,9 +5949,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#cross-level-interaction" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
-      跨级交互作用 (Cross-level Interaction)
+      跨级交互作用
     </span>
   </a>
   
@@ -6022,7 +6022,7 @@
 <p><strong>解析</strong>：Level-2 是容纳个体的容器（组别）。学习时间、性别、分数都是学生（Level-1）的特征，而班级是学生归属的组别。选 <strong>C</strong>。</p>
 </div>
 <hr />
-<h2 id="2-random-intercept-model">2. 随机截距模型 (Random Intercept Model)</h2>
+<h2 id="2">2. 随机截距模型</h2>
 <p><img alt="image.png" src="https://s2.loli.net/2025/12/27/7iQLlfAIMOk51P6.png" /></p>
 <h3 id="_3">核心思想</h3>
 <p>假设不同组别（Level-2）的<strong>截距（Baseline）</strong>不同，但自变量对因变量的影响（<strong>斜率</strong>）在各组间是相同的（平行的）。即模型允许不同群体有自己的起点。</p>
@@ -6088,15 +6088,19 @@
 <p>D. 主要用于分析时间序列数据的趋势</p>
 <p><strong>解析</strong>：随机截距模型的核心就是“截距随机，斜率固定”。A描述的是随机斜率，C描述的是OLS固定效应。B准确描述了允许不同组别有不同基线（截距）。选 <strong>B</strong>。</p>
 </div>
-<h2 id="3-random-slope-model">3. 随机斜率模型 (Random Slope Model)</h2>
+<h2 id="3">3. 随机斜率模型</h2>
 <h3 id="_7">核心思想</h3>
 <p>不仅各组的截距不同，自变量对因变量的影响（<strong>斜率</strong>）在不同组别之间也是不同的。
 * 例如：住院天数对费用的影响，在不同区县（有的区县医疗贵，有的便宜）可能增加的幅度不同。</p>
 <h3 id="_8">模型公式</h3>
-<div class="arithmatex">\[y_{ij} = \beta_0 + \beta_{1j} x_{ij} + u_{0j} + e_{ij}$$
-其中斜率也是随机的： $\beta_{1j} = \beta_1 + u_{1j}$
-合并后得到**混合模型方程**：
-$$y_{ij} = (\beta_0 + \beta_1 x_{ij}) + (u_{1j} x_{ij} + u_{0j} + e_{ij})\]</div>
+<div class="arithmatex">\[
+y_{ij} = \beta_0 + \beta_{1j} x_{ij} + u_{0j} + e_{ij}
+\]</div>
+<p>其中斜率也是随机的： <span class="arithmatex">\(\beta_{1j} = \beta_1 + u_{1j}\)</span>
+合并后得到<strong>混合模型方程</strong>：
+$$
+y_{ij} = (\beta_0 + \beta_1 x_{ij}) + (u_{1j} x_{ij} + u_{0j} + e_{ij})
+$$</p>
 <ul>
 <li><strong>固定部分</strong>：<span class="arithmatex">\(\beta_0 + \beta_1 x_{ij}\)</span>（总体平均趋势）。</li>
 <li><strong>随机部分</strong>：<span class="arithmatex">\(u_{1j} x_{ij} + u_{0j} + e_{ij}\)</span>（组特有的偏差）。</li>
@@ -6182,7 +6186,7 @@ $$y_{ij} = (\beta_0 + \beta_1 x_{ij}) + (u_{1j} x_{ij} + u_{0j} + e_{ij})\]</div
 </tr>
 </tbody>
 </table>
-<h3 id="cross-level-interaction">跨级交互作用 (Cross-level Interaction)</h3>
+<h3 id="_10">跨级交互作用</h3>
 <p>在随机斜率模型中，可以进一步引入 Level-2 的变量来解释斜率为什么变化。
 * 例如：在模型中纳入“住院天数 <span class="arithmatex">\(\times\)</span> 区县类型”的交互项，查看区县类型（Level-2特征）是否修正了住院天数（Level-1自变量）对费用的影响。</p>
 
