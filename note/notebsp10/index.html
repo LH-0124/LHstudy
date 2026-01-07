@@ -6184,6 +6184,47 @@
 <p>有限脉冲响应和无限脉冲响应。</p>
 <p><img alt="image.png" src="https://s2.loli.net/2025/12/24/OMHqYFB9ZSmcjhW.png" /></p>
 <p>在FIR系统中，<span class="arithmatex">\(h[n]=b_n\)</span>​</p>
+<table>
+<thead>
+<tr>
+<th><strong>特性维度</strong></th>
+<th><strong>IIR (Infinite Impulse Response)</strong></th>
+<th><strong>FIR (Finite Impulse Response)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>反馈机制</strong></td>
+<td><strong>有反馈</strong> (With feedback)，即表达式中包含 <span class="arithmatex">\(y[n-i]\)</span> 项</td>
+<td><strong>无反馈</strong> (No feedback)，即表达式中不含 <span class="arithmatex">\(y[n-i]\)</span> 项</td>
+</tr>
+<tr>
+<td><strong>系数特点</strong></td>
+<td>至少有一个系数 <span class="arithmatex">\(a_i \neq 0\)</span></td>
+<td>所有系数 <span class="arithmatex">\(a_i = 0\)</span></td>
+</tr>
+<tr>
+<td><strong>极点分布</strong></td>
+<td>Z 平面内<strong>存在极点</strong> (Poles in z-plane)</td>
+<td>Z 平面内<strong>无极点</strong> (No poles in z-plane)</td>
+</tr>
+<tr>
+<td><strong>冲激响应 <span class="arithmatex">\(h[n]\)</span></strong></td>
+<td><strong>无限长</strong> (Infinite)</td>
+<td><strong>有限长</strong> (Finite，例如长度为 <span class="arithmatex">\(M+1\)</span>)</td>
+</tr>
+<tr>
+<td><strong>结构类型</strong></td>
+<td><strong>递归型</strong> (Recursive)</td>
+<td><strong>非递归型</strong> (Non-recursive)</td>
+</tr>
+<tr>
+<td><strong>相位特性</strong></td>
+<td>通常是<strong>非线性相位</strong>滤波器 (Generally a nonlinear phase filter)</td>
+<td>可以设计为<strong>线性相位</strong>滤波器 (Can be designed as a linear phase filter)</td>
+</tr>
+</tbody>
+</table>
 <h2 id="2-iir">2. IIR 滤波器设计</h2>
 <p>IIR 设计的核心逻辑：<strong>借用模拟滤波器的成熟理论</strong>。我们不直接设计 <span class="arithmatex">\(H(z)\)</span>，而是先设计一个模拟滤波器 <span class="arithmatex">\(H_a(s)\)</span>，再把它“映射”到数字域。</p>
 <h3 id="analog-filter-prototypes">模拟滤波器原型 (Analog Filter Prototypes)</h3>
@@ -6255,7 +6296,7 @@
 </li>
 <li>
 <p>将 <span class="arithmatex">\(H_a(s)\)</span> 展开为部分分式和的形式（只有展开成一阶极点形式，才能对应到 Z 变换）：</p>
-<p><span class="arithmatex">\(<span class="arithmatex">\(H_a(s) = \sum_{k=1}^{N} \frac{A_k}{s - p_k}\)</span>\)</span></p>
+<p><span class="arithmatex">\(H_a(s) = \sum_{k=1}^{N} \frac{A_k}{s - p_k}\)</span></p>
 <p>其中 <span class="arithmatex">\(p_k\)</span> 是模拟滤波器的极点，<span class="arithmatex">\(A_k\)</span> 是系数。</p>
 </li>
 <li>
@@ -6266,7 +6307,7 @@
 </li>
 <li>
 <p>得到数字滤波器系统函数：</p>
-<p><span class="arithmatex">\(<span class="arithmatex">\(H(z) = \sum_{k=1}^{N} \frac{T_d A_k}{1 - e^{p_k T} z^{-1}}\)</span>\)</span>​</p>
+<p><span class="arithmatex">\(H(z) = \sum_{k=1}^{N} \frac{T_d A_k}{1 - e^{p_k T} z^{-1}}\)</span></p>
 </li>
 </ol>
 </li>
@@ -6312,7 +6353,7 @@
 </li>
 <li>
 <p>由于频率映射是非线性的，必须先对数字截止频率进行预畸变，得到修正后的模拟频率 <span class="arithmatex">\(\Omega\)</span>：</p>
-<p><span class="arithmatex">\(<span class="arithmatex">\(\Omega = \frac{2}{T} \tan\left(\frac{\omega}{2}\right)\)</span>\)</span></p>
+<p><span class="arithmatex">\(\Omega = \frac{2}{T} \tan\left(\frac{\omega}{2}\right)\)</span></p>
 </li>
 <li>
 <p><strong>设计模拟滤波器原型 <span class="arithmatex">\(H_a(s)\)</span></strong></p>
@@ -6325,7 +6366,7 @@
 </li>
 <li>
 <p>直接将 <span class="arithmatex">\(H_a(s)\)</span> 中的 <span class="arithmatex">\(s\)</span> 替换为双线性变换公式：</p>
-<p><span class="arithmatex">\(<span class="arithmatex">\(s = \frac{2}{T} \frac{1 - z^{-1}}{1 + z^{-1}}\)</span>\)</span></p>
+<p><span class="arithmatex">\(s = \frac{2}{T} \frac{1 - z^{-1}}{1 + z^{-1}}\)</span></p>
 </li>
 <li>
 <p><strong>化简整理</strong></p>
