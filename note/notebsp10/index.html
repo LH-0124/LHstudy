@@ -4329,6 +4329,21 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-dft" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.离散傅里叶变换 DFT
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.离散傅里叶变换 DFT">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
@@ -4433,15 +4448,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-iirfir" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. IIR滤波器和FIR滤波器区别
-    </span>
-  </a>
   
 </li>
       
@@ -6044,6 +6050,21 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-dft" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.离散傅里叶变换 DFT
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.离散傅里叶变换 DFT">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
@@ -6151,15 +6172,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#4-iirfir" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. IIR滤波器和FIR滤波器区别
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -6195,6 +6207,10 @@
 <p><img alt="image.png" src="https://s2.loli.net/2025/12/24/hMrFLcW517dwb9U.png" /></p>
 <p>判断可看半谱</p>
 <h3 id="_3">数字滤波器判断</h3>
+<p>以<span class="arithmatex">\((-\pi,\pi)\)</span>为例，<span class="arithmatex">\(|\Omega|\)</span>越接近<span class="arithmatex">\(\pi\)</span>，为高频；<span class="arithmatex">\(|\Omega|\)</span>越接近0，为低频</p>
+<p><img alt="image.png" src="https://s2.loli.net/2025/11/19/pWjZaMekTU6wdHX.png" /></p>
+<p>判断DTFT的滤波器，主要看<span class="arithmatex">\((-\pi,\pi)\)</span>的区域，若为<span class="arithmatex">\((0,2\pi)\)</span>，建议将<span class="arithmatex">\((\pi,2\pi)\)</span>的段对称到<span class="arithmatex">\((-\pi,0)\)</span></p>
+<h2 id="2-dft">2.离散傅里叶变换 DFT</h2>
 <h3 id="_4">理想滤波器的问题</h3>
 <p>理想滤波器时域无限长，为非因果的，实际上无法实现，因此要引入平缓的过渡带</p>
 <p><img alt="image.png" src="https://s2.loli.net/2025/12/24/eaNG7YohkZpJP3X.png" /></p>
@@ -6265,6 +6281,48 @@
 </ul>
 </li>
 </ol>
+<table>
+<thead>
+<tr>
+<th><strong>特性指标</strong></th>
+<th><strong>巴特沃兹 (Butterworth)</strong></th>
+<th><strong>切比雪夫 (Chebyshev)</strong></th>
+<th><strong>椭圆滤波器 (Elliptic)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>通带/阻带表现</strong></td>
+<td><strong>最大平坦</strong> 通带和阻带均无纹波，非常平稳。</td>
+<td><strong>有纹波</strong> I型：通带波纹，阻带平滑 II型：通带平滑，阻带波纹</td>
+<td><strong>均有纹波</strong> 通带和阻带内均存在纹波。</td>
+</tr>
+<tr>
+<td><strong>过渡带特性</strong></td>
+<td><strong>很宽</strong> 衰减缓慢，过渡不够锐利。</td>
+<td><strong>较窄</strong> 比巴特沃兹更锐利（衰减更快）。</td>
+<td><strong>最窄</strong> 衰减最快，过渡最锐利。</td>
+</tr>
+<tr>
+<td><strong>阶数要求</strong> (相同指标下)</td>
+<td><strong>最高</strong> 需要较高的阶数才能达到相同的滤波效果。</td>
+<td><strong>中等</strong> 介于两者之间。</td>
+<td><strong>最低</strong> 效率最高，实现相同性能所需阶数最少。</td>
+</tr>
+<tr>
+<td><strong>相位响应</strong></td>
+<td>非线性相位</td>
+<td>非线性相位</td>
+<td>非线性相位</td>
+</tr>
+<tr>
+<td><strong>核心评价</strong></td>
+<td>牺牲了衰减速度，换取了通带的平坦度。</td>
+<td>牺牲了部分频带的平坦度，换取了更快的衰减。</td>
+<td>牺牲了全频带的平坦度和相位特性，换取了<strong>最高效</strong>的衰减性能。</td>
+</tr>
+</tbody>
+</table>
 <h3 id="impulse-invariance">脉冲响应不变法 (Impulse Invariance)</h3>
 <p>这是最原始的思路：让数字系统的单位冲激响应 <span class="arithmatex">\(h[n]\)</span> 刚好等于模拟系统 <span class="arithmatex">\(h_a(t)\)</span> 的采样值。</p>
 <ul>
@@ -6397,6 +6455,57 @@
 </li>
 </ul>
 <p><img alt="image.png" src="https://s2.loli.net/2025/12/26/YO3mnxEvPFJX96i.png" /></p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th><strong>脉冲响应不变法 (Impulse Invariance Method)</strong></th>
+<th><strong>双线性变换法 (Bilinear Transformation Method)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>变换原理</strong></td>
+<td>让数字滤波器的脉冲响应 <span class="arithmatex">\(h[n]\)</span> 采样逼近模拟滤波器的冲激响应 <span class="arithmatex">\(h_a(t)\)</span>。</td>
+<td>利用非线性频率压缩，将整个模拟 <span class="arithmatex">\(s\)</span> 平面 <span class="arithmatex">\(j\Omega\)</span> 轴映射到数字 <span class="arithmatex">\(z\)</span> 平面单位圆上。</td>
+</tr>
+<tr>
+<td><strong>映射关系</strong></td>
+<td><span class="arithmatex">\(z = e^{sT}\)</span> (多值映射，s平面条带 <span class="arithmatex">\(\to\)</span> z平面)</td>
+<td><span class="arithmatex">\(s = \frac{2}{T}\frac{1-z^{-1}}{1+z^{-1}}\)</span> (单值映射，s全平面 <span class="arithmatex">\(\to\)</span> z平面)</td>
+</tr>
+<tr>
+<td><strong>频谱混叠</strong></td>
+<td><strong>存在混叠</strong> 模拟信号必须是带限的，否则高频部分会折叠到低频，产生失真。</td>
+<td><strong>无混叠</strong> 将模拟频率的 <span class="arithmatex">\((-\infty, +\infty)\)</span> 压缩映射到数字频率的 <span class="arithmatex">\((-\pi, \pi)\)</span>。</td>
+</tr>
+<tr>
+<td><strong>频率关系</strong></td>
+<td><strong>线性关系</strong> <span class="arithmatex">\(\omega = \Omega T\)</span> 保持了模拟频率和数字频率的线性比例。</td>
+<td><strong>非线性关系 (频率畸变)</strong> <span class="arithmatex">\(\Omega = \frac{2}{T}\tan(\frac{\omega}{2})\)</span> 低频近似线性，高频严重压缩。</td>
+</tr>
+<tr>
+<td><strong>相位特性</strong></td>
+<td><strong>较好保持</strong> 能较好地保留原模拟滤波器的相位线性特性（在无混叠区域）。</td>
+<td><strong>相位畸变</strong> 由于频率映射的非线性，原模拟滤波器的相位特性会发生改变，不再保持线性。</td>
+</tr>
+<tr>
+<td><strong>适用范围</strong></td>
+<td><strong>仅限低通、带通</strong> 模拟滤波器的高频衰减必须足够快，不适用于高通、带阻滤波器。</td>
+<td><strong>通用 (低通、高通、带通、带阻)</strong> 适用于所有类型的滤波器设计。</td>
+</tr>
+<tr>
+<td><strong>主要优点</strong></td>
+<td>1. 时域特性好（脉冲响应完全模仿）。 2. 频率线性映射，无频率畸变。</td>
+<td>1. 完全消除了频谱混叠。 2. 可设计任意类型的滤波器（包括高通/带阻）。</td>
+</tr>
+<tr>
+<td><strong>主要缺点</strong></td>
+<td>1. 存在频谱混叠，高频响应失真大。 2. 设计受限，只能设计低通的滤波器，不能设计高通和带阻滤波器。</td>
+<td>1. 频率刻度发生非线性畸变 (Warping)。 2. 设计时必须先对边界频率进行“预畸变”校正。</td>
+</tr>
+</tbody>
+</table>
 <h2 id="3-fir">3. FIR 滤波器设计</h2>
 <h3 id="linear-phase">线性相位滤波器 (Linear Phase)</h3>
 <ul>
@@ -6480,43 +6589,6 @@ H_{id}(\Omega)=e^{-j\Omega \alpha},|\Omega|\le \pi
 </table>
 <p>对于 FIR：增加窗长 <span class="arithmatex">\(N\)</span>​ 可以使过渡带变窄，但不能减小阻带的波动（波动大小只取决于窗的种类）。</p>
 <p><img alt="image.png" src="https://s2.loli.net/2025/12/26/cu5Go4IPr9dY2Aq.png" /></p>
-<h2 id="4-iirfir">4. IIR滤波器和FIR滤波器区别</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">比较维度</th>
-<th style="text-align: left;">IIR (无限脉冲响应)</th>
-<th style="text-align: left;">FIR (有限脉冲响应)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>相位特性</strong></td>
-<td style="text-align: left;"><strong>非线性</strong>（有相位畸变）</td>
-<td style="text-align: left;"><strong>严格线性</strong>（波形不失真）</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>稳定性</strong></td>
-<td style="text-align: left;"><strong>可能不稳定</strong>（反馈系统）</td>
-<td style="text-align: left;"><strong>永远稳定</strong>（非递归系统）</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>计算效率</strong></td>
-<td style="text-align: left;"><strong>极高</strong>（用很小的阶数就能达到锐利的切分）</td>
-<td style="text-align: left;"><strong>较低</strong>（达到同样效果需要上百阶）</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>反馈结构</strong></td>
-<td style="text-align: left;">有反馈 (Recursive)</td>
-<td style="text-align: left;">无反馈 (Non-recursive)</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>硬件实现</strong></td>
-<td style="text-align: left;">容易受到舍入误差影响</td>
-<td style="text-align: left;">结构简单，对量化误差不敏感</td>
-</tr>
-</tbody>
-</table>
 
 
 
