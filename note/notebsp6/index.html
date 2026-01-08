@@ -4402,6 +4402,15 @@
           <li class="md-nav__item">
   <a href="#dft_2" class="md-nav__link">
     <span class="md-ellipsis">
+      DFT的参数和定义关系
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dft_3" class="md-nav__link">
+    <span class="md-ellipsis">
       DFT的性质
     </span>
   </a>
@@ -4532,7 +4541,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#dft_3" class="md-nav__link">
+  <a href="#dft_4" class="md-nav__link">
     <span class="md-ellipsis">
       DFT运算数量级
     </span>
@@ -4550,7 +4559,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#dft_4" class="md-nav__link">
+  <a href="#dft_5" class="md-nav__link">
     <span class="md-ellipsis">
       子序列的 DFT
     </span>
@@ -4628,7 +4637,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#dft_5" class="md-nav__link">
+  <a href="#dft_6" class="md-nav__link">
     <span class="md-ellipsis">
       DFT
     </span>
@@ -6497,6 +6506,15 @@
           <li class="md-nav__item">
   <a href="#dft_2" class="md-nav__link">
     <span class="md-ellipsis">
+      DFT的参数和定义关系
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dft_3" class="md-nav__link">
+    <span class="md-ellipsis">
       DFT的性质
     </span>
   </a>
@@ -6627,7 +6645,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#dft_3" class="md-nav__link">
+  <a href="#dft_4" class="md-nav__link">
     <span class="md-ellipsis">
       DFT运算数量级
     </span>
@@ -6645,7 +6663,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#dft_4" class="md-nav__link">
+  <a href="#dft_5" class="md-nav__link">
     <span class="md-ellipsis">
       子序列的 DFT
     </span>
@@ -6723,7 +6741,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#dft_5" class="md-nav__link">
+  <a href="#dft_6" class="md-nav__link">
     <span class="md-ellipsis">
       DFT
     </span>
@@ -6850,7 +6868,17 @@ x[n]=\frac{1}{N}\sum_{k=0}^{N-1}X_ke^{\frac{j2\pi k n}{N}},n=0,1,...,N-1
 <p>DFT对DTFT在频率域采样时，会使得<span class="arithmatex">\(x[n]\)</span>在时域上进行以<span class="arithmatex">\(N\)</span>为周期的周期延拓，因此<span class="arithmatex">\(N\ge L\)</span>，否则信号会混叠</p>
 <p>因此我们对<span class="arithmatex">\(X(\Omega)\)</span>取了<span class="arithmatex">\(0-2\pi\)</span>的主值周期，即<span class="arithmatex">\(X_k\)</span>中<span class="arithmatex">\(k=0,1,...,N-1\)</span>，所以<span class="arithmatex">\(x[n]\)</span>仍然是原信号，或者说是原信号周期延拓后取了主值周期的结果。<span class="arithmatex">\(N\)</span>代表一个周期的采样点个数，<span class="arithmatex">\(N&gt;L\)</span>时相当于对原信号补零</p>
 <p><img alt="image.png" src="https://s2.loli.net/2025/11/27/o7NqY5pBU3JSfg6.png" /></p>
-<h3 id="dft_2">DFT的性质</h3>
+<h3 id="dft_2">DFT的参数和定义关系</h3>
+<p><img alt="image.png" src="https://s2.loli.net/2026/01/08/DxvJH85SGRM9TEA.png" /></p>
+<p><img alt="image-20260108142231487" src="C:\Users\97278\AppData\Roaming\Typora\typora-user-images\image-20260108142231487.png" /></p>
+<p>增加记录时间，就能减小<span class="arithmatex">\(F_0\)</span>​，提高频率分辨率</p>
+<p><span class="arithmatex">\(X(k)\)</span>的第<span class="arithmatex">\(k\)</span>根谱线对应的实际频率<span class="arithmatex">\(f_k\)</span></p>
+<div class="admonition note">
+<p class="admonition-title">一道郑婧姐姐复习课提供的真题</p>
+<p><img alt="image.png" src="https://s2.loli.net/2026/01/08/N7zgGu1ZVoea3Mi.png" />
+<img alt="image.png" src="https://s2.loli.net/2026/01/08/uBTcPaqL8rFwkXj.png" /></p>
+</div>
+<h3 id="dft_3">DFT的性质</h3>
 <h4 id="_9">线性</h4>
 <div class="arithmatex">\[
 \text{DFT} (ax[n]+bv[n])=aX_k+bV_k
@@ -6935,7 +6963,7 @@ $$</p>
 <p><span class="arithmatex">\(y[n]=x[n]*h[n]，X_kH_k\leftrightarrow x[n]\circledast h[n]\)</span>，此时，需要圆周卷积=线性卷积</p>
 <h2 id="5fftfast-fourier-transform">5.FFT(Fast Fourier Transform)</h2>
 <p>FFT 并不是一种新的变换，而是 DFT 的一种高效算法。这里介绍的是按时间抽取的基2-FFT算法 (Decimation-in-Time, DIT-FFT)。</p>
-<h3 id="dft_3">DFT运算数量级</h3>
+<h3 id="dft_4">DFT运算数量级</h3>
 <p><span class="arithmatex">\(N^2\)</span>次复数乘法，<span class="arithmatex">\(N(N-1)\)</span>复数加法，<span class="arithmatex">\(N\)</span>较大时运算复杂度较高</p>
 <h3 id="_15">算法思路与分组</h3>
 <p>设序列 <span class="arithmatex">\(x[n]\)</span> 的长度为 <span class="arithmatex">\(N\)</span>，且满足 <span class="arithmatex">\(N=2^L\)</span>（即 <span class="arithmatex">\(N\)</span> 为 2 的整数次幂）。</p>
@@ -6946,7 +6974,7 @@ $$</p>
 <div class="arithmatex">\[
 b[n] = x[2n+1] \quad n = 0, 1, 2, ..., \frac{N}{2}-1
 \]</div>
-<h3 id="dft_4">子序列的 DFT</h3>
+<h3 id="dft_5">子序列的 DFT</h3>
 <p>分别对偶数序列 <span class="arithmatex">\(a[n]\)</span> 和奇数序列 <span class="arithmatex">\(b[n]\)</span> 进行 <span class="arithmatex">\(N/2\)</span> 点的 DFT：
 $$
 A_k = \text{DFT}(a[n]) = \sum_{n=0}^{N/2-1} a[n]W_{N/2}^{kn}
@@ -7030,7 +7058,7 @@ X(\Omega)=\sum_{n=-\infty}^{+\infty}x[n]e^{-j\Omega n}
 \]</div>
 <p>离散非周期时间信号的傅里叶变换<span class="arithmatex">\(X(\Omega)\)</span>​是周期、连续的</p>
 <p>离散周期时间信号的傅里叶变换<span class="arithmatex">\(X(\Omega)\)</span>是周期、离散的，如<span class="arithmatex">\(\cos(\Omega_0 n)\)</span></p>
-<h3 id="dft_5">DFT</h3>
+<h3 id="dft_6">DFT</h3>
 <div class="arithmatex">\[
 X_k=\sum_{n=0}^{N-1}x[n]e^{\frac{-j2\pi}{N}k},k=0,1,...,N-1
 \]</div>
