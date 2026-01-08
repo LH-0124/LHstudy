@@ -4336,6 +4336,15 @@
           <li class="md-nav__item">
   <a href="#dtft_4" class="md-nav__link">
     <span class="md-ellipsis">
+      如何画DTFT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dtft_5" class="md-nav__link">
+    <span class="md-ellipsis">
       DTFT的高频和低频
     </span>
   </a>
@@ -4628,7 +4637,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#dtft_5" class="md-nav__link">
+  <a href="#dtft_6" class="md-nav__link">
     <span class="md-ellipsis">
       DTFT
     </span>
@@ -6440,6 +6449,15 @@
           <li class="md-nav__item">
   <a href="#dtft_4" class="md-nav__link">
     <span class="md-ellipsis">
+      如何画DTFT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dtft_5" class="md-nav__link">
+    <span class="md-ellipsis">
       DTFT的高频和低频
     </span>
   </a>
@@ -6732,7 +6750,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#dtft_5" class="md-nav__link">
+  <a href="#dtft_6" class="md-nav__link">
     <span class="md-ellipsis">
       DTFT
     </span>
@@ -6845,7 +6863,10 @@ p_{\tau}(\Omega)  \leftrightarrow  \frac{\tau}{2\pi}\text{sinc}[\frac{\tau n}{2}
 \]</div>
 <h3 id="dtft_3">DTFT的性质</h3>
 <p><img alt="image.png" src="https://s2.loli.net/2026/01/08/jDOVlk8NJGHSiem.png" /></p>
-<h3 id="dtft_4">DTFT的高频和低频</h3>
+<h3 id="dtft_4">如何画DTFT</h3>
+<p>思路：1、因为<span class="arithmatex">\(X(Ω)\)</span>是<span class="arithmatex">\(2\pi\)</span>为周期的，且Ω 在<span class="arithmatex">\(\pi~2\pi\)</span>区域内的|X(Ω)|与<span class="arithmatex">\(0~\pi\)</span>区域内的<span class="arithmatex">\(|X(Ω)|\)</span>关于<span class="arithmatex">\(\pi\)</span>镜像对称，因此只要画出<span class="arithmatex">\(0~\pi\)</span>部分的<span class="arithmatex">\(|X(Ω)|\)</span>即可</p>
+<p>2、可以用一些特殊点定位，比如代入<span class="arithmatex">\(\Omega=0， \Omega=\frac{\pi}{4}, \Omega=\frac{\pi}{6}, \Omega=\frac{\pi}{3}, \Omega={\pi}{2}, \Omega=\pi\)</span>,这些点，就可以算出这些频率点对应的幅值<span class="arithmatex">\(|X(\Omega)|\)</span>，之后将这些点连起来，就可以构成<span class="arithmatex">\(|X(\Omega)|\)</span>的大致形状了</p>
+<h3 id="dtft_5">DTFT的高频和低频</h3>
 <p>将任意<span class="arithmatex">\(x(t)\)</span>以<span class="arithmatex">\(\omega_s\)</span> 的采样角频率采样后，频谱中最高频率理论上为<span class="arithmatex">\(\frac{\omega_s}{2}\)</span></p>
 <p>对应的<span class="arithmatex">\(\Omega\)</span>​值又为π</p>
 <p>以<span class="arithmatex">\((-\pi,\pi)\)</span>为例，<span class="arithmatex">\(|\Omega|\)</span>越接近<span class="arithmatex">\(\pi\)</span>，为高频；<span class="arithmatex">\(|\Omega|\)</span>越接近0，为低频</p>
@@ -7052,7 +7073,7 @@ X(\omega)=2\pi  \sum_{k=-\infty}^{+\infty} c_k\delta(\omega-k\omega_0)
 X(\omega)=\int_{-\infty}^{+\infty}x(t)e^{-j\omega t}dt
 \]</div>
 <p>连续非周期信号傅里叶变换后的信号是连续</p>
-<h3 id="dtft_5">DTFT</h3>
+<h3 id="dtft_6">DTFT</h3>
 <div class="arithmatex">\[
 X(\Omega)=\sum_{n=-\infty}^{+\infty}x[n]e^{-j\Omega n}
 \]</div>
