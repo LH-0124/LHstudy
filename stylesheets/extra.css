@@ -1,32 +1,48 @@
 /* ==========================================================================
-   1. 背景图强制修复 (核弹级解决方案)
+   1. 首页背景设置 (严格区分亮色/暗色模式)
    ========================================================================== */
 
-/* 1.1 给 Body 加上背景图 */
-[data-md-color-scheme="default"] body {
-  /* 请确保这个链接是可以访问的 */
-  background-image: url('https://s2.loli.net/2026/01/11/9UFElZkfrT1cQP2.png') !important;
+/* 1.0 全局默认：没有任何背景图 */
+body {
+  background-image: none;
+}
+
+/* 1.1 【仅在 亮色模式 + 首页】生效的背景配置 */
+/* 注意选择器写法：body[data-md-color-scheme="default"] 表示只选中亮色模式的 body */
+body[data-md-color-scheme="default"]:has(.hero-layout) {
+  /* 请确认 assets/home-bg.png 路径正确 */
+  background-image: url('../assets/home-bg.png') !important;
   background-size: cover !important;
   background-attachment: fixed !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
 }
 
-/* 1.2 【关键】暴力穿透：把所有可能挡住背景的层全部设为透明 */
-[data-md-color-scheme="default"] .md-main,
-[data-md-color-scheme="default"] .md-container,
-[data-md-color-scheme="default"] .md-content,
-[data-md-color-scheme="default"] .md-content__inner,
-[data-md-color-scheme="default"] .md-grid,
-[data-md-color-scheme="default"] article, 
-[data-md-color-scheme="default"] main {
+/* 1.2 【仅在 亮色模式 + 首页】内容区域透明化 */
+/* 必须限定在 default 模式，否则暗色模式下也会变透明，导致看不清文字 */
+body[data-md-color-scheme="default"]:has(.hero-layout) .md-main,
+body[data-md-color-scheme="default"]:has(.hero-layout) .md-container,
+body[data-md-color-scheme="default"]:has(.hero-layout) .md-content,
+body[data-md-color-scheme="default"]:has(.hero-layout) .md-content__inner,
+body[data-md-color-scheme="default"]:has(.hero-layout) .md-grid,
+body[data-md-color-scheme="default"]:has(.hero-layout) article, 
+body[data-md-color-scheme="default"]:has(.hero-layout) main {
   background-color: transparent !important;
   background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* 1.3 【仅在 暗色模式】强制移除背景 */
+/* 即使是首页，只要切换到 slate 模式，就强制去掉背景图并恢复默认黑底 */
+body[data-md-color-scheme="slate"] {
+  background-image: none !important;
+  background-color: var(--md-default-bg-color) !important;
 }
 
 
+
 /* ==========================================================================
-   2. 首页布局结构
+   2. 首页布局结构 (Home Layout)
    ========================================================================== */
 .hero-layout {
   display: flex;
@@ -51,23 +67,31 @@
   justify-content: center;
 }
 
+/* 移动端适配 */
+@media screen and (max-width: 960px) {
+  .hero-layout {
+    flex-direction: column-reverse;
+    padding: 20px;
+    gap: 30px;
+  }
+  .left-column { flex: auto; width: 100%; }
+}
+
+
 /* ==========================================================================
-   3. 卡片样式 (已修改：浅色模式下使用蓝色边框)
+   3. 卡片样式 (Cards)
    ========================================================================== */
 
 /* --- 3.1 个人简介主卡片 --- */
 .intro-card {
-  background: rgba(255, 255, 255, 0.9); /* 背景稍微白一点，防止文字看不清 */
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(12px);
   padding: 25px;
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  
-  /* 【修改点】浅色模式：蓝色边框 (1.5px 宽度更明显) */
   border: 1.5px solid var(--md-primary-fg-color); 
 }
 
-/* 暗色模式适配 */
 [data-md-color-scheme="slate"] .intro-card {
   background: var(--md-default-bg-color);
   border: 1px solid var(--md-default-fg-color--lightest);
@@ -126,19 +150,15 @@
   border-radius: 12px;
   text-decoration: none !important;
   transition: all 0.2s ease;
-  
-  /* 【修改点】浅色模式：蓝色边框 */
   border: 1.5px solid var(--md-primary-fg-color);
 }
 
 .social-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 15px rgba(0,0,0,0.15);
-  /* 悬浮时加深背景色，突出蓝色边框 */
   background: white; 
 }
 
-/* 暗色模式适配 */
 [data-md-color-scheme="slate"] .social-card {
   background: var(--md-default-bg-color);
   border: 1px solid var(--md-default-fg-color--lightest);
@@ -187,9 +207,7 @@
   color: var(--md-primary-fg-color);
 }
 
-/* ==========================================================================
-   4. 右侧图片与移动端
-   ========================================================================== */
+/* --- 3.4 右侧图片 --- */
 .image-wrapper {
   position: relative;
   border-radius: 16px;
@@ -204,7 +222,73 @@
   text-align: center; padding: 8px; font-size: 0.9rem;
 }
 
-@media screen and (max-width: 960px) {
-  .hero-layout { flex-direction: column-reverse; padding: 20px; gap: 30px; }
-  .left-column { flex: auto; width: 100%; }
+
+/* ==========================================================================
+   4. 时间轴样式 (Timeline)
+   ========================================================================== */
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 20px auto;
+  padding-left: 20px;
+}
+
+/* 左侧竖线 */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: 6px;
+  width: 2px;
+  background: #e0e0e0;
+}
+
+/* 每个时间节点 */
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  padding-left: 30px;
+}
+
+/* 节点圆点 */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 5px;
+  width: 14px; height: 14px;
+  background: var(--md-primary-fg-color);
+  border-radius: 50%;
+  border: 3px solid var(--md-default-bg-color); /* 镂空效果 */
+  z-index: 1;
+}
+
+.timeline-date {
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: var(--md-default-fg-color--light);
+  margin-bottom: 5px;
+}
+
+.timeline-content {
+  background: var(--md-default-bg-color);
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+[data-md-color-scheme="slate"] .timeline-content {
+  border-color: #404040; /* 暗色模式边框 */
+}
+
+/* 标题和标签 */
+.timeline-content h3 { margin-top: 0; margin-bottom: 0.5rem; font-size: 1.1rem; }
+.tag {
+  display: inline-block;
+  background: var(--md-primary-fg-color--light);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  margin-top: 10px;
 }
