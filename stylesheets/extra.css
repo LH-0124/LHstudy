@@ -1,0 +1,210 @@
+/* ==========================================================================
+   1. 背景图强制修复 (核弹级解决方案)
+   ========================================================================== */
+
+/* 1.1 给 Body 加上背景图 */
+[data-md-color-scheme="default"] body {
+  /* 请确保这个链接是可以访问的 */
+  background-image: url('https://s2.loli.net/2026/01/11/9UFElZkfrT1cQP2.png') !important;
+  background-size: cover !important;
+  background-attachment: fixed !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* 1.2 【关键】暴力穿透：把所有可能挡住背景的层全部设为透明 */
+[data-md-color-scheme="default"] .md-main,
+[data-md-color-scheme="default"] .md-container,
+[data-md-color-scheme="default"] .md-content,
+[data-md-color-scheme="default"] .md-content__inner,
+[data-md-color-scheme="default"] .md-grid,
+[data-md-color-scheme="default"] article, 
+[data-md-color-scheme="default"] main {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+
+/* ==========================================================================
+   2. 首页布局结构
+   ========================================================================== */
+.hero-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding: 40px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.left-column {
+  flex: 0 0 480px; 
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.right-column {
+  flex: 1; 
+  display: flex;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   3. 卡片样式 (已修改：浅色模式下使用蓝色边框)
+   ========================================================================== */
+
+/* --- 3.1 个人简介主卡片 --- */
+.intro-card {
+  background: rgba(255, 255, 255, 0.9); /* 背景稍微白一点，防止文字看不清 */
+  backdrop-filter: blur(12px);
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  
+  /* 【修改点】浅色模式：蓝色边框 (1.5px 宽度更明显) */
+  border: 1.5px solid var(--md-primary-fg-color); 
+}
+
+/* 暗色模式适配 */
+[data-md-color-scheme="slate"] .intro-card {
+  background: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.intro-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.intro-header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--md-primary-fg-color);
+}
+
+.badge {
+  background: var(--md-primary-fg-color);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.slogan {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--md-default-fg-color--light);
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding-bottom: 10px;
+}
+
+.intro-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* --- 3.2 社交卡片 --- */
+.social-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.social-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+  border-radius: 12px;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
+  
+  /* 【修改点】浅色模式：蓝色边框 */
+  border: 1.5px solid var(--md-primary-fg-color);
+}
+
+.social-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+  /* 悬浮时加深背景色，突出蓝色边框 */
+  background: white; 
+}
+
+/* 暗色模式适配 */
+[data-md-color-scheme="slate"] .social-card {
+  background: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.social-card img, .social-card svg {
+  width: 40px; height: 40px; border-radius: 8px;
+}
+.social-card svg { fill: #333; }
+[data-md-color-scheme="slate"] .social-card svg { fill: #eee; }
+
+.social-info { display: flex; flex-direction: column; }
+.social-title { font-weight: bold; color: var(--md-default-fg-color); font-size: 0.9rem; }
+.social-id { font-size: 0.8rem; color: var(--md-default-fg-color--light); }
+
+/* --- 3.3 按钮组 --- */
+.btn-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.btn-grid .md-button {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  padding: 12px 0;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.9); 
+  border: 1.5px solid var(--md-primary-fg-color);
+  color: var(--md-primary-fg-color);
+}
+
+.btn-grid .md-button--primary {
+  background: var(--md-primary-fg-color);
+  color: white;
+}
+
+[data-md-color-scheme="slate"] .btn-grid .md-button {
+  background: transparent;
+  border-color: var(--md-default-fg-color--lightest);
+  color: var(--md-default-fg-color);
+}
+[data-md-color-scheme="slate"] .btn-grid .md-button:hover {
+  border-color: var(--md-primary-fg-color);
+  color: var(--md-primary-fg-color);
+}
+
+/* ==========================================================================
+   4. 右侧图片与移动端
+   ========================================================================== */
+.image-wrapper {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  max-width: 100%;
+}
+.right-column img { width: 100%; height: auto; display: block; }
+.img-caption {
+  position: absolute; bottom: 0; width: 100%;
+  background: rgba(0,0,0,0.6); color: white;
+  text-align: center; padding: 8px; font-size: 0.9rem;
+}
+
+@media screen and (max-width: 960px) {
+  .hero-layout { flex-direction: column-reverse; padding: 20px; gap: 30px; }
+  .left-column { flex: auto; width: 100%; }
+}
