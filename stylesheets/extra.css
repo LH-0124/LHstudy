@@ -11,7 +11,7 @@ body {
 /* 注意选择器写法：body[data-md-color-scheme="default"] 表示只选中亮色模式的 body */
 body[data-md-color-scheme="default"]:has(.hero-layout) {
   /* 请确认 assets/home-bg.png 路径正确 */
-  background-image: url('../assets/home-bg.png') !important;
+  background-image: url('https://lh-0124.github.io/LHstudy/assets/home-bg.png') !important;
   background-size: cover !important;
   background-attachment: fixed !important;
   background-position: center !important;
