@@ -6298,7 +6298,7 @@ y_c(t)=A|H(\omega_0)|e^{j \omega_0 t+\theta+\angle H(\omega_0)}
 $$
 若输入为单一频率<span class="arithmatex">\(\omega_0\)</span>的复指数信号，则输出为该频率<span class="arithmatex">\(\omega_0\)</span>的复指数信号乘上幅值系数<span class="arithmatex">\(|H(\omega_0)|\)</span> ，同时相移<span class="arithmatex">\(\angle H(\omega_0)\)</span>​</p>
 <h3 id="_3">输入为余弦信号</h3>
-<p><span class="arithmatex">\(x(t)=A\cos(\omega_0+\theta)\)</span>​
+<p><span class="arithmatex">\(x(t)=A\cos(\omega_0t+\theta)\)</span>​
 $$
 y_c(t)=A|H(\omega_0)|\cos( \omega_0 t+\theta+\angle H(\omega_0))
 $$</p>
@@ -6340,11 +6340,11 @@ $$
 h(t)=\frac{BT_s}{\pi}\text{sinc}Bt
 $$</p>
 <div class="arithmatex">\[
-x(t)=\int_{-\infty}^{+\infty}\sum_{n=-\infty}^{+\infty}x(nT)\delta(t-nT)h(t-\tau)
+x(t)=\int_{-\infty}^{+\infty}\sum_{n=-\infty}^{+\infty}x(nT)\delta(\tau-nT)h(t-\tau)d\tau
 \]</div>
 <p>交换求和和积分
 $$
-x(t)=\sum_{n=-\infty}^{+\infty}\int_{-\infty}^{+\infty}x(nT)\delta(t-nT)h(t-\tau)=\sum_{n=-\infty}^{+\infty}x(nT)h(t-nT)
+x(t)=\sum_{n=-\infty}^{+\infty}\int_{-\infty}^{+\infty}x(nT)\delta(\tau-nT)h(t-\tau)d\tau=\sum_{n=-\infty}^{+\infty}x(nT)h(t-nT)
 $$</p>
 <p>最后得到的插值公式Interpolation formula
 $$

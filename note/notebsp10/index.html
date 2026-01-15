@@ -6384,7 +6384,7 @@
 <p><strong>结论</strong>：</p>
 <ol>
 <li><strong>稳定性</strong>：<span class="arithmatex">\(s\)</span> 左半平面映射到 <span class="arithmatex">\(z\)</span> 单位圆内。如果模拟滤波器稳定，数字的也稳定。</li>
-<li><strong>频率映射</strong>：是线性的，<span class="arithmatex">\(\omega = \Omega T\)</span>。</li>
+<li><strong>频率映射</strong>：是线性的，<span class="arithmatex">\(\Omega = \omega T\)</span>。</li>
 </ol>
 </li>
 <li>
@@ -6402,13 +6402,13 @@
 <p><strong>确定数字滤波器指标</strong></p>
 </li>
 <li>
-<p>给定通带截止频率 <span class="arithmatex">\(\omega_p\)</span>、阻带截止频率 <span class="arithmatex">\(\omega_s\)</span>、通带最大衰减 <span class="arithmatex">\(\alpha_p\)</span>、阻带最小衰减 <span class="arithmatex">\(\alpha_s\)</span>。</p>
+<p>给定通带截止频率 <span class="arithmatex">\(\Omega_p\)</span>、阻带截止频率 <span class="arithmatex">\(\Omega_s\)</span>、通带最大衰减 <span class="arithmatex">\(\alpha_p\)</span>、阻带最小衰减 <span class="arithmatex">\(\alpha_s\)</span>。</p>
 </li>
 <li>
 <p><strong>模拟频率转换</strong></p>
 </li>
 <li>
-<p>利用线性关系 <span class="arithmatex">\(\Omega = \frac{\omega}{T}\)</span> 将数字频率转换为模拟频率。</p>
+<p>利用线性关系 <span class="arithmatex">\(\Omega = \omega T\)</span> 将数字频率转换为模拟频率。</p>
 </li>
 <li>
 <p><strong>设计模拟滤波器原型 <span class="arithmatex">\(H_a(s)\)</span></strong></p>
@@ -6471,14 +6471,14 @@
 <p><strong>确定数字滤波器指标</strong></p>
 </li>
 <li>
-<p>给定 <span class="arithmatex">\(\omega_p, \omega_s, \alpha_p, \alpha_s\)</span>。</p>
+<p>给定 <span class="arithmatex">\(\Omega_p, \Omega_s, \alpha_p, \alpha_s\)</span>。</p>
 </li>
 <li>
 <p><strong>频率预畸变 (Pre-warping)</strong></p>
 </li>
 <li>
-<p>由于频率映射是非线性的，必须先对数字截止频率进行预畸变，得到修正后的模拟频率 <span class="arithmatex">\(\Omega\)</span>：</p>
-<p><span class="arithmatex">\(\Omega = \frac{2}{T} \tan\left(\frac{\omega}{2}\right)\)</span></p>
+<p>由于频率映射是非线性的，必须先对数字截止频率进行预畸变，得到修正后的模拟频率 <span class="arithmatex">\(\omega\)</span>：</p>
+<p><span class="arithmatex">\(\omega = \frac{2}{T} \tan\left(\frac{\Omega}{2}\right),\Omega=\arctan (\frac{\omega T}{2})\)</span></p>
 </li>
 <li>
 <p><strong>设计模拟滤波器原型 <span class="arithmatex">\(H_a(s)\)</span></strong></p>
