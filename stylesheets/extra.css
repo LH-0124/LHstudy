@@ -47,7 +47,7 @@ body[data-md-color-scheme="slate"] {
 .hero-layout {
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; 取消居中对齐，让两侧高度自然对齐 */
   gap: 50px;
   padding: 40px 0;
   max-width: 1200px;
@@ -59,12 +59,14 @@ body[data-md-color-scheme="slate"] {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  /* 确保左侧有内容撑开高度 */
 }
 
 .right-column {
   flex: 1; 
   display: flex;
-  justify-content: center;
+  /* justify-content: center; 删除对齐方式，让其填满 */
+  flex-direction: column; /* 改为纵向布局，以适应四宫格的高度 */
 }
 
 /* 移动端适配 */
@@ -75,6 +77,15 @@ body[data-md-color-scheme="slate"] {
     gap: 30px;
   }
   .left-column { flex: auto; width: 100%; }
+  /* 移动端右侧（图片栏）样式调整 */
+  .right-column {
+    width: 100%;
+    height: auto; /* 移动端高度自适应 */
+  }
+  .image-grid {
+    height: auto !important; /* 移动端网格高度自适应 */
+    aspect-ratio: 1 / 1; /* 移动端保持正方形比例，或者根据需要调整 */
+  }
 }
 
 
@@ -207,19 +218,54 @@ body[data-md-color-scheme="slate"] {
   color: var(--md-primary-fg-color);
 }
 
-/* --- 3.4 右侧图片 --- */
-.image-wrapper {
+/* --- 3.4 右侧四宫格图片 --- */
+.image-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 15px;
+  height: 100%; /* 让网格填满右侧列的高度 */
+  width: 100%;
+}
+
+.grid-item {
   position: relative;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-  max-width: 100%;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  height: 100%; /* 让每个格子填满网格单元 */
 }
-.right-column img { width: 100%; height: auto; display: block; }
+
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 保持纵横比填满 */
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.grid-item:hover img {
+  transform: scale(1.05); /* 悬停时图片轻微放大 */
+}
+
 .img-caption {
-  position: absolute; bottom: 0; width: 100%;
-  background: rgba(0,0,0,0.6); color: white;
-  text-align: center; padding: 8px; font-size: 0.9rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7); /* 半透明黑色背景 */
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  opacity: 0; /* 默认隐藏 */
+  transition: opacity 0.3s ease;
+  pointer-events: none; /* 防止文字遮挡鼠标事件 */
+}
+
+.grid-item:hover .img-caption {
+  opacity: 1; /* 悬停时显示 */
 }
 
 
