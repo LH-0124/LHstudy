@@ -142,6 +142,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#mri" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -4854,6 +4859,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -5860,6 +5867,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -5878,9 +5887,213 @@
   
 
 
-  <h1>第五部分 MRI成像</h1>
-
-
+<h1 id="mri">六、MRI磁共振成像</h1>
+<ol>
+<li>
+<p><strong>MRI的安全性</strong></p>
+</li>
+<li>
+<p>MRI基于强磁场中的水分子运动成像。与CT和核医学不同，<strong>MRI 无电离辐射</strong>。</p>
+</li>
+<li>
+<p><strong>多对比度</strong>：通过脉冲序列设计（TR, TE）可以形成多种对比度（T1, T2, PD）。</p>
+</li>
+<li>
+<p><strong>安全禁忌</strong>：禁止所有铁磁性物品进入磁体室。</p>
+</li>
+<li>
+<p><strong>核磁共振NMR的物理原理</strong></p>
+</li>
+<li>
+<p>NMR 研究的是原子核在静态磁场中与射频电磁波发生相互作用的物理现象。</p>
+</li>
+<li>
+<p><strong>自旋条件</strong>：自旋量子数为半整数的原子核（如 <span class="arithmatex">\(^1H, ^{13}C, ^{19}F, ^{31}P\)</span>）在NMR中是活跃的。</p>
+</li>
+<li>
+<p><strong>自旋的磁场特性</strong></p>
+</li>
+<li>
+<p>自旋量子数 <span class="arithmatex">\(I\)</span> 决定微观粒子的 <strong>总自旋角动量</strong> <span class="arithmatex">\(S = \hbar \sqrt{I(I+1)}\)</span>。</p>
+</li>
+<li>
+<p>每个具有自旋的原子核都具有微观磁场，其磁矩为 <span class="arithmatex">\(\mu = \gamma S\)</span>。</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\gamma\)</span> 是 <strong>旋磁比</strong>。对于 <span class="arithmatex">\(^1H\)</span> 原子核，<span class="arithmatex">\(\frac{\gamma}{2\pi} = 42.58 MHz/T\)</span>。</p>
+</li>
+<li>
+<p>在主磁场 <span class="arithmatex">\(B_0\)</span> 中，能级发生分裂（塞曼分裂），能量差 <span class="arithmatex">\(\Delta E = \gamma \hbar B_0\)</span>。</p>
+</li>
+<li>
+<p><strong>宏观磁化矢量</strong></p>
+</li>
+<li>
+<p>该磁化可用宏观磁化向量 <span class="arithmatex">\(M\)</span> 来表示。自旋服从波尔兹曼分布。</p>
+</li>
+<li>
+<p>平衡磁化矢量 <span class="arithmatex">\(M_0\)</span> 近似公式： <span class="arithmatex">\(M_0 \propto \frac{\rho \gamma^2 \hbar^2 B_0}{kT}\)</span>。</p>
+</li>
+<li>
+<p><span class="arithmatex">\(M_0\)</span> 与主磁场 <span class="arithmatex">\(B_0\)</span> 成正比，与温度 <span class="arithmatex">\(T\)</span> 成反比，与质子密度 <span class="arithmatex">\(\rho\)</span> (PD) 成正比。</p>
+</li>
+<li>
+<p><strong>自旋的进动</strong></p>
+</li>
+<li>
+<p>粒子自旋在磁场中产生进动，即 <strong>拉莫进动</strong>。</p>
+</li>
+<li>
+<p><strong>拉莫进动频率</strong>：<span class="arithmatex">\(\omega_0 = \gamma B_0\)</span> 或 <span class="arithmatex">\(f_0 = \frac{\gamma}{2\pi} B_0\)</span>。</p>
+</li>
+<li>
+<p><strong>化学位移</strong></p>
+</li>
+<li>
+<p>由于化学环境（电子云遮蔽）不同导致的原子核拉莫频率变化。</p>
+</li>
+<li>
+<p><strong>主磁场越高，化学位移量（Hz）越大</strong>。<span class="arithmatex">\(\Delta \omega=\gamma B_0  \delta(ppm) \cdot 10^{6}\)</span></p>
+</li>
+<li>
+<p><strong>射频激发</strong></p>
+</li>
+<li>
+<p>通常使用一个 <strong>垂直于主磁场方向</strong> 的额外 <strong>射频磁场 <span class="arithmatex">\(B_1\)</span></strong> 将 <span class="arithmatex">\(M\)</span> 从 <span class="arithmatex">\(B_0\)</span> 方向（z轴）分离出来，倒向xy平面。</p>
+</li>
+<li>
+<p><strong>共振条件</strong>：当 <span class="arithmatex">\(B_1\)</span> 的频率等于粒子的拉莫频率时，粒子发生共振。</p>
+</li>
+<li>
+<p><strong>90°脉冲</strong>：RF脉冲开启一定时间后，M将完全转至x-y平面。</p>
+</li>
+<li>
+<p><strong>弛豫 (Relaxation)</strong></p>
+</li>
+<li>
+<p><strong>横向弛豫 (<span class="arithmatex">\(T_2\)</span>)</strong>：也称为自旋-自旋弛豫。由邻近自旋引起磁场扰动导致 <strong>去相位 (Dephasing)</strong>。</p>
+<ul>
+<li>产生自由感应衰减信号（FID）。</li>
+<li>信号衰减公式：<span class="arithmatex">\(M_{xy}(t) = M_{xy}(0) e^{-t/T_2}\)</span>。</li>
+<li>由于 <strong>局部磁场不均匀性</strong>，实际信号衰减更快，时间常数为 <span class="arithmatex">\(T_2^*\)</span>。</li>
+</ul>
+</li>
+<li>
+<p><strong>纵向弛豫 (<span class="arithmatex">\(T_1\)</span>)</strong>：又称自旋-晶格弛豫。描述纵向磁化矢量恢复至平衡态的过程。</p>
+<ul>
+<li>恢复公式：<span class="arithmatex">\(M_z(t) = M_0 (1 - e^{-t/T_1})\)</span>。</li>
+<li><strong>分子的运动频率越接近拉莫频率，恢复越快</strong>（即 <span class="arithmatex">\(T_1\)</span> 越短）。</li>
+</ul>
+</li>
+<li>
+<p><strong>组织特性</strong>：</p>
+<ul>
+<li><strong>水/脑脊液 (CSF)</strong>：长 <span class="arithmatex">\(T_1\)</span>，长 <span class="arithmatex">\(T_2\)</span>。</li>
+<li><strong>脂肪</strong>：短 <span class="arithmatex">\(T_1\)</span>，短 <span class="arithmatex">\(T_2\)</span>。</li>
+<li><strong>白质</strong>：<span class="arithmatex">\(T_1\)</span> 比灰质短。</li>
+</ul>
+</li>
+<li>
+<p><strong>MRI硬件结构</strong></p>
+</li>
+<li>
+<p><strong>三大核心组件</strong>：主磁体（提供 <span class="arithmatex">\(B_0\)</span>）、梯度线圈（空间编码）、射频线圈（发射 <span class="arithmatex">\(B_1\)</span> /接收信号）。</p>
+</li>
+<li>
+<p><strong>梯度线圈</strong>：</p>
+<ul>
+<li><strong>核心作用</strong>：断层成像（选层），空间定位（编码）。</li>
+<li><strong>参数</strong>：梯度强度、切换率 (Slew Rate)。高切换率可能导致周围神经刺激 (PNS)。</li>
+</ul>
+</li>
+<li>
+<p><strong>SAR (比吸收率)</strong>：射频能量沉积导致组织升温。<span class="arithmatex">\(SAR \propto B_1^2 \omega^2\)</span>。</p>
+</li>
+<li>
+<p><strong>空间编码原理</strong></p>
+<ul>
+<li>
+<p>总磁场 <span class="arithmatex">\(B(r) = B_0 + G \cdot r\)</span>。</p>
+</li>
+<li>
+<p>拉莫频率随位置变化：<span class="arithmatex">\(\omega(r) = \gamma (B_0 + G \cdot r)\)</span>。</p>
+</li>
+<li>
+<p><strong>① 层面选择 (Slice Selection)</strong>：</p>
+<ul>
+<li>施加梯度 <span class="arithmatex">\(G_z\)</span>的同时发射特定带宽的RF脉冲。</li>
+<li>层面厚度 <span class="arithmatex">\(\Delta z = \frac{\Delta \nu}{\gamma G_z}\)</span>。</li>
+<li><strong>低梯度/窄带宽 -&gt; 厚切片</strong>；<strong>高梯度/宽带宽 -&gt; 薄切片</strong>。</li>
+</ul>
+</li>
+<li>
+<p><strong>② 频率编码 (Frequency Encoding)</strong>：</p>
+<ul>
+<li>在读出信号时施加梯度 <span class="arithmatex">\(G_x\)</span>。不同位置的质子频率不同。</li>
+</ul>
+</li>
+<li>
+<p><strong>③ 相位编码 (Phase Encoding)</strong>：</p>
+<ul>
+<li>在读出前施加梯度 <span class="arithmatex">\(G_y\)</span> 一段时间。不同位置的质子积累不同的相位 <span class="arithmatex">\(\phi = \gamma G_y y \tau\)</span>。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>K空间与图像重建</strong></p>
+<ul>
+<li>
+<p>MRI 采集的是 <strong>K空间</strong> 数据（频域数据）。</p>
+</li>
+<li>
+<p>K空间轨迹由梯度决定：<span class="arithmatex">\(k(t) = \frac{\gamma}{2\pi} \int_0^t G(\tau) d\tau\)</span>。</p>
+</li>
+<li>
+<p><strong>K空间中心</strong>：决定图像的 <strong>对比度</strong>。</p>
+</li>
+<li>
+<p><strong>K空间周边</strong>：决定图像的 <strong>细节（分辨率）</strong>。</p>
+</li>
+<li>
+<p>图像重建即 <strong>二维傅里叶逆变换 (2D-iFFT)</strong>。</p>
+</li>
+<li>
+<p><strong>FOV (视场)</strong>：与K空间采样间隔 <span class="arithmatex">\(\Delta k\)</span> 成反比 (<span class="arithmatex">\(FOV = 1/\Delta k\)</span>)。</p>
+</li>
+<li>
+<p><strong>分辨率</strong>：与K空间最大覆盖范围 <span class="arithmatex">\(k_{max}\)</span> 成正比。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>脉冲序列与对比度</strong></p>
+<ul>
+<li>
+<p><strong>自旋回波 (SE)</strong>：</p>
+<ul>
+<li>序列：90°脉冲 -&gt; 180°重聚脉冲 -&gt; 采集回波。</li>
+<li>180°脉冲消除了磁场不均匀性的影响，信号按 <strong><span class="arithmatex">\(T_2\)</span></strong> 衰减（而不是 <span class="arithmatex">\(T_2^*\)</span>）。</li>
+</ul>
+</li>
+<li>
+<p><strong>梯度回波 (GRE)</strong>：</p>
+<ul>
+<li>无180°脉冲，通过梯度反转产生回波。</li>
+<li>信号按 <strong><span class="arithmatex">\(T_2^*\)</span></strong> 衰减。</li>
+</ul>
+</li>
+<li>
+<p><strong>权重 (Weighting) 决定因素</strong>：</p>
+<ul>
+<li><strong>T1加权 (T1W)</strong>：短 TR，短 TE。（看解剖结构，脂肪亮，水暗）。</li>
+<li><strong>T2加权 (T2W)</strong>：长 TR，长 TE。（看病变/水肿，水亮，脂肪较暗）。</li>
+<li><strong>质子密度加权 (PDW)</strong>：长 TR，短 TE。（看半月板等，信噪比高）。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
 
 
 

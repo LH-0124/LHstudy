@@ -142,6 +142,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -4808,6 +4813,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -5860,6 +5867,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -5878,9 +5887,218 @@
   
 
 
-  <h1>第三部分 超声成像</h1>
-
-
+<h1 id="_1">四、超声成像</h1>
+<ol>
+<li>
+<p><strong>基本物理概念</strong></p>
+</li>
+<li>
+<p><strong>声波是纵波，机械波，需要介质传播，不能在真空中传播。不需要介质传播的是电磁波。</strong></p>
+</li>
+<li>
+<p>超声波是高于人类听觉范围的声波，频率大于20kHz。<strong>决定超声波频率的是脉冲发生器。</strong></p>
+</li>
+<li>
+<p><strong>频率分类</strong>：次声波 (&lt; 20 Hz)；可闻声 (20 Hz–20 kHz)；<strong>诊断超声 (2MHz 到 12MHz)</strong>。</p>
+</li>
+<li>
+<p><strong>声速</strong>：超声波在组织中传播速度：<strong>1540m/s</strong>。介质越硬传得越快（骨骼 (4080) &gt; 肌肉 &gt; 血液 &gt; 软组织 (1540) &gt; 脂肪 &gt; 肺 (气体) (330)，固体&gt;液体&gt;气体）。</p>
+</li>
+<li>
+<p><strong>声阻抗</strong>：<span class="arithmatex">\(Z = \rho c\)</span>, 单位 Rayl。</p>
+</li>
+<li>
+<p><strong>反射</strong>：入射角=0，反射系数 <span class="arithmatex">\(R = (\frac{Z_2-Z_1}{Z_2+Z_1})^2\)</span>。阻抗差越大，反射越强。</p>
+</li>
+<li>
+<p><strong>衰减</strong>：超声在介质中传播，其能量将随着距离的增大而减小。</p>
+<ul>
+<li>①吸收：最主要因素。声能转化为热能。<strong>吸收与频率成正比。</strong></li>
+<li>②反射：镜面反射和漫反射（粗糙界面）。</li>
+<li>③散射：遇到比波长小的颗粒（如红细胞）。瑞利散射：散射强度 <span class="arithmatex">\(\propto f^4\)</span>。频率翻倍，散射强16倍。</li>
+<li><strong>衰减系数：</strong> 软组织中约为 <span class="arithmatex">\(0.5 dB/(cm \cdot MHz)\)</span>。</li>
+<li><strong>注意：</strong> 距离若题目描述为成像 5cm，则往返路程需 <span class="arithmatex">\(\times 2\)</span>。</li>
+</ul>
+</li>
+<li>
+<p><strong>斯涅尔折射定理：</strong> <span class="arithmatex">\(\frac{\sin \theta_1}{c_1} = \frac{\sin \theta_2}{c_2}\)</span>。</p>
+</li>
+<li>
+<p><strong>分贝：</strong> 功率/强度比使用 <span class="arithmatex">\(10 \log\)</span>；振幅/电压比使用 <span class="arithmatex">\(20 \log\)</span>。</p>
+</li>
+<li>
+<p><strong>成像原理</strong></p>
+</li>
+<li>
+<p>①机器给探头通电，利用 <strong>逆压电效应</strong> 让晶体振动，向人体发出高频声波脉冲。随后探头立刻切换模式，利用 <strong>正压电效应</strong> 等待接收从体内弹回来的微弱声波。</p>
+</li>
+<li>
+<p>②声波在人体内传播时，每当遇到不同组织的交界处，因为两边的声阻抗（硬度/密度）不同，声波就会发生反射。阻抗差越大，反射回来的回声就越强；如果没有阻抗差，声波就直接穿过，没有回声。</p>
+</li>
+<li>
+<p>③处理与成像：看时间算深度，回声回来得越晚，说明物体越深；看强弱算亮度，回声越强，屏幕上的点就越亮。</p>
+</li>
+<li>
+<p><strong>无回声图像呈黑色（如囊肿/液体）。</strong> 代表液体，声波穿透好，无反射。</p>
+</li>
+<li>
+<p><strong>高回声图像呈亮白色。</strong> 代表强反射组织（如骨骼、结石、钙化、富含胶原的隔膜）。</p>
+</li>
+<li>
+<p><strong>弱反射图像发生在软组织间，灰色。</strong></p>
+</li>
+<li>
+<p><strong>超声换能器</strong></p>
+</li>
+<li>
+<p><strong>压电效应：</strong> ①发射时：<strong>逆压电效应</strong> 将电压（电能）转换为声能（机械能）。②接收时：<strong>正压电效应</strong> 将声能转换为电压（电能）。</p>
+</li>
+<li>
+<p><strong>核心材料：</strong> PZT（锆钛酸铅）。</p>
+</li>
+<li>
+<p><strong>PZT晶体：</strong> 核心元件，通常厚度为 <strong>1/2 波长</strong>。</p>
+</li>
+<li>
+<p><strong>匹配层：</strong></p>
+<ul>
+<li>①作用：最小化 PZT 与组织间的声阻抗差异，减少界面反射，增加透射效率。</li>
+<li>②最佳阻抗：<span class="arithmatex">\(Z_{tissue} &lt; Z_{match} &lt; Z_{PZT}\)</span>。最佳 Z 为组织和 PZT 的几何均数：<span class="arithmatex">\(Z_{match} = \sqrt{Z_{PZT} \cdot Z_{tissue}}\)</span>。</li>
+<li>③最佳厚度：<strong>1/4 波长</strong>。这使得从匹配层/组织界面反射回来的波，与晶体表面的反射波相位相反（差180度），两者发生相消干涉，从而抵消反射，最大化透射能量。</li>
+</ul>
+</li>
+<li>
+<p><strong>背衬材料：</strong></p>
+<ul>
+<li>①作用：吸收背向声波，增加阻尼，减少周期数 n，缩短脉冲持续时间（SPL）。</li>
+<li>②提高了 <strong>轴向分辨力</strong>。</li>
+</ul>
+</li>
+<li>
+<p><strong>声透镜：</strong> 聚焦声束，改善横向分辨力。</p>
+</li>
+<li>
+<p><strong>脉冲模式的工作频率</strong>：<span class="arithmatex">\(f=c/2d\)</span>，d为晶体厚度。</p>
+</li>
+<li>
+<p><strong>分辨力</strong></p>
+</li>
+<li>
+<p><strong>轴向（纵向）分辨力：</strong></p>
+<ul>
+<li>在超声波束的轴线方向（传播方向）上，能够区分两个前后相邻物体的最小距离。数值越小，分辨力越好。</li>
+<li>值是空间脉冲长度的一半 = <span class="arithmatex">\(SPL/2\)</span>。</li>
+<li>SPL = nλ = 声速 × 脉冲持续时间（PD）。波长越短，SPL 越短，轴向分辨力越好。</li>
+<li><strong>影响因素：</strong> 频率、波长、传播速度、衬底材料、激励脉冲等。</li>
+</ul>
+</li>
+<li>
+<p><strong>横向分辨力：</strong></p>
+<ul>
+<li>在垂直于声束的方向上，能够区分两个左右相邻物体的最小距离。</li>
+<li>公式：横向分辨力等于 <strong>该深度处的横向声束直径</strong>。</li>
+<li><strong>影响因素：</strong> 频率、口径、焦距、多个发射焦点、并行处理等。</li>
+</ul>
+</li>
+<li>
+<p><strong>PRP 与 PRF</strong></p>
+</li>
+<li>
+<p>这两个参数决定了超声成像的时间特性和最大深度。</p>
+</li>
+<li>
+<p><strong>PRF (脉冲重复频率)</strong>：一秒钟内发射脉冲的次数。</p>
+</li>
+<li>
+<p><strong>PRP (脉冲重复周期)</strong>：从一个脉冲开始到下一个脉冲开始的时间。</p>
+</li>
+<li>
+<p>PRP 主要由成像深度所决定：<span class="arithmatex">\(PRP = \text{Imaging Depth (cm)} \times 13 \mu s/cm\)</span>。</p>
+</li>
+<li>
+<p><span class="arithmatex">\(PRF = 1/PRP\)</span>。</p>
+</li>
+<li>
+<p><strong>近场与远场</strong></p>
+</li>
+<li>
+<p><strong>焦点：</strong> 近场结束、远场开始的点。这是声束最窄的地方。横向分辨力最佳点。也是声强最大的地方。焦点处的波束宽度是探头直径的一半。</p>
+</li>
+<li>
+<p><strong>近场（菲涅耳区）：</strong> 从探头表面开始，到声束最窄点（焦点）之间的区域。声束逐渐收敛。这是成像质量最好的区域。</p>
+</li>
+<li>
+<p><strong>近场长度</strong> <span class="arithmatex">\(NFL = D^2 / 4\lambda\)</span> （D为换能器直径）。</p>
+</li>
+<li>
+<p><strong>远场（夫琅禾费区）：</strong> 焦点以外的区域。声束开始发散。横向分辨力迅速下降。</p>
+</li>
+<li>
+<p><strong>A/B/M 超声模式</strong></p>
+</li>
+<li>
+<p><strong>A型超声 (Amplitude Mode)</strong>：物理基础。水平轴为时间（深度），垂直轴为幅度。本质是声学示波器。</p>
+</li>
+<li>
+<p><strong>B型超声 (Brightness Mode)</strong>：将A超的“波峰高度”转换为“光点亮度”。二维黑白切面图像。</p>
+</li>
+<li>
+<p><strong>M型超声 (Motion Mode)</strong>：对B型图像中单一扫描线的时间轴展开。Y轴代表深度，X轴代表时间。用于心脏瓣膜监测。采样率高（等于PRF），具有极高的时间分辨力。</p>
+</li>
+<li>
+<p><strong>多普勒</strong></p>
+</li>
+<li>
+<p>信息：血流速度。</p>
+</li>
+<li>
+<p><strong>红色</strong>：代表血流朝向探头流动。<strong>蓝色</strong>：代表血流背离探头流动。颜色的深浅：代表流速的快慢。</p>
+</li>
+<li>
+<p><strong>多普勒频移：</strong> <span class="arithmatex">\(\Delta f = \frac{2 f_t v \cos \theta}{c}\)</span>。</p>
+</li>
+<li>
+<p><strong>计算几何</strong></p>
+</li>
+<li>
+<p>(此处原文为图形计算题，涉及线阵/凸阵的延时计算几何)</p>
+</li>
+<li>
+<p><strong>超声系统操作</strong></p>
+<ul>
+<li>
+<p><strong>接收器五大功能:</strong></p>
+<ul>
+<li>① <strong>放大</strong>: 整体信号增强，不改变信噪比(SNR)。</li>
+<li>② <strong>补偿 (TGC)</strong>: 修正随深度增加产生的衰减。深部增益 &gt; 浅部。</li>
+<li>③ <strong>压缩</strong>: 降低动态范围，对数压缩。保持强信号, 提升弱信号。</li>
+<li>④ <strong>解调</strong>: 包括整流+平滑。去除射频载波，提取包络。</li>
+<li>⑤ <strong>丢弃</strong>: 去除低幅度的噪声信号。</li>
+</ul>
+</li>
+<li>
+<p><strong>扫描转换器:</strong> 像素决定空间分辨力(细节)；比特(Bit)决定对比度分辨力(灰阶)。</p>
+</li>
+<li>
+<p><strong>信噪比(SNR):</strong> 增加发射功率 -&gt; SNR增加。增加接收增益 -&gt; SNR不变。降低声波频率 -&gt; SNR增加（因为衰减变小）。</p>
+</li>
+</ul>
+</li>
+</ol>
+<hr />
+<p><strong>【习题与思考】</strong></p>
+<ul>
+<li>使用耦合凝胶的目的：<strong>排除空气，减少声阻抗不匹配</strong>。</li>
+<li>不属于换能器的主要组成部分？<strong>射频发生器</strong>。</li>
+<li>难以清晰成像的器官？<strong>肺</strong>（气体全反射）、<strong>成人颅脑</strong>（骨骼强衰减）。</li>
+<li>频率选择权衡：<strong>分辨率与穿透力</strong>。</li>
+<li>匹配层作用：最小化PZT与人体组织之间的阻抗偏差。</li>
+<li>简要介绍超声简单解调和正交解调的原理：<ul>
+<li><strong>简单解调</strong>：全波整流 + 低通滤波。提取幅度信息，丢失相位。</li>
+<li><strong>正交解调</strong>：与两个相差90°的参考信号 (<span class="arithmatex">\(sin, cos\)</span>) 混频，产生 I/Q 两路信号。保留了幅度和相位信息。</li>
+</ul>
+</li>
+</ul>
 
 
 
