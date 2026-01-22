@@ -24,7 +24,7 @@
     
     
       
-        <title>第一部分 X-Ray和CT - LH的资源小站</title>
+        <title>第一部分 X-Ray - LH的资源小站</title>
       
     
     
@@ -177,7 +177,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              第一部分 X-Ray和CT
+              第一部分 X-Ray
             
           </span>
         </div>
@@ -4775,7 +4775,7 @@
   
   
   <span class="md-ellipsis">
-    第一部分 X-Ray和CT
+    第一部分 X-Ray
     
   </span>
   
@@ -4788,7 +4788,7 @@
   
   
   <span class="md-ellipsis">
-    第一部分 X-Ray和CT
+    第一部分 X-Ray
     
   </span>
   
@@ -4945,7 +4945,7 @@
   
   
   <span class="md-ellipsis">
-    第二部分 核医学成像
+    第二部分 CT成像
     
   </span>
   
@@ -4968,7 +4968,7 @@
   
   
   <span class="md-ellipsis">
-    第三部分 超声成像
+    第三部分 核医学成像
     
   </span>
   
@@ -4991,7 +4991,7 @@
   
   
   <span class="md-ellipsis">
-    第四部分 光学成像
+    第四部分 超声成像
     
   </span>
   
@@ -5014,7 +5014,7 @@
   
   
   <span class="md-ellipsis">
-    第五部分 MRI成像
+    第五部分 光学成像
     
   </span>
   
@@ -5033,6 +5033,29 @@
   
     <li class="md-nav__item">
       <a href="../notecx6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第六部分 MRI成像
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notecx7/" class="md-nav__link">
         
   
   
@@ -6335,161 +6358,6 @@
 <p><strong>【固有对比度，对比度】</strong></p>
 </li>
 </ul>
-<hr />
-<h1 id="ct">二、CT成像</h1>
-<h2 id="1_1">1. 硬件基础</h2>
-<ul>
-<li>
-<p><strong>准直</strong>：CT扫描采用扇形束，而普通X-Ray使用锥形束。</p>
-</li>
-<li>
-<p><strong>滤波</strong>：</p>
-<ul>
-<li>①CT图像重建要求X射线源近似为单能量源；</li>
-<li>②比普通X-Ray系统使用更多的滤波，以优化X射线能量分布；</li>
-<li>③典型滤波材料：铜和铝。</li>
-<li>主要作用：“硬化”X射线束，缩小能量范围，提高成像质量；减少低能X射线，降低患者辐射剂量。</li>
-</ul>
-</li>
-<li>
-<p><strong>双能量成像：</strong> 通过不同的能量衰减特性分析不同组织成分。</p>
-</li>
-</ul>
-<h2 id="2_1">2. 探测器</h2>
-<ul>
-<li>
-<p><strong>固态探测器</strong>，主要由闪烁晶体组成，如碘化钠（NaI）、碘化铯（CsI）、钨酸镉（CdWO4） ，X射线通过光电效应与晶体相互作用，产生光电子；这些光电子在晶体去激发时，发射可见光；光电二极管将光信号转换为电信号。</p>
-</li>
-<li>
-<p><strong>氙气探测器</strong>，适用于3G扫描仪的高指向性需求；采用高压电场，使压缩氙气（Xe）电离并产生电流。</p>
-<ul>
-<li>优点：方向性强，适用于特定几何结构；</li>
-<li>缺点：探测效率低于固态探测器，需要额外的准直系统减少散射。</li>
-</ul>
-</li>
-<li>
-<p>更薄的切片提高分辨率，但增加噪声；较厚的切片减少噪声，但降低解剖细节。</p>
-</li>
-</ul>
-<h2 id="3-ct">3. CT的投影测量公式</h2>
-<ul>
-<li>
-<p>CT扫描仪通过重建横截面内每个像素的线性衰减系数（μ）来形成图像。</p>
-</li>
-<li>
-<p>不同CT扫描仪使用不同的X射线管，具有不同的有效能量，因此相同物体在不同扫描仪上的μ值可能不同。即使是同一台CT扫描仪，X射线管更换后，测量结果也可能有所变化。</p>
-</li>
-</ul>
-<h2 id="4-ct">4. CT值</h2>
-<ul>
-<li>
-<p>亨氏单位（HU），通常取整为最接近的整数。</p>
-</li>
-<li>
-<p><strong>空气的CT值为-1000HU，水的CT值为0HU，平均骨骼的CT值为1000HU。</strong></p>
-</li>
-</ul>
-<h2 id="5-radon">5. 拉东 Radon 变换</h2>
-<ul>
-<li>
-<p><span class="arithmatex">\(P(\theta, t) = \int_{L(\theta,t)} f(x,y) ds\)</span></p>
-</li>
-<li>
-<p>求的时候可理解为一条固定角度倾斜、到原点距离为 <span class="arithmatex">\(t\)</span> 的直线截函数 <span class="arithmatex">\(f(x,y)\)</span> 的长度。</p>
-</li>
-<li>
-<p><strong>θ是直线与y轴夹角。</strong></p>
-</li>
-</ul>
-<h2 id="6-sinogram">6. 正弦图 (Sinogram)</h2>
-<ul>
-<li>
-<p>是函数 Radon 变换的图像, 使用 <span class="arithmatex">\((\theta, t)\)</span> 作为直角坐标轴, 是拉东变换的图像化表示, 代表了用于重建原始图像所需的数据。</p>
-</li>
-<li>
-<p><strong>正弦图Sinogram的特征：</strong> 底部行对应于 <span class="arithmatex">\(0^\circ\)</span> 的投影（垂直积分）；顶部行对应于 <span class="arithmatex">\(180^\circ\)</span> 的投影（接近垂直积分）。</p>
-</li>
-<li>
-<p><strong>投影宽度变化：</strong> 物体水平方向最宽时，对应投影最宽；角度增大，投影变窄，在 <span class="arithmatex">\(90^\circ\)</span> 达到最窄（水平积分）。</p>
-</li>
-<li>
-<p><strong>正弦特征：</strong> 在正弦图中，物体的不同部分形成纵向的“波动”; 如果将正弦图旋转90°，这些波动呈现正弦曲线；周期性结构。</p>
-</li>
-<li>
-<p><strong>正弦图≠ 物体图像，需要经过重建将其转换回原始图像。</strong></p>
-</li>
-</ul>
-<h2 id="7_1">7. 重建原理</h2>
-<ul>
-<li>
-<p><strong>单个角度的投影无法唯一确定原始图像，因为多个函数可能产生相同投影。</strong></p>
-</li>
-<li>
-<p><strong>反投影：对于每个投影值，将其赋值给整条投影线。</strong> 结果为反投影图像。</p>
-</li>
-<li>
-<p><strong>层析图像</strong> = 多角度反投影求和，通过积分多个角度的反投影图像，形成求和图像。</p>
-</li>
-<li>
-<p><strong>投影切片定理：</strong> 物体 <span class="arithmatex">\(f(x,y)\)</span> 的二维傅里叶变换 <span class="arithmatex">\(F(u,v)\)</span> 在角度 <span class="arithmatex">\(\theta\)</span> 上的切片，等于该角度下投影 <span class="arithmatex">\(P_\theta(t)\)</span> 的一维傅里叶变换 <span class="arithmatex">\(S_\theta(\omega)\)</span>。</p>
-</li>
-<li>
-<p>投影的1D傅里叶变换等于真实物体2D傅里叶变换对应角度下通过原点的一条直线。</p>
-</li>
-<li>
-<p><strong>滤波反投影法：</strong> 先滤波在反投影重建。</p>
-</li>
-<li>
-<p><strong>卷积反投影法：</strong> 先与空域卷积核卷积再反投影。</p>
-</li>
-<li>
-<p>如果脉冲响应较窄，相较于滤波操作，执行卷积通常更加高效因此大多数CT扫描仪通常采用某种形式的卷积反投影，而不是滤波反投影。</p>
-</li>
-<li>
-<p><strong>CT重建三步骤：</strong> ①卷积 ②反投影 ③求和。</p>
-</li>
-</ul>
-<h2 id="8-ct">8. 影响CT图像分辨率的因素</h2>
-<ul>
-<li>
-<p>探测器宽度、滤波器窗宽。</p>
-</li>
-<li>
-<p><strong>固有噪声来源</strong>：泊松噪声，X射线的统计特性导致测量波动；</p>
-</li>
-<li>
-<p><strong>人体衰减&amp;探测器效率</strong>：减少探测到的光子数，增加噪声；</p>
-</li>
-<li>
-<p><strong>噪声方差</strong> 受探测器间距、光子数、投影角度和带宽影响，需要在降低噪声和保持图像清晰度之间找到最佳平衡。</p>
-</li>
-</ul>
-<h2 id="9_1">9. 伪影</h2>
-<ul>
-<li>
-<p><strong>混叠伪影</strong></p>
-<ul>
-<li>成因：投影采样不足会导致混叠，高频信息错误地表现为低频伪影。</li>
-<li>解决方案：①增加采样率（更多探测器、更密集的角度采样）②低通滤波以减少高频噪声，但会影响图像清晰度③选择合适的插值方法，避免图像中的莫尔条纹。</li>
-<li><strong>经验法则：探测器数量 ≈ 投影数 ≈ 图像边长像素数</strong></li>
-</ul>
-</li>
-<li>
-<p><strong>射束硬化伪影</strong></p>
-<ul>
-<li>成因：X射线在穿透人体时，低能光子被优先吸收，导致射线束能量分布改变。</li>
-<li>解决方案：预处理投影数据，减少射线硬化影响；采用双能CT进行校正。</li>
-</ul>
-</li>
-<li>
-<p><strong>其他伪影</strong></p>
-<ul>
-<li><strong>电子或系统漂移</strong>：探测器失效可能导致 <strong>环状伪影</strong>，其半径取决于损坏探测器的位置。</li>
-<li><strong>X射线散射</strong>：散射效应会导致图像模糊，可通过准直或去卷积进行补偿。</li>
-<li><strong>运动伪影</strong>：心脏跳动、呼吸导致扫描过程中物体位置变化，长时间扫描（如胸部CT）受呼吸影响较大</li>
-</ul>
-</li>
-</ul>
 
 
 
@@ -6536,13 +6404,13 @@
         
         
           
-          <a href="../notecx2/" class="md-footer__link md-footer__link--next" aria-label="下一页: 第二部分 核医学成像">
+          <a href="../notecx2/" class="md-footer__link md-footer__link--next" aria-label="下一页: 第二部分 CT成像">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                第二部分 核医学成像
+                第二部分 CT成像
               </div>
             </div>
             <div class="md-footer__button md-icon">
