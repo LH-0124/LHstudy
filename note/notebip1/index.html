@@ -16,7 +16,7 @@
         <link rel="prev" href="../notecx7/">
       
       
-        <link rel="next" href="../../memorytest/hyj/">
+        <link rel="next" href="../notebip2/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>第1章 图像处理基本知识 - LH的资源小站</title>
+        <title>第1章 图像处理基础概念与彩色图像处理 - LH的资源小站</title>
       
     
     
@@ -142,6 +142,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#basic-bip-concepts" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -172,7 +177,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              第1章 图像处理基本知识
+              第1章 图像处理基础概念与彩色图像处理
             
           </span>
         </div>
@@ -2348,7 +2353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../zju-courses/dianshe.md" class="md-nav__link">
+      <a href="../../zju-courses/dianshe/" class="md-nav__link">
         
   
   
@@ -5255,18 +5260,614 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    第1章 图像处理基础概念与彩色图像处理
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
-    第1章 图像处理基本知识
+    第1章 图像处理基础概念与彩色图像处理
     
   </span>
   
 
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-bip-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、图像数字化基础（Basic BIP Concepts）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一、图像数字化基础（Basic BIP Concepts）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 图像数字化的两个步骤
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-sampling" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 采样（Sampling）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 采样（Sampling）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#line-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      一维切片（Line Plot）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      物理分辨率 vs 矩阵尺寸
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      采样效应
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      采样小结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-quantization" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 量化（Quantization）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 量化（Quantization）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      动态范围与存储大小
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      量化效应
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      量化小结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interpolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、插值（Interpolation）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、插值（Interpolation）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 插值的定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-pixel-neighborhood" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 像素邻域（Pixel Neighborhood）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 为什么需要插值？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 常用插值方法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 常用插值方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1nearest-neighbor-nn" class="md-nav__link">
+    <span class="md-ellipsis">
+      （1）最近邻插值（Nearest Neighbor, NN）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2bilinear-interpolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      （2）双线性插值（Bilinear Interpolation）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="（2）双线性插值（Bilinear Interpolation）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      计算步骤
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      计算示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3bi-cubic-interpolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      （3）双三次插值（Bi-Cubic Interpolation）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      （4）其他方法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 插值方法对比
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 插值小结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#color-image-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、彩色图像处理（Color Image Processing）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、彩色图像处理（Color Image Processing）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-color-fundamentals" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 彩色视觉基础（Color Fundamentals）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 彩色视觉基础（Color Fundamentals）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      人眼中的感光细胞
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      光谱分布
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-color-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 彩色模型（Color Models）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 彩色模型（Color Models）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1rgb" class="md-nav__link">
+    <span class="md-ellipsis">
+      （1）RGB 模型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2cmy-cmyk" class="md-nav__link">
+    <span class="md-ellipsis">
+      （2）CMY / CMYK 模型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3hsi" class="md-nav__link">
+    <span class="md-ellipsis">
+      （3）HSI 模型
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="（3）HSI 模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rgb-hsi" class="md-nav__link">
+    <span class="md-ellipsis">
+      RGB → HSI 转换公式
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-pseudocolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 伪彩色（Pseudocolor）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 伪彩色（Pseudocolor）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      为什么需要伪彩色？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      伪彩色的方法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="伪彩色的方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1intensity-slicing-and-color-coding" class="md-nav__link">
+    <span class="md-ellipsis">
+      （1）强度分层与颜色编码（Intensity Slicing and Color Coding）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2multi-modality" class="md-nav__link">
+    <span class="md-ellipsis">
+      （2）多模态融合（Multi-modality）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3assigning-colors-to-labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      （3）标签着色（Assigning Colors to Labels）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4directional-encoded-colormap" class="md-nav__link">
+    <span class="md-ellipsis">
+      （4）方向编码彩色图（Directional Encoded Colormap）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 彩色图像处理须知
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outline" class="md-nav__link">
+    <span class="md-ellipsis">
+      四、本章总结（Outline）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="四、本章总结（Outline）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      基础图像概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      彩色图像处理
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      历年卷解答
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="历年卷解答">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2020-2021-2022" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、给图做切片，选择正确的一维结果（2020 / 2021 / 2022 均考）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2020-2021" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、空间变换 + 双线性插值（2020 / 2021）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2021" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、灰阶的动态范围主要改变什么（2021）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebip2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第2章 图像变换
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -6284,6 +6885,557 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-bip-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、图像数字化基础（Basic BIP Concepts）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一、图像数字化基础（Basic BIP Concepts）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 图像数字化的两个步骤
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-sampling" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 采样（Sampling）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 采样（Sampling）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#line-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      一维切片（Line Plot）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      物理分辨率 vs 矩阵尺寸
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      采样效应
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      采样小结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-quantization" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 量化（Quantization）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 量化（Quantization）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      动态范围与存储大小
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      量化效应
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      量化小结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interpolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、插值（Interpolation）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、插值（Interpolation）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 插值的定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-pixel-neighborhood" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 像素邻域（Pixel Neighborhood）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 为什么需要插值？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 常用插值方法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 常用插值方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1nearest-neighbor-nn" class="md-nav__link">
+    <span class="md-ellipsis">
+      （1）最近邻插值（Nearest Neighbor, NN）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2bilinear-interpolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      （2）双线性插值（Bilinear Interpolation）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="（2）双线性插值（Bilinear Interpolation）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      计算步骤
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      计算示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3bi-cubic-interpolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      （3）双三次插值（Bi-Cubic Interpolation）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      （4）其他方法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 插值方法对比
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 插值小结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#color-image-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、彩色图像处理（Color Image Processing）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、彩色图像处理（Color Image Processing）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-color-fundamentals" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 彩色视觉基础（Color Fundamentals）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 彩色视觉基础（Color Fundamentals）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      人眼中的感光细胞
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      光谱分布
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-color-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 彩色模型（Color Models）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 彩色模型（Color Models）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1rgb" class="md-nav__link">
+    <span class="md-ellipsis">
+      （1）RGB 模型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2cmy-cmyk" class="md-nav__link">
+    <span class="md-ellipsis">
+      （2）CMY / CMYK 模型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3hsi" class="md-nav__link">
+    <span class="md-ellipsis">
+      （3）HSI 模型
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="（3）HSI 模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rgb-hsi" class="md-nav__link">
+    <span class="md-ellipsis">
+      RGB → HSI 转换公式
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-pseudocolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 伪彩色（Pseudocolor）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 伪彩色（Pseudocolor）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      为什么需要伪彩色？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      伪彩色的方法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="伪彩色的方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1intensity-slicing-and-color-coding" class="md-nav__link">
+    <span class="md-ellipsis">
+      （1）强度分层与颜色编码（Intensity Slicing and Color Coding）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2multi-modality" class="md-nav__link">
+    <span class="md-ellipsis">
+      （2）多模态融合（Multi-modality）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3assigning-colors-to-labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      （3）标签着色（Assigning Colors to Labels）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4directional-encoded-colormap" class="md-nav__link">
+    <span class="md-ellipsis">
+      （4）方向编码彩色图（Directional Encoded Colormap）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 彩色图像处理须知
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outline" class="md-nav__link">
+    <span class="md-ellipsis">
+      四、本章总结（Outline）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="四、本章总结（Outline）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      基础图像概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      彩色图像处理
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      历年卷解答
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="历年卷解答">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2020-2021-2022" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、给图做切片，选择正确的一维结果（2020 / 2021 / 2022 均考）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2020-2021" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、空间变换 + 双线性插值（2020 / 2021）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2021" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、灰阶的动态范围主要改变什么（2021）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -6301,7 +7453,419 @@
   
 
 
-  <h1>第1章 图像处理基本知识</h1>
+  <h1>第1章 图像处理基础概念与彩色图像处理</h1>
+
+<h2 id="basic-bip-concepts">一、图像数字化基础（Basic BIP Concepts）</h2>
+<h3 id="11">1.1 图像数字化的两个步骤</h3>
+<p>物理信号（连续信号）经过数字化（Digitalization）变成数字信号，包含两个核心步骤：</p>
+<p><strong>采样（Sampling）+ 量化（Quantization）→ 数字图像</strong></p>
+<h3 id="12-sampling">1.2 采样（Sampling）</h3>
+<h4 id="_1">基本概念</h4>
+<ul>
+<li>采样将<strong>空间连续的图像</strong> <span class="arithmatex">\(f(x,y)\)</span> 转换为<strong>离散的像素矩阵</strong></li>
+<li>采样结果：图像大小 <span class="arithmatex">\(M \times N\)</span>（矩阵的行数和列数）</li>
+<li>采样分为：<ul>
+<li><strong>时间采样（Temporal Sampling）</strong>：沿时间轴离散化</li>
+<li><strong>空间采样（Spatial Sampling）</strong>：沿空间轴离散化，将图像空间划分成网格</li>
+</ul>
+</li>
+</ul>
+<h4 id="line-plot">一维切片（Line Plot）</h4>
+<p>对一幅二维图像沿某个方向取一条线（切片），得到该位置像素灰度值沿该方向变化的<strong>一维曲线</strong>，称为 Line Plot。这是理解图像空间变化的重要工具——可以看作是图像在该位置的"剖面图"。</p>
+<blockquote>
+<p>三种典型的切片方向：水平切片（沿 <span class="arithmatex">\(x\)</span> 方向 <span class="arithmatex">\(y\)</span> 固定）、垂直切片（沿 <span class="arithmatex">\(y\)</span> 方向 <span class="arithmatex">\(x\)</span> 固定）、任意方向切片。</p>
+</blockquote>
+<p><img alt="" src="https://i.cetsteam.com/imgs/2026/06/08/7e78ea713d71132e.png" /></p>
+<h4 id="vs">物理分辨率 vs 矩阵尺寸</h4>
+<div class="admonition note">
+<p class="admonition-title">重要概念</p>
+<p><strong>物理分辨率（Physical Resolution）≠ 矩阵尺寸（Matrix Size）</strong></p>
+</div>
+<ul>
+<li>物理分辨率 = 像素代表的实际物理尺寸（如 <span class="arithmatex">\(1 \times 1\text{mm}\)</span>，<span class="arithmatex">\(2 \times 2\text{mm}\)</span>）</li>
+<li>矩阵尺寸 = 像素的数量（如 <span class="arithmatex">\(256 \times 256\)</span>，<span class="arithmatex">\(128 \times 128\)</span>）</li>
+</ul>
+<p><img alt="img" src="https://file.cc98.org/v4-upload/d/2026/0608/rsjlwb5z.webp" /></p>
+<h4 id="_2">采样效应</h4>
+<ul>
+<li>采样点越密集（矩阵越大），图像细节保留越多</li>
+<li><span class="arithmatex">\(256 \times 256 \to 128 \times 128 \to 64 \times 64 \to 16 \times 16\)</span>：随着采样数减少，图像变得模糊，出现<strong>马赛克效应</strong></li>
+</ul>
+<h4 id="_3">采样小结</h4>
+<div class="arithmatex">\[
+\text{Spatial Image} \xrightarrow{\text{采样}} \text{Matrix Index} \ (N \times M)
+\]</div>
+<h3 id="13-quantization">1.3 量化（Quantization）</h3>
+<h4 id="_4">基本概念</h4>
+<ul>
+<li>量化将<strong>连续灰度值</strong>映射为<strong>离散灰度级（Gray Levels）</strong></li>
+<li>量化级数：<span class="arithmatex">\(K = 2^N\)</span>（N 为比特深度/位深度，bit depth）</li>
+<li>8 位图像：<span class="arithmatex">\(K = 2^8 = 256\)</span> 级灰度，范围 <span class="arithmatex">\([0, 255]\)</span></li>
+<li><span class="arithmatex">\(0\)</span> 表示黑色（Black），<span class="arithmatex">\(2^N-1\)</span> 表示白色（White）</li>
+</ul>
+<h4 id="_5">动态范围与存储大小</h4>
+<ul>
+<li><strong>动态范围（Dynamic Range）</strong>：图像中最亮与最暗部分的比值。动态范围越大，图像能展示的明暗层次越丰富</li>
+<li><strong>存储大小（Storage Size）</strong>：<span class="arithmatex">\(M \times N \times K\)</span>（行 × 列 × 位深度）</li>
+</ul>
+<h4 id="_6">量化效应</h4>
+<ul>
+<li>量化级数越少，灰度层次越少，出现<strong>伪轮廓（False Contour）</strong></li>
+<li><span class="arithmatex">\(K=8 \to K=4 \to K=2\)</span>：灰度阶跃越来越明显</li>
+<li><strong>高动态范围（HDR）</strong>：使用更高的位深度捕捉更丰富的光照信息</li>
+</ul>
+<h4 id="_7">量化小结</h4>
+<div class="arithmatex">\[
+\text{Image Intensity} \xrightarrow{\text{量化}} \text{Matrix Value} \ (K = 2^N)
+\]</div>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+<th>符号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>矩阵行数</td>
+<td>图像高度</td>
+<td><span class="arithmatex">\(M\)</span></td>
+</tr>
+<tr>
+<td>矩阵列数</td>
+<td>图像宽度</td>
+<td><span class="arithmatex">\(N\)</span></td>
+</tr>
+<tr>
+<td>量化级数</td>
+<td>灰度级数</td>
+<td><span class="arithmatex">\(K = 2^{\text{bit depth}}\)</span></td>
+</tr>
+<tr>
+<td>存储大小</td>
+<td>总存储空间</td>
+<td><span class="arithmatex">\(M \times N \times K\)</span></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="interpolation">二、插值（Interpolation）</h2>
+<h3 id="21">2.1 插值的定义</h3>
+<p>插值是一种基本工具，广泛用于图像的<strong>缩放、缩小、旋转</strong>和其他几何变换中。它是从已知范围内的<strong>离散数据点恢复连续数据</strong>的过程。</p>
+<ul>
+<li><strong>1-D 插值</strong>：从 <span class="arithmatex">\((x_1, y_1)\)</span> 恢复 <span class="arithmatex">\(y = f(x)\)</span></li>
+<li><strong>2-D 插值</strong>：从 <span class="arithmatex">\((x_1, y_1, z_1)\)</span> 恢复图像表面</li>
+<li><strong>3-D 插值</strong>：体素插值（体积图像）</li>
+</ul>
+<h3 id="22-pixel-neighborhood">2.2 像素邻域（Pixel Neighborhood）</h3>
+<p><img alt="img" src="https://file.cc98.org/v4-upload/d/2026/0608/sjpvv5e5.webp" /></p>
+<p>在 2-D 图像中，像素 <span class="arithmatex">\((x,y)\)</span> 的邻域定义为：</p>
+<ul>
+<li><strong>4-邻域（4-neighbors）</strong>：<span class="arithmatex">\(N_4(p)\)</span></li>
+</ul>
+<p><span class="arithmatex">\(<span class="arithmatex">\((x+1,y), (x-1,y), (x,y+1), (x,y-1)\)</span>\)</span></p>
+<ul>
+<li><strong>8-邻域（8-neighbors）</strong>：<span class="arithmatex">\(N_8(p)\)</span></li>
+</ul>
+<p><span class="arithmatex">\(<span class="arithmatex">\(N_4(p) \cup \{(x+1,y+1), (x-1,y+1), (x+1,y-1), (x-1,y-1)\}\)</span>\)</span></p>
+<h3 id="23">2.3 为什么需要插值？</h3>
+<p>在对图像进行<strong>旋转、缩放</strong>等几何变换后：
+- 目标图像的某些像素可能<strong>没有对应的源像素</strong>（空缺）
+- 多个源像素可能映射到<strong>同一个目标像素</strong>
+- 必须对源图像进行<strong>重采样（Resample）</strong></p>
+<p><img alt="img" src="https://file.cc98.org/v4-upload/d/2026/0608/vr0nauev.webp" /></p>
+<p>解决思路：<strong>反向映射（Reverse Mapping）</strong>——从目标图像坐标反推源图像对应位置，再通过插值获取该位置的像素值。</p>
+<!-- TODO: 插入截图 - PDF第20页：1-D 最近邻 vs 线性插值对比图 -->
+
+<h3 id="24">2.4 常用插值方法</h3>
+<h4 id="1nearest-neighbor-nn">（1）最近邻插值（Nearest Neighbor, NN）</h4>
+<p>最简单的插值方法，直接取离目标点<strong>最近的源像素值</strong>。</p>
+<ul>
+<li>优点：计算速度快</li>
+<li>缺点：会产生锯齿状边缘（图像不够平滑）</li>
+</ul>
+<h4 id="2bilinear-interpolation">（2）双线性插值（Bilinear Interpolation）</h4>
+<p>使用目标点周围 <strong>4 个像素</strong>（<span class="arithmatex">\(2 \times 2\)</span> 邻域）进行线性插值：</p>
+<div class="arithmatex">\[f(x,y) = ax + by + cxy + d\]</div>
+<p>其中 <span class="arithmatex">\(a, b, c, d\)</span> 由 <span class="arithmatex">\(N_4\)</span> 邻域的 4 个像素确定。</p>
+<p><img alt="img" src="https://file.cc98.org/v4-upload/d/2026/0608/bw1prp0o.webp" /></p>
+<h5 id="_8">计算步骤</h5>
+<p>首先沿 <span class="arithmatex">\(x\)</span> 方向做两次线性插值得到 <span class="arithmatex">\(R_1\)</span> 和 <span class="arithmatex">\(R_2\)</span>：</p>
+<div class="arithmatex">\[R_1 = \frac{(x - x_1)(f_{21} - f_{11})}{x_2 - x_1} + f_{11}\]</div>
+<div class="arithmatex">\[R_2 = \frac{(x - x_1)(f_{22} - f_{12})}{x_2 - x_1} + f_{12}\]</div>
+<p>然后在 <span class="arithmatex">\(y\)</span> 方向上再做一次线性插值：</p>
+<div class="arithmatex">\[f(x,y) = \frac{(y - y_1)(R_2 - R_1)}{y_2 - y_1} + R_1\]</div>
+<h5 id="_9">计算示例</h5>
+<p><img alt="img" src="https://file.cc98.org/v4-upload/d/2026/0608/hknjpxh5.webp" /></p>
+<p>已知 <span class="arithmatex">\((1,1)=2\)</span>, <span class="arithmatex">\((3,1)=4\)</span>, <span class="arithmatex">\((1,3)=6\)</span>, <span class="arithmatex">\((3,3)=8\)</span>，求 <span class="arithmatex">\((2.5, 2.25)\)</span> 的值：</p>
+<ol>
+<li><strong>第一次线性插值</strong>（在 <span class="arithmatex">\(x\)</span> 方向上）：</li>
+</ol>
+<p><span class="arithmatex">\(<span class="arithmatex">\(R_1 = \frac{(2.5-1)(4-2)}{3-1} + 2 = 3.5\)</span>\)</span></p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(R_2 = \frac{(2.5-1)(8-6)}{3-1} + 6 = 7.5\)</span>\)</span></p>
+<ol>
+<li><strong>第二次线性插值</strong>（在 <span class="arithmatex">\(y\)</span> 方向上）：</li>
+</ol>
+<p><span class="arithmatex">\(<span class="arithmatex">\(f(2.5, 2.25) = \frac{(2.25-1)(7.5-3.5)}{3-1} + 3.5 = 6\)</span>\)</span></p>
+<ul>
+<li>优点：比最近邻更平滑</li>
+<li>缺点：有一定模糊效应</li>
+</ul>
+<h4 id="3bi-cubic-interpolation">（3）双三次插值（Bi-Cubic Interpolation）</h4>
+<p>使用目标点周围 <strong>16 个像素</strong>（<span class="arithmatex">\(4 \times 4\)</span> 邻域）进行更高阶插值：</p>
+<p><strong>1-D 形式</strong>（使用 4 个点）：</p>
+<div class="arithmatex">\[f(x) = \sum_{i=0}^{3} a_i x^i = a_0 + a_1 x + a_2 x^2 + a_3 x^3\]</div>
+<p>满足条件：<span class="arithmatex">\(f(x_i) = y_i\)</span>，<span class="arithmatex">\(f(x_{i+1}) = y_{i+1}\)</span></p>
+<p>使用<strong>拉格朗日基函数（Lagrange Basis Function）</strong>：</p>
+<div class="arithmatex">\[L_i(x) = \prod_{k=0, k\neq i}^{3} \frac{x - x_k}{x_i - x_k}\]</div>
+<div class="arithmatex">\[f(x) = \sum_{i=0}^{3} y_i \cdot L_i(x)\]</div>
+<p><strong>2-D 形式</strong>（使用 16 个点）：</p>
+<div class="arithmatex">\[f(x,y) = \sum_{i=0}^{3} \sum_{j=0}^{3} a_{ij} \cdot x^i \cdot y^j\]</div>
+<p>其中 <span class="arithmatex">\(a_{ij}\)</span> 由 <span class="arithmatex">\(N_{16}\)</span> 邻域的 16 个像素确定。</p>
+<h4 id="4">（4）其他方法</h4>
+<p>样条插值（Spline）、小波插值（Wavelet）、基于深度学习的超分辨率（Super-Resolution）等。</p>
+<h3 id="25">2.5 插值方法对比</h3>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>使用像素数</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>最近邻 NN</td>
+<td>1 个</td>
+<td>快速但锯齿明显</td>
+</tr>
+<tr>
+<td>双线性 Bilinear</td>
+<td>4 个</td>
+<td>平滑但有模糊</td>
+</tr>
+<tr>
+<td>双三次 Bi-Cubic</td>
+<td>16 个</td>
+<td>最精细，计算量大</td>
+</tr>
+</tbody>
+</table>
+<h3 id="26">2.6 插值小结</h3>
+<p>插值 = <strong>索引（x, y）+ 强度（v）</strong> 的综合恢复过程。</p>
+<hr />
+<h2 id="color-image-processing">三、彩色图像处理（Color Image Processing）</h2>
+<h3 id="31-color-fundamentals">3.1 彩色视觉基础（Color Fundamentals）</h3>
+<h4 id="_10">人眼中的感光细胞</h4>
+<ul>
+<li><strong>视锥细胞（Cones）</strong>：负责彩色视觉</li>
+<li>人眼有约 <span class="arithmatex">\(6-7 \times 10^6\)</span> 个视锥细胞</li>
+<li>65% 的视锥细胞对<strong>红光</strong>敏感，33% 对<strong>绿光</strong>敏感，2% 对<strong>蓝光</strong>敏感（但蓝光最敏感）</li>
+<li>因此<strong>三基色为 RGB</strong></li>
+</ul>
+<h4 id="_11">光谱分布</h4>
+<ul>
+<li>反射（Reflect）+ 吸收（Absorption）= 入射光</li>
+<li>RGB 三基色<strong>并不能合成所有颜色</strong>（存在可见色域的限制）</li>
+</ul>
+<h3 id="32-color-models">3.2 彩色模型（Color Models）</h3>
+<h4 id="1rgb">（1）RGB 模型</h4>
+<ul>
+<li>基于<strong>硬件设备</strong>的彩色模型</li>
+<li>用于<strong>显示器、相机</strong>等</li>
+<li>三个通道分别存储 R、G、B 的值</li>
+<li>每个通道 8 bits → 范围 <span class="arithmatex">\([0, 255]\)</span></li>
+<li>归一化后范围为 <span class="arithmatex">\([0, 1]\)</span></li>
+<li>像素深度（Pixel Depth）：总位数 = <span class="arithmatex">\(8 \times 3 = 24\)</span> bits</li>
+<li>可表示的颜色数：<span class="arithmatex">\((2^8)^3 = 16,777,216\)</span> 种颜色</li>
+</ul>
+<h4 id="2cmy-cmyk">（2）CMY / CMYK 模型</h4>
+<ul>
+<li>基于<strong>颜料和打印机</strong>的彩色模型</li>
+<li>CMY 是 RGB 的补色：</li>
+</ul>
+<div class="arithmatex">\[\begin{bmatrix} C \\ M \\ Y \end{bmatrix} = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} - \begin{bmatrix} R \\ G \\ B \end{bmatrix}\]</div>
+<ul>
+<li><strong>CMYK</strong>：在 CMY 基础上增加 <strong>K（黑色，true black）</strong></li>
+<li>原因：CMY 三色混合理论上产生黑色但实际效果不佳，需专用黑色</li>
+</ul>
+<h4 id="3hsi">（3）HSI 模型</h4>
+<ul>
+<li>基于<strong>人眼感知</strong>的彩色模型，将颜色分解为三个独立分量：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>分量</th>
+<th>含义</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hue（色调）</strong></td>
+<td>混合波长</td>
+<td>人眼感知的颜色类型（红、蓝、绿等）</td>
+</tr>
+<tr>
+<td><strong>Saturation（饱和度）</strong></td>
+<td>纯度</td>
+<td>色调中白光量的多少，<span class="arithmatex">\(\text{Pink} = a \cdot \text{red} + b \cdot \text{white}\)</span></td>
+</tr>
+<tr>
+<td><strong>Intensity（亮度）</strong></td>
+<td>明暗</td>
+<td>无色的亮度信息（与颜色无关）</td>
+</tr>
+</tbody>
+</table>
+<h5 id="rgb-hsi">RGB → HSI 转换公式</h5>
+<div class="arithmatex">\[I = \frac{R + G + B}{3}\]</div>
+<div class="arithmatex">\[S = 1 - \frac{3}{R + G + B} \cdot \min(R, G, B)\]</div>
+<div class="arithmatex">\[H = \cos^{-1}\left\{\frac{0.5[(R - G) + (R - B)]}{\sqrt{(R - G)^2 + (R - B)(G - B)}}\right\}\]</div>
+<p><img alt="img" src="https://file.cc98.org/v4-upload/d/2026/0608/ryslgrn0.webp" /></p>
+<div class="admonition note">
+<p class="admonition-title">转换示例</p>
+<p>将 RGB 彩色图像分解为 H、S、I 三个通道：
+- <strong>Hue 通道</strong>：表示颜色种类
+- <strong>Saturation 通道</strong>：颜色越鲜艳越亮（高饱和度），越淡越暗（低饱和度）
+- <strong>Intensity 通道</strong>：与灰度图类似，反映整体明暗</p>
+</div>
+<h3 id="33-pseudocolor">3.3 伪彩色（Pseudocolor）</h3>
+<h4 id="_12">定义</h4>
+<p><strong>伪彩色（False Color）</strong>：将灰度图像映射为彩色图像的技术。</p>
+<h4 id="_13">为什么需要伪彩色？</h4>
+<ul>
+<li>人眼能分辨的<strong>彩色色调和强度远多于灰度级</strong></li>
+<li>人眼只能分辨约 30 种灰度，但可以分辨上千种颜色</li>
+<li>伪彩色能提供比灰度图像<strong>更丰富的信息</strong></li>
+</ul>
+<h4 id="_14">伪彩色的方法</h4>
+<h5 id="1intensity-slicing-and-color-coding">（1）强度分层与颜色编码（Intensity Slicing and Color Coding）</h5>
+<ul>
+<li>将灰度范围划分为多个区间</li>
+<li>每个区间分配不同颜色</li>
+<li>例如：用 8 种颜色对灰度图进行强度分层</li>
+</ul>
+<h5 id="2multi-modality">（2）多模态融合（Multi-modality）</h5>
+<ul>
+<li>将不同成像模态的图像分别赋给 R、G、B 通道</li>
+<li>例如：可见光（R+G+B）与近红外 IR（biomass content）融合</li>
+<li>IR+G+B 合成能更清晰地表征地物信息</li>
+</ul>
+<h5 id="3assigning-colors-to-labels">（3）标签着色（Assigning Colors to Labels）</h5>
+<ul>
+<li>将分割结果中的不同标签分配不同颜色</li>
+<li>便于可视化分类/分割结果</li>
+</ul>
+<h5 id="4directional-encoded-colormap">（4）方向编码彩色图（Directional Encoded Colormap）</h5>
+<ul>
+<li>用于<strong>纤维束追踪（Tractography）</strong>等</li>
+<li>不同方向用不同颜色表示（如左右方向=红色，前后方向=绿色，上下方向=蓝色）</li>
+<li>生成方向编码彩色图（Directional Encoded Colormap）</li>
+</ul>
+<h3 id="34">3.4 彩色图像处理须知</h3>
+<ul>
+<li>灰度图像：<span class="arithmatex">\(N \times M\)</span>（2-D 矩阵）</li>
+<li>彩色图像：<span class="arithmatex">\(N \times M \times 3\)</span>（3-D 矩阵，多一个颜色通道维度）</li>
+<li>彩色图像处理的基础方法<strong>与灰度图像相似</strong>，但需处理三个通道</li>
+</ul>
+<hr />
+<h2 id="outline">四、本章总结（Outline）</h2>
+<h3 id="_15">基础图像概念</h3>
+<ul>
+<li>
+<p><strong>采样（Sampling）</strong>：空间化图像 → 矩阵索引 <span class="arithmatex">\(N \times M\)</span></p>
+<ul>
+<li>物理分辨率 ≠ 矩阵尺寸</li>
+<li>时间采样 vs 空间采样</li>
+</ul>
+</li>
+<li>
+<p><strong>量化（Quantization）</strong>：图像强度 → 矩阵值 <span class="arithmatex">\(K = 2^N\)</span></p>
+<ul>
+<li>比特深度决定灰度级数</li>
+<li>动态范围与存储大小 <span class="arithmatex">\(M \times N \times K\)</span></li>
+</ul>
+</li>
+<li>
+<p><strong>插值（Interpolation）</strong>：索引 <span class="arithmatex">\((x,y)\)</span> + 强度 <span class="arithmatex">\((v)\)</span></p>
+<ul>
+<li>最近邻：1 个像素，速度快</li>
+<li>双线性：4 个像素，平滑但有模糊</li>
+<li>双三次：16 个像素，最精细</li>
+<li>反向映射 → 强度赋值</li>
+</ul>
+</li>
+</ul>
+<h3 id="_16">彩色图像处理</h3>
+<ul>
+<li>
+<p><strong>彩色模型</strong>：</p>
+<ul>
+<li>RGB（显示器/相机）</li>
+<li>CMY/CMYK（颜料/打印机），<span class="arithmatex">\(C=1-R\)</span></li>
+<li>HSI（人眼感知），Hue/Saturation/Intensity</li>
+</ul>
+</li>
+<li>
+<p><strong>伪彩色（Pseudocolor）</strong>：</p>
+<ul>
+<li>伪彩色 ≠ 真彩色（False Color）</li>
+<li>强度分层、多模态融合、方向编码、标签着色</li>
+<li>提供比灰度图像更丰富的信息</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="_17">历年卷解答</h2>
+<blockquote>
+<p>以下仅解答与本节（Lecture 2）知识相关的历年卷题目。</p>
+</blockquote>
+<hr />
+<h3 id="2020-2021-2022">一、给图做切片，选择正确的一维结果（2020 / 2021 / 2022 均考）</h3>
+<p><strong>知识点定位</strong>：采样（Sampling）中的 Line Plot</p>
+<p><strong>解题思路</strong>：对二维图像取一条线（切片），即为在该位置做<strong>一维剖面（Line Plot）</strong>，得到沿该方向灰度值变化的一维曲线。该曲线反映了灰度值沿切片方向的变化趋势。</p>
+<ul>
+<li>如果在<strong>灰度均匀区域</strong>切片 → 一维曲线近似水平直线</li>
+<li>如果在<strong>灰度变化区域</strong>（如边缘处）切片 → 一维曲线有明显阶跃/跳变</li>
+<li>如果在<strong>渐变区域</strong>切片 → 一维曲线呈缓慢上升或下降趋势</li>
+</ul>
+<p>具体答案取决于题目所给图像和切片位置。判断原则：<strong>切片结果 = 原图沿切片方向的灰度剖面曲线</strong>，需要与图像的几何结构和灰度分布对应。</p>
+<hr />
+<h3 id="2020-2021">二、空间变换 + 双线性插值（2020 / 2021）</h3>
+<p><strong>知识点定位</strong>：插值（Interpolation）中的双线性插值</p>
+<p><strong>解题思路</strong>：</p>
+<ol>
+<li><strong>空间变换</strong>（如旋转、缩放）后像素坐标通常变为<strong>非整数</strong>，无法直接对应到源图像的整数像素位置</li>
+<li>采用<strong>反向映射（Reverse Mapping）</strong>：从目标图像坐标 <span class="arithmatex">\((x',y')\)</span> 逆向映射回源图像坐标 <span class="arithmatex">\((x,y)\)</span></li>
+<li>对非整数坐标 <span class="arithmatex">\((x,y)\)</span>，用<strong>双线性插值</strong>计算该点的像素值</li>
+</ol>
+<p><strong>双线性插值核心公式</strong>：</p>
+<p>对于落在 <span class="arithmatex">\((x_1,y_1), (x_2,y_1), (x_1,y_2), (x_2,y_2)\)</span> 四个已知像素之间的点 <span class="arithmatex">\((x,y)\)</span>：</p>
+<p>先沿 <span class="arithmatex">\(x\)</span> 方向线性插值：</p>
+<div class="arithmatex">\[R_1 = \frac{(x-x_1)f(x_2,y_1)+(x_2-x)f(x_1,y_1)}{x_2-x_1}\]</div>
+<div class="arithmatex">\[R_2 = \frac{(x-x_1)f(x_2,y_2)+(x_2-x)f(x_1,y_2)}{x_2-x_1}\]</div>
+<p>再沿 <span class="arithmatex">\(y\)</span> 方向线性插值：</p>
+<div class="arithmatex">\[f(x,y) = \frac{(y-y_1)R_2+(y_2-y)R_1}{y_2-y_1}\]</div>
+<p><strong>作图要点</strong>：
+- 标注四个已知像素的坐标和灰度值
+- 标注目标点 <span class="arithmatex">\((x,y)\)</span> 位置
+- 标出 <span class="arithmatex">\(R_1\)</span>（下边插值结果）和 <span class="arithmatex">\(R_2\)</span>（上边插值结果）
+- 最终 <span class="arithmatex">\(f(x,y)\)</span> 在 <span class="arithmatex">\(R_1\)</span> 和 <span class="arithmatex">\(R_2\)</span> 之间</p>
+<hr />
+<h3 id="2021">三、灰阶的动态范围主要改变什么（2021）</h3>
+<p><strong>知识点定位</strong>：量化（Quantization）中的动态范围</p>
+<p><strong>答案</strong>：动态范围主要改变的是<strong>图像的对比度和灰度层次</strong>。</p>
+<ul>
+<li><strong>动态范围</strong> = 图像中最亮值 / 最暗值，由比特深度（bit depth）决定</li>
+<li>例如 8-bit 图像，动态范围为 256 个灰阶 <span class="arithmatex">\([0, 255]\)</span></li>
+<li>动态范围越大 → 能区分的灰度层次越丰富 → <strong>对比度越高</strong></li>
+<li>动态范围越小 → 相邻灰度级之间差距大 → 出现<strong>伪轮廓（False Contour）</strong></li>
+</ul>
+<p><strong>核心结论</strong>：灰阶的动态范围主要改变图像的<strong>对比度</strong>。（增加位深度 → 增大动态范围 → 灰度表现更加细腻）</p>
+<hr />
 
 
 
@@ -6309,12 +7873,57 @@
 
 
 
+  
+  
 
 
 
 
 
 
+<script src="https://giscus.app/client.js"
+        data-repo="LH-0124/LHstudy"
+        data-repo-id="R_kgDONJ_OXA"
+        data-category="Announcements"
+        data-category-id="DIC_kwDONJ_OXM4CkE7y"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+<script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light"
+        giscus.setAttribute("data-theme", theme)
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function () {
+        var ref = document.querySelector("[data-md-component=palette]")
+        ref.addEventListener("change", function () {
+            var palette = __md_get("__palette")
+            if (palette && typeof palette.color === "object") {
+                var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+                /* Instruct Giscus to change theme */
+                var frame = document.querySelector(".giscus-frame")
+                frame.contentWindow.postMessage(
+                    { giscus: { setConfig: { theme } } },
+                    "https://giscus.app"
+                )
+            }
+        })
+    })
+</script>
 
                 
               </article>
@@ -6350,13 +7959,13 @@
         
         
           
-          <a href="../../memorytest/hyj/" class="md-footer__link md-footer__link--next" aria-label="下一页: 关于本栏">
+          <a href="../notebip2/" class="md-footer__link md-footer__link--next" aria-label="下一页: 第2章 图像变换">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                关于本栏
+                第2章 图像变换
               </div>
             </div>
             <div class="md-footer__button md-icon">
