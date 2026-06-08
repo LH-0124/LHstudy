@@ -7667,8 +7667,42 @@
 <h3 id="22-affine-transformation">2.2 仿射变换（Affine Transformation）</h3>
 <p>仿射变换的齐次坐标矩阵形式（3×3）：</p>
 <div class="arithmatex">\[\begin{bmatrix} x' \\ y' \\ 1 \end{bmatrix} = \begin{bmatrix} a_{11} &amp; a_{12} &amp; a_{13} \\ a_{21} &amp; a_{22} &amp; a_{23} \\ 0 &amp; 0 &amp; 1 \end{bmatrix} \begin{bmatrix} x \\ y \\ 1 \end{bmatrix}\]</div>
-<p>矩阵分解为四个基本操作：</p>
-<div class="arithmatex">\[M = \begin{bmatrix} \text{scale} &amp; \text{rotation} \\ &amp; \end{bmatrix} \begin{bmatrix} \text{shear} \\ &amp; \end{bmatrix} \begin{bmatrix} \text{translation} \\ &amp; \end{bmatrix}\]</div>
+<p><strong>矩阵参数与四种基本操作的对应关系：</strong></p>
+<p>仿射矩阵 <span class="arithmatex">\(M = \begin{bmatrix} a_{11} &amp; a_{12} &amp; a_{13} \\ a_{21} &amp; a_{22} &amp; a_{23} \\ 0 &amp; 0 &amp; 1 \end{bmatrix}\)</span> 中，各参数分别控制以下变换：</p>
+<table>
+<thead>
+<tr>
+<th>变换类型</th>
+<th>对应参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>平移（Translation）</strong></td>
+<td><span class="arithmatex">\(a_{13},\; a_{23}\)</span></td>
+<td>右列：<span class="arithmatex">\(t_x = a_{13},\; t_y = a_{23}\)</span></td>
+</tr>
+<tr>
+<td><strong>旋转（Rotation）</strong></td>
+<td><span class="arithmatex">\(a_{11}, a_{12}, a_{21}, a_{22}\)</span></td>
+<td><span class="arithmatex">\(2\times2\)</span> 子矩阵整体：<span class="arithmatex">\(\begin{bmatrix}\cos\theta &amp; -\sin\theta \\ \sin\theta &amp; \cos\theta\end{bmatrix}\)</span></td>
+</tr>
+<tr>
+<td><strong>缩放（Scaling）</strong></td>
+<td><span class="arithmatex">\(a_{11},\; a_{22}\)</span></td>
+<td>对角线元素：<span class="arithmatex">\(s_x = a_{11},\; s_y = a_{22}\)</span></td>
+</tr>
+<tr>
+<td><strong>错切（Shearing）</strong></td>
+<td><span class="arithmatex">\(a_{12},\; a_{21}\)</span></td>
+<td>非对角线元素：水平错切 <span class="arithmatex">\(a_{12}\)</span>，垂直错切 <span class="arithmatex">\(a_{21}\)</span></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>注</strong>：实际矩阵中 <span class="arithmatex">\(2\times2\)</span> 子矩阵是四种变换复合的结果，并非单一变换。上述对应关系是针对<strong>纯该变换</strong>时的参数位置。</p>
+</blockquote>
 <!-- TODO: 插入截图 - PDF第16~17页：仿射变换的四种基本操作示意图（平移/旋转/缩放/错切） -->
 
 <table>
@@ -7854,8 +7888,10 @@
 <div class="admonition warning">
 <p class="admonition-title">直方图的特性</p>
 <ul>
-<li>直方图<strong>不包含空间位置信息</strong>（丢失了像素在哪里）</li>
+<li>直方图<strong>不包含空间位置信息</strong>（丢失了像素在哪里）<ul>
 <li><strong>不同的图像可以有相同的直方图</strong></li>
+</ul>
+</li>
 </ul>
 </div>
 <!-- TODO: 插入截图 - PDF第35~36页：不同图像具有相同直方图的示例图 + 暗/亮/低对比度/高对比度四幅图及其直方图 -->
@@ -7890,9 +7926,11 @@
 <div class="admonition note">
 <p class="admonition-title">历年卷考点</p>
 <ul>
-<li>直方图均值 <span class="arithmatex">\(\mu\)</span> 越大 → 图像整体越<strong>亮</strong></li>
+<li>直方图均值 <span class="arithmatex">\(\mu\)</span> 越大 → 图像整体越<strong>亮</strong><ul>
 <li>直方图方差 <span class="arithmatex">\(\sigma^2\)</span> 越大 → 图像<strong>对比度</strong>越高（灰度分布越分散）</li>
 <li>直方图方差小 → 灰度集中在均值附近，对比度低</li>
+</ul>
+</li>
 </ul>
 </div>
 <h3 id="43">4.3 直方图变换的基本条件</h3>
@@ -7912,7 +7950,7 @@
 <div class="arithmatex">\[s = T(r) = (L-1) \int_0^r p_r(w) \, dw\]</div>
 <p>即用原始图像的<strong>累积分布函数（CDF）</strong>作为变换函数。</p>
 <h3 id="53">5.3 离散情况</h3>
-<div class="arithmatex">\[s_k = T(r_k) = (L-1) \sum_{j=0}^{k} p_r(r_j) = \frac{L-1}{n} \sum_{j=0}^{k} n_j\]</div>
+<div class="arithmatex">\[s_k = T(r_k) = (L-1) \sum_{j=0}^{k} p_r(r_j) = \frac{L-1}{N} \sum_{j=0}^{k} n_j\]</div>
 <p><strong>步骤</strong>：
 1. 统计各灰度级的像素数 <span class="arithmatex">\(n_k\)</span>
 2. 计算概率 <span class="arithmatex">\(p(r_k) = n_k / n\)</span>
