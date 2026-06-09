@@ -7514,7 +7514,7 @@ G_{\sigma_1} \star G_{\sigma_2} = G_{\sqrt{\sigma_1^2 + \sigma_2^2}}
 <div class="arithmatex">\[\nabla f = \begin{bmatrix} \frac{\partial f}{\partial x} \\ \frac{\partial f}{\partial y} \end{bmatrix}\]</div>
 <ul>
 <li><strong>梯度幅值</strong> = 变化速率：<span class="arithmatex">\(\|\nabla f\| = \sqrt{(\partial f/\partial x)^2 + (\partial f/\partial y)^2}\)</span></li>
-<li><strong>梯度方向</strong> = 最大变化方向：<span class="arithmatex">\(\theta = \tan^{-1}(\partial f/\partial y / \partial f/\partial x)\)</span></li>
+<li><strong>梯度方向</strong> = 最大变化方向：<span class="arithmatex">\(\theta = \tan^{-1}(\frac{\partial f/\partial y }{ \partial f/\partial x})\)</span></li>
 </ul>
 <h3 id="33-second-order-derivatives-laplacian">3.3 二阶微分（Second-order Derivatives）— Laplacian</h3>
 <p>二阶微分检测灰度的<strong>变化加速度</strong>（更敏感于突变）。</p>
@@ -7526,10 +7526,18 @@ G_{\sigma_1} \star G_{\sigma_2} = G_{\sqrt{\sigma_1^2 + \sigma_2^2}}
 <div class="arithmatex">\[\begin{bmatrix} 0 &amp; 1 &amp; 0 \\ 1 &amp; -4 &amp; 1 \\ 0 &amp; 1 &amp; 0 \end{bmatrix}\]</div>
 <p><strong><span class="arithmatex">\(N_8\)</span> 邻域 Laplacian 核</strong>：</p>
 <div class="arithmatex">\[\begin{bmatrix} -1 &amp; -1 &amp; -1 \\ -1 &amp; 8 &amp; -1 \\ -1 &amp; -1 &amp; -1 \end{bmatrix}\]</div>
-<p><strong>Laplacian 的特点</strong>：
-- 核系数总和为 0 → 平坦区域响应为 0
-- 对灰度<strong>突变（边缘 + 噪声）均极其敏感</strong>
-- 输出包含<strong>正负值</strong>：边缘的两侧分别为正和负</p>
+<p><strong>Laplacian 的特点</strong>：</p>
+<ul>
+<li>
+<p>核系数总和为 0 → 平坦区域响应为 0</p>
+</li>
+<li>
+<p>对灰度<strong>突变（边缘 + 噪声）均极其敏感</strong></p>
+</li>
+<li>
+<p>输出包含<strong>正负值</strong>：边缘的两侧分别为正和负</p>
+</li>
+</ul>
 <!-- TODO: 插入课件截图：Laplacian N4与N8核的边缘检测效果（P34），展示二阶微分产生的双线响应（边缘两侧一正一负） -->
 
 <div class="admonition warning">
