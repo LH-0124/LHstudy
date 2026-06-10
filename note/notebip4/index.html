@@ -16,7 +16,7 @@
         <link rel="prev" href="../notebip3/">
       
       
-        <link rel="next" href="../../memorytest/hyj/">
+        <link rel="next" href="../notebip5/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>第4章 频率域变换 - LH的资源小站</title>
+        <title>第4章 图像频率域变换 - LH的资源小站</title>
       
     
     
@@ -177,7 +177,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              第4章 频率域变换
+              第4章 图像频率域变换
             
           </span>
         </div>
@@ -5334,7 +5334,7 @@
   
   
   <span class="md-ellipsis">
-    第4章 频率域变换
+    第4章 图像频率域变换
     
   </span>
   
@@ -5347,7 +5347,7 @@
   
   
   <span class="md-ellipsis">
-    第4章 频率域变换
+    第4章 图像频率域变换
     
   </span>
   
@@ -5387,36 +5387,27 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#12-1d-ft" class="md-nav__link">
+  <a href="#12" class="md-nav__link">
     <span class="md-ellipsis">
-      1.2 一维连续傅里叶变换（1D FT）
+      1.2 经典变换对
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#13" class="md-nav__link">
+  <a href="#13-sampling-theorem" class="md-nav__link">
     <span class="md-ellipsis">
-      1.3 经典变换对
+      1.3 采样定理（Sampling Theorem）
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#14-sampling-theorem" class="md-nav__link">
+  <a href="#14-1d-dft" class="md-nav__link">
     <span class="md-ellipsis">
-      1.4 采样定理（Sampling Theorem）
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#15-1d-dft" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.5 一维离散傅里叶变换（1D DFT）
+      1.4 一维离散傅里叶变换（1D DFT）
     </span>
   </a>
   
@@ -5702,30 +5693,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="5.5 小波变换的应用">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      （1）边缘检测
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      （2）图像去噪
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
       </ul>
@@ -5827,45 +5794,39 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      实验原理补充
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="实验原理补充">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#lab3" class="md-nav__link">
     <span class="md-ellipsis">
-      Lab3：频率域滤波与空间滤波的等价性
+      实验（LAB3 — 频率域滤波与傅里叶变换应用）
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Lab3：频率域滤波与空间滤波的等价性">
+    <nav class="md-nav" aria-label="实验（LAB3 — 频率域滤波与傅里叶变换应用）">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      频率域滤波的基本流程
+      实验 1：频率域低通滤波与振铃效应
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
-      关键原理
+      实验 2：空间域与频率域滤波的等价性验证
     </span>
   </a>
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      实验 3：陷波滤波器消除周期性噪声
+    </span>
+  </a>
   
 </li>
         
@@ -5875,7 +5836,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       历年卷解答
     </span>
@@ -5921,18 +5882,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2020_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      五、周期噪声用陷波滤波（2020 判断）
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#dft" class="md-nav__link">
     <span class="md-ellipsis">
-      六、DFT 频谱中心化的步骤（历年常考）
+      五、DFT 频谱中心化的步骤（历年常考）
     </span>
   </a>
   
@@ -5947,6 +5899,52 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebip5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第5章 频率域滤波
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebip6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第6章 图像复原
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -6990,36 +6988,27 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#12-1d-ft" class="md-nav__link">
+  <a href="#12" class="md-nav__link">
     <span class="md-ellipsis">
-      1.2 一维连续傅里叶变换（1D FT）
+      1.2 经典变换对
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#13" class="md-nav__link">
+  <a href="#13-sampling-theorem" class="md-nav__link">
     <span class="md-ellipsis">
-      1.3 经典变换对
+      1.3 采样定理（Sampling Theorem）
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#14-sampling-theorem" class="md-nav__link">
+  <a href="#14-1d-dft" class="md-nav__link">
     <span class="md-ellipsis">
-      1.4 采样定理（Sampling Theorem）
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#15-1d-dft" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.5 一维离散傅里叶变换（1D DFT）
+      1.4 一维离散傅里叶变换（1D DFT）
     </span>
   </a>
   
@@ -7305,30 +7294,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="5.5 小波变换的应用">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      （1）边缘检测
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      （2）图像去噪
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
       </ul>
@@ -7430,45 +7395,39 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      实验原理补充
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="实验原理补充">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#lab3" class="md-nav__link">
     <span class="md-ellipsis">
-      Lab3：频率域滤波与空间滤波的等价性
+      实验（LAB3 — 频率域滤波与傅里叶变换应用）
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Lab3：频率域滤波与空间滤波的等价性">
+    <nav class="md-nav" aria-label="实验（LAB3 — 频率域滤波与傅里叶变换应用）">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      频率域滤波的基本流程
+      实验 1：频率域低通滤波与振铃效应
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
-      关键原理
+      实验 2：空间域与频率域滤波的等价性验证
     </span>
   </a>
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      实验 3：陷波滤波器消除周期性噪声
+    </span>
+  </a>
   
 </li>
         
@@ -7478,7 +7437,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       历年卷解答
     </span>
@@ -7524,18 +7483,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2020_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      五、周期噪声用陷波滤波（2020 判断）
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#dft" class="md-nav__link">
     <span class="md-ellipsis">
-      六、DFT 频谱中心化的步骤（历年常考）
+      五、DFT 频谱中心化的步骤（历年常考）
     </span>
   </a>
   
@@ -7565,7 +7515,7 @@
   
 
 
-  <h1>第4章 频率域变换</h1>
+  <h1>第4章 图像频率域变换</h1>
 
 <h2 id="fourier-transform-basics">一、傅里叶变换基础（Fourier Transform Basics）</h2>
 <h3 id="11">1.1 从时域到频域</h3>
@@ -7574,9 +7524,6 @@
 <li><strong>时域（Time Domain）</strong>：描述"何时发生" —— 信号随时间/空间的变化</li>
 <li><strong>频域（Frequency Domain）</strong>：描述"变化有多快" —— 信号包含哪些频率成分</li>
 </ul>
-<!-- TODO: 插入课件截图：傅里叶级数合成示意图（P6），展示从单个正弦波逐步叠加到逼近方波的过程 -->
-
-<h3 id="12-1d-ft">1.2 一维连续傅里叶变换（1D FT）</h3>
 <p>对于连续函数 <span class="arithmatex">\(f(x)\)</span>，傅里叶变换及其逆变换为：</p>
 <div class="arithmatex">\[
 F(u) = \int_{-\infty}^{\infty} f(x) e^{-j2\pi ux} dx
@@ -7585,7 +7532,7 @@ F(u) = \int_{-\infty}^{\infty} f(x) e^{-j2\pi ux} dx
 f(x) = \int_{-\infty}^{\infty} F(u) e^{j2\pi ux} du
 \]</div>
 <p>其中 <span class="arithmatex">\(u\)</span> 为频率变量，决定频率的高低。</p>
-<h3 id="13">1.3 经典变换对</h3>
+<h3 id="12">1.2 经典变换对</h3>
 <table>
 <thead>
 <tr>
@@ -7607,16 +7554,13 @@ f(x) = \int_{-\infty}^{\infty} F(u) e^{j2\pi ux} du
 </tr>
 </tbody>
 </table>
-<!-- TODO: 插入课件截图：Box函数与sinc函数的FT变换对（P8），矩形窗→sinc -->
-
 <div class="admonition note">
 <p class="admonition-title">Box → Sinc 的重要性</p>
-<p>矩形窗的傅里叶变换是 sinc 函数。这在图像处理中极为关键——频率域的<strong>矩形截断（理想低通滤波器）</strong>对应空间域的 sinc 卷积核，其旁瓣产生<strong>振铃效应</strong>。</p>
+<p>矩形窗的傅里叶变换是 sinc 函数。这在图像处理中极为关键——频率域的<strong>矩形截断（理想低通滤波器）</strong>对应空间域的 sinc 卷积核，其旁瓣产生<strong>振铃效应（Ringing Effect）</strong>。</p>
 </div>
-<h3 id="14-sampling-theorem">1.4 采样定理（Sampling Theorem）</h3>
-<p>对连续信号 <span class="arithmatex">\(f(t)\)</span> 以间隔 <span class="arithmatex">\(\Delta T\)</span> 采样，得到离散信号。其频谱是原连续频谱以 <span class="arithmatex">\(1/\Delta T\)</span> 为周期的<strong>无限重复</strong>。</p>
-<!-- TODO: 插入课件截图：过采样、临界采样、欠采样的频谱示意图（P12），展示混叠的产生 -->
-
+<h3 id="13-sampling-theorem">1.3 采样定理（Sampling Theorem）</h3>
+<p>对连续信号 <span class="arithmatex">\(f(t)\)</span> 以间隔 <span class="arithmatex">\(\Delta T\)</span> 采样，其频谱是原连续频谱以 <span class="arithmatex">\(1/\Delta T\)</span> 为周期的<strong>无限重复</strong>。</p>
+<p><img alt="img" src="https://file.cc98.org/v4-upload/d/2026/0610/lsepkqi4.webp" /></p>
 <p><strong>奈奎斯特准则（Nyquist Criterion）</strong>：</p>
 <div class="arithmatex">\[
 \frac{1}{\Delta T} \geq 2\mu_{\max}
@@ -7652,7 +7596,7 @@ f(x) = \int_{-\infty}^{\infty} F(u) e^{j2\pi ux} du
 <p class="admonition-title">混叠的本质</p>
 <p>欠采样时，高频分量伪装成低频分量——频谱副本之间发生重叠，无法通过低通滤波分离。在图像中表现为<strong>摩尔纹（Moiré Pattern）</strong>或<strong>锯齿状边缘</strong>。</p>
 </div>
-<h3 id="15-1d-dft">1.5 一维离散傅里叶变换（1D DFT）</h3>
+<h3 id="14-1d-dft">1.4 一维离散傅里叶变换（1D DFT）</h3>
 <p>实际信号是<strong>有限且离散</strong>的，使用 DFT：</p>
 <div class="arithmatex">\[
 F(u) = \frac{1}{M} \sum_{x=0}^{M-1} f(x) e^{-j2\pi ux/M}, \quad u = 0, 1, 2, \ldots, M-1
@@ -7675,8 +7619,6 @@ f(x, y) = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} F(u, v) e^{j2\pi (ux +
 <li><span class="arithmatex">\(u\)</span> 和 <span class="arithmatex">\(v\)</span> 分别为 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span> 方向的频率变量</li>
 <li>2-D FT 可以理解为：先沿一个方向做 1-D FT，再沿另一个方向做 1-D FT</li>
 </ul>
-<!-- TODO: 插入课件截图：2D FT两步变换示意图（P17-P18），先沿t'方向FT再沿t''方向FT -->
-
 <h3 id="22-k-k-space">2.2 K 空间（K-space）与医学图像</h3>
 <p>在医学成像中，频率域有特殊名称：</p>
 <ul>
@@ -7687,6 +7629,8 @@ f(x, y) = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} F(u, v) e^{j2\pi (ux +
 <p class="admonition-title">K 空间</p>
 <p>MRI 中的 <strong>K 空间（K-space）</strong>就是 MR 图像的傅里叶变换域。K 空间的中心对应低频（图像的整体对比度），外围对应高频（图像的细节和边缘）。</p>
 </div>
+<!-- 建议插入PPT截图：Lecture6中展示K-space中心vs外围频率分布的示意图，插入位置：此处"K空间"注释之后 -->
+
 <h3 id="23-2-d-dft">2.3 二维离散傅里叶变换（2-D DFT）</h3>
 <p>对于大小 <span class="arithmatex">\(M \times N\)</span> 的图像 <span class="arithmatex">\(f(x,y)\)</span>：</p>
 <div class="arithmatex">\[
@@ -7697,15 +7641,10 @@ f(x, y) = \sum_{u=0}^{M-1} \sum_{v=0}^{N-1} F(u, v) e^{j2\pi \left(\frac{ux}{M} 
 \]</div>
 <p>其中 <span class="arithmatex">\(u = 0, 1, \ldots, M-1\)</span>，<span class="arithmatex">\(v = 0, 1, \ldots, N-1\)</span>。</p>
 <h3 id="24">2.4 二维采样定理</h3>
-<!-- TODO: 插入课件截图：2D采样定理示意图（P24），过采样与欠采样在二维空间中的频谱分布 -->
-
 <p>二维奈奎斯特准则同时约束两个方向：</p>
 <div class="arithmatex">\[
 \frac{1}{\Delta T} \geq 2\mu_{\max}, \quad \frac{1}{\Delta Z} \geq 2v_{\max}
 \]</div>
-<p><strong>实际案例</strong>：缩小图像时，如果先做平均滤波（低通）再降采样，可以避免混叠。</p>
-<!-- TODO: 插入课件截图：图像降采样混叠对比（P25-P26），直接缩小vs先滤波再缩小的效果差异 -->
-
 <hr />
 <h2 id="dft-properties-of-2-d-dft">三、二维 DFT 的性质（Properties of 2-D DFT）</h2>
 <h3 id="31-dc-component">3.1 零频率项（DC Component）</h3>
@@ -7721,7 +7660,7 @@ F(u, v) = F(u + M, v) = F(u, v + N) = F(u + M, v + N)
 <div class="arithmatex">\[
 f(x, y) = f(x + M, y) = f(x, y + N) = f(x + M, y + N)
 \]</div>
-<p>DFT 假设图像在两个方向上<strong>无限周期重复</strong>。这意味着图像左右边界和上下边界是"相连"的。</p>
+<p>DFT 假设图像在两个方向上<strong>无限周期重复</strong>。这意味着图像左右边界和上下边界是"相连"的——这个性质直接导致了频率域滤波中必须<strong>零填充（Zero-padding）</strong>来避免 wraparound error。</p>
 <h3 id="33-distributivity-and-scaling">3.3 分配律与缩放性（Distributivity and Scaling）</h3>
 <p><strong>分配律</strong>：</p>
 <div class="arithmatex">\[
@@ -7753,16 +7692,13 @@ f(x, y) \cdot (-1)^{x+y} \Leftrightarrow F(u - M/2, v - N/2)
 <p class="admonition-title">为什么要乘以 <span class="arithmatex">\((-1)^{x+y}\)</span></p>
 <p>因为 <span class="arithmatex">\(e^{j\pi(x+y)} = (-1)^{x+y}\)</span>，这个操作将 DC 分量从四角移到频谱中心，便于观察和分析。这是 DFT 可视化的<strong>标准预处理步骤</strong>。</p>
 </div>
-<!-- TODO: 插入课件截图：频谱中心化效果对比（P33），左：四角亮斑的原始频谱 → 中：中心化后的频谱 → 右：对数变换增强后的频谱 -->
-
+<p><img alt="img" src="https://file.cc98.org/v4-upload/d/2026/0610/o0ruyku0.webp" /></p>
 <h3 id="35-rotation">3.5 旋转性质（Rotation）</h3>
 <p>引入极坐标 <span class="arithmatex">\(x = r\cos\theta, y = r\sin\theta\)</span> 和 <span class="arithmatex">\(u = \omega\cos\phi, v = \omega\sin\phi\)</span>：</p>
 <div class="arithmatex">\[
 f(r, \theta + \theta_0) \Leftrightarrow F(\omega, \phi + \theta_0)
 \]</div>
 <p>即空间域旋转 <span class="arithmatex">\(\theta_0\)</span> → 频率域也旋转相同角度 <span class="arithmatex">\(\theta_0\)</span>。</p>
-<!-- TODO: 插入课件截图：旋转性质的示例（P34），原图旋转后其频谱也同步旋转 -->
-
 <h3 id="36-separability">3.6 可分离性（Separability）</h3>
 <p>2-D DFT 可分解为两次 1-D DFT：</p>
 <div class="arithmatex">\[
@@ -7802,8 +7738,6 @@ F(u, v) = F^*(-u, -v)
 <div class="arithmatex">\[
 |F(u, v)| = |F(-u, -v)|
 \]</div>
-<!-- TODO: 插入课件截图：共轭对称性示意图（P37），频率域中幅度谱关于原点对称 -->
-
 <div class="admonition note">
 <p class="admonition-title">共轭对称的意义</p>
 <p>k 空间中有一半是冗余的——只需采集约一半的 k 空间数据，另一半可通过共轭对称推导。这能<strong>减少 MRI 扫描时间</strong>，是 Partial Fourier 技术的理论基础。</p>
@@ -7839,8 +7773,6 @@ f(x, y) \cdot h(x, y) \Leftrightarrow F(u, v) * H(u, v)
 </tr>
 </tbody>
 </table>
-<!-- TODO: 插入课件截图：卷积定理的滤波示例（P39-P40），同一滤波器在空间域和频率域的等效实现 -->
-
 <div class="admonition note">
 <p class="admonition-title">什么时候用频率域滤波</p>
 <p>当卷积核尺寸 <span class="arithmatex">\(K\)</span> 较大时（如 <span class="arithmatex">\(\sigma\)</span> 很大的高斯核），频率域滤波（FFT）比空间域直接卷积<strong>快得多</strong>。但小核（<span class="arithmatex">\(3 \times 3\)</span>）在空间域直接做更快。</p>
@@ -7910,9 +7842,11 @@ f(x, y) \cdot h(x, y) \Leftrightarrow F(u, v) * H(u, v)
 <hr />
 <h2 id="fast-fourier-transform-fft">四、快速傅里叶变换（Fast Fourier Transform — FFT）</h2>
 <h3 id="41-dft">4.1 直接 DFT 的计算量</h3>
-<p>对于 <span class="arithmatex">\(M \times M\)</span> 图像（如 <span class="arithmatex">\(2048 \times 2048\)</span>）：
-- 直接 DFT：<span class="arithmatex">\(\sim 17\)</span> 万亿次运算
-- FFT：<span class="arithmatex">\(\sim 9200\)</span> 万次运算</p>
+<p>对于 <span class="arithmatex">\(M \times M\)</span> 图像（如 <span class="arithmatex">\(2048 \times 2048\)</span>）：</p>
+<ul>
+<li>直接 DFT：<span class="arithmatex">\(\sim 17\)</span> 万亿次运算</li>
+<li>FFT：<span class="arithmatex">\(\sim 9200\)</span> 万次运算</li>
+</ul>
 <p><strong>计算优势</strong>：<span class="arithmatex">\(C(M) = \frac{M^2}{M\log_2 M} = \frac{M}{\log_2 M}\)</span></p>
 <h3 id="42-fft-successive-doubling">4.2 FFT 的基本思想：逐次倍分法（Successive-Doubling）</h3>
 <p>假设 <span class="arithmatex">\(M = 2^n\)</span>。记 <span class="arithmatex">\(W_M = e^{-j2\pi/M}\)</span>，则 DFT 写为：</p>
@@ -7924,8 +7858,6 @@ F(u) = \sum_{x=0}^{M-1} f(x) W_M^{ux}
 F(u) = \underbrace{\sum_{x=0}^{K-1} f(2x) W_K^{ux}}_{F_{\text{even}}(u)} + \underbrace{\sum_{x=0}^{K-1} f(2x+1) W_K^{ux} \cdot W_{2K}^u}_{F_{\text{odd}}(u) \cdot W_{2K}^u}
 \]</div>
 <p><strong>一个 M 点 DFT = 两个 M/2 点 DFT + 组合</strong>。递归下去，复杂度从 <span class="arithmatex">\(O(M^2)\)</span> 降为 <span class="arithmatex">\(O(M\log_2 M)\)</span>。</p>
-<!-- TODO: 插入课件截图：FFT逐次倍分法蝶形图（P43），展示M=8时奇偶分解的递归结构 -->
-
 <table>
 <thead>
 <tr>
@@ -7958,6 +7890,8 @@ F(u) = \underbrace{\sum_{x=0}^{K-1} f(2x) W_K^{ux}}_{F_{\text{even}}(u)} + \unde
 </div>
 <hr />
 <h2 id="wavelet-transform">五、小波变换（Wavelet Transform）</h2>
+<p><img alt="img" src="https://file.cc98.org/v4-upload/d/2026/0610/ac4ess2g.webp" /></p>
+<p><img alt="img" src="https://file.cc98.org/v4-upload/d/2026/0610/apmrhu3d.webp" /></p>
 <h3 id="51">5.1 为什么需要小波变换</h3>
 <p>傅里叶变换的局限：</p>
 <ul>
@@ -7967,8 +7901,6 @@ F(u) = \underbrace{\sum_{x=0}^{K-1} f(2x) W_K^{ux}}_{F_{\text{even}}(u)} + \unde
 </ul>
 <p><strong>短时傅里叶变换（STFT）</strong>：对信号加时间窗分段做 FT。但窗的大小固定，无法同时兼顾时间分辨率和频率分辨率。</p>
 <p><strong>小波变换的核心优势</strong>：同时提供<strong>时间和频率信息</strong>，且具有<strong>多分辨率分析</strong>能力。</p>
-<!-- TODO: 插入课件截图：FT vs STFT vs WT对比示意图（P48），展示三种变换在时频平面上的分辨率差异 -->
-
 <table>
 <thead>
 <tr>
@@ -8008,17 +7940,17 @@ F(u) = \underbrace{\sum_{x=0}^{K-1} f(2x) W_K^{ux}}_{F_{\text{even}}(u)} + \unde
 <h3 id="52-multiresolution-analysis">5.2 多分辨率分析（Multiresolution Analysis）</h3>
 <p>当图像中同时存在<strong>大物体和小物体</strong>、或<strong>高对比度和低对比度</strong>区域时，单一分辨率难以处理。</p>
 <p><strong>图像金字塔（Image Pyramids）</strong>：</p>
-<!-- TODO: 插入课件截图：图像金字塔示意图（P50），从Level J向下逐层降采样到Level J-1、J-2... -->
-
 <ul>
 <li>金字塔从底层（最高分辨率）向顶层（最低分辨率）逐层下采样</li>
 <li>低分辨率层把握整体结构（"森林"），高分辨率层关注细节（"树木"）</li>
 </ul>
 <h3 id="53-1d-wavelet-transform">5.3 一维小波变换（1D Wavelet Transform）</h3>
 <h4 id="1cwt">（1）连续小波变换（CWT）</h4>
-<p>定义<strong>母小波（Mother Wavelet）</strong> <span class="arithmatex">\(\psi(x)\)</span>，满足：
-- 带限（band-limited）
-- DC 分量为 0：<span class="arithmatex">\(\int \psi(x)dx = 0\)</span></p>
+<p>定义<strong>母小波（Mother Wavelet）</strong> <span class="arithmatex">\(\psi(x)\)</span>，满足：</p>
+<ul>
+<li>带限（band-limited）</li>
+<li>DC 分量为 0：<span class="arithmatex">\(\int \psi(x)dx = 0\)</span></li>
+</ul>
 <p>通过<strong>缩放（Scaling）</strong>和<strong>平移（Shifting）</strong>生成子小波：</p>
 <div class="arithmatex">\[
 \psi_{s,\tau}(x) = \frac{1}{\sqrt{s}} \psi\left(\frac{x - \tau}{s}\right)
@@ -8027,8 +7959,6 @@ F(u) = \underbrace{\sum_{x=0}^{K-1} f(2x) W_K^{ux}}_{F_{\text{even}}(u)} + \unde
 <li><span class="arithmatex">\(s\)</span>（尺度）：控制频率——<span class="arithmatex">\(s\)</span> 大 → 低频（拉伸）；<span class="arithmatex">\(s\)</span> 小 → 高频（压缩）</li>
 <li><span class="arithmatex">\(\tau\)</span>（平移）：控制时间位置</li>
 </ul>
-<!-- TODO: 插入课件截图：母小波的缩放与平移示意图（P51），原始ψ(x)→ψ(x+τ)平移→ψ(2x)压缩→ψ(4x)进一步压缩 -->
-
 <p>CWT 定义：</p>
 <div class="arithmatex">\[
 W_\psi(s, \tau) = \int_{-\infty}^{\infty} f(x) \psi_{s,\tau}(x) dx
@@ -8038,7 +7968,6 @@ W_\psi(s, \tau) = \int_{-\infty}^{\infty} f(x) \psi_{s,\tau}(x) dx
 <div class="arithmatex">\[
 f(x) = \frac{1}{C_\psi} \int_0^\infty \int_{-\infty}^{\infty} W_\psi(s, \tau) \frac{\psi_{s,\tau}(x)}{s^2} d\tau ds
 \]</div>
-<p>其中 <span class="arithmatex">\(C_\psi = \int_{-\infty}^{\infty} \frac{|\Psi(\mu)|}{|\mu|} d\mu\)</span>，<span class="arithmatex">\(\Psi(\mu)\)</span> 是 <span class="arithmatex">\(\psi(x)\)</span> 的傅里叶变换。</p>
 <h4 id="2dwt">（2）离散小波变换（DWT）</h4>
 <p>取 <span class="arithmatex">\(s = 2^{-j}, \tau = k \cdot 2^{-j}\)</span>：</p>
 <div class="arithmatex">\[
@@ -8049,8 +7978,6 @@ f(x) = \frac{1}{C_\psi} \int_0^\infty \int_{-\infty}^{\infty} W_\psi(s, \tau) \f
 <li><strong>近似系数（Approximation Coefficients）</strong> <span class="arithmatex">\(W_\varphi(j_0, k)\)</span>：由<strong>尺度函数（Scaling Function / Father Wavelet）</strong>获得，DC ≠ 0，对应低频（信号的"骨架"）</li>
 <li><strong>细节系数（Detail Coefficients）</strong> <span class="arithmatex">\(W_\psi(j, k)\)</span>：由<strong>小波函数（Mother Wavelet）</strong>获得，DC = 0，对应高频（信号的"纹理"）</li>
 </ul>
-<!-- TODO: 插入课件截图：Haar尺度函数与Haar小波函数对比（P54），Father Wavelet（DC≠0用于低频）vs Mother Wavelet（DC=0用于高频） -->
-
 <div class="admonition note">
 <p class="admonition-title">尺度函数 vs 小波函数</p>
 <ul>
@@ -8063,10 +7990,7 @@ f(x) = \frac{1}{C_\psi} \int_0^\infty \int_{-\infty}^{\infty} W_\psi(s, \tau) \f
 <div class="arithmatex">\[
 f(n) = \frac{1}{M} \sum_k W_\varphi(j_0, k) \varphi_{j_0, k}(n) + \frac{1}{M} \sum_j \sum_k W_\psi(j, k) \psi_{j, k}(n)
 \]</div>
-<hr />
 <h4 id="3-vs">（3）小波谱 vs 傅里叶谱</h4>
-<!-- TODO: 插入课件截图：Mexican Hat小波谱 vs 傅里叶谱对比（P57），傅里叶谱只有频率轴，小波谱同时展示时间(τ)和尺度(s)两个维度 -->
-
 <table>
 <thead>
 <tr>
@@ -8100,23 +8024,12 @@ f(n) = \frac{1}{M} \sum_k W_\varphi(j_0, k) \varphi_{j_0, k}(n) + \frac{1}{M} \s
 </li>
 </ul>
 <p>每次 2-D DWT 分解产生 4 个子带：<strong>LL（低频近似）、LH（水平细节）、HL（垂直细节）、HH（对角细节）</strong>。</p>
-<!-- TODO: 插入课件截图：2D DWT分解结果（P62），一级FWT和二级FWT后的四子带图像——LL、LH、HL、HH -->
-
 <h3 id="55">5.5 小波变换的应用</h3>
-<h4 id="1">（1）边缘检测</h4>
 <ul>
-<li>对图像做 DWT → 将近似系数 LL 置零 → 逆 DWT</li>
-<li>结果仅保留高频细节（边缘），抑制了低频背景</li>
+<li><strong>边缘检测</strong>：对图像做 DWT → 将近似系数 LL 置零 → 逆 DWT。结果仅保留高频细节（边缘），抑制了低频背景</li>
+<li><strong>图像去噪</strong>：对图像做 DWT → 对细节系数进行<strong>阈值处理</strong>（软阈值/硬阈值）→ 逆 DWT。小波去噪保留边缘的能力优于傅里叶低通滤波</li>
 </ul>
-<!-- TODO: 插入课件截图：小波变换边缘检测示例（P63），原图→置零近似系数→逆变换得到纯边缘图像 -->
-
-<h4 id="2">（2）图像去噪</h4>
-<ul>
-<li>对图像做 DWT → 对细节系数进行<strong>阈值处理</strong>（软阈值/硬阈值）→ 逆 DWT</li>
-<li>小波去噪保留边缘的能力优于傅里叶低通滤波（后者会模糊边缘）</li>
-</ul>
-<!-- TODO: 插入课件截图：小波去噪示例（P64），原噪声图→阈值处理细节系数后的多次重建结果对比 -->
-
+<hr />
 <hr />
 <h2 id="summary">六、本章总结（Summary）</h2>
 <h3 id="_1">傅里叶变换核心脉络</h3>
@@ -8172,7 +8085,6 @@ f(n) = \frac{1}{M} \sum_k W_\varphi(j_0, k) \varphi_{j_0, k}(n) + \frac{1}{M} \s
 <h3 id="_2">小波变换</h3>
 <ul>
 <li><strong>多分辨率分析</strong>：同时观察大尺度和小尺度结构</li>
-<li><strong>图像金字塔</strong>：逐级下采样构造不同分辨率层级</li>
 <li><strong>母小波 + 尺度函数</strong>：前者提取高频细节，后者提取低频近似</li>
 <li><strong>应用</strong>：边缘检测（抑制近似系数）、去噪（阈值化细节系数）</li>
 </ul>
@@ -8180,9 +8092,11 @@ f(n) = \frac{1}{M} \sum_k W_\varphi(j_0, k) \varphi_{j_0, k}(n) + \frac{1}{M} \s
 <h2 id="_3">课后作业</h2>
 <h3 id="hw2-problem-1dft">hw2 — Problem 1：DFT 中心化的数学证明</h3>
 <p><strong>知识点定位</strong>：2-D DFT 性质 — 平移/中心化</p>
-<p><strong>题目</strong>：
-1. 对 <span class="arithmatex">\(M \times N\)</span> 图像 <span class="arithmatex">\(f(x,y)\)</span>，证明乘以 <span class="arithmatex">\((-1)^{x+y}\)</span> 再做 DFT，DC 分量将移动到频谱中心 <span class="arithmatex">\([M/2, N/2]\)</span>
-2. 如果改为乘以 <span class="arithmatex">\((-1)^x\)</span>，频谱会如何变化？</p>
+<p><strong>题目</strong>：</p>
+<ol>
+<li>对 <span class="arithmatex">\(M \times N\)</span> 图像 <span class="arithmatex">\(f(x,y)\)</span>，证明乘以 <span class="arithmatex">\((-1)^{x+y}\)</span> 再做 DFT，DC 分量将移动到频谱中心 <span class="arithmatex">\([M/2, N/2]\)</span></li>
+<li>如果改为乘以 <span class="arithmatex">\((-1)^x\)</span>，频谱会如何变化？</li>
+</ol>
 <p><strong>解答</strong>：</p>
 <p><strong>(1) 乘 <span class="arithmatex">\((-1)^{x+y}\)</span> 的证明：</strong></p>
 <div class="arithmatex">\[
@@ -8213,10 +8127,12 @@ f''(x,y) = \mathcal{F}^{-1}\{-F'(u,v)\} = -f(x,y) \cdot (-1)^{2(x+y)} = -f(x,y)
 <hr />
 <h3 id="hw2-problem-3">hw2 — Problem 3：共轭对称性与奈奎斯特采样</h3>
 <p><strong>知识点定位</strong>：2-D DFT 性质 — 共轭对称；采样定理</p>
-<p><strong>题目</strong>：
-1. 证明实数图像 <span class="arithmatex">\(f(x,y)\)</span> 的 DFT 满足 <span class="arithmatex">\(F(u,v) = F^*(-u, -v)\)</span>
-2. 已知 <span class="arithmatex">\(\text{FOV}_x = \text{FOV}_y = 240\text{mm}\)</span>，<span class="arithmatex">\(\max(k_x) = \max(k_y) = 120\text{ rad/m}\)</span>，计算奈奎斯特全采样所需总像素数
-3. 利用共轭对称性，计算最少所需采样像素数</p>
+<p><strong>题目</strong>：</p>
+<ol>
+<li>证明实数图像 <span class="arithmatex">\(f(x,y)\)</span> 的 DFT 满足 <span class="arithmatex">\(F(u,v) = F^*(-u, -v)\)</span></li>
+<li>已知 <span class="arithmatex">\(\text{FOV}_x = \text{FOV}_y = 240\text{mm}\)</span>，<span class="arithmatex">\(\max(k_x) = \max(k_y) = 120\text{ rad/m}\)</span>，计算奈奎斯特全采样所需总像素数</li>
+<li>利用共轭对称性，计算最少所需采样像素数</li>
+</ol>
 <p><strong>解答</strong>：</p>
 <p><strong>(1) 共轭对称性证明：</strong></p>
 <p>由于 <span class="arithmatex">\(f\)</span> 为实数，<span class="arithmatex">\(f^*(x,y) = f(x,y)\)</span>。</p>
@@ -8248,27 +8164,64 @@ N_{\text{total}} = N_x \times N_y = \left(\frac{28.8}{\pi}\right)^2 \approx 84
 N_{\text{min}} = \frac{1}{2} N_{\text{total}} \approx 42
 \]</div>
 <hr />
-<h2 id="_4">实验原理补充</h2>
-<h3 id="lab3">Lab3：频率域滤波与空间滤波的等价性</h3>
-<h4 id="_5">频率域滤波的基本流程</h4>
+<h2 id="lab3">实验（LAB3 — 频率域滤波与傅里叶变换应用）</h2>
+<h3 id="1">实验 1：频率域低通滤波与振铃效应</h3>
+<p><strong>实验内容</strong>：使用 MRI 数据，在频率域分别实现<strong>理想低通</strong>、<strong>巴特沃斯低通</strong>（<span class="arithmatex">\(n=6\)</span>）和<strong>高斯低通</strong>三种滤波器（截止频率 <span class="arithmatex">\(D_0=30\)</span>），通过 FFT → 频域乘积 → IFFT 的标准流程进行图像平滑，重点观察振铃效应的产生与差异。</p>
+<p><strong>实验步骤</strong>：</p>
 <ol>
-<li><strong>FFT</strong>：<span class="arithmatex">\(f(x,y) \xrightarrow{\text{FFT}} F(u,v)\)</span></li>
-<li><strong>中心化</strong>：<code>fftshift</code> → DC 分量移到中心</li>
-<li><strong>频率域乘积</strong>：<span class="arithmatex">\(G(u,v) = H(u,v) \cdot F(u,v)\)</span></li>
-<li><strong>逆中心化</strong>：<code>ifftshift</code></li>
-<li><strong>IFFT</strong>：<span class="arithmatex">\(G(u,v) \xrightarrow{\text{IFFT}} g(x,y)\)</span>，取实部</li>
+<li>对图像做 2-D FFT，<code>fftshift</code> 将 DC 分量移至频谱中心</li>
+<li>在频域分别构建三种传递函数 <span class="arithmatex">\(H(u,v)\)</span>：<ul>
+<li>理想低通：<span class="arithmatex">\(H = \begin{cases} 1 &amp; D \leq D_0 \\ 0 &amp; D &gt; D_0 \end{cases}\)</span></li>
+<li>巴特沃斯（<span class="arithmatex">\(n=6\)</span>）：<span class="arithmatex">\(H = \frac{1}{1 + (D/D_0)^{2n}}\)</span></li>
+<li>高斯：<span class="arithmatex">\(H = e^{-D^2/(2D_0^2)}\)</span></li>
+</ul>
+</li>
+<li>将频谱与 <span class="arithmatex">\(H(u,v)\)</span> 逐元素相乘 → <code>ifftshift</code> → IFFT → 取实部</li>
 </ol>
-<h4 id="_6">关键原理</h4>
-<p><strong>（1）频率域 vs 空间域滤波的等价性</strong>：根据卷积定理，空间域卷积 <span class="arithmatex">\(\leftrightarrow\)</span> 频率域乘积，两者在数学上完全等价。差别仅在计算效率和边界处理方式。对于小核（<span class="arithmatex">\(3 \times 3\)</span>），空间域更快；对于大核（<span class="arithmatex">\(\sigma\)</span> 很大时），频率域 <span class="arithmatex">\(O(N\log N)\)</span> 更高效。</p>
-<p><strong>（2）高斯高通 = 1 − 低通</strong>：<span class="arithmatex">\(H_{\text{HP}}(u,v) = 1 - H_{\text{LP}}(u,v)\)</span>。在空间域等价于 <span class="arithmatex">\(g_{\text{HP}} = f - f_{\text{LP}}\)</span>（原图减去模糊图）。</p>
-<p><strong>（3）陷波滤波器消除周期性噪声</strong>：周期性条纹噪声在频域中表现为<strong>以原点对称的孤立亮斑</strong>（基频 + 各次谐波）。使用巴特沃斯陷波滤波器在这些频率点置零，选择巴特沃斯（而非理想）陷波是为了避免振铃效应。</p>
+<p><strong>涉及原理</strong>：</p>
+<ul>
+<li><strong>Box → Sinc 变换对</strong>：理想低通在频率域的<strong>矩形截断</strong> <span class="arithmatex">\(\xrightarrow{\text{IFT}}\)</span> 空间域的 <strong>sinc 卷积核</strong>（无限振荡旁瓣） → 图像边缘产生同心明暗光环（<strong>振铃效应</strong>）。这是傅里叶变换经典变换对在图像处理中的直接体现</li>
+<li><strong>高斯滤波器无振铃</strong>：高斯函数的傅里叶逆变换仍是高斯函数，无旁瓣 → 零振铃</li>
+<li><strong>巴特沃斯作为折中</strong>：<span class="arithmatex">\(n\)</span> 越大过渡越陡、越接近理想（振铃越明显）；<span class="arithmatex">\(n\)</span> 有限时可在截断锐度和振铃抑制之间定量平衡</li>
+</ul>
 <hr />
-<h2 id="_7">历年卷解答</h2>
+<h3 id="2">实验 2：空间域与频率域滤波的等价性验证</h3>
+<p><strong>实验内容</strong>：分别用空间域直接卷积和频率域 FFT 乘积两种方式实现高斯低通/高通滤波，验证卷积定理。同时对比 4-邻域/8-邻域 Laplacian 高通与高斯高通的边缘提取效果差异。</p>
+<p><strong>实验步骤</strong>：</p>
+<ol>
+<li>生成 <span class="arithmatex">\(\sigma=3\)</span> 的高斯空间核，在空间域用 <code>convolve2d</code> 直接卷积 → 低通结果；高通 = 原图 − 低通</li>
+<li>将同一高斯核零填充 + 循环位移后进行 FFT，在频率域与图像频谱相乘 → IFFT → 频率域低通结果，比较两种方式</li>
+<li>使用 4-邻域 Laplacian <span class="arithmatex">\(\begin{bmatrix}0&amp;-1&amp;0\\-1&amp;4&amp;-1\\0&amp;-1&amp;0\end{bmatrix}\)</span> 和 8-邻域 Laplacian <span class="arithmatex">\(\begin{bmatrix}-1&amp;-1&amp;-1\\-1&amp;8&amp;-1\\-1&amp;-1&amp;-1\end{bmatrix}\)</span> 在空间域卷积提取边缘</li>
+</ol>
+<p><strong>涉及原理</strong>：</p>
+<ul>
+<li><strong>卷积定理的工程验证</strong>：空间域直接卷积与频率域（核 FFT × 图像 FFT → IFFT）结果几乎完全一致，验证 <span class="arithmatex">\(f*h \Leftrightarrow F \cdot H\)</span> 精确成立</li>
+<li><strong>计算效率的选择</strong>：小核（<span class="arithmatex">\(3 \times 3\)</span>）空间域直接做更快；大核（<span class="arithmatex">\(\sigma\)</span> 很大时）频率域 <span class="arithmatex">\(O(N\log N)\)</span> 更高效——DFT 的可分离性和 FFT 是其计算优势的根基</li>
+<li><strong>高斯高通 vs Laplacian</strong>：高斯高通提取的边缘柔和自然（利用空间域减法的线性性质）；Laplacian 作为二阶微分对高频极其敏感，能提取更锐利边缘但会同步放大噪声（印证二阶微分对噪声敏感的理论特性）</li>
+</ul>
+<hr />
+<h3 id="3">实验 3：陷波滤波器消除周期性噪声</h3>
+<p><strong>实验内容</strong>：对带有斜向条纹噪声的 MRI 数据，在频域幅度谱中定位噪声对应的<strong>对称亮斑</strong>坐标，使用巴特沃斯陷波滤波器精确阻断这些频率后 IFFT 还原，直接应用 DFT 的共轭对称性（噪声亮斑总是成对出现）。</p>
+<p><strong>实验步骤</strong>：</p>
+<ol>
+<li>对带噪图像做 FFT → 计算对数幅度谱 <span class="arithmatex">\(\log(1+|F|)\)</span> → 可视定位噪声亮斑的 <span class="arithmatex">\((u_0, v_0)\)</span> 及对称点 <span class="arithmatex">\((-u_0, -v_0)\)</span></li>
+<li>对每对噪声点构建巴特沃斯带阻传递函数：<span class="arithmatex">\(H_k = \frac{1}{1+(D_0/D_k)^{2n}} \cdot \frac{1}{1+(D_0/D_{-k})^{2n}}\)</span>，所有 <span class="arithmatex">\(H_k\)</span> 逐对相乘得到整体陷波滤波器</li>
+<li>频域应用滤波器 → IFFT → 取实部</li>
+</ol>
+<p><strong>涉及原理</strong>：</p>
+<ul>
+<li><strong>周期性噪声的 DFT 特征</strong>：空间域正弦型条纹 <span class="arithmatex">\(\xrightarrow{\text{DFT}}\)</span> 频率域以原点对称的一对孤立尖峰（基频 + 各次谐波）——这是 DFT 对正弦信号的直接响应</li>
+<li><strong>DFT 共轭对称性的应用</strong>：实数图像的 <span class="arithmatex">\(F(u,v) = F^*(-u, -v)\)</span> → 噪声亮斑必然成对出现，设计滤波器时必须同时阻断对称点，否则去噪不完整</li>
+<li><strong>选巴特沃斯而非理想陷波</strong>：避免频域硬截断引入空间域 sinc 旁瓣振铃——与实验 1 的振铃原理形成对照</li>
+<li><strong>去噪不完全的可能原因</strong>：中心频率定位偏差、阻带半径 <span class="arithmatex">\(D_0\)</span> 失配（过大误伤有效高频、过小残留噪声能量）、高次谐波遗漏</li>
+</ul>
+<hr />
+<hr />
+<h2 id="_4">历年卷解答</h2>
 <h3 id="2022">一、多分辨率分析是小波变换的应用之一（2022 判断）</h3>
 <p><strong>知识点定位</strong>：小波变换 — 多分辨率分析</p>
 <p><strong>答案</strong>：<strong>正确。</strong></p>
 <p><strong>解释</strong>：小波变换通过缩放和平移母小波，天然支持在不同尺度（分辨率）上分析信号的局部特征。图像金字塔是小波多分辨率分析的直观体现。</p>
-<hr />
 <h3 id="vs-2021">二、傅里叶变换 vs 小波变换（2021 选择）</h3>
 <p><strong>知识点定位</strong>：傅里叶变换 vs 小波变换对比</p>
 <p><strong>关键区别</strong>：</p>
@@ -8308,39 +8261,35 @@ N_{\text{min}} = \frac{1}{2} N_{\text{total}} \approx 42
 </tr>
 </tbody>
 </table>
-<hr />
 <h3 id="2021">三、频域对称性（2021 判断）</h3>
 <p><strong>知识点定位</strong>：2-D DFT 性质 — 共轭对称</p>
 <p><strong>判断内容</strong>："频域对称就是在频域上水平方向和竖直方向对称"</p>
-<p><strong>答案</strong>：<strong>不准确/错误。</strong></p>
-<p><strong>解释</strong>：对于实数图像，频域的对称性是<strong>关于原点（中心）的共轭对称</strong>，即 <span class="arithmatex">\(F(u,v) = F^*(-u, -v)\)</span>。</p>
-<p>这意味着幅度谱关于原点呈<strong>中心对称</strong>（旋转 180° 后重合），而非简单的水平或竖直轴对称。四个象限的关系是 <span class="arithmatex">\(|F(u,v)| = |F(-u, -v)|\)</span>。</p>
-<hr />
+<p><strong>答案</strong>：<strong>错误。</strong></p>
+<p><strong>解释</strong>：对于实数图像，频域的对称性是<strong>关于原点（中心）的共轭对称</strong>，即 <span class="arithmatex">\(F(u,v) = F^*(-u, -v)\)</span>。这意味着幅度谱关于原点呈<strong>中心对称</strong>（旋转 180° 后重合），而非简单的水平或竖直轴对称。</p>
 <h3 id="2020">四、时域卷积核对应的频域卷积核（2020 选择）</h3>
 <p><strong>知识点定位</strong>：2-D DFT 性质 — 卷积定理；高通滤波器的频域表示</p>
 <p><strong>题目</strong>：空间域卷积核 <span class="arithmatex">\(f(x,y) - f(x+1,y) - f(x,y+1)\)</span> 对应什么频域核？</p>
-<p><strong>分析</strong>：</p>
-<p>该空间核是一个<strong>高通滤波器</strong>（差分操作）。根据卷积定理，空间域差分 <span class="arithmatex">\(\leftrightarrow\)</span> 频率域乘以相应的高通传递函数。</p>
+<p><strong>分析</strong>：该空间核是一个<strong>高通滤波器</strong>（差分操作）。根据卷积定理，空间域差分 <span class="arithmatex">\(\leftrightarrow\)</span> 频率域乘以相应的高通传递函数。</p>
 <p>核矩阵形式为 <span class="arithmatex">\([1, -1; -1, 0]\)</span>（对中心像素），在频率域对应 <span class="arithmatex">\(1 - e^{j2\pi u/M} - e^{j2\pi v/N}\)</span>。</p>
 <div class="admonition note">
 <p class="admonition-title">思路提示</p>
 <p>此类题目的解题关键：将空间域的差分表达式转换为频率域的代数表达式（利用 DFT 的平移性质）。</p>
 </div>
-<hr />
-<h3 id="2020_1">五、周期噪声用陷波滤波（2020 判断）</h3>
-<p><strong>知识点定位</strong>：频率域滤波 — 陷波滤波器</p>
-<p><strong>答案</strong>：<strong>正确。</strong></p>
-<p><strong>解释</strong>：周期噪声在频域中表现为<strong>孤立的频率尖峰</strong>（亮斑）。陷波滤波器精确地阻止这些特定频率，是消除周期性噪声的最优选择。</p>
-<hr />
-<h3 id="dft">六、DFT 频谱中心化的步骤（历年常考）</h3>
+<h3 id="dft">五、DFT 频谱中心化的步骤（历年常考）</h3>
 <p><strong>知识点定位</strong>：2-D DFT 性质 — 平移/中心化</p>
-<p><strong>标准步骤</strong>：
-1. 对原图 <span class="arithmatex">\(f(x,y)\)</span> 乘以 <span class="arithmatex">\((-1)^{x+y}\)</span>（将 DC 分量预移到中心位置）
-2. 进行 2-D DFT
-3. 此时 <span class="arithmatex">\(F(0,0)\)</span>（DC 分量）已在频谱中心 <span class="arithmatex">\([M/2, N/2]\)</span></p>
+<p><strong>标准步骤</strong>：</p>
+<ol>
+<li>对原图 <span class="arithmatex">\(f(x,y)\)</span> 乘以 <span class="arithmatex">\((-1)^{x+y}\)</span>（将 DC 分量预移到中心位置）</li>
+<li>进行 2-D DFT</li>
+<li>此时 <span class="arithmatex">\(F(0,0)\)</span>（DC 分量）已在频谱中心 <span class="arithmatex">\([M/2, N/2]\)</span></li>
+</ol>
 <p><strong>等价操作</strong>：先 DFT 得到四角亮斑的频谱，再用 <code>fftshift</code> 将四个角的低频汇集到中心。</p>
-<p><strong>为什么要中心化？</strong></p>
-<p>原始 DFT 频谱的四角是低频（包括 DC），中心反而是高频——不符合直觉。中心化后低频在中心、高频在外围，便于观察和处理。</p>
+<p><strong>为什么要中心化？</strong> 原始 DFT 频谱的四角是低频（包括 DC），中心反而是高频——不符合直觉。中心化后低频在中心、高频在外围，便于观察和处理。</p>
+<hr />
+<!-- 笔记中需要插入的PPT截图汇总：
+1. K空间中心vs外围频率分布示意图（第二章"K空间"注释后）
+PPT源文件：docs/ppt/Lecture5-2026.pdf
+-->
 
 
 
@@ -8434,13 +8383,13 @@ N_{\text{min}} = \frac{1}{2} N_{\text{total}} \approx 42
         
         
           
-          <a href="../../memorytest/hyj/" class="md-footer__link md-footer__link--next" aria-label="下一页: 关于本栏">
+          <a href="../notebip5/" class="md-footer__link md-footer__link--next" aria-label="下一页: 第5章 频率域滤波">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                关于本栏
+                第5章 频率域滤波
               </div>
             </div>
             <div class="md-footer__button md-icon">

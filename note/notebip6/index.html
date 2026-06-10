@@ -1,0 +1,9132 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="LH">
+      
+      
+        <link rel="canonical" href="https://LH-study.github.io/note/notebip6/">
+      
+      
+        <link rel="prev" href="../notebip5/">
+      
+      
+        <link rel="next" href="../../memorytest/hyj/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+    
+    
+      
+        <title>第6章 图像复原 - LH的资源小站</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M1%207.775V2.75C1%201.784%201.784%201%202.75%201h5.025c.464%200%20.91.184%201.238.513l6.25%206.25a1.75%201.75%200%200%201%200%202.474l-5.026%205.026a1.75%201.75%200%200%201-2.474%200l-6.25-6.25A1.75%201.75%200%200%201%201%207.775m1.5%200c0%20.066.026.13.073.177l6.25%206.25a.25.25%200%200%200%20.354%200l5.025-5.025a.25.25%200%200%200%200-.354l-6.25-6.25a.25.25%200%200%200-.177-.073H2.75a.25.25%200%200%200-.25.25ZM6%205a1%201%200%201%201%200%202%201%201%200%200%201%200-2%22/%3E%3C/svg%3E');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M2.5%201.75v11.5c0%20.138.112.25.25.25h3.17a.75.75%200%200%201%200%201.5H2.75A1.75%201.75%200%200%201%201%2013.25V1.75C1%20.784%201.784%200%202.75%200h8.5C12.216%200%2013%20.784%2013%201.75v7.736a.75.75%200%200%201-1.5%200V1.75a.25.25%200%200%200-.25-.25h-8.5a.25.25%200%200%200-.25.25m13.274%209.537zl-4.557%204.45a.75.75%200%200%201-1.055-.008l-1.943-1.95a.75.75%200%200%201%201.062-1.058l1.419%201.425%204.026-3.932a.75.75%200%201%201%201.048%201.074M4.75%204h4.5a.75.75%200%200%201%200%201.5h-4.5a.75.75%200%200%201%200-1.5M4%207.75A.75.75%200%200%201%204.75%207h2a.75.75%200%200%201%200%201.5h-2A.75.75%200%200%201%204%207.75%22/%3E%3C/svg%3E');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M0%208a8%208%200%201%201%2016%200A8%208%200%200%201%200%208m8-6.5a6.5%206.5%200%201%200%200%2013%206.5%206.5%200%200%200%200-13M6.5%207.75A.75.75%200%200%201%207.25%207h1a.75.75%200%200%201%20.75.75v2.75h.25a.75.75%200%200%201%200%201.5h-2a.75.75%200%200%201%200-1.5h.25v-2h-.25a.75.75%200%200%201-.75-.75M8%206a1%201%200%201%201%200-2%201%201%200%200%201%200%202%22/%3E%3C/svg%3E');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M3.499.75a.75.75%200%200%201%201.5%200v.996C5.9%202.903%206.793%203.65%207.662%204.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873%2010.794-.045%2012.622.26%2014.408.558%2016%201.94%2016%204.25c0%201.278-.954%202.575-2.44%202.734l.146.508.065.22c.203.701.412%201.455.476%202.226.142%201.707-.4%203.03-1.487%203.898C11.714%2014.671%2010.27%2015%208.75%2015h-6a.75.75%200%200%201%200-1.5h1.376a4.5%204.5%200%200%201-.563-1.191%203.84%203.84%200%200%201-.05-2.063%204.65%204.65%200%200%201-2.025-.293.75.75%200%200%201%20.525-1.406c1.357.507%202.376-.006%202.698-.318l.009-.01a.747.747%200%200%201%201.06%200%20.75.75%200%200%201-.012%201.074c-.912.92-.992%201.835-.768%202.586.221.74.745%201.337%201.196%201.621H8.75c1.343%200%202.398-.296%203.074-.836.635-.507%201.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.4%202.4%200%200%201-.507-.441%203.1%203.1%200%200%201-.633-1.248.75.75%200%200%201%201.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738%200%201.25-.615%201.25-1.25%200-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706%201.345-.46.92-.27%201.774.019%203.062l.042.19.01.05c.348.443.666.949.94%201.553a.75.75%200%201%201-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7%205.527c-.814-.68-1.75-1.462-2.692-2.619a3.7%203.7%200%200%200-1.023.88c-.406.495-.663%201.036-.722%201.508.116.122.306.21.591.239.388.038.797-.06%201.032-.19a.75.75%200%200%201%20.728%201.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75%205.677V5.5c0-.984.48-1.94%201.077-2.664.46-.559%201.05-1.055%201.673-1.353z%22/%3E%3C/svg%3E');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M13.78%204.22a.75.75%200%200%201%200%201.06l-7.25%207.25a.75.75%200%200%201-1.06%200L2.22%209.28a.75.75%200%200%201%20.018-1.042.75.75%200%200%201%201.042-.018L6%2010.94l6.72-6.72a.75.75%200%200%201%201.06%200%22/%3E%3C/svg%3E');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M0%208a8%208%200%201%201%2016%200A8%208%200%200%201%200%208m8-6.5a6.5%206.5%200%201%200%200%2013%206.5%206.5%200%200%200%200-13M6.92%206.085h.001a.749.749%200%201%201-1.342-.67c.169-.339.436-.701.849-.977C6.845%204.16%207.369%204%208%204a2.76%202.76%200%200%201%201.637.525c.503.377.863.965.863%201.725%200%20.448-.115.83-.329%201.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6%206%200%200%200-.26.16%201%201%200%200%200-.276.245.75.75%200%200%201-1.248-.832c.184-.264.42-.489.692-.661q.154-.1.313-.195l.007-.004c.1-.061.182-.11.258-.161a1%201%200%200%200%20.277-.245C8.96%206.514%209%206.427%209%206.25a.61.61%200%200%200-.262-.525A1.27%201.27%200%200%200%208%205.5c-.369%200-.595.09-.74.187a1%201%200%200%200-.34.398M9%2011a1%201%200%201%201-2%200%201%201%200%200%201%202%200%22/%3E%3C/svg%3E');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M6.457%201.047c.659-1.234%202.427-1.234%203.086%200l6.082%2011.378A1.75%201.75%200%200%201%2014.082%2015H1.918a1.75%201.75%200%200%201-1.543-2.575Zm1.763.707a.25.25%200%200%200-.44%200L1.698%2013.132a.25.25%200%200%200%20.22.368h12.164a.25.25%200%200%200%20.22-.368Zm.53%203.996v2.5a.75.75%200%200%201-1.5%200v-2.5a.75.75%200%200%201%201.5%200M9%2011a1%201%200%201%201-2%200%201%201%200%200%201%202%200%22/%3E%3C/svg%3E');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M2.344%202.343za8%208%200%200%201%2011.314%2011.314A8.002%208.002%200%200%201%20.234%2010.089a8%208%200%200%201%202.11-7.746m1.06%2010.253a6.5%206.5%200%201%200%209.108-9.275%206.5%206.5%200%200%200-9.108%209.275M6.03%204.97%208%206.94l1.97-1.97a.749.749%200%200%201%201.275.326.75.75%200%200%201-.215.734L9.06%208l1.97%201.97a.749.749%200%200%201-.326%201.275.75.75%200%200%201-.734-.215L8%209.06l-1.97%201.97a.749.749%200%200%201-1.275-.326.75.75%200%200%201%20.215-.734L6.94%208%204.97%206.03a.75.75%200%200%201%20.018-1.042.75.75%200%200%201%201.042-.018%22/%3E%3C/svg%3E');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M9.504.43a1.516%201.516%200%200%201%202.437%201.713L10.415%205.5h2.123c1.57%200%202.346%201.909%201.22%203.004l-7.34%207.142a1.25%201.25%200%200%201-.871.354h-.302a1.25%201.25%200%200%201-1.157-1.723L5.633%2010.5H3.462c-1.57%200-2.346-1.909-1.22-3.004zm1.047%201.074L3.286%208.571A.25.25%200%200%200%203.462%209H6.75a.75.75%200%200%201%20.694%201.034l-1.713%204.188%206.982-6.793A.25.25%200%200%200%2012.538%207H9.25a.75.75%200%200%201-.683-1.06l2.008-4.418.003-.006-.004-.009-.006-.006-.008-.001q-.005%200-.009.004%22/%3E%3C/svg%3E');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M4.72.22a.75.75%200%200%201%201.06%200l1%20.999a3.5%203.5%200%200%201%202.441%200l.999-1a.748.748%200%200%201%201.265.332.75.75%200%200%201-.205.729l-.775.776c.616.63.995%201.493.995%202.444v.327q0%20.15-.025.292c.408.14.764.392%201.029.722l1.968-.787a.75.75%200%200%201%20.556%201.392L13%207.258V9h2.25a.75.75%200%200%201%200%201.5H13v.5q-.002.615-.141%201.186l2.17.868a.75.75%200%200%201-.557%201.392l-2.184-.873A5%205%200%200%201%208%2016a5%205%200%200%201-4.288-2.427l-2.183.873a.75.75%200%200%201-.558-1.392l2.17-.868A5%205%200%200%201%203%2011v-.5H.75a.75.75%200%200%201%200-1.5H3V7.258L.971%206.446a.75.75%200%200%201%20.558-1.392l1.967.787c.265-.33.62-.583%201.03-.722a1.7%201.7%200%200%201-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72%201.28a.75.75%200%200%201%200-1.06m.53%206.28a.75.75%200%200%200-.75.75V11a3.5%203.5%200%201%200%207%200V7.25a.75.75%200%200%200-.75-.75ZM6.173%205h3.654A.17.17%200%200%200%2010%204.827V4.5a2%202%200%201%200-4%200v.327c0%20.096.077.173.173.173%22/%3E%3C/svg%3E');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M5%205.782V2.5h-.25a.75.75%200%200%201%200-1.5h6.5a.75.75%200%200%201%200%201.5H11v3.282l3.666%205.76C15.619%2013.04%2014.543%2015%2012.767%2015H3.233c-1.776%200-2.852-1.96-1.899-3.458Zm-2.4%206.565a.75.75%200%200%200%20.633%201.153h9.534a.75.75%200%200%200%20.633-1.153L12.225%2010.5h-8.45ZM9.5%202.5h-3V6c0%20.143-.04.283-.117.403L4.73%209h6.54L9.617%206.403A.75.75%200%200%201%209.5%206Z%22/%3E%3C/svg%3E');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M1.75%202.5h10.5a.75.75%200%200%201%200%201.5H1.75a.75.75%200%200%201%200-1.5m4%205h8.5a.75.75%200%200%201%200%201.5h-8.5a.75.75%200%200%201%200-1.5m0%205h8.5a.75.75%200%200%201%200%201.5h-8.5a.75.75%200%200%201%200-1.5M2.5%207.75v6a.75.75%200%200%201-1.5%200v-6a.75.75%200%200%201%201.5%200%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#degradation-and-restoration-model" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="LH的资源小站" class="md-header__button md-logo" aria-label="LH的资源小站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LH的资源小站
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              第6章 图像复原
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换至日间模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至日间模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/LH-0124/LHstudy" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    LH-study
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  
+  主页
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于我
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../zju-courses/zju-courses/" class="md-tabs__link">
+          
+  
+  
+  课程心得
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../about/" class="md-tabs__link">
+          
+  
+  
+  课程笔记
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../memorytest/hyj/" class="md-tabs__link">
+          
+  
+  
+  回忆卷资源
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../experiment/about/" class="md-tabs__link">
+          
+  
+  
+  实验课资源
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../life/about/" class="md-tabs__link">
+          
+  
+  
+  生活分享
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../link/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  友情链接
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../comment/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  留言板
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="LH的资源小站" class="md-nav__button md-logo" aria-label="LH的资源小站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    LH的资源小站
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/LH-0124/LHstudy" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    LH-study
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    主页
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            主页
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    主页介绍
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../update/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    更新日志
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    关于我
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    课程心得
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            课程心得
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/zju-courses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    关于本栏
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    通识必修课程
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            通识必修课程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_1" id="__nav_3_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    自然科学通识类
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            自然科学通识类
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/vjf1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    微积分（甲）I
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/vjf2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    微积分（甲）II
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/xd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    线性代数（甲）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/dw1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    大学物理（甲）I
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/dw2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    大学物理（甲）II
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/ph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    普通化学（乙）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/phsy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    普通化学实验（乙）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/dwsy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    大学物理实验
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/ds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    大学生物学
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/dssy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    大学生物学实验
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    思政军体类
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            思政军体类
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/df/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    思想道德与法治
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/sg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    中国近现代史纲要
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/jl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    军事理论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/my/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    马克思主义基本原理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/china/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    新中国史
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/mg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    毛泽东思想与中国特色社会主义理论体系概论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/xg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    习近平新时代中国特色社会主义思想概论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/xc1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    形势与政策I
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    外语类
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            外语类
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/dy3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    大学英语III
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/dy4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    大学英语IV
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_4" id="__nav_3_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    创新创业类
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            创新创业类
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/zg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    职业生涯规划
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_5" id="__nav_3_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    计算机类
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            计算机类
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/djj/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    计算机科学基础（A）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C程序设计基础及实验
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    专业基础课程
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            专业基础课程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/gctx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    工程图学
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/gx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    工程训练
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/ode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    常微分方程
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/fb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    复变函数与积分变换
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/gt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    概率论与数理统计
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/dl1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    电路与电子技术I
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/dlsy1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    电路与电子技术实验I
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/md/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    电路与电子技术II
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/dlsy2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    电路与电子技术实验II
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    体育课
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            体育课
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/wlws/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    舞龙舞狮
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/ppq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    乒乓球（初级）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/wrz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    五人制足球
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/yy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    游泳（初级）1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/yy2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    游泳（初级）2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/pkq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    匹克球
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    通识选修课程
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            通识选修课程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/nbe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    诺贝尔奖与生命健康
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/xz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    大学写作-自然
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/byl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    博弈论基础
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/jjf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    经济法理论与实务
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/kzl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    控制论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/zgtc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    中国陶瓷与玻璃-艺术与科学
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/twc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    调味茶制作与鉴赏
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    生仪双方向专业必修课
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            生仪双方向专业必修课
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/wj/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    微机原理及应用
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/gcslx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    工程生理学
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/bsp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    生物医学信号处理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/bit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    生物医学成像技术
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/bip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    生物医学图像处理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/cg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    生物医学传感与检测
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/dianshe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    电子系统设计与实践
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    生仪诊疗方向专业必修课
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            生仪诊疗方向专业必修课
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/dlslx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    定量生理学
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/lygl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    临床医学概论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/bmi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    生物医学信息学
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-coourses/sbm.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    系统生物医学
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    专业选修课
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            专业选修课
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/btj/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    生物医学统计学
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/light/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    生物医学光学成像前沿导论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/EDA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EDA技术应用
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/yyAI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    医药人工智能（跨专业课程）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_9" id="__nav_3_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    短学期课程
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_9">
+            <span class="md-nav__icon md-icon"></span>
+            短学期课程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/rzsx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    认知实习
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/znyx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    智能医学创新实践
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    课程笔记
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            课程笔记
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    关于本栏
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    C程序设计基础及实验
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            C程序设计基础及实验
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第1讲 基础语法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第2讲 运算符
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第3讲 变量类型
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notec4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第4讲 不同类型变量的运算
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notec5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第5讲 数组
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notec6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第6讲 字符串
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notec7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第7讲 指针
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notec9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第8讲 结构类型变量和链表
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notec10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第9讲 文件
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notec8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    基本算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pta/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PTA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notec11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    理论考错题
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notefb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    复变函数与积分变换
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    概率论与数理统计
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            概率论与数理统计
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notegt1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第1章 概率论的基本概念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notegt2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第2章 随机变量及其概率分布
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notegt3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第3章 多维随机变量及其分布
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notegt4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第4章 随机变量的数字特征
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notegt5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第5章 大数定律和中心极限定理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notegt6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第6章 统计量及其抽样分布
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notegt7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第7章 参数估计
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notegt8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第8章 假设检验
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gt%E5%B0%8F%E6%B5%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    小测汇总
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    数字电路
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            数字电路
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesd3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第1讲  半导体器件
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesd0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第2讲  集成门电路
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesd1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第3讲  触发器与锁存器
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesd2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第4讲  基本组合逻辑电路
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesd4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第5讲  基本时序逻辑电路
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesdsy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    数电实验
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    马克思主义基本原理
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            马克思主义基本原理
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notemy0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第0讲  说明及资源汇总
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notemy1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第1讲  导论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notemy2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第2讲  哲学基本问题
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notemy3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第3讲  唯物论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notemy4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第4讲  辩证法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notemy5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第5讲  认识论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notemy6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第6讲  唯物史观
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notemy7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第7讲  政治经济学
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notemy8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第8讲  科学社会主义
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    毛泽东思想与中国特色社会主义理论体系概论
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            毛泽东思想与中国特色社会主义理论体系概论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notemg1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    会议
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notemg2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    简短关键句知识点
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notemg3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    著作
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8E%A7%E5%88%B6%E8%AE%BA%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    控制论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notedwsy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    大学物理实验
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_11" id="__nav_4_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    微机原理及应用
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_11">
+            <span class="md-nav__icon md-icon"></span>
+            微机原理及应用
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notewj1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第1章 绪论+51单片机硬件结构
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notewj2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第2章 MCS-51单片机指令系统
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notewj3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第3章 51单片机汇编程序设计
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notewj4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第4章 中断系统
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notewj5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第5章 存储器和I/O扩展
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notewj6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第6章 定时器/计数器
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notewj7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第7章 串行通讯
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notewj8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第8章 AD/DA接口
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notewj9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第9章 键盘
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_12" id="__nav_4_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    生物医学信号处理
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_12">
+            <span class="md-nav__icon md-icon"></span>
+            生物医学信号处理
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebsp1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第1章 信号与系统的基本概念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebsp2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第2章 系统的数学模型
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebsp3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第3章 卷积的计算和性质
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebsp4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第4章 连续时间信号的傅里叶级数与傅里叶变换
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebsp5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第5章 连续系统频域分析与采样
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebsp6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第6章 离散时间信号和系统的频域分析DTFT和DFT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebsp7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第7章 拉普拉斯变换与连续时间系统传递函数
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebsp8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第8章 z变换与离散时间系统传递函数
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebsp9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第9章 系统稳定性
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebsp10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第10章 滤波器设计
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebsp11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    实验课
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebsp12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    英语词汇
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_13" id="__nav_4_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    生物医学统计学
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_13">
+            <span class="md-nav__icon md-icon"></span>
+            生物医学统计学
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesyt0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第0章 绪论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesyt1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第1章 统计描述
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesyt2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第2章 概率分布
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesyt3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第3章 参数估计
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesyt4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第4章 假设检验
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesyt5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第5章 两样本定量资料的比较
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesyt6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第6章 多组定量资料的比较
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesyt7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第7章 定性资料的比较
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesyt8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第8章 关联性分析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesyt9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第9章 简单线性回归分析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesyt10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第10章 多重线性回归分析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesyt11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第11章 Logistic回归
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesyt12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第12章 多水平模型
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesyt13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第13章 多元统计方法简介
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_14" id="__nav_4_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    生物医学成像技术
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_14">
+            <span class="md-nav__icon md-icon"></span>
+            生物医学成像技术
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notecx1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第一部分 X-Ray
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notecx2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第二部分 CT成像
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notecx3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第三部分 核医学成像
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notecx4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第四部分 超声成像
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notecx5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第五部分 光学成像
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notecx6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第六部分 MRI成像
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notecx7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    A4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_15" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_15" id="__nav_4_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    生物医学图像处理
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_15_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_15">
+            <span class="md-nav__icon md-icon"></span>
+            生物医学图像处理
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebip1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第1章 图像处理基础概念与彩色图像处理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebip2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第2章 图像变换
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebip3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第3章 空间滤波
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebip4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第4章 图像频率域变换
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebip5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第5章 频率域滤波
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    第6章 图像复原
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    第6章 图像复原
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#degradation-and-restoration-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、图像退化与复原模型（Degradation and Restoration Model）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一、图像退化与复原模型（Degradation and Restoration Model）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 图像增强 vs 图像复原
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 线性、空间不变退化模型
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#noise-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、噪声模型（Noise Models）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、噪声模型（Noise Models）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 噪声来源
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-pdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 常见空间域噪声 PDF
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 常见空间域噪声 PDF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1gaussian-noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      （1）高斯噪声（Gaussian Noise）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2rayleigh-noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      （2）瑞利噪声（Rayleigh Noise）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3erlang-gamma-noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      （3）爱尔朗/伽马噪声（Erlang / Gamma Noise）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4exponential-noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      （4）指数噪声（Exponential Noise）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5uniform-noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      （5）均匀噪声（Uniform Noise）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6salt-and-pepper-noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      （6）椒盐噪声（Salt-and-Pepper Noise）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-periodic-noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 周期性噪声（Periodic Noise）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-mri" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 MRI 中的噪声
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 噪声参数估计
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 噪声参数估计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      周期性噪声
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他噪声
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spatial-domain-denoising" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、空间域去噪滤波（Spatial Domain Denoising）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、空间域去噪滤波（Spatial Domain Denoising）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-mean-filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 均值滤波器（Mean Filters）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 均值滤波器（Mean Filters）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1arithmetic-mean-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      （1）算术均值滤波器（Arithmetic Mean Filter）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2geometric-mean-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      （2）几何均值滤波器（Geometric Mean Filter）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3harmonic-mean-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      （3）谐波均值滤波器（Harmonic Mean Filter）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4contraharmonic-mean-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      （4）逆谐波均值滤波器（Contraharmonic Mean Filter）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-order-statistics-filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 统计排序滤波器（Order-Statistics Filters）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 统计排序滤波器（Order-Statistics Filters）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1median-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      （1）中值滤波器（Median Filter）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2max-min-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      （2）最大值/最小值滤波器（Max / Min Filter）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3midpoint-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      （3）中点滤波器（Midpoint Filter）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4alpha-alpha-trimmed-mean-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      （4）Alpha-修剪均值滤波器（Alpha-Trimmed Mean Filter）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-adaptive-filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 自适应滤波器（Adaptive Filters）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 自适应滤波器（Adaptive Filters）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1alnrf-adaptive-local-noise-reduction-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      （1）自适应局部降噪滤波器（ALNRF — Adaptive Local Noise Reduction Filter）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2amf-adaptive-median-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      （2）自适应中值滤波器（AMF — Adaptive Median Filter）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-non-local-means-filter-nlm" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 非局部均值滤波器（Non-Local Means Filter — NLM）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimum-notch-filtering" class="md-nav__link">
+    <span class="md-ellipsis">
+      四、频率域去噪 — 最优陷波滤波（Optimum Notch Filtering）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="四、频率域去噪 — 最优陷波滤波（Optimum Notch Filtering）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 陷波滤波回顾
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-optimum-notch-filtering-onf" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 最优陷波滤波（Optimum Notch Filtering — ONF）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estimating-the-degradation-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      五、退化函数估计（Estimating the Degradation Function）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="五、退化函数估计（Estimating the Degradation Function）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-observation" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 观察法（Observation）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-experimentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 实验法（Experimentation）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-mathematical-modelling" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 数学建模法（Mathematical Modelling）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 数学建模法（Mathematical Modelling）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hufnagel-stanley" class="md-nav__link">
+    <span class="md-ellipsis">
+      大气湍流模型（Hufnagel &amp; Stanley）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uniform-linear-motion" class="md-nav__link">
+    <span class="md-ellipsis">
+      匀速直线运动模糊（Uniform Linear Motion）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inverse-filtering" class="md-nav__link">
+    <span class="md-ellipsis">
+      六、逆滤波（Inverse Filtering）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="六、逆滤波（Inverse Filtering）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 直接逆滤波
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 逆滤波的两大问题
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-limited-inverse-filtering" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 受限逆滤波（Limited Inverse Filtering）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wiener-filtering" class="md-nav__link">
+    <span class="md-ellipsis">
+      七、维纳滤波（Wiener Filtering — 最小均方误差滤波）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="七、维纳滤波（Wiener Filtering — 最小均方误差滤波）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 基本思想
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2 维纳滤波的直观理解
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3 实用近似
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.4 维纳滤波 vs 逆滤波
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constrained-least-squares-filtering-clsf" class="md-nav__link">
+    <span class="md-ellipsis">
+      八、约束最小二乘滤波（Constrained Least Squares Filtering — CLSF）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="八、约束最小二乘滤波（Constrained Least Squares Filtering — CLSF）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 优化目标
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 频率域解
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-gamma" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3 \(\gamma\) 参数的影响
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-clsf" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4 CLSF 处理运动模糊的特殊优势
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geometric-mean-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      九、几何均值滤波器（Geometric Mean Filter — 广义维纳滤波）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="九、几何均值滤波器（Geometric Mean Filter — 广义维纳滤波）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1 一般形式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 特例对应表
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      十、本章总结（Summary）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="十、本章总结（Summary）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      图像复原全流程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      噪声类型速查
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      复原滤波器速查
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      课后作业
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="课后作业">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hw3-problem-1rician-alpha-trimmed" class="md-nav__link">
+    <span class="md-ellipsis">
+      hw3 — Problem 1：Rician 噪声的分布性质与自适应 Alpha-Trimmed 滤波
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hw3-problem-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      hw3 — Problem 2：约束最小二乘滤波的性质与运动模糊复原
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hw3-problem-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      hw3 — Problem 3：维纳滤波的退化函数推导
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab4-project-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      实验（LAB4 — Project 3：图像复原）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="实验（LAB4 — Project 3：图像复原）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      实验内容
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      实验原理
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      历年卷解答
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="历年卷解答">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2020" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、周期噪声应该用陷波滤波（2020 判断）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-2020-2022-2021" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、维纳滤波 vs 逆滤波（2020 判断 / 2022 大题 / 2021 大题）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2022" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、获取高通滤波能否用原图除以低通滤波？（2022 判断）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2021" class="md-nav__link">
+    <span class="md-ellipsis">
+      四、处理后变模糊+有振铃→可能的滤波器（2021 选择）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2022_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      五、哪些是空间滤波器？（2022 选择）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q" class="md-nav__link">
+    <span class="md-ellipsis">
+      六、逆谐波均值滤波器中 Q 符号的作用（结合课程内容）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    回忆卷资源
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            回忆卷资源
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../memorytest/hyj/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    关于本栏
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../memorytest/phsyhyj/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    普通化学实验（乙）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../memorytest/xchyj/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    形势与政策I
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../memorytest/dw1hyj/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    大学物理（甲）I
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    大学物理（甲）II
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            大学物理（甲）II
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../memorytest/yb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    小测（杨波）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../memorytest/dw2hyj/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    期中期末卷
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../memorytest/fbhyj/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    复变函数与积分变换
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_7" id="__nav_5_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    电路与电子技术I
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_7">
+            <span class="md-nav__icon md-icon"></span>
+            电路与电子技术I
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../memorytest/dlhyj/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    期中
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../memorytest/sdhyj/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    期末
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../memorytest/gthyj/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    概率论与数理统计
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_9" id="__nav_5_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    电路与电子技术II
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_9">
+            <span class="md-nav__icon md-icon"></span>
+            电路与电子技术II
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../memorytest/modian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    周箭课堂练习
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../memorytest/mdhyj/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    期末
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    实验课资源
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            实验课资源
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../experiment/about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    关于本栏
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../experiment/chemistry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    普通化学实验（乙）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../experiment/physics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    大学物理实验
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../experiment/gongxun/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    工程训练
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../experiment/electric1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    电路与电子技术实验I
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../experiment/electric2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    电路与电子技术实验II
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../experiment/wj/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    微机原理及应用
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../experiment/dssy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    大学生物学实验
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../experiment/bsp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    生物医学信号处理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../experiment/bip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    生物医学图像处理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../experiment/cg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    生物医学传感与检测
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    生活分享
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            生活分享
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../life/about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    关于本栏
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../life/%E7%91%9E%E4%B8%AD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    瑞中拓印
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../life/%E7%BB%BC%E8%89%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    综艺观看史
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../life/%E6%82%AC%E7%96%91/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    悬疑观看记录
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../life/%E8%B5%B5%E4%BB%8A%E9%BA%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    赵今麦
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../link/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    友情链接
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    留言板
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#degradation-and-restoration-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、图像退化与复原模型（Degradation and Restoration Model）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一、图像退化与复原模型（Degradation and Restoration Model）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 图像增强 vs 图像复原
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 线性、空间不变退化模型
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#noise-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、噪声模型（Noise Models）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、噪声模型（Noise Models）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 噪声来源
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-pdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 常见空间域噪声 PDF
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 常见空间域噪声 PDF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1gaussian-noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      （1）高斯噪声（Gaussian Noise）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2rayleigh-noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      （2）瑞利噪声（Rayleigh Noise）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3erlang-gamma-noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      （3）爱尔朗/伽马噪声（Erlang / Gamma Noise）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4exponential-noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      （4）指数噪声（Exponential Noise）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5uniform-noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      （5）均匀噪声（Uniform Noise）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6salt-and-pepper-noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      （6）椒盐噪声（Salt-and-Pepper Noise）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-periodic-noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 周期性噪声（Periodic Noise）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-mri" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 MRI 中的噪声
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 噪声参数估计
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 噪声参数估计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      周期性噪声
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他噪声
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spatial-domain-denoising" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、空间域去噪滤波（Spatial Domain Denoising）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、空间域去噪滤波（Spatial Domain Denoising）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-mean-filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 均值滤波器（Mean Filters）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 均值滤波器（Mean Filters）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1arithmetic-mean-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      （1）算术均值滤波器（Arithmetic Mean Filter）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2geometric-mean-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      （2）几何均值滤波器（Geometric Mean Filter）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3harmonic-mean-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      （3）谐波均值滤波器（Harmonic Mean Filter）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4contraharmonic-mean-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      （4）逆谐波均值滤波器（Contraharmonic Mean Filter）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-order-statistics-filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 统计排序滤波器（Order-Statistics Filters）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 统计排序滤波器（Order-Statistics Filters）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1median-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      （1）中值滤波器（Median Filter）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2max-min-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      （2）最大值/最小值滤波器（Max / Min Filter）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3midpoint-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      （3）中点滤波器（Midpoint Filter）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4alpha-alpha-trimmed-mean-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      （4）Alpha-修剪均值滤波器（Alpha-Trimmed Mean Filter）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-adaptive-filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 自适应滤波器（Adaptive Filters）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 自适应滤波器（Adaptive Filters）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1alnrf-adaptive-local-noise-reduction-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      （1）自适应局部降噪滤波器（ALNRF — Adaptive Local Noise Reduction Filter）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2amf-adaptive-median-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      （2）自适应中值滤波器（AMF — Adaptive Median Filter）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-non-local-means-filter-nlm" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 非局部均值滤波器（Non-Local Means Filter — NLM）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimum-notch-filtering" class="md-nav__link">
+    <span class="md-ellipsis">
+      四、频率域去噪 — 最优陷波滤波（Optimum Notch Filtering）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="四、频率域去噪 — 最优陷波滤波（Optimum Notch Filtering）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 陷波滤波回顾
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-optimum-notch-filtering-onf" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 最优陷波滤波（Optimum Notch Filtering — ONF）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estimating-the-degradation-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      五、退化函数估计（Estimating the Degradation Function）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="五、退化函数估计（Estimating the Degradation Function）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-observation" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 观察法（Observation）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-experimentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 实验法（Experimentation）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-mathematical-modelling" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 数学建模法（Mathematical Modelling）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 数学建模法（Mathematical Modelling）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hufnagel-stanley" class="md-nav__link">
+    <span class="md-ellipsis">
+      大气湍流模型（Hufnagel &amp; Stanley）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uniform-linear-motion" class="md-nav__link">
+    <span class="md-ellipsis">
+      匀速直线运动模糊（Uniform Linear Motion）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inverse-filtering" class="md-nav__link">
+    <span class="md-ellipsis">
+      六、逆滤波（Inverse Filtering）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="六、逆滤波（Inverse Filtering）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 直接逆滤波
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 逆滤波的两大问题
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-limited-inverse-filtering" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 受限逆滤波（Limited Inverse Filtering）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wiener-filtering" class="md-nav__link">
+    <span class="md-ellipsis">
+      七、维纳滤波（Wiener Filtering — 最小均方误差滤波）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="七、维纳滤波（Wiener Filtering — 最小均方误差滤波）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 基本思想
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2 维纳滤波的直观理解
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3 实用近似
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.4 维纳滤波 vs 逆滤波
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constrained-least-squares-filtering-clsf" class="md-nav__link">
+    <span class="md-ellipsis">
+      八、约束最小二乘滤波（Constrained Least Squares Filtering — CLSF）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="八、约束最小二乘滤波（Constrained Least Squares Filtering — CLSF）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 优化目标
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 频率域解
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-gamma" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3 \(\gamma\) 参数的影响
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-clsf" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4 CLSF 处理运动模糊的特殊优势
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geometric-mean-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      九、几何均值滤波器（Geometric Mean Filter — 广义维纳滤波）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="九、几何均值滤波器（Geometric Mean Filter — 广义维纳滤波）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1 一般形式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 特例对应表
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      十、本章总结（Summary）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="十、本章总结（Summary）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      图像复原全流程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      噪声类型速查
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      复原滤波器速查
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      课后作业
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="课后作业">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hw3-problem-1rician-alpha-trimmed" class="md-nav__link">
+    <span class="md-ellipsis">
+      hw3 — Problem 1：Rician 噪声的分布性质与自适应 Alpha-Trimmed 滤波
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hw3-problem-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      hw3 — Problem 2：约束最小二乘滤波的性质与运动模糊复原
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hw3-problem-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      hw3 — Problem 3：维纳滤波的退化函数推导
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab4-project-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      实验（LAB4 — Project 3：图像复原）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="实验（LAB4 — Project 3：图像复原）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      实验内容
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      实验原理
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      历年卷解答
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="历年卷解答">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2020" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、周期噪声应该用陷波滤波（2020 判断）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-2020-2022-2021" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、维纳滤波 vs 逆滤波（2020 判断 / 2022 大题 / 2021 大题）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2022" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、获取高通滤波能否用原图除以低通滤波？（2022 判断）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2021" class="md-nav__link">
+    <span class="md-ellipsis">
+      四、处理后变模糊+有振铃→可能的滤波器（2021 选择）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2022_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      五、哪些是空间滤波器？（2022 选择）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q" class="md-nav__link">
+    <span class="md-ellipsis">
+      六、逆谐波均值滤波器中 Q 符号的作用（结合课程内容）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>第6章 图像复原</h1>
+
+<h2 id="degradation-and-restoration-model">一、图像退化与复原模型（Degradation and Restoration Model）</h2>
+<h3 id="11-vs">1.1 图像增强 vs 图像复原</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: center;">图像增强（Enhancement）</th>
+<th style="text-align: center;">图像复原（Restoration）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>目标</strong></td>
+<td style="text-align: center;">让图像"看起来更好"</td>
+<td style="text-align: center;">尽可能重建原始图像</td>
+</tr>
+<tr>
+<td><strong>方法</strong></td>
+<td style="text-align: center;">主观、启发式</td>
+<td style="text-align: center;">客观、数学模型驱动</td>
+</tr>
+<tr>
+<td><strong>评价</strong></td>
+<td style="text-align: center;">视觉效果</td>
+<td style="text-align: center;">逼近真实值的程度</td>
+</tr>
+<tr>
+<td><strong>退化模型</strong></td>
+<td style="text-align: center;">不需要</td>
+<td style="text-align: center;">必须建立退化模型</td>
+</tr>
+</tbody>
+</table>
+<p>图像复原的核心公式——空间域：</p>
+<div class="arithmatex">\[
+g(x,y) = h(x,y) * f(x,y) + \eta(x,y)
+\]</div>
+<p>频率域：</p>
+<div class="arithmatex">\[
+G(u,v) = H(u,v) \cdot F(u,v) + N(u,v)
+\]</div>
+<p>其中 <span class="arithmatex">\(f(x,y)\)</span> 为原始（未退化）图像，<span class="arithmatex">\(h(x,y)\)</span> 为退化函数（点扩散函数 PSF），<span class="arithmatex">\(\eta(x,y)\)</span> 为加性噪声。</p>
+<!-- 建议插入PPT截图：Lecture7第7页"Previously"对比增强vs复原的示意图，插入位置：本节开头 -->
+
+<h3 id="12">1.2 线性、空间不变退化模型</h3>
+<p>退化系统 <span class="arithmatex">\(H\)</span> 的性质：</p>
+<ul>
+<li><strong>线性（Linear）</strong>：<span class="arithmatex">\(H[a f_1 + b f_2] = a H[f_1] + b H[f_2]\)</span>（可加性 + 齐次性）</li>
+<li><strong>空间不变（Position-Invariant）</strong>：<span class="arithmatex">\(H[f(x - x_0, y - y_0)] = g(x - x_0, y - y_0)\)</span></li>
+</ul>
+<p>当 <span class="arithmatex">\(H\)</span> 同时满足线性和空间不变时，退化过程表示为<strong>卷积</strong>：</p>
+<div class="arithmatex">\[
+g(x,y) = \iint h(x - \alpha, y - \beta) f(\alpha, \beta) \, d\alpha \, d\beta + \eta(x,y)
+\]</div>
+<p><strong>复原的本质</strong>：估计噪声 → 估计退化函数 → <strong>图像去卷积（Image Deconvolution）</strong>。</p>
+<!-- 建议插入PPT截图：Lecture7第8页"A Model of Degradations"退化模型示意图，插入位置：此处 -->
+
+<hr />
+<h2 id="noise-models">二、噪声模型（Noise Models）</h2>
+<h3 id="21">2.1 噪声来源</h3>
+<ul>
+<li>图像<strong>采集</strong>过程中的热噪声、电磁干扰</li>
+<li>图像<strong>传输</strong>过程中的信道误码</li>
+</ul>
+<p>关键特征：<strong>随机性（randomness）</strong>和<strong>规律性（regularity）</strong>。</p>
+<h3 id="22-pdf">2.2 常见空间域噪声 PDF</h3>
+<h4 id="1gaussian-noise">（1）高斯噪声（Gaussian Noise）</h4>
+<p>最常见的热噪声模型：</p>
+<div class="arithmatex">\[
+p(z) = \frac{1}{\sqrt{2\pi}\sigma} e^{-(z - \mu)^2 / (2\sigma^2)}
+\]</div>
+<ul>
+<li>参数：均值 <span class="arithmatex">\(\mu\)</span>（整体亮度偏移）、标准差 <span class="arithmatex">\(\sigma\)</span>（噪声强度）</li>
+<li>来源：传感器热噪声、电路电子噪声</li>
+</ul>
+<!-- 建议插入PPT截图：Lecture7第13页高斯噪声PDF曲线及加噪示例图，插入位置：此处 -->
+
+<h4 id="2rayleigh-noise">（2）瑞利噪声（Rayleigh Noise）</h4>
+<p>非负随机变量的连续概率分布，向量模长：</p>
+<div class="arithmatex">\[
+p(z) = \begin{cases} \frac{2}{b}(z - a) e^{-(z-a)^2/b}, &amp; z \geq a \\ 0, &amp; z &lt; a \end{cases}
+\]</div>
+<p>均值 <span class="arithmatex">\(\mu = a + \sqrt{\pi b/4}\)</span>，方差 <span class="arithmatex">\(\sigma^2 = b(4 - \pi)/4\)</span></p>
+<!-- 建议插入PPT截图：Lecture7第14页瑞利噪声PDF及示例，插入位置：此处 -->
+
+<h4 id="3erlang-gamma-noise">（3）爱尔朗/伽马噪声（Erlang / Gamma Noise）</h4>
+<p>激光成像中常见：</p>
+<div class="arithmatex">\[
+p(z) = \begin{cases} \frac{a^b z^{b-1}}{(b-1)!} e^{-az}, &amp; z \geq 0 \\ 0, &amp; z &lt; 0 \end{cases}
+\]</div>
+<p>均值 <span class="arithmatex">\(\mu = b/a\)</span>，方差 <span class="arithmatex">\(\sigma^2 = b/a^2\)</span></p>
+<h4 id="4exponential-noise">（4）指数噪声（Exponential Noise）</h4>
+<p>伽马噪声的特例（<span class="arithmatex">\(b=1\)</span>）：</p>
+<div class="arithmatex">\[
+p(z) = \begin{cases} a e^{-az}, &amp; z \geq 0 \\ 0, &amp; z &lt; 0 \end{cases}
+\]</div>
+<p>均值 <span class="arithmatex">\(\mu = 1/a\)</span>，方差 <span class="arithmatex">\(\sigma^2 = 1/a^2\)</span></p>
+<h4 id="5uniform-noise">（5）均匀噪声（Uniform Noise）</h4>
+<p>量化噪声：</p>
+<div class="arithmatex">\[
+p(z) = \begin{cases} \frac{1}{b-a}, &amp; a \leq z \leq b \\ 0, &amp; \text{其他} \end{cases}
+\]</div>
+<p>均值 <span class="arithmatex">\(\mu = (a+b)/2\)</span>，方差 <span class="arithmatex">\(\sigma^2 = (b-a)^2/12\)</span></p>
+<!-- 建议插入PPT截图：Lecture7第19页六种空间噪声的直方图对比图（Original + 六种噪声直方图），插入位置：此处 -->
+
+<h4 id="6salt-and-pepper-noise">（6）椒盐噪声（Salt-and-Pepper Noise）</h4>
+<p>又称<strong>脉冲噪声（Impulse Noise）</strong>：</p>
+<div class="arithmatex">\[
+p(z) = \begin{cases} P_s, &amp; z = 2^k - 1 \; (\text{盐——白点}) \\ P_p, &amp; z = 0 \; (\text{椒——黑点}) \\ 1 - (P_s + P_p), &amp; z = V \end{cases}
+\]</div>
+<ul>
+<li>来源：模数转换器错误、传输误码、传感器故障</li>
+<li>双极脉冲噪声：<span class="arithmatex">\(P_s \approx P_p\)</span>（黑白噪点等概率）</li>
+<li>单极脉冲噪声：<span class="arithmatex">\(P_s \neq P_p\)</span></li>
+</ul>
+<!-- 建议插入PPT截图：Lecture7第20页椒盐噪声示例图，插入位置：此处 -->
+
+<h3 id="23-periodic-noise">2.3 周期性噪声（Periodic Noise）</h3>
+<p>来自图像采集过程中的<strong>电气或机电干扰</strong>：</p>
+<ul>
+<li>空间域：叠加正弦型条纹</li>
+<li>频率域：<strong>一对共轭对称的孤立亮斑</strong>（在 DFT 幅度谱中表现为关于原点对称的两个尖峰）</li>
+<li>消除方法：陷波滤波器（Notch Filter）</li>
+</ul>
+<!-- 建议插入PPT截图：Lecture7第22页正弦噪声图像及其频谱亮斑图，插入位置：此处 -->
+
+<h3 id="24-mri">2.4 MRI 中的噪声</h3>
+<p>MRI 图像中的三类噪声：</p>
+<table>
+<thead>
+<tr>
+<th>噪声类型</th>
+<th>来源</th>
+<th>特征</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>随机噪声</strong></td>
+<td>RF 线圈热噪声、前置放大器电子噪声</td>
+<td>在复杂 K 空间为高斯，在幅度图像为 <strong>Rician 分布</strong></td>
+</tr>
+<tr>
+<td><strong>脉冲噪声</strong></td>
+<td>传感器故障、传输误码</td>
+<td>椒盐状随机尖刺</td>
+</tr>
+<tr>
+<td><strong>结构化噪声</strong></td>
+<td>鬼影、运动伪影、滤波、重建</td>
+<td>与图像内容和处理方法相关</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Rician 噪声的关键性质</p>
+<p>MRI 的原始 K 空间复数信号：<span class="arithmatex">\(\text{real} = \nu + \epsilon_{\text{real}}\)</span>, <span class="arithmatex">\(\text{imag} = 0 + \epsilon_{\text{imag}}\)</span></p>
+<p>其中 <span class="arithmatex">\(\epsilon \sim N(0, \sigma^2)\)</span>，幅度图像 <span class="arithmatex">\(M = \sqrt{(\nu + \epsilon_{\text{real}})^2 + \epsilon_{\text{imag}}^2}\)</span> 服从 Rician 分布：</p>
+<div class="arithmatex">\[
+p(M|I,\sigma) = \frac{M}{\sigma^2} \exp\left(-\frac{M^2 + I^2}{2\sigma^2}\right) I_0\left(\frac{MI}{\sigma^2}\right)
+\]</div>
+<ul>
+<li><strong>背景区域</strong>（<span class="arithmatex">\(I = 0\)</span>）→ 近似于 <strong>瑞利分布（Rayleigh）</strong></li>
+<li><strong>高 SNR 区域</strong>（<span class="arithmatex">\(I \gg \sigma\)</span>）→ 近似于 <strong>高斯分布</strong> <span class="arithmatex">\(N(I, \sigma^2)\)</span></li>
+</ul>
+</div>
+<h3 id="25">2.5 噪声参数估计</h3>
+<h4 id="_1">周期性噪声</h4>
+<ul>
+<li>方法：检查图像的<strong>傅里叶频谱</strong>，定位对称亮斑</li>
+</ul>
+<h4 id="_2">其他噪声</h4>
+<p>两种估计策略：</p>
+<ol>
+<li><strong>有成像设备可用</strong>：拍摄一组"平坦"图像（如灰卡），直接统计</li>
+<li><strong>仅有图像可用</strong>：从图像中<strong>灰度恒定的小区域</strong>估计</li>
+</ol>
+<p><strong>具体步骤</strong>：</p>
+<ul>
+<li>选取图像中灰度恒定的窄条区域 <span class="arithmatex">\(S\)</span></li>
+<li>计算该区域的归一化直方图 <span class="arithmatex">\(p(z_i)\)</span></li>
+<li>计算均值和方差：<span class="arithmatex">\(\mu = \sum z_i p(z_i)\)</span>，<span class="arithmatex">\(\sigma^2 = \sum (z_i - \mu)^2 p(z_i)\)</span></li>
+<li>根据直方图形状匹配最近的 PDF → 用均值和方差反解 PDF 参数</li>
+</ul>
+<!-- 建议插入PPT截图：Lecture7第24页噪声参数估计示意图（选取图像区域→直方图匹配），插入位置：此处 -->
+
+<hr />
+<h2 id="spatial-domain-denoising">三、空间域去噪滤波（Spatial Domain Denoising）</h2>
+<p>当退化<strong>仅由噪声引起</strong>时（<span class="arithmatex">\(H\)</span> 为单位算子）：</p>
+<div class="arithmatex">\[
+g(x,y) = f(x,y) + \eta(x,y)
+\]</div>
+<div class="arithmatex">\[
+G(u,v) = F(u,v) + N(u,v)
+\]</div>
+<h3 id="31-mean-filters">3.1 均值滤波器（Mean Filters）</h3>
+<h4 id="1arithmetic-mean-filter">（1）算术均值滤波器（Arithmetic Mean Filter）</h4>
+<div class="arithmatex">\[
+\hat{f}(x,y) = \frac{1}{mn} \sum_{(s,t) \in S_{xy}} g(s,t)
+\]</div>
+<ul>
+<li>最简单的平滑滤波器</li>
+<li>同时减少噪声和模糊图像细节</li>
+</ul>
+<h4 id="2geometric-mean-filter">（2）几何均值滤波器（Geometric Mean Filter）</h4>
+<div class="arithmatex">\[
+\hat{f}(x,y) = \left[ \prod_{(s,t) \in S_{xy}} g(s,t) \right]^{\frac{1}{mn}}
+\]</div>
+<ul>
+<li>平滑效果接近算术均值，但<strong>丢失更少图像细节</strong></li>
+<li>缺点：不能处理含零值的像素（乘积为零）</li>
+</ul>
+<h4 id="3harmonic-mean-filter">（3）谐波均值滤波器（Harmonic Mean Filter）</h4>
+<div class="arithmatex">\[
+\hat{f}(x,y) = \frac{mn}{\sum_{(s,t) \in S_{xy}} \frac{1}{g(s,t)}}
+\]</div>
+<ul>
+<li>对<strong>盐噪声</strong>（白色噪点）效果好</li>
+<li>对<strong>椒噪声</strong>（黑色噪点）失效——因为 <span class="arithmatex">\(\frac{1}{0} \to \infty\)</span></li>
+</ul>
+<h4 id="4contraharmonic-mean-filter">（4）逆谐波均值滤波器（Contraharmonic Mean Filter）</h4>
+<div class="arithmatex">\[
+\hat{f}(x,y) = \frac{\sum_{(s,t) \in S_{xy}} g(s,t)^{Q+1}}{\sum_{(s,t) \in S_{xy}} g(s,t)^Q}
+\]</div>
+<ul>
+<li><span class="arithmatex">\(Q = 0\)</span>：退化为算术均值滤波器</li>
+<li><span class="arithmatex">\(Q = -1\)</span>：退化为谐波均值滤波器</li>
+<li><span class="arithmatex">\(Q &gt; 0\)</span>：消除<strong>椒噪声</strong>（黑色噪点）</li>
+<li><span class="arithmatex">\(Q &lt; 0\)</span>：消除<strong>盐噪声</strong>（白色噪点）</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Q 的符号选择至关重要</p>
+<p>选错 Q 的符号会导致灾难性后果——<span class="arithmatex">\(Q&gt;0\)</span> 处理盐噪声会使图像出现大面积黑斑，<span class="arithmatex">\(Q&lt;0\)</span> 处理椒噪声会使图像出现大面积白斑。</p>
+</div>
+<!-- 建议插入PPT截图：Lecture7第28-29页contraharmonic均值滤波器处理椒噪声和盐噪声的对比图，插入位置：此处 -->
+
+<h3 id="32-order-statistics-filters">3.2 统计排序滤波器（Order-Statistics Filters）</h3>
+<h4 id="1median-filter">（1）中值滤波器（Median Filter）</h4>
+<div class="arithmatex">\[
+\hat{f}(x,y) = \operatorname{median}_{(s,t) \in S_{xy}}\{g(s,t)\}
+\]</div>
+<ul>
+<li>对<strong>双极和单极脉冲噪声（椒盐噪声）</strong>特别有效</li>
+<li>相比线性平滑滤波器，<strong>模糊明显更少</strong></li>
+<li>可多次应用，但会逐渐模糊图像</li>
+</ul>
+<!-- 建议插入PPT截图：Lecture7第30页中值滤波器处理椒盐噪声一次的对比图，插入位置：此处 -->
+
+<h4 id="2max-min-filter">（2）最大值/最小值滤波器（Max / Min Filter）</h4>
+<div class="arithmatex">\[
+\hat{f}(x,y) = \max_{(s,t) \in S_{xy}}\{g(s,t)\} \quad \text{— 消除椒（黑）噪声}
+\]</div>
+<div class="arithmatex">\[
+\hat{f}(x,y) = \min_{(s,t) \in S_{xy}}\{g(s,t)\} \quad \text{— 消除盐（白）噪声}
+\]</div>
+<!-- 建议插入PPT截图：Lecture7第31页max/min滤波器处理椒盐噪声对比图，插入位置：此处 -->
+
+<h4 id="3midpoint-filter">（3）中点滤波器（Midpoint Filter）</h4>
+<div class="arithmatex">\[
+\hat{f}(x,y) = \frac{1}{2}\left[ \max_{(s,t) \in S_{xy}}\{g(s,t)\} + \min_{(s,t) \in S_{xy}}\{g(s,t)\} \right]
+\]</div>
+<ul>
+<li>结合排序统计和均值</li>
+<li>最适合<strong>随机分布噪声</strong>（高斯、均匀噪声）</li>
+</ul>
+<h4 id="4alpha-alpha-trimmed-mean-filter">（4）Alpha-修剪均值滤波器（Alpha-Trimmed Mean Filter）</h4>
+<div class="arithmatex">\[
+\hat{f}(x,y) = \frac{1}{mn - d} \sum_{(s,t) \in S_{xy} \setminus \{\text{trimmed } d/2 \text{ lowest, } d/2 \text{ highest}\}} g(s,t)
+\]</div>
+<ul>
+<li><span class="arithmatex">\(d = 0\)</span>：算术均值滤波器</li>
+<li><span class="arithmatex">\(d = mn - 1\)</span>：中值滤波器</li>
+<li>适用于<strong>混合多种噪声类型</strong>（如椒盐+高斯）</li>
+</ul>
+<!-- 建议插入PPT截图：Lecture7第32页均值滤波器与排序统计滤波器的对比汇总图，插入位置：此处 -->
+
+<h3 id="33-adaptive-filters">3.3 自适应滤波器（Adaptive Filters）</h3>
+<h4 id="1alnrf-adaptive-local-noise-reduction-filter">（1）自适应局部降噪滤波器（ALNRF — Adaptive Local Noise Reduction Filter）</h4>
+<div class="arithmatex">\[
+\hat{f}(x,y) = g(x,y) - \frac{\sigma_\eta^2}{\sigma_L^2}\left[g(x,y) - m_L\right]
+\]</div>
+<p>其中 <span class="arithmatex">\(m_L\)</span> 为局部均值，<span class="arithmatex">\(\sigma_L^2\)</span> 为局部方差，<span class="arithmatex">\(\sigma_\eta^2\)</span> 为（估计的）全局噪声方差。</p>
+<p><strong>工作原理</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>条件</th>
+<th>行为</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\sigma_\eta^2 = 0\)</span></td>
+<td>返回 <span class="arithmatex">\(g(x,y)\)</span></td>
+<td>无噪声，无需滤波</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\sigma_L^2 \gg \sigma_\eta^2\)</span></td>
+<td>返回接近 <span class="arithmatex">\(g(x,y)\)</span></td>
+<td>高局部方差 = 边缘，应保留</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\sigma_L^2 \approx \sigma_\eta^2\)</span></td>
+<td>返回 <span class="arithmatex">\(m_L\)</span>（局部均值）</td>
+<td>平坦区域，均值降噪</td>
+</tr>
+</tbody>
+</table>
+<!-- 建议插入PPT截图：Lecture7第36-37页ALNRF处理MRI/通用图的效果对比图，插入位置：此处 -->
+
+<h4 id="2amf-adaptive-median-filter">（2）自适应中值滤波器（AMF — Adaptive Median Filter）</h4>
+<p><strong>目标</strong>：
+1. 处理高概率的脉冲噪声（<span class="arithmatex">\(P_s, P_p &gt; 0.2\)</span>）
+2. 在平滑非脉冲噪声的同时保留细节</p>
+<p><strong>两级判断</strong>：</p>
+<ul>
+<li><strong>Level A</strong>：检查 <span class="arithmatex">\(z_{\text{med}}\)</span> 是否为脉冲 → 若不是，转 Level B；若是，增大窗口 → 若窗口已达上限 <span class="arithmatex">\(S_{\max}\)</span>，输出 <span class="arithmatex">\(z_{\text{med}}\)</span></li>
+<li><strong>Level B</strong>：检查 <span class="arithmatex">\(z_{xy}\)</span> 是否为脉冲 → 若不是，输出 <span class="arithmatex">\(z_{xy}\)</span>（保留原像素）；若是，输出 <span class="arithmatex">\(z_{\text{med}}\)</span>（用中值替代）</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">AMF 的关键优势</p>
+<p>只有当中心像素确实是脉冲时才用中值替代，否则保留原始像素——这比标准中值滤波器更好地保留了边缘细节。</p>
+</div>
+<!-- 建议插入PPT截图：Lecture7第39页AMF的流程图，插入位置：此处 -->
+<!-- 建议插入PPT截图：Lecture7第40页AMF与标准中值滤波器处理高密度椒盐噪声的对比图，插入位置：此处 -->
+
+<h3 id="34-non-local-means-filter-nlm">3.4 非局部均值滤波器（Non-Local Means Filter — NLM）</h3>
+<p><strong>核心思想</strong>：不局限于目标像素的局部邻域，而是<strong>在整个图像中搜索相似像素块</strong>，以相似度为权重做加权平均。</p>
+<div class="arithmatex">\[
+\hat{f}(x,y) = \frac{1}{C(p)} \sum_{q} w(p,q) \cdot g(q)
+\]</div>
+<p>其中 <span class="arithmatex">\(C(p) = \sum_q w(p,q)\)</span>，权重 <span class="arithmatex">\(w(p,q)\)</span> 取决于以 <span class="arithmatex">\(p\)</span> 和 <span class="arithmatex">\(q\)</span> 为中心的图像块之间的相似度：</p>
+<div class="arithmatex">\[
+w(p,q) = \exp\left( -\frac{|N_p - N_q|^2}{h^2} \right)
+\]</div>
+<p>其中 <span class="arithmatex">\(N_p\)</span>、<span class="arithmatex">\(N_q\)</span> 为图像块，<span class="arithmatex">\(h\)</span> 为平滑参数。</p>
+<p><strong>NLM vs 局部均值滤波器</strong>：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: center;">局部均值</th>
+<th style="text-align: center;">非局部均值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>搜索范围</strong></td>
+<td style="text-align: center;">固定邻域（如 <span class="arithmatex">\(3\times3\)</span>）</td>
+<td style="text-align: center;">全局或大范围搜索窗口</td>
+</tr>
+<tr>
+<td><strong>权重依据</strong></td>
+<td style="text-align: center;">空间距离</td>
+<td style="text-align: center;">图像块相似度（结构冗余）</td>
+</tr>
+<tr>
+<td><strong>边缘保护</strong></td>
+<td style="text-align: center;">较差</td>
+<td style="text-align: center;">优秀</td>
+</tr>
+<tr>
+<td><strong>计算量</strong></td>
+<td style="text-align: center;">小</td>
+<td style="text-align: center;">大</td>
+</tr>
+</tbody>
+</table>
+<!-- 建议插入PPT截图：Lecture7第42页NLM与Box滤波器的效果对比图，插入位置：此处 -->
+
+<hr />
+<h2 id="optimum-notch-filtering">四、频率域去噪 — 最优陷波滤波（Optimum Notch Filtering）</h2>
+<p>周期性噪声在频率域中表现为<strong>对称亮斑</strong>，用陷波滤波器（Notch Filter）精确阻断。</p>
+<h3 id="41">4.1 陷波滤波回顾</h3>
+<ul>
+<li><strong>陷波带阻</strong>：<span class="arithmatex">\(H_{\text{NR}}(u,v) = \prod_{k=1}^{Q} H_k(u,v) \cdot H_{-k}(u,v)\)</span></li>
+<li><strong>陷波带通</strong>：<span class="arithmatex">\(H_{\text{NP}} = 1 - H_{\text{NR}}\)</span>（可用于提取干扰模式）</li>
+</ul>
+<h3 id="42-optimum-notch-filtering-onf">4.2 最优陷波滤波（Optimum Notch Filtering — ONF）</h3>
+<p>当干扰成分有<strong>多个</strong>或带有<strong>展宽裙边</strong>时，简单陷波效果不佳。</p>
+<p><strong>ONF 方法</strong>：</p>
+<ol>
+<li>在每个噪声尖峰处放置陷波<strong>带通</strong>滤波器 → 仅提取干扰模式</li>
+<li>干扰模式的估计：<span class="arithmatex">\(\eta(x,y) = \mathcal{F}^{-1}\{H_{\text{NP}}(u,v) \cdot G(u,v)\}\)</span></li>
+<li>从原图中<strong>加权减去</strong>干扰：<span class="arithmatex">\(\hat{f}(x,y) = g(x,y) - w(x,y) \cdot \eta(x,y)\)</span></li>
+<li>权重 <span class="arithmatex">\(w(x,y)\)</span> 通过<strong>最小化 <span class="arithmatex">\(\hat{f}(x,y)\)</span> 的局部方差</strong>来确定：</li>
+</ol>
+<div class="arithmatex">\[
+w(x,y) = \frac{\overline{g(x,y)\eta(x,y)} - \bar{g}(x,y)\bar{\eta}(x,y)}{\overline{\eta^2(x,y)} - \bar{\eta}^2(x,y)}
+\]</div>
+<p>其中上划线表示邻域均值。</p>
+<!-- 建议插入PPT截图：Lecture7第47页ONF处理干扰模式+复原结果图，插入位置：此处 -->
+
+<hr />
+<h2 id="estimating-the-degradation-function">五、退化函数估计（Estimating the Degradation Function）</h2>
+<p>三种估计方法：</p>
+<h3 id="51-observation">5.1 观察法（Observation）</h3>
+<p>在退化图像中选择<strong>强信号区域</strong>（如一个亮点），利用：</p>
+<div class="arithmatex">\[
+H(u,v) = \frac{G(u,v)}{\hat{F}(u,v)}
+\]</div>
+<h3 id="52-experimentation">5.2 实验法（Experimentation）</h3>
+<p>利用系统的<strong>脉冲响应</strong>——输入一个脉冲（亮点），系统的输出就是退化函数 <span class="arithmatex">\(h(x,y)\)</span>：</p>
+<div class="arithmatex">\[
+H(u,v) = \frac{G(u,v)}{A}
+\]</div>
+<p>其中 <span class="arithmatex">\(A\)</span> 为脉冲的强度。</p>
+<h3 id="53-mathematical-modelling">5.3 数学建模法（Mathematical Modelling）</h3>
+<h4 id="hufnagel-stanley">大气湍流模型（Hufnagel &amp; Stanley）</h4>
+<div class="arithmatex">\[
+H(u,v) = e^{-k(u^2 + v^2)^{5/6}}
+\]</div>
+<ul>
+<li>等价于高斯低通滤波器</li>
+<li><span class="arithmatex">\(k\)</span> 控制退化程度（<span class="arithmatex">\(k\)</span> 越大，模糊越严重）</li>
+</ul>
+<!-- 建议插入PPT截图：Lecture7第51页不同k值下大气湍流模型的模糊效果图，插入位置：此处 -->
+
+<h4 id="uniform-linear-motion">匀速直线运动模糊（Uniform Linear Motion）</h4>
+<p>在曝光时间 <span class="arithmatex">\(T\)</span> 内，传感器与物体之间有相对运动：</p>
+<div class="arithmatex">\[
+H(u,v) = \frac{T}{\pi(ua + vb)} \sin[\pi(ua + vb)] \, e^{-j\pi(ua + vb)}
+\]</div>
+<ul>
+<li><span class="arithmatex">\(a\)</span>、<span class="arithmatex">\(b\)</span> 分别为 <span class="arithmatex">\(x\)</span>、<span class="arithmatex">\(y\)</span> 方向的运动位移</li>
+<li><span class="arithmatex">\(H(u,v)\)</span> 具有<strong>周期性过零点</strong>——在这些频率处退化函数值为零</li>
+</ul>
+<!-- 建议插入PPT截图：Lecture7第52页运动模糊示意图，插入位置：此处 -->
+
+<hr />
+<h2 id="inverse-filtering">六、逆滤波（Inverse Filtering）</h2>
+<h3 id="61">6.1 直接逆滤波</h3>
+<div class="arithmatex">\[
+\hat{F}(u,v) = \frac{G(u,v)}{H(u,v)} = F(u,v) + \frac{N(u,v)}{H(u,v)}
+\]</div>
+<h3 id="62">6.2 逆滤波的两大问题</h3>
+<ol>
+<li><strong>无法完全恢复 <span class="arithmatex">\(F\)</span></strong>：<span class="arithmatex">\(N(u,v)\)</span> 仍然未知</li>
+<li><strong>噪声放大</strong>：当 <span class="arithmatex">\(H(u,v) \to 0\)</span> 时（如运动模糊的<strong>过零点</strong>、高斯模糊的<strong>高频区域</strong>），</li>
+</ol>
+<p>$$
+   \frac{N(u,v)}{H(u,v)} \to \infty
+   $$</p>
+<p>→ 噪声被无限放大，图像被噪声完全淹没</p>
+<h3 id="63-limited-inverse-filtering">6.3 受限逆滤波（Limited Inverse Filtering）</h3>
+<p>只在一个有限频率半径内做逆滤波（截断高频）：</p>
+<div class="arithmatex">\[
+\hat{F}(u,v) = \begin{cases} \frac{G(u,v)}{H(u,v)}, &amp; D(u,v) \leq D_0 \\ 0, &amp; D(u,v) &gt; D_0 \end{cases}
+\]</div>
+<ul>
+<li>避免了高频噪声爆炸</li>
+<li>代价：频域硬截断 → <strong>振铃效应</strong></li>
+</ul>
+<!-- 建议插入PPT截图：Lecture7第53页直接逆滤波在不同截断半径下的结果对比图，插入位置：此处 -->
+
+<hr />
+<h2 id="wiener-filtering">七、维纳滤波（Wiener Filtering — 最小均方误差滤波）</h2>
+<h3 id="71">7.1 基本思想</h3>
+<p><strong>最小化均方误差</strong>：<span class="arithmatex">\(e^2 = E[(f - \hat{f})^2]\)</span></p>
+<p>在频率域的最优解：</p>
+<div class="arithmatex">\[
+\hat{F}(u,v) = \frac{1}{H(u,v)} \cdot \frac{|H(u,v)|^2}{|H(u,v)|^2 + S_\eta(u,v) / S_f(u,v)} \cdot G(u,v)
+\]</div>
+<p>其中 <span class="arithmatex">\(S_\eta(u,v) = |N(u,v)|^2\)</span> 为噪声功率谱，<span class="arithmatex">\(S_f(u,v) = |F(u,v)|^2\)</span> 为原始图像功率谱。</p>
+<h3 id="72">7.2 维纳滤波的直观理解</h3>
+<p>当 <span class="arithmatex">\(H(u,v)\)</span> 很大且 <span class="arithmatex">\(S_\eta/S_f\)</span> 很小时 → 趋近于逆滤波
+当 <span class="arithmatex">\(H(u,v) \to 0\)</span> 时 → <span class="arithmatex">\(\hat{F} \to 0\)</span>（抑制噪声，而非放大）</p>
+<h3 id="73">7.3 实用近似</h3>
+<p>当噪声功率谱和信号功率谱未知时：</p>
+<div class="arithmatex">\[
+\hat{F}(u,v) = \frac{1}{H(u,v)} \cdot \frac{|H(u,v)|^2}{|H(u,v)|^2 + K} \cdot G(u,v)
+\]</div>
+<p>其中 <span class="arithmatex">\(K\)</span> 为用户指定的常数（通常通过交互调节）。</p>
+<h3 id="74-vs">7.4 维纳滤波 vs 逆滤波</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: center;">逆滤波</th>
+<th style="text-align: center;">维纳滤波</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>噪声处理</strong></td>
+<td style="text-align: center;">在 <span class="arithmatex">\(H \to 0\)</span> 处无限放大噪声</td>
+<td style="text-align: center;">自动在噪声放大和去模糊间平衡</td>
+</tr>
+<tr>
+<td><strong>参数</strong></td>
+<td style="text-align: center;">无（或仅截断半径）</td>
+<td style="text-align: center;"><span class="arithmatex">\(K\)</span>（信噪比相关常数）</td>
+</tr>
+<tr>
+<td><strong>效果</strong></td>
+<td style="text-align: center;">容易完全崩溃</td>
+<td style="text-align: center;">稳定可靠</td>
+</tr>
+<tr>
+<td><strong>需要的信息</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(H(u,v)\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(H(u,v)\)</span> + 噪声与信号的功率比</td>
+</tr>
+</tbody>
+</table>
+<!-- 建议插入PPT截图：Lecture7第56页维纳滤波vs逆滤波的对比结果图，插入位置：此处 -->
+
+<hr />
+<h2 id="constrained-least-squares-filtering-clsf">八、约束最小二乘滤波（Constrained Least Squares Filtering — CLSF）</h2>
+<h3 id="81">8.1 优化目标</h3>
+<p><strong>优化</strong>：最小化图像的拉普拉斯（即最大化平滑）：</p>
+<div class="arithmatex">\[
+\sum_{x=0}^{M-1} \sum_{y=0}^{N-1} [\nabla^2 f(x,y)]^2
+\]</div>
+<p><strong>约束</strong>：<span class="arithmatex">\(\|g - H\hat{f}\|^2 = \|\eta\|^2\)</span>（复原误差的范数等于噪声范数）</p>
+<h3 id="82">8.2 频率域解</h3>
+<div class="arithmatex">\[
+\hat{F}(u,v) = \left[ \frac{H^*(u,v)}{|H(u,v)|^2 + \gamma |P(u,v)|^2} \right] G(u,v)
+\]</div>
+<p>其中 <span class="arithmatex">\(P(u,v)\)</span> 是拉普拉斯算子 <span class="arithmatex">\(p(x,y) = \begin{pmatrix} 0 &amp; -1 &amp; 0 \\ -1 &amp; 4 &amp; -1 \\ 0 &amp; -1 &amp; 0 \end{pmatrix}\)</span> 的傅里叶变换：</p>
+<div class="arithmatex">\[
+P(u,v) = 4 - 2\cos\left(\frac{2\pi u}{M}\right) - 2\cos\left(\frac{2\pi v}{N}\right)
+\]</div>
+<h3 id="83-gamma">8.3 <span class="arithmatex">\(\gamma\)</span> 参数的影响</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="arithmatex">\(\gamma\)</span> 取值</th>
+<th>滤波器行为</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(\gamma = 0\)</span></td>
+<td>退化为<strong>直接逆滤波</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(\gamma \to +\infty\)</span></td>
+<td>高频全被压制，图像变为无细节的平滑均匀图（仅 DC 分量保留）</td>
+</tr>
+<tr>
+<td style="text-align: center;">适当的 <span class="arithmatex">\(\gamma\)</span></td>
+<td>在去模糊和噪声抑制之间取得平衡</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">CLSF vs 维纳滤波</p>
+<ul>
+<li>维纳滤波需要知道噪声与信号的<strong>功率谱</strong>（或用户指定 <span class="arithmatex">\(K\)</span>）</li>
+<li>CLSF 只需要知道噪声的<strong>均值和方差</strong>——这也是为什么 CLSF 被称为"约束"的原因：以噪声能量为约束来限制解空间</li>
+<li>可以<strong>交互式调节</strong> <span class="arithmatex">\(\gamma\)</span> 直至结果满意</li>
+</ul>
+</div>
+<!-- 建议插入PPT截图：Lecture7第59页CLSF与Wiener滤波的对比结果图，插入位置：此处 -->
+
+<h3 id="84-clsf">8.4 CLSF 处理运动模糊的特殊优势</h3>
+<p>退化函数 <span class="arithmatex">\(H(u,v) = \frac{T}{\pi(ua + vb)} \sin[\pi(ua + vb)] e^{-j\pi(ua + vb)}\)</span> 具有周期性<strong>过零点</strong>。</p>
+<ul>
+<li>若 <span class="arithmatex">\(\gamma = 0\)</span>（逆滤波）：在过零点处 <span class="arithmatex">\(H \to 0\)</span>，轻微噪声 <span class="arithmatex">\(N(u,v)\)</span> 被除以零 → <strong>噪声爆炸</strong></li>
+<li>若 <span class="arithmatex">\(\gamma &gt; 0\)</span>（CLSF）：在过零点处分母 = <span class="arithmatex">\(|H|^2 + \gamma|P|^2 \approx \gamma|P|^2\)</span>（非零）→ 噪声得到控制</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Laplacian 正则化的物理意义</p>
+<p><span class="arithmatex">\(|P(u,v)|^2\)</span> 在高频处很大，CLSF 的分母在高频处不会为零——拉普拉斯算子天然对高频有惩罚作用，这恰好防止了逆滤波在高频处的噪声爆炸。</p>
+</div>
+<!-- 建议插入PPT截图：Lecture7第60页CLSF在不同gamma值下的结果对比图，插入位置：此处 -->
+
+<hr />
+<h2 id="geometric-mean-filter">九、几何均值滤波器（Geometric Mean Filter — 广义维纳滤波）</h2>
+<h3 id="91">9.1 一般形式</h3>
+<p>几何均值滤波器是维纳滤波的广义化：</p>
+<div class="arithmatex">\[
+\hat{F}(u,v) = \left[ \frac{H^*(u,v)}{|H(u,v)|^2} \right]^\alpha \left[ \frac{H^*(u,v)}{|H(u,v)|^2 + \beta \cdot \frac{S_\eta(u,v)}{S_f(u,v)}} \right]^{1-\alpha} G(u,v)
+\]</div>
+<p>其中 <span class="arithmatex">\(\alpha, \beta &gt; 0\)</span> 为实常数。</p>
+<h3 id="92">9.2 特例对应表</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="arithmatex">\(\alpha\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(\beta\)</span></th>
+<th>对应滤波器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
+<td style="text-align: center;">—</td>
+<td><strong>逆滤波</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(0\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
+<td><strong>标准维纳滤波</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(1/2\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
+<td><strong>谱均衡滤波器</strong>（两个极端乘积的几何平均）</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(0\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\neq 1\)</span></td>
+<td><strong>参数化维纳滤波</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(&lt; 1/2\)</span></td>
+<td>更接近维纳滤波</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(&gt; 1/2\)</span></td>
+<td>更接近逆滤波</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="summary">十、本章总结（Summary）</h2>
+<h3 id="_3">图像复原全流程</h3>
+<div class="arithmatex">\[
+\text{原图 } f \xrightarrow{H \text{ (退化)}} h*f \xrightarrow{+\eta \text{ (噪声)}} g \xrightarrow{\text{复原滤波}} \hat{f}
+\]</div>
+<h3 id="_4">噪声类型速查</h3>
+<table>
+<thead>
+<tr>
+<th>噪声类型</th>
+<th>PDF 特征</th>
+<th>适用滤波器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>高斯</strong></td>
+<td>对称钟形</td>
+<td>算术均值、高斯、NLM</td>
+</tr>
+<tr>
+<td><strong>瑞利</strong></td>
+<td>非负、右偏</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>椒盐</strong></td>
+<td>孤立的 0 和 255</td>
+<td>中值、max/min</td>
+</tr>
+<tr>
+<td><strong>周期性</strong></td>
+<td>频域对称亮斑</td>
+<td>陷波、最优陷波</td>
+</tr>
+<tr>
+<td><strong>Rician</strong></td>
+<td>MRI 特有</td>
+<td>NLM、自适应滤波</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_5">复原滤波器速查</h3>
+<table>
+<thead>
+<tr>
+<th>滤波器</th>
+<th>需要的信息</th>
+<th>何时失效</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>逆滤波</strong></td>
+<td><span class="arithmatex">\(H(u,v)\)</span></td>
+<td><span class="arithmatex">\(H \to 0\)</span> 时噪声爆炸</td>
+</tr>
+<tr>
+<td><strong>受限逆滤波</strong></td>
+<td><span class="arithmatex">\(H(u,v)\)</span> + 截断半径</td>
+<td>硬截断引入振铃</td>
+</tr>
+<tr>
+<td><strong>维纳滤波</strong></td>
+<td><span class="arithmatex">\(H(u,v)\)</span> + <span class="arithmatex">\(S_\eta/S_f\)</span>（或 <span class="arithmatex">\(K\)</span>）</td>
+<td><span class="arithmatex">\(K\)</span> 估计不准时次优</td>
+</tr>
+<tr>
+<td><strong>CLSF</strong></td>
+<td><span class="arithmatex">\(H(u,v)\)</span> + 噪声均值/方差 + <span class="arithmatex">\(\gamma\)</span></td>
+<td><span class="arithmatex">\(\gamma\)</span> 需交互调节</td>
+</tr>
+<tr>
+<td><strong>几何均值</strong></td>
+<td>同上 + <span class="arithmatex">\(\alpha, \beta\)</span></td>
+<td>参数多，调节复杂</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_6">课后作业</h2>
+<h3 id="hw3-problem-1rician-alpha-trimmed">hw3 — Problem 1：Rician 噪声的分布性质与自适应 Alpha-Trimmed 滤波</h3>
+<p><strong>知识点定位</strong>：噪声模型 — Rician 分布；自适应滤波</p>
+<p><strong>题目</strong>：</p>
+<p>已知 MRI 幅度图像的 Rician 分布：<span class="arithmatex">\(p(M|I,\sigma) = \frac{M}{\sigma^2} e^{-(M^2+I^2)/(2\sigma^2)} I_0\left(\frac{MI}{\sigma^2}\right)\)</span></p>
+<ol>
+<li>证明当真实信号 <span class="arithmatex">\(I = 0\)</span> 时，Rician 退化为瑞利分布</li>
+<li>证明当局部 SNR 较高（<span class="arithmatex">\(I \gg \sigma\)</span>）时，Rician 近似为正态分布 <span class="arithmatex">\(N(I, \sigma^2)\)</span></li>
+<li>基于 (1)(2)，对背景区域和组织区域分别如何设置 Alpha-Trimmed Mean 滤波器的 <span class="arithmatex">\(d\)</span> 值？</li>
+</ol>
+<p><strong>解答</strong>：</p>
+<p><strong>(1) <span class="arithmatex">\(I=0\)</span> 时</strong>：</p>
+<div class="arithmatex">\[
+p(M|0,\sigma) = \frac{M}{\sigma^2} e^{-(M^2+0)/(2\sigma^2)} \cdot I_0(0) = \frac{M}{\sigma^2} e^{-M^2/(2\sigma^2)}
+\]</div>
+<p>令 <span class="arithmatex">\(z = M\)</span>，<span class="arithmatex">\(b = 2\sigma^2\)</span>，即得瑞利分布 <span class="arithmatex">\(p(z) = \frac{2z}{b} e^{-z^2/b}\)</span>（<span class="arithmatex">\(z \geq 0\)</span>）。</p>
+<p><strong>(2) <span class="arithmatex">\(I \gg \sigma\)</span> 时</strong>：</p>
+<p>利用 <span class="arithmatex">\(I_0(z) \approx e^z / \sqrt{2\pi z}\)</span>（<span class="arithmatex">\(z \gg 1\)</span>）：</p>
+<div class="arithmatex">\[
+p(M|I,\sigma) \approx \frac{M}{\sigma^2} e^{-(M^2+I^2)/(2\sigma^2)} \cdot \frac{e^{MI/\sigma^2}}{\sqrt{2\pi MI/\sigma^2}} = \frac{1}{\sigma\sqrt{2\pi}} \sqrt{\frac{M}{I}} e^{-(M-I)^2/(2\sigma^2)}
+\]</div>
+<p>由于 <span class="arithmatex">\(M \approx I\)</span>，<span class="arithmatex">\(\sqrt{M/I} \to 1\)</span>，得：</p>
+<div class="arithmatex">\[
+p(M|I,\sigma) \approx \frac{1}{\sigma\sqrt{2\pi}} e^{-(M-I)^2/(2\sigma^2)} \sim N(I, \sigma^2)
+\]</div>
+<p><strong>(3)</strong>：</p>
+<ul>
+<li><strong>背景区域</strong>：瑞利分布是右偏分布（长尾），会产生孤立的较亮假性噪声点。应设置<strong>较大的 <span class="arithmatex">\(d\)</span></strong>（使滤波器趋近于中值滤波），有效剔除位于分布尾部的极端噪声值，防止背景被均值拉亮。</li>
+<li><strong>组织区域</strong>：高 SNR 下噪声近似对称高斯分布。应设置<strong>较小的 <span class="arithmatex">\(d\)</span></strong>（趋近于算术均值），因为均值滤波是高斯噪声的数学最优线性无偏估计，同时能最大限度保留解剖学细节。</li>
+</ul>
+<hr />
+<h3 id="hw3-problem-2">hw3 — Problem 2：约束最小二乘滤波的性质与运动模糊复原</h3>
+<p><strong>知识点定位</strong>：图像复原 — CLSF</p>
+<p><strong>题目</strong>：</p>
+<p>已知 CLSF 公式：<span class="arithmatex">\(\hat{F}(u,v) = \frac{H^*(u,v)}{|H(u,v)|^2 + \gamma |P(u,v)|^2} G(u,v)\)</span>，拉普拉斯算子 <span class="arithmatex">\(p(x,y) = \begin{pmatrix} 0 &amp; -1 &amp; 0 \\ -1 &amp; 4 &amp; -1 \\ 0 &amp; -1 &amp; 0 \end{pmatrix}\)</span></p>
+<ol>
+<li>证明 <span class="arithmatex">\(P(u,v) = 4 - 2\cos(\frac{2\pi u}{M}) - 2\cos(\frac{2\pi v}{N})\)</span></li>
+<li><span class="arithmatex">\(\gamma = 0\)</span> 时 CLSF 退化为什么？<span class="arithmatex">\(\gamma \to +\infty\)</span> 时恢复图像会发生什么？</li>
+<li>考虑匀速直线运动模糊 <span class="arithmatex">\(H(u,v)\)</span> 存在轻微加性噪声。为什么设 <span class="arithmatex">\(\gamma = 10^{-6}\)</span> 可能远好于 <span class="arithmatex">\(\gamma = 0\)</span>？</li>
+</ol>
+<p><strong>解答</strong>：</p>
+<p><strong>(1)</strong>：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+P(u,v) &amp;= \sum_{x=0}^{M-1} \sum_{y=0}^{N-1} p(x,y) e^{-j2\pi(\frac{ux}{M} + \frac{vy}{N})} \\
+&amp;= 4 - (e^{-j2\pi v/N} + e^{j2\pi v/N}) - (e^{-j2\pi u/M} + e^{j2\pi u/M}) \\
+&amp;= 4 - 2\cos\left(\frac{2\pi u}{M}\right) - 2\cos\left(\frac{2\pi v}{N}\right)
+\end{aligned}
+\]</div>
+<p><strong>(2)</strong>：</p>
+<ul>
+<li><span class="arithmatex">\(\gamma = 0\)</span>：<span class="arithmatex">\(\hat{F}(u,v) = \frac{H^*(u,v)}{|H(u,v)|^2} G(u,v) = \frac{G(u,v)}{H(u,v)}\)</span> — <strong>退化为直接逆滤波</strong></li>
+<li><span class="arithmatex">\(\gamma \to +\infty\)</span>：对于 <span class="arithmatex">\(P(u,v) \neq 0\)</span> 的高频，分母 <span class="arithmatex">\(\to \infty\)</span>，滤波器增益 <span class="arithmatex">\(\to 0\)</span>，图像细节完全丢失。但在 <span class="arithmatex">\(P(0,0) = 0\)</span> 的原点，DC 分量得以保留。最终图像变为无细节的均匀灰度图。</li>
+</ul>
+<p><strong>(3)</strong>：</p>
+<p>运动模糊的 <span class="arithmatex">\(H(u,v)\)</span> 具有周期性过零点（<span class="arithmatex">\(\sin[\pi(ua+vb)] = 0\)</span> 处）。若 <span class="arithmatex">\(\gamma = 0\)</span>（逆滤波），在过零点处 <span class="arithmatex">\(H(u,v) \to 0\)</span>，轻微噪声被除以零无限放大。若 <span class="arithmatex">\(\gamma = 10^{-6}\)</span>（CLSF），在过零点处分母 <span class="arithmatex">\(= |H|^2 + \gamma|P|^2 \approx \gamma|P|^2\)</span> 非零，噪声得到有效控制。因此 CLSF 能在去除运动模糊的同时防止噪声爆炸。</p>
+<hr />
+<h3 id="hw3-problem-3">hw3 — Problem 3：维纳滤波的退化函数推导</h3>
+<p><strong>知识点定位</strong>：图像复原 — 维纳滤波</p>
+<p><strong>题目</strong>：</p>
+<p>已知退化函数 <span class="arithmatex">\(h(x,y) = \frac{x^2 + y^2 - 2\sigma^2}{\sigma^4} e^{-(x^2+y^2)/(2\sigma^2)}\)</span></p>
+<ol>
+<li>证明频率域退化函数：<span class="arithmatex">\(H(u,v) = -8\pi^3\sigma^2(u^2+v^2) e^{-2\pi^2\sigma^2(u^2+v^2)}\)</span></li>
+<li>设 <span class="arithmatex">\(S_\eta/S_f = K\)</span>（常数），写出该图像的维纳滤波传递函数</li>
+</ol>
+<p><strong>解答</strong>：</p>
+<p><strong>(1)</strong>：</p>
+<p>高斯函数 <span class="arithmatex">\(f(x,y) = e^{-(x^2+y^2)/(2\sigma^2)}\)</span> 的二维傅里叶变换为：</p>
+<div class="arithmatex">\[
+F(u,v) = 2\pi\sigma^2 e^{-2\pi^2\sigma^2(u^2+v^2)}
+\]</div>
+<p>对 <span class="arithmatex">\(f(x,y)\)</span> 求二阶偏导：</p>
+<div class="arithmatex">\[
+\frac{\partial^2 f}{\partial x^2} = \frac{x^2 - \sigma^2}{\sigma^4} e^{-(x^2+y^2)/(2\sigma^2)}, \quad \frac{\partial^2 f}{\partial y^2} = \frac{y^2 - \sigma^2}{\sigma^4} e^{-(x^2+y^2)/(2\sigma^2)}
+\]</div>
+<p>因此 <span class="arithmatex">\(h(x,y) = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2}\)</span>，利用微分性质：</p>
+<div class="arithmatex">\[
+H(u,v) = [(j2\pi u)^2 + (j2\pi v)^2] \cdot F(u,v) = -8\pi^3\sigma^2(u^2+v^2) e^{-2\pi^2\sigma^2(u^2+v^2)}
+\]</div>
+<p><strong>(2)</strong>：</p>
+<p>由于 <span class="arithmatex">\(H(u,v)\)</span> 为纯实数，维纳滤波器为：</p>
+<div class="arithmatex">\[
+W(u,v) = \frac{H(u,v)}{H^2(u,v) + K} = \frac{-8\pi^3\sigma^2(u^2+v^2) e^{-2\pi^2\sigma^2(u^2+v^2)}}{64\pi^6\sigma^4(u^2+v^2)^2 e^{-4\pi^2\sigma^2(u^2+v^2)} + K}
+\]</div>
+<hr />
+<h2 id="lab4-project-3">实验（LAB4 — Project 3：图像复原）</h2>
+<h3 id="_7">实验内容</h3>
+<ol>
+<li><strong>图像退化模拟</strong>：在频率域使用高斯低通滤波器（不同截止频率 <span class="arithmatex">\(D_0 = 30, 60, 90\)</span>）对原始图像进行模糊，再添加莱斯噪声。</li>
+<li><strong>已知模糊核的图像复原</strong>：分别采用逆滤波、受限逆滤波和维纳滤波对退化图像进行复原。</li>
+<li><strong>利用 NLM 进行 Rician 噪声降噪</strong>：应用非局部均值算法针对 Rician 噪声进行降噪。</li>
+<li><strong>质量评估</strong>：利用 PSNR 和 SSIM 对复原结果进行定量评估。</li>
+</ol>
+<h3 id="_8">实验原理</h3>
+<p><strong>1. 图像退化与复原模型</strong></p>
+<p>频率域中图像退化过程：<span class="arithmatex">\(G(u,v) = H(u,v)F(u,v) + N(u,v)\)</span>，复原目标是从观测 <span class="arithmatex">\(G\)</span> 和已知 <span class="arithmatex">\(H\)</span> 估计 <span class="arithmatex">\(\hat{F}\)</span>。</p>
+<p><strong>2. 经典频域复原算法</strong></p>
+<ul>
+<li><strong>逆滤波</strong>：<span class="arithmatex">\(\hat{F}(u,v) = \frac{G(u,v)}{H(u,v)}\)</span>。致命缺陷：<span class="arithmatex">\(H(u,v)\)</span> 在高频处趋于零 → 噪声被无限放大，图像完全崩溃。</li>
+<li><strong>受限逆滤波</strong>：截断高频分量防止噪声爆炸。但由于频域硬性截断等效于空间域 sinc 卷积 → 强烈<strong>振铃伪影</strong>。</li>
+<li><strong>维纳滤波</strong>：建立在最小均方误差准则之上：</li>
+</ul>
+<p>$$
+  \hat{F}(u,v) = \frac{1}{H(u,v)} \frac{|H(u,v)|^2}{|H(u,v)|^2 + K} G(u,v)
+  $$</p>
+<p>在"图像去模糊"与"噪声抑制"之间自适应平衡。</p>
+<p><strong>3. NLM 降噪</strong></p>
+<p>与传统的局部滤波器不同，NLM 利用图像中广泛存在的<strong>自相似性</strong>（如脑白质/灰质的纹理重复），在全局搜索相似图像块进行加权平均。对于 Rician 噪声，NLM 能在滤除噪声的同时完美保护边界——因为其权重基于图像块的结构相似度，而非空间距离。</p>
+<p><strong>4. 客观评价指标</strong></p>
+<ul>
+<li><strong>PSNR</strong>（峰值信噪比）：基于 MSE，数值越高表示像素级误差越小</li>
+<li><strong>SSIM</strong>（结构相似性）：模拟人眼视觉，从亮度、对比度、结构三维度评估，值域 <span class="arithmatex">\([0,1]\)</span>，越接近 <span class="arithmatex">\(1\)</span> 越好</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">实验关键结论</p>
+<ol>
+<li><strong>截止频率 <span class="arithmatex">\(D_0\)</span> 越小</strong>，模糊越严重，所有复原算法的指标整体下降</li>
+<li><strong>逆滤波</strong>在 <span class="arithmatex">\(D_0=30\)</span> 时完全崩溃（PSNR 仅 ~3 dB）</li>
+<li><strong>受限逆滤波</strong>虽然提升了 PSNR，但引入严重振铃伪影</li>
+<li><strong>维纳滤波</strong>在反卷积和噪声抑制间取得最优平衡（SSIM 最高达 0.628）</li>
+<li><strong>NLM</strong> 在纯降噪场景下 SSIM 可超越维纳滤波——因为它特别适合 Rician 这种信号相关的非高斯噪声</li>
+</ol>
+</div>
+<hr />
+<h2 id="_9">历年卷解答</h2>
+<h3 id="2020">一、周期噪声应该用陷波滤波（2020 判断）</h3>
+<p><strong>知识点定位</strong>：噪声模型 — 周期性噪声的去噪</p>
+<p><strong>答案</strong>：<strong>正确。</strong></p>
+<p><strong>解释</strong>：周期噪声在频率域中表现为<strong>孤立的对称亮斑</strong>（DFT 对正弦信号的直接响应）。陷波滤波器通过在频域精确阻断这些特定频率来消除周期噪声，是基于数学模型的精确去噪。</p>
+<hr />
+<h3 id="vs-2020-2022-2021">二、维纳滤波 vs 逆滤波（2020 判断 / 2022 大题 / 2021 大题）</h3>
+<p><strong>知识点定位</strong>：图像复原 — 逆滤波 vs 维纳滤波</p>
+<p><strong>维纳滤波计算了原图和噪声的功率谱</strong>（2020 判断）：<strong>正确。</strong></p>
+<p><strong>逆滤波公式与原理，为什么不好？（2022 大题）</strong>：</p>
+<div class="arithmatex">\[
+\hat{F}(u,v) = \frac{G(u,v)}{H(u,v)}
+\]</div>
+<p>直接除以退化函数（去卷积）。致命弱点：在 <span class="arithmatex">\(H(u,v) \to 0\)</span> 的频率处，噪声 <span class="arithmatex">\(N(u,v)/H(u,v)\)</span> 被放大到无穷，导致图像被噪声完全淹没。</p>
+<p><strong>维纳滤波公式与原理，为什么更好？（2022 / 2021 大题）</strong>：</p>
+<div class="arithmatex">\[
+\hat{F}(u,v) = \frac{1}{H(u,v)} \cdot \frac{|H(u,v)|^2}{|H(u,v)|^2 + S_\eta/S_f} \cdot G(u,v)
+\]</div>
+<p>建立在最小均方误差（MMSE）准则上。相比逆滤波的改进：</p>
+<ol>
+<li>当 <span class="arithmatex">\(H(u,v) \to 0\)</span> 时，<span class="arithmatex">\(\hat{F} \to 0\)</span>（而逆滤波=<span class="arithmatex">\(N/H \to \infty\)</span>）</li>
+<li>当 <span class="arithmatex">\(S_\eta/S_f \to 0\)</span>（高 SNR）时，趋近于逆滤波</li>
+<li>当 <span class="arithmatex">\(S_\eta/S_f\)</span> 较大（低 SNR）时，自动减少高频增益，抑制噪声</li>
+<li>需要噪声与信号的功率谱比——这是逆滤波不具备的自适应能力</li>
+</ol>
+<hr />
+<h3 id="2022">三、获取高通滤波能否用原图除以低通滤波？（2022 判断）</h3>
+<p><strong>知识点定位</strong>：滤波概念辨析</p>
+<p><strong>答案</strong>：<strong>错误。</strong> 正确关系：<strong>高通 = 原图 − 低通</strong>，即 <span class="arithmatex">\(H_{\text{HP}} = 1 - H_{\text{LP}}\)</span>。</p>
+<p><strong>原理</strong>：除法 <span class="arithmatex">\(F/H_{\text{LP}}\)</span> 对应的是<strong>逆滤波</strong>（图像复原范畴），而非高通滤波。二者数学操作完全不同。</p>
+<hr />
+<h3 id="2021">四、处理后变模糊+有振铃→可能的滤波器（2021 选择）</h3>
+<p><strong>知识点定位</strong>：图像复原 — 滤波器的空间域效应</p>
+<p><strong>分析</strong>：处理后图像"既模糊又有振铃" → 使用的是<strong>理想低通滤波器</strong>（或高阶巴特沃斯 + 受限逆滤波）。振铃效应来自频率域的<strong>硬截断</strong>（Box → Sinc 傅里叶变换对）。仅模糊无振铃 → 高斯低通滤波器。</p>
+<hr />
+<h3 id="2022_1">五、哪些是空间滤波器？（2022 选择）</h3>
+<p><strong>知识点定位</strong>：空间滤波 vs 频率域滤波</p>
+<p><strong>答案</strong>：均值滤波器、中值滤波器是空间滤波器；<strong>Notch（陷波滤波器）不是</strong>——它在频率域操作，通过阻断特定频率来滤波。</p>
+<hr />
+<h3 id="q">六、逆谐波均值滤波器中 Q 符号的作用（结合课程内容）</h3>
+<p><strong>知识点定位</strong>：空间域去噪 — Contraharmonic Mean Filter</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Q 值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(Q &gt; 0\)</span></td>
+<td>消除<strong>椒噪声</strong>（黑色噪点）</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(Q &lt; 0\)</span></td>
+<td>消除<strong>盐噪声</strong>（白色噪点）</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(Q = 0\)</span></td>
+<td>退化为算术均值</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(Q = -1\)</span></td>
+<td>退化为谐波均值</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Q 符号不能选错</p>
+<p><span class="arithmatex">\(Q&gt;0\)</span> 时处理盐噪声 → 图像出现大面积黑斑；<span class="arithmatex">\(Q&lt;0\)</span> 时处理椒噪声 → 图像出现大面积白斑。这是选择逆谐波均值滤波器参数时必须注意的。</p>
+</div>
+<hr />
+<!-- 笔记中需要插入的PPT截图汇总：
+1. Lecture7第7页：图像增强vs图像复原对比示意图
+2. Lecture7第8页：退化模型示意图（Degradation Model）
+3. Lecture7第13页：高斯噪声PDF曲线及加噪示例
+4. Lecture7第14页：瑞利噪声PDF及示例
+5. Lecture7第19页：六种空间噪声直方图对比
+6. Lecture7第20页：椒盐噪声示例图
+7. Lecture7第22页：正弦噪声图像及其频谱亮斑
+8. Lecture7第24页：噪声参数估计示意图
+9. Lecture7第28-29页：contraharmonic均值滤波对比图
+10. Lecture7第30页：中值滤波器处理椒盐噪声
+11. Lecture7第31页：max/min滤波器对比图
+12. Lecture7第32页：各类滤波器对比汇总
+13. Lecture7第36-37页：ALNRF滤波效果对比
+14. Lecture7第39页：AMF流程图
+15. Lecture7第40页：AMF vs 标准中值滤波对比
+16. Lecture7第42页：NLM vs Box滤波效果
+17. Lecture7第47页：ONF处理干扰模式及复原结果
+18. Lecture7第51页：大气湍流退化模型示例
+19. Lecture7第52页：运动模糊示意图
+20. Lecture7第53页：直接逆滤波在不同截断半径下的结果
+21. Lecture7第56页：维纳滤波vs逆滤波对比
+22. Lecture7第59页：CLSF与Wiener滤波对比
+23. Lecture7第60页：CLSF在不同gamma值下的结果对比
+   PPT源文件：docs/ppt/Lecture7-2026.pdf
+-->
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="LH-0124/LHstudy"
+        data-repo-id="R_kgDONJ_OXA"
+        data-category="Announcements"
+        data-category-id="DIC_kwDONJ_OXM4CkE7y"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+<script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light"
+        giscus.setAttribute("data-theme", theme)
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function () {
+        var ref = document.querySelector("[data-md-component=palette]")
+        ref.addEventListener("change", function () {
+            var palette = __md_get("__palette")
+            if (palette && typeof palette.color === "object") {
+                var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+                /* Instruct Giscus to change theme */
+                var frame = document.querySelector(".giscus-frame")
+                frame.contentWindow.postMessage(
+                    { giscus: { setConfig: { theme } } },
+                    "https://giscus.app"
+                )
+            }
+        })
+    })
+</script>
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../notebip5/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 第5章 频率域滤波">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                第5章 频率域滤波
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../memorytest/hyj/" class="md-footer__link md-footer__link--next" aria-label="下一页: 关于本栏">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                关于本栏
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; LH
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "search.highlight", "search.share", "navigation.footer"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+    
+  </body>
+</html>
