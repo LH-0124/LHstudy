@@ -5901,6 +5901,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#2022_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      七、直方图均衡化解决什么问题 + 医学应用（2022 大题）
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5997,6 +6006,75 @@
   
   <span class="md-ellipsis">
     第6章 图像复原
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebip7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第7章 形态学图像处理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebip8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第8章 图像分割
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebip9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第9章 图像配准
     
   </span>
   
@@ -7605,6 +7683,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#2022_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      七、直方图均衡化解决什么问题 + 医学应用（2022 大题）
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -8664,6 +8751,37 @@ s_k = T(r_k) = (L-1) \sum_{j=0}^{k} p_r(r_j) = \frac{L-1}{N} \sum_{j=0}^{k} n_j
 </table>
 <p>判断方法：看原图直方图分布</p>
 <p>主要像素集中在低灰度端 → 偏暗 → 选 <span class="arithmatex">\(\gamma &lt; 1\)</span>；集中在高灰度端 → 偏亮 → 选 <span class="arithmatex">\(\gamma &gt; 1\)</span>。</p>
+<h3 id="2022_1">七、直方图均衡化解决什么问题 + 医学应用（2022 大题）</h3>
+<p><strong>知识点定位</strong>：直方图均衡化</p>
+<p><strong>（1）直方图均衡化解决什么问题？</strong></p>
+<p>直方图均衡化主要解决以下核心问题：</p>
+<ul>
+<li>
+<p><strong>图像对比度低、整体偏暗或偏亮</strong>：当图像的灰度值集中分布在较窄的灰度区间内时（直方图呈窄而尖的山峰状），图像表现为低对比度，灰蒙蒙一片，关键解剖结构或病变区域的细节难以辨识。直方图均衡化通过<strong>重新分配灰度值</strong>，将原本集中的灰度分布拉伸到整个 <span class="arithmatex">\([0, L-1]\)</span> 范围，使直方图趋于<strong>均匀分布</strong>。</p>
+</li>
+<li>
+<p><strong>灰度动态范围不足（Dynamic Range Underutilization）</strong>：某些医学成像设备输出的图像只利用了可显示灰度级的一小部分（如仅占 256 级的中间 30 级），导致图像灰度层次贫乏。均衡化充分利用全部灰度级，将灰度级"铺满"整个范围。</p>
+</li>
+<li>
+<p><strong>细节不可见</strong>：在人眼视觉特性中，细微信号差异在低对比度图像中无法被分辨。均衡化后灰度差被拉大 → 原本模糊的组织边界变得清晰可辨 → 细节从"看不见"变为"看得见"。</p>
+</li>
+</ul>
+<p><strong>总结</strong>：直方图均衡化的本质是<strong>以累积分布函数（CDF）作为变换函数</strong>，使输出图像的灰度直方图尽可能均匀，从而<strong>增大图像的动态范围和整体对比度</strong>，使隐藏的细节和结构变得可见。</p>
+<p><strong>（2）直方图均衡化在医学图像处理领域的应用</strong></p>
+<p><strong>应用一：增强脑部 MRI 图像的对比度以辅助肿瘤分割</strong></p>
+<p>MRI 图像的原始灰度动态范围常受限于扫描参数和线圈灵敏度，部分区域的肿瘤边界与正常组织灰度接近，肉眼难以区分。对脑部 MRI 图像应用直方图均衡化后，原本微弱的肿瘤-正常组织灰度差异被显著放大，肿瘤边界更加清晰。这为后续的肿瘤分割算法（如 Otsu 阈值法、区域生长法、深度学习分割网络等）提供了更高质量的输入图像，提升分割精度。</p>
+<p><strong>应用二：X 射线胸片中增强肺部结节的可检测性</strong></p>
+<p>X 射线胸片的原始直方图往往集中在较暗的灰度区域（整体偏暗），肺部微小结节（如早期肺癌）与周围组织的对比度极低。直方图均衡化将灰度拉伸到全范围后，结节的灰度与肺实质背景的差异被放大，放射科医生更容易在阅片时发现早期病变。</p>
+<p><strong>应用三：数字乳腺 X 线摄影（Mammography）中增强微钙化点</strong></p>
+<p>乳腺 X 线图像中，微钙化点（乳腺导管癌的早期标志）极其微小且与致密乳腺组织的灰度差极小。直方图均衡化在局部区域应用后，微钙化点的高灰度特征被放大，显著提升了早期乳腺癌的检出率。</p>
+<div class="admonition note">
+<p class="admonition-title">考试答题要点</p>
+<ul>
+<li>问题回答核心：<strong>低对比度 → 拉伸灰度分布 → 增大动态范围 → 提高对比度</strong></li>
+<li>应用回答公式：<strong>具体医学图像类型 + 具体增强目标 + 临床意义</strong></li>
+<li>推荐记忆：脑部 MRI 肿瘤分割增强、X 线胸片肺结节检测、乳腺 X 线微钙化点增强（任答一个即可）</li>
+</ul>
+</div>
 
 
 

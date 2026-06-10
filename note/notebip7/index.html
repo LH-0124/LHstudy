@@ -1,0 +1,8610 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="LH">
+      
+      
+        <link rel="canonical" href="https://LH-study.github.io/note/notebip7/">
+      
+      
+        <link rel="prev" href="../notebip6/">
+      
+      
+        <link rel="next" href="../notebip8/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+    
+    
+      
+        <title>第7章 形态学图像处理 - LH的资源小站</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M1%207.775V2.75C1%201.784%201.784%201%202.75%201h5.025c.464%200%20.91.184%201.238.513l6.25%206.25a1.75%201.75%200%200%201%200%202.474l-5.026%205.026a1.75%201.75%200%200%201-2.474%200l-6.25-6.25A1.75%201.75%200%200%201%201%207.775m1.5%200c0%20.066.026.13.073.177l6.25%206.25a.25.25%200%200%200%20.354%200l5.025-5.025a.25.25%200%200%200%200-.354l-6.25-6.25a.25.25%200%200%200-.177-.073H2.75a.25.25%200%200%200-.25.25ZM6%205a1%201%200%201%201%200%202%201%201%200%200%201%200-2%22/%3E%3C/svg%3E');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M2.5%201.75v11.5c0%20.138.112.25.25.25h3.17a.75.75%200%200%201%200%201.5H2.75A1.75%201.75%200%200%201%201%2013.25V1.75C1%20.784%201.784%200%202.75%200h8.5C12.216%200%2013%20.784%2013%201.75v7.736a.75.75%200%200%201-1.5%200V1.75a.25.25%200%200%200-.25-.25h-8.5a.25.25%200%200%200-.25.25m13.274%209.537zl-4.557%204.45a.75.75%200%200%201-1.055-.008l-1.943-1.95a.75.75%200%200%201%201.062-1.058l1.419%201.425%204.026-3.932a.75.75%200%201%201%201.048%201.074M4.75%204h4.5a.75.75%200%200%201%200%201.5h-4.5a.75.75%200%200%201%200-1.5M4%207.75A.75.75%200%200%201%204.75%207h2a.75.75%200%200%201%200%201.5h-2A.75.75%200%200%201%204%207.75%22/%3E%3C/svg%3E');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M0%208a8%208%200%201%201%2016%200A8%208%200%200%201%200%208m8-6.5a6.5%206.5%200%201%200%200%2013%206.5%206.5%200%200%200%200-13M6.5%207.75A.75.75%200%200%201%207.25%207h1a.75.75%200%200%201%20.75.75v2.75h.25a.75.75%200%200%201%200%201.5h-2a.75.75%200%200%201%200-1.5h.25v-2h-.25a.75.75%200%200%201-.75-.75M8%206a1%201%200%201%201%200-2%201%201%200%200%201%200%202%22/%3E%3C/svg%3E');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M3.499.75a.75.75%200%200%201%201.5%200v.996C5.9%202.903%206.793%203.65%207.662%204.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873%2010.794-.045%2012.622.26%2014.408.558%2016%201.94%2016%204.25c0%201.278-.954%202.575-2.44%202.734l.146.508.065.22c.203.701.412%201.455.476%202.226.142%201.707-.4%203.03-1.487%203.898C11.714%2014.671%2010.27%2015%208.75%2015h-6a.75.75%200%200%201%200-1.5h1.376a4.5%204.5%200%200%201-.563-1.191%203.84%203.84%200%200%201-.05-2.063%204.65%204.65%200%200%201-2.025-.293.75.75%200%200%201%20.525-1.406c1.357.507%202.376-.006%202.698-.318l.009-.01a.747.747%200%200%201%201.06%200%20.75.75%200%200%201-.012%201.074c-.912.92-.992%201.835-.768%202.586.221.74.745%201.337%201.196%201.621H8.75c1.343%200%202.398-.296%203.074-.836.635-.507%201.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.4%202.4%200%200%201-.507-.441%203.1%203.1%200%200%201-.633-1.248.75.75%200%200%201%201.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738%200%201.25-.615%201.25-1.25%200-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706%201.345-.46.92-.27%201.774.019%203.062l.042.19.01.05c.348.443.666.949.94%201.553a.75.75%200%201%201-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7%205.527c-.814-.68-1.75-1.462-2.692-2.619a3.7%203.7%200%200%200-1.023.88c-.406.495-.663%201.036-.722%201.508.116.122.306.21.591.239.388.038.797-.06%201.032-.19a.75.75%200%200%201%20.728%201.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75%205.677V5.5c0-.984.48-1.94%201.077-2.664.46-.559%201.05-1.055%201.673-1.353z%22/%3E%3C/svg%3E');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M13.78%204.22a.75.75%200%200%201%200%201.06l-7.25%207.25a.75.75%200%200%201-1.06%200L2.22%209.28a.75.75%200%200%201%20.018-1.042.75.75%200%200%201%201.042-.018L6%2010.94l6.72-6.72a.75.75%200%200%201%201.06%200%22/%3E%3C/svg%3E');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M0%208a8%208%200%201%201%2016%200A8%208%200%200%201%200%208m8-6.5a6.5%206.5%200%201%200%200%2013%206.5%206.5%200%200%200%200-13M6.92%206.085h.001a.749.749%200%201%201-1.342-.67c.169-.339.436-.701.849-.977C6.845%204.16%207.369%204%208%204a2.76%202.76%200%200%201%201.637.525c.503.377.863.965.863%201.725%200%20.448-.115.83-.329%201.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6%206%200%200%200-.26.16%201%201%200%200%200-.276.245.75.75%200%200%201-1.248-.832c.184-.264.42-.489.692-.661q.154-.1.313-.195l.007-.004c.1-.061.182-.11.258-.161a1%201%200%200%200%20.277-.245C8.96%206.514%209%206.427%209%206.25a.61.61%200%200%200-.262-.525A1.27%201.27%200%200%200%208%205.5c-.369%200-.595.09-.74.187a1%201%200%200%200-.34.398M9%2011a1%201%200%201%201-2%200%201%201%200%200%201%202%200%22/%3E%3C/svg%3E');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M6.457%201.047c.659-1.234%202.427-1.234%203.086%200l6.082%2011.378A1.75%201.75%200%200%201%2014.082%2015H1.918a1.75%201.75%200%200%201-1.543-2.575Zm1.763.707a.25.25%200%200%200-.44%200L1.698%2013.132a.25.25%200%200%200%20.22.368h12.164a.25.25%200%200%200%20.22-.368Zm.53%203.996v2.5a.75.75%200%200%201-1.5%200v-2.5a.75.75%200%200%201%201.5%200M9%2011a1%201%200%201%201-2%200%201%201%200%200%201%202%200%22/%3E%3C/svg%3E');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M2.344%202.343za8%208%200%200%201%2011.314%2011.314A8.002%208.002%200%200%201%20.234%2010.089a8%208%200%200%201%202.11-7.746m1.06%2010.253a6.5%206.5%200%201%200%209.108-9.275%206.5%206.5%200%200%200-9.108%209.275M6.03%204.97%208%206.94l1.97-1.97a.749.749%200%200%201%201.275.326.75.75%200%200%201-.215.734L9.06%208l1.97%201.97a.749.749%200%200%201-.326%201.275.75.75%200%200%201-.734-.215L8%209.06l-1.97%201.97a.749.749%200%200%201-1.275-.326.75.75%200%200%201%20.215-.734L6.94%208%204.97%206.03a.75.75%200%200%201%20.018-1.042.75.75%200%200%201%201.042-.018%22/%3E%3C/svg%3E');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M9.504.43a1.516%201.516%200%200%201%202.437%201.713L10.415%205.5h2.123c1.57%200%202.346%201.909%201.22%203.004l-7.34%207.142a1.25%201.25%200%200%201-.871.354h-.302a1.25%201.25%200%200%201-1.157-1.723L5.633%2010.5H3.462c-1.57%200-2.346-1.909-1.22-3.004zm1.047%201.074L3.286%208.571A.25.25%200%200%200%203.462%209H6.75a.75.75%200%200%201%20.694%201.034l-1.713%204.188%206.982-6.793A.25.25%200%200%200%2012.538%207H9.25a.75.75%200%200%201-.683-1.06l2.008-4.418.003-.006-.004-.009-.006-.006-.008-.001q-.005%200-.009.004%22/%3E%3C/svg%3E');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M4.72.22a.75.75%200%200%201%201.06%200l1%20.999a3.5%203.5%200%200%201%202.441%200l.999-1a.748.748%200%200%201%201.265.332.75.75%200%200%201-.205.729l-.775.776c.616.63.995%201.493.995%202.444v.327q0%20.15-.025.292c.408.14.764.392%201.029.722l1.968-.787a.75.75%200%200%201%20.556%201.392L13%207.258V9h2.25a.75.75%200%200%201%200%201.5H13v.5q-.002.615-.141%201.186l2.17.868a.75.75%200%200%201-.557%201.392l-2.184-.873A5%205%200%200%201%208%2016a5%205%200%200%201-4.288-2.427l-2.183.873a.75.75%200%200%201-.558-1.392l2.17-.868A5%205%200%200%201%203%2011v-.5H.75a.75.75%200%200%201%200-1.5H3V7.258L.971%206.446a.75.75%200%200%201%20.558-1.392l1.967.787c.265-.33.62-.583%201.03-.722a1.7%201.7%200%200%201-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72%201.28a.75.75%200%200%201%200-1.06m.53%206.28a.75.75%200%200%200-.75.75V11a3.5%203.5%200%201%200%207%200V7.25a.75.75%200%200%200-.75-.75ZM6.173%205h3.654A.17.17%200%200%200%2010%204.827V4.5a2%202%200%201%200-4%200v.327c0%20.096.077.173.173.173%22/%3E%3C/svg%3E');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M5%205.782V2.5h-.25a.75.75%200%200%201%200-1.5h6.5a.75.75%200%200%201%200%201.5H11v3.282l3.666%205.76C15.619%2013.04%2014.543%2015%2012.767%2015H3.233c-1.776%200-2.852-1.96-1.899-3.458Zm-2.4%206.565a.75.75%200%200%200%20.633%201.153h9.534a.75.75%200%200%200%20.633-1.153L12.225%2010.5h-8.45ZM9.5%202.5h-3V6c0%20.143-.04.283-.117.403L4.73%209h6.54L9.617%206.403A.75.75%200%200%201%209.5%206Z%22/%3E%3C/svg%3E');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M1.75%202.5h10.5a.75.75%200%200%201%200%201.5H1.75a.75.75%200%200%201%200-1.5m4%205h8.5a.75.75%200%200%201%200%201.5h-8.5a.75.75%200%200%201%200-1.5m0%205h8.5a.75.75%200%200%201%200%201.5h-8.5a.75.75%200%200%201%200-1.5M2.5%207.75v6a.75.75%200%200%201-1.5%200v-6a.75.75%200%200%201%201.5%200%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#preliminaries" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="LH的资源小站" class="md-header__button md-logo" aria-label="LH的资源小站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LH的资源小站
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              第7章 形态学图像处理
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换至日间模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至日间模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/LH-0124/LHstudy" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    LH-study
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  
+  主页
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于我
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../zju-courses/zju-courses/" class="md-tabs__link">
+          
+  
+  
+  课程心得
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../about/" class="md-tabs__link">
+          
+  
+  
+  课程笔记
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../memorytest/hyj/" class="md-tabs__link">
+          
+  
+  
+  回忆卷资源
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../experiment/about/" class="md-tabs__link">
+          
+  
+  
+  实验课资源
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../life/about/" class="md-tabs__link">
+          
+  
+  
+  生活分享
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../link/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  友情链接
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../comment/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  留言板
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="LH的资源小站" class="md-nav__button md-logo" aria-label="LH的资源小站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    LH的资源小站
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/LH-0124/LHstudy" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    LH-study
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    主页
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            主页
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    主页介绍
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../update/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    更新日志
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    关于我
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    课程心得
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            课程心得
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/zju-courses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    关于本栏
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    通识必修课程
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            通识必修课程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_1" id="__nav_3_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    自然科学通识类
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            自然科学通识类
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/vjf1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    微积分（甲）I
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/vjf2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    微积分（甲）II
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/xd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    线性代数（甲）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/dw1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    大学物理（甲）I
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/dw2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    大学物理（甲）II
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/ph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    普通化学（乙）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/phsy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    普通化学实验（乙）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/dwsy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    大学物理实验
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/ds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    大学生物学
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/dssy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    大学生物学实验
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    思政军体类
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            思政军体类
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/df/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    思想道德与法治
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/sg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    中国近现代史纲要
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/jl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    军事理论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/my/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    马克思主义基本原理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/china/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    新中国史
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/mg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    毛泽东思想与中国特色社会主义理论体系概论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/xg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    习近平新时代中国特色社会主义思想概论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/xc1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    形势与政策I
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    外语类
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            外语类
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/dy3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    大学英语III
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/dy4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    大学英语IV
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_4" id="__nav_3_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    创新创业类
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            创新创业类
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/zg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    职业生涯规划
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_5" id="__nav_3_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    计算机类
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            计算机类
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/djj/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    计算机科学基础（A）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C程序设计基础及实验
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    专业基础课程
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            专业基础课程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/gctx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    工程图学
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/gx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    工程训练
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/ode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    常微分方程
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/fb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    复变函数与积分变换
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/gt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    概率论与数理统计
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/dl1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    电路与电子技术I
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/dlsy1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    电路与电子技术实验I
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/md/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    电路与电子技术II
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/dlsy2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    电路与电子技术实验II
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    体育课
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            体育课
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/wlws/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    舞龙舞狮
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/ppq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    乒乓球（初级）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/wrz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    五人制足球
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/yy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    游泳（初级）1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/yy2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    游泳（初级）2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/pkq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    匹克球
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    通识选修课程
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            通识选修课程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/nbe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    诺贝尔奖与生命健康
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/xz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    大学写作-自然
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/byl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    博弈论基础
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/jjf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    经济法理论与实务
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/kzl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    控制论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/zgtc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    中国陶瓷与玻璃-艺术与科学
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/twc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    调味茶制作与鉴赏
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    生仪双方向专业必修课
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            生仪双方向专业必修课
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/wj/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    微机原理及应用
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/gcslx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    工程生理学
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/bsp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    生物医学信号处理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/bit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    生物医学成像技术
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/bip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    生物医学图像处理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/cg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    生物医学传感与检测
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/dianshe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    电子系统设计与实践
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    生仪诊疗方向专业必修课
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            生仪诊疗方向专业必修课
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/dlslx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    定量生理学
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/lygl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    临床医学概论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/bmi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    生物医学信息学
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-coourses/sbm.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    系统生物医学
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    专业选修课
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            专业选修课
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/btj/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    生物医学统计学
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/light/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    生物医学光学成像前沿导论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/EDA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EDA技术应用
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/yyAI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    医药人工智能（跨专业课程）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_9" id="__nav_3_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    短学期课程
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_9">
+            <span class="md-nav__icon md-icon"></span>
+            短学期课程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/rzsx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    认知实习
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zju-courses/znyx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    智能医学创新实践
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    课程笔记
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            课程笔记
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    关于本栏
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    C程序设计基础及实验
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            C程序设计基础及实验
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notec1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第1讲 基础语法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第2讲 运算符
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notec3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第3讲 变量类型
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notec4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第4讲 不同类型变量的运算
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notec5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第5讲 数组
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notec6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第6讲 字符串
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notec7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第7讲 指针
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notec9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第8讲 结构类型变量和链表
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notec10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第9讲 文件
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notec8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    基本算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pta/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PTA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notec11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    理论考错题
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notefb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    复变函数与积分变换
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    概率论与数理统计
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            概率论与数理统计
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notegt1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第1章 概率论的基本概念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notegt2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第2章 随机变量及其概率分布
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notegt3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第3章 多维随机变量及其分布
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notegt4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第4章 随机变量的数字特征
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notegt5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第5章 大数定律和中心极限定理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notegt6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第6章 统计量及其抽样分布
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notegt7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第7章 参数估计
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notegt8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第8章 假设检验
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gt%E5%B0%8F%E6%B5%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    小测汇总
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    数字电路
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            数字电路
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesd3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第1讲  半导体器件
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesd0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第2讲  集成门电路
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesd1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第3讲  触发器与锁存器
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesd2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第4讲  基本组合逻辑电路
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesd4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第5讲  基本时序逻辑电路
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesdsy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    数电实验
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    马克思主义基本原理
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            马克思主义基本原理
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notemy0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第0讲  说明及资源汇总
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notemy1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第1讲  导论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notemy2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第2讲  哲学基本问题
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notemy3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第3讲  唯物论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notemy4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第4讲  辩证法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notemy5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第5讲  认识论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notemy6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第6讲  唯物史观
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notemy7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第7讲  政治经济学
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notemy8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第8讲  科学社会主义
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    毛泽东思想与中国特色社会主义理论体系概论
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            毛泽东思想与中国特色社会主义理论体系概论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notemg1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    会议
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notemg2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    简短关键句知识点
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notemg3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    著作
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8E%A7%E5%88%B6%E8%AE%BA%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    控制论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notedwsy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    大学物理实验
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_11" id="__nav_4_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    微机原理及应用
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_11">
+            <span class="md-nav__icon md-icon"></span>
+            微机原理及应用
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notewj1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第1章 绪论+51单片机硬件结构
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notewj2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第2章 MCS-51单片机指令系统
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notewj3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第3章 51单片机汇编程序设计
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notewj4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第4章 中断系统
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notewj5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第5章 存储器和I/O扩展
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notewj6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第6章 定时器/计数器
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notewj7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第7章 串行通讯
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notewj8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第8章 AD/DA接口
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notewj9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第9章 键盘
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_12" id="__nav_4_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    生物医学信号处理
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_12">
+            <span class="md-nav__icon md-icon"></span>
+            生物医学信号处理
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebsp1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第1章 信号与系统的基本概念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebsp2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第2章 系统的数学模型
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebsp3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第3章 卷积的计算和性质
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebsp4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第4章 连续时间信号的傅里叶级数与傅里叶变换
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebsp5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第5章 连续系统频域分析与采样
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebsp6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第6章 离散时间信号和系统的频域分析DTFT和DFT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebsp7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第7章 拉普拉斯变换与连续时间系统传递函数
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebsp8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第8章 z变换与离散时间系统传递函数
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebsp9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第9章 系统稳定性
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebsp10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第10章 滤波器设计
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebsp11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    实验课
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebsp12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    英语词汇
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_13" id="__nav_4_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    生物医学统计学
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_13">
+            <span class="md-nav__icon md-icon"></span>
+            生物医学统计学
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesyt0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第0章 绪论
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesyt1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第1章 统计描述
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesyt2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第2章 概率分布
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesyt3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第3章 参数估计
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesyt4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第4章 假设检验
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesyt5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第5章 两样本定量资料的比较
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesyt6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第6章 多组定量资料的比较
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesyt7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第7章 定性资料的比较
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesyt8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第8章 关联性分析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesyt9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第9章 简单线性回归分析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesyt10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第10章 多重线性回归分析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesyt11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第11章 Logistic回归
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesyt12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第12章 多水平模型
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notesyt13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第13章 多元统计方法简介
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_14" id="__nav_4_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    生物医学成像技术
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_14">
+            <span class="md-nav__icon md-icon"></span>
+            生物医学成像技术
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notecx1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第一部分 X-Ray
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notecx2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第二部分 CT成像
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notecx3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第三部分 核医学成像
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notecx4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第四部分 超声成像
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notecx5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第五部分 光学成像
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notecx6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第六部分 MRI成像
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notecx7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    A4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_15" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_15" id="__nav_4_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    生物医学图像处理
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_15_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_15">
+            <span class="md-nav__icon md-icon"></span>
+            生物医学图像处理
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebip1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第1章 图像处理基础概念与彩色图像处理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebip2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第2章 图像变换
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebip3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第3章 空间滤波
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebip4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第4章 图像频率域变换
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebip5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第5章 频率域滤波
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebip6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第6章 图像复原
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    第7章 形态学图像处理
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    第7章 形态学图像处理
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preliminaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、形态学图像处理基础（Preliminaries）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一、形态学图像处理基础（Preliminaries）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 二值图像的逻辑运算
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 集合论基本操作
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-structure-element-se" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 结构元素（Structure Element — SE）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erosion" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、腐蚀（Erosion）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、腐蚀（Erosion）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 效果
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 医学应用示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dilation" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、膨胀（Dilation）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、膨胀（Dilation）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 效果
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 膨胀桥接间隙示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      四、腐蚀与膨胀的性质与对偶性
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="四、腐蚀与膨胀的性质与对偶性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 共同性质
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-duality" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 腐蚀与膨胀的对偶性（Duality）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opening-and-closing" class="md-nav__link">
+    <span class="md-ellipsis">
+      五、开操作与闭操作（Opening and Closing）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="五、开操作与闭操作（Opening and Closing）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 效果对比
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 几何解释
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 基本性质
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5 医学应用示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#morphological-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      六、形态学滤波（Morphological Filter）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hit-or-miss-transformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      七、击中或击不中变换（Hit-or-Miss Transformation）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-morphological-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      八、基本形态学算法（Basic Morphological Algorithms）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="八、基本形态学算法（Basic Morphological Algorithms）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-boundary-extraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 边界提取（Boundary Extraction）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-hole-filling" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 孔洞填充（Hole Filling）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-extraction-of-connected-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3 连通分量提取（Extraction of Connected Components）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-thinning" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4 细化（Thinning）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#85-thickening" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.5 粗化（Thickening）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#86-skeleton" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.6 骨架提取（Skeleton）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gray-scale-morphology" class="md-nav__link">
+    <span class="md-ellipsis">
+      九、灰度形态学（Gray-Scale Morphology）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="九、灰度形态学（Gray-Scale Morphology）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1 灰度膨胀
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 灰度腐蚀
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3 灰度开操作与闭操作
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4 灰度形态学应用
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      十、本章总结
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="十、本章总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      对偶性总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      课后作业
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="课后作业">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      腐蚀与膨胀矩阵计算
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      实验
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="实验">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      实验内容
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      实验原理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      核心代码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      实验结果与分析
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      历年卷解答
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="历年卷解答">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2022" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、腐蚀计算（2022 大题）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2022_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、开操作与闭操作的定义及应用（2022 大题）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2021" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、开操作、闭操作的原理和应用（2021 大题）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2021_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      四、开操作计算（2021 大题）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2020" class="md-nav__link">
+    <span class="md-ellipsis">
+      五、膨胀的定义与计算（2020 简答）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2020_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      六、腐蚀的定义与计算（2020 简答）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebip8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第8章 图像分割
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebip9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第9章 图像配准
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    回忆卷资源
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            回忆卷资源
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../memorytest/hyj/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    关于本栏
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../memorytest/phsyhyj/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    普通化学实验（乙）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../memorytest/xchyj/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    形势与政策I
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../memorytest/dw1hyj/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    大学物理（甲）I
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    大学物理（甲）II
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            大学物理（甲）II
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../memorytest/yb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    小测（杨波）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../memorytest/dw2hyj/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    期中期末卷
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../memorytest/fbhyj/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    复变函数与积分变换
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_7" id="__nav_5_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    电路与电子技术I
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_7">
+            <span class="md-nav__icon md-icon"></span>
+            电路与电子技术I
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../memorytest/dlhyj/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    期中
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../memorytest/sdhyj/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    期末
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../memorytest/gthyj/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    概率论与数理统计
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_9" id="__nav_5_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    电路与电子技术II
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_9">
+            <span class="md-nav__icon md-icon"></span>
+            电路与电子技术II
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../memorytest/modian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    周箭课堂练习
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../memorytest/mdhyj/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    期末
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    实验课资源
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            实验课资源
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../experiment/about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    关于本栏
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../experiment/chemistry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    普通化学实验（乙）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../experiment/physics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    大学物理实验
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../experiment/gongxun/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    工程训练
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../experiment/electric1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    电路与电子技术实验I
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../experiment/electric2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    电路与电子技术实验II
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../experiment/wj/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    微机原理及应用
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../experiment/dssy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    大学生物学实验
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../experiment/bsp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    生物医学信号处理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../experiment/bip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    生物医学图像处理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../experiment/cg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    生物医学传感与检测
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    生活分享
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            生活分享
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../life/about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    关于本栏
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../life/%E7%91%9E%E4%B8%AD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    瑞中拓印
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../life/%E7%BB%BC%E8%89%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    综艺观看史
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../life/%E6%82%AC%E7%96%91/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    悬疑观看记录
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../life/%E8%B5%B5%E4%BB%8A%E9%BA%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    赵今麦
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../link/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    友情链接
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    留言板
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preliminaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、形态学图像处理基础（Preliminaries）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一、形态学图像处理基础（Preliminaries）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 二值图像的逻辑运算
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 集合论基本操作
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-structure-element-se" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 结构元素（Structure Element — SE）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erosion" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、腐蚀（Erosion）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、腐蚀（Erosion）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 效果
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 医学应用示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dilation" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、膨胀（Dilation）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、膨胀（Dilation）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 效果
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 膨胀桥接间隙示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      四、腐蚀与膨胀的性质与对偶性
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="四、腐蚀与膨胀的性质与对偶性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 共同性质
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-duality" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 腐蚀与膨胀的对偶性（Duality）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opening-and-closing" class="md-nav__link">
+    <span class="md-ellipsis">
+      五、开操作与闭操作（Opening and Closing）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="五、开操作与闭操作（Opening and Closing）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 效果对比
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 几何解释
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 基本性质
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5 医学应用示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#morphological-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      六、形态学滤波（Morphological Filter）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hit-or-miss-transformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      七、击中或击不中变换（Hit-or-Miss Transformation）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-morphological-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      八、基本形态学算法（Basic Morphological Algorithms）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="八、基本形态学算法（Basic Morphological Algorithms）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-boundary-extraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 边界提取（Boundary Extraction）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-hole-filling" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 孔洞填充（Hole Filling）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-extraction-of-connected-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3 连通分量提取（Extraction of Connected Components）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-thinning" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4 细化（Thinning）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#85-thickening" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.5 粗化（Thickening）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#86-skeleton" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.6 骨架提取（Skeleton）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gray-scale-morphology" class="md-nav__link">
+    <span class="md-ellipsis">
+      九、灰度形态学（Gray-Scale Morphology）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="九、灰度形态学（Gray-Scale Morphology）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1 灰度膨胀
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 灰度腐蚀
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3 灰度开操作与闭操作
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4 灰度形态学应用
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      十、本章总结
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="十、本章总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      对偶性总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      课后作业
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="课后作业">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      腐蚀与膨胀矩阵计算
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      实验
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="实验">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      实验内容
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      实验原理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      核心代码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      实验结果与分析
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      历年卷解答
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="历年卷解答">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2022" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、腐蚀计算（2022 大题）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2022_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、开操作与闭操作的定义及应用（2022 大题）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2021" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、开操作、闭操作的原理和应用（2021 大题）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2021_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      四、开操作计算（2021 大题）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2020" class="md-nav__link">
+    <span class="md-ellipsis">
+      五、膨胀的定义与计算（2020 简答）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2020_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      六、腐蚀的定义与计算（2020 简答）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>第7章 形态学图像处理</h1>
+
+<h2 id="preliminaries">一、形态学图像处理基础（Preliminaries）</h2>
+<!-- 建议插入PPT截图：Lecture8第4页"Morphological operation"概述图，展示形态学操作的优势（preserves edge information, shape-based processing, idempotent, computationally efficient），插入位置：本节开头 -->
+
+<p>形态学（Morphology）是<strong>以形状为基础</strong>对图像进行分析和处理的技术，主要用于<strong>二值图像</strong>（也扩展到灰度图像）。</p>
+<p>与卷积等线性滤波相比，形态学的优势：</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>保边</strong></td>
+<td>保留边缘信息，不会像高斯平滑那样模糊边界</td>
+</tr>
+<tr>
+<td><strong>基于形状</strong></td>
+<td>利用结构元素做形状驱动的处理</td>
+</tr>
+<tr>
+<td><strong>幂等性（Idempotent）</strong></td>
+<td>开/闭操作可以设计为幂等的（重复执行不改变结果）</td>
+</tr>
+<tr>
+<td><strong>计算高效</strong></td>
+<td>仅需逻辑运算和集合操作</td>
+</tr>
+</tbody>
+</table>
+<h3 id="11">1.1 二值图像的逻辑运算</h3>
+<p>形态学的底层操作基于集合论和逻辑运算：</p>
+<table>
+<thead>
+<tr>
+<th>运算</th>
+<th style="text-align: center;">符号</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NOT</td>
+<td style="text-align: center;"><span class="arithmatex">\(\lnot\)</span></td>
+<td>取反（<span class="arithmatex">\(1 \to 0\)</span>，<span class="arithmatex">\(0 \to 1\)</span>）</td>
+</tr>
+<tr>
+<td>AND</td>
+<td style="text-align: center;"><span class="arithmatex">\(\land\)</span></td>
+<td>两者均为 <span class="arithmatex">\(1\)</span> 时得 <span class="arithmatex">\(1\)</span></td>
+</tr>
+<tr>
+<td>OR</td>
+<td style="text-align: center;"><span class="arithmatex">\(\lor\)</span></td>
+<td>至少一个为 <span class="arithmatex">\(1\)</span> 时得 <span class="arithmatex">\(1\)</span></td>
+</tr>
+<tr>
+<td>XOR</td>
+<td style="text-align: center;"><span class="arithmatex">\(\oplus\)</span></td>
+<td>两者不同时得 <span class="arithmatex">\(1\)</span></td>
+</tr>
+</tbody>
+</table>
+<!-- 建议插入PPT截图：Lecture8第5页"Logical operations"示意图（B1, B2的and/or/xor/not运算结果），插入位置：此处 -->
+
+<h3 id="12">1.2 集合论基本操作</h3>
+<p>设 <span class="arithmatex">\(A\)</span> 为 <span class="arithmatex">\(\mathbb{Z}^2\)</span> 中的集合。若 <span class="arithmatex">\(a = (a_1, a_2)\)</span> 是 <span class="arithmatex">\(A\)</span> 的元素，记为 <span class="arithmatex">\(a \in A\)</span>；否则 <span class="arithmatex">\(a \notin A\)</span>。空集记为 <span class="arithmatex">\(\varnothing\)</span>。</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>定义</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>子集（Subset）</strong></td>
+<td><span class="arithmatex">\(A \subseteq B\)</span></td>
+<td><span class="arithmatex">\(A\)</span> 是 <span class="arithmatex">\(B\)</span> 的子集</td>
+</tr>
+<tr>
+<td><strong>并集（Union）</strong></td>
+<td><span class="arithmatex">\(C = A \cup B\)</span></td>
+<td><span class="arithmatex">\(C\)</span> 是 <span class="arithmatex">\(A\)</span> 和 <span class="arithmatex">\(B\)</span> 的并集</td>
+</tr>
+<tr>
+<td><strong>交集（Intersection）</strong></td>
+<td><span class="arithmatex">\(C = A \cap B\)</span></td>
+<td><span class="arithmatex">\(C\)</span> 是 <span class="arithmatex">\(A\)</span> 和 <span class="arithmatex">\(B\)</span> 的交集</td>
+</tr>
+<tr>
+<td><strong>互斥（Disjoint）</strong></td>
+<td><span class="arithmatex">\(A \cap B = \varnothing\)</span></td>
+<td><span class="arithmatex">\(A\)</span> 和 <span class="arithmatex">\(B\)</span> 不相交</td>
+</tr>
+<tr>
+<td><strong>补集（Complement）</strong></td>
+<td><span class="arithmatex">\(A^c = \{w \mid w \notin A\}\)</span></td>
+<td>不包含于 <span class="arithmatex">\(A\)</span> 的元素集合</td>
+</tr>
+<tr>
+<td><strong>差集（Difference）</strong></td>
+<td><span class="arithmatex">\(A - B = \{w \mid w \in A, w \notin B\} = A \cap B^c\)</span></td>
+<td>在 <span class="arithmatex">\(A\)</span> 但不在 <span class="arithmatex">\(B\)</span> 中的元素</td>
+</tr>
+<tr>
+<td><strong>反射（Reflection）</strong></td>
+<td><span class="arithmatex">\(\hat{B} = \{w \mid w = -b, \text{ for } b \in B\}\)</span></td>
+<td>关于原点翻转</td>
+</tr>
+<tr>
+<td><strong>平移（Translation）</strong></td>
+<td><span class="arithmatex">\((A)_z = \{c \mid c = a + z, \text{ for } a \in A\}\)</span></td>
+<td>将 <span class="arithmatex">\(A\)</span> 平移 <span class="arithmatex">\(z\)</span></td>
+</tr>
+</tbody>
+</table>
+<!-- 建议插入PPT截图：Lecture8第6-7页中集合反射和平移的示意图，插入位置：此处 -->
+
+<h3 id="13-structure-element-se">1.3 结构元素（Structure Element — SE）</h3>
+<!-- 建议插入PPT截图：Lecture8第8-9页"Structure Elements"示意图（展示不同形状和大小的SE以及"x: not care"的含义），插入位置：此处 -->
+
+<p><strong>结构元素（SE）</strong> 类似于卷积核，是形态学操作的"探针"：</p>
+<ul>
+<li>SE 有<strong>定义好的形状和大小</strong>（如圆形、方形、十字形等）</li>
+<li>SE 中的 "x" 表示<strong>不关心该位置的值</strong>（don't care）</li>
+<li>SE 通常比被处理图像小得多</li>
+<li>SE 在图像上<strong>逐像素平移</strong>，每次检查 SE 与原图的<strong>集合关系</strong></li>
+</ul>
+<hr />
+<h2 id="erosion">二、腐蚀（Erosion）</h2>
+<!-- 建议插入PPT截图：Lecture8第10页"Erosion"定义示意图（SE在A内部平移的几何解释），插入位置：此处 -->
+
+<h3 id="21">2.1 定义</h3>
+<p><span class="arithmatex">\(A\)</span> 被 <span class="arithmatex">\(B\)</span> 腐蚀，记为 <span class="arithmatex">\(A \ominus B\)</span>，定义为：</p>
+<div class="arithmatex">\[
+A \ominus B = \{z \mid (B)_z \subseteq A\}
+\]</div>
+<p><strong>含义</strong>：所有使得 <span class="arithmatex">\(B\)</span> 平移 <span class="arithmatex">\(z\)</span> 后<strong>完全包含在 <span class="arithmatex">\(A\)</span> 中</strong>的点 <span class="arithmatex">\(z\)</span> 的集合。即 SE 必须<strong>完全在物体内部</strong>才能保留中心点。</p>
+<!-- 建议插入PPT截图：Lecture8第11页腐蚀操作逐像素平移示意图，插入位置：此处 -->
+
+<h3 id="22">2.2 效果</h3>
+<ul>
+<li><strong>缩小/收缩物体</strong>：像剥洋葱一样从物体外层"剥掉"像素层</li>
+<li><strong>消除小物体</strong>：尺寸小于 SE 的亮物体被完全移除</li>
+<li><strong>断开狭窄连接</strong>：物体之间的细桥被断开</li>
+<li><strong>扩大孔洞</strong>：物体内部的孔洞变大</li>
+</ul>
+<!-- 建议插入PPT截图：Lecture8第12页不同SE尺寸（11×11, 15×15, 45×45）的腐蚀效果对比图，插入位置：此处 -->
+
+<h3 id="23">2.3 医学应用示例</h3>
+<ul>
+<li><strong>胸腺组织提取</strong>：用 7×7 → 13×13 SE 逐步腐蚀，消除细小无关组织</li>
+<li><strong>大物体检测</strong>：腐蚀 + 开操作 → 只保留大物体，去除小的无关结构</li>
+</ul>
+<!-- 建议插入PPT截图：Lecture8第14-15页胸腺组织腐蚀结果图，插入位置：此处 -->
+
+<hr />
+<h2 id="dilation">三、膨胀（Dilation）</h2>
+<!-- 建议插入PPT截图：Lecture8第16页"Dilation"定义示意图，插入位置：此处 -->
+
+<h3 id="31">3.1 定义</h3>
+<p><span class="arithmatex">\(A\)</span> 被 <span class="arithmatex">\(B\)</span> 膨胀，记为 <span class="arithmatex">\(A \oplus B\)</span>，定义为：</p>
+<div class="arithmatex">\[
+A \oplus B = \{z \mid (\hat{B})_z \cap A \neq \varnothing\}
+\]</div>
+<p><strong>含义</strong>：所有使得 <span class="arithmatex">\(B\)</span> 的反射平移 <span class="arithmatex">\(z\)</span> 后<strong>与 <span class="arithmatex">\(A\)</span> 至少有一个像素重合</strong>的点 <span class="arithmatex">\(z\)</span> 的集合。</p>
+<p>即：将 SE 的反射在图像上滑动，只要 SE 与原图有交集，中心点就输出为前景。</p>
+<!-- 建议插入PPT截图：Lecture8第17-18页膨胀操作示意图，插入位置：此处 -->
+
+<h3 id="32">3.2 效果</h3>
+<ul>
+<li><strong>膨胀/扩大物体</strong>：在物体外层"增加"像素层</li>
+<li><strong>填补孔洞和裂缝</strong>：物体内部的小孔被填满</li>
+<li><strong>桥接间隙</strong>：物体之间的断开区域被连接</li>
+</ul>
+<h3 id="33">3.3 膨胀桥接间隙示例</h3>
+<!-- 建议插入PPT截图：Lecture8第19-20页膨胀桥接间隙示例（已知最大断裂宽度为2 pixel → 使用合适的SE弥合），插入位置：此处 -->
+
+<p>已知最大断裂宽度为 2 像素时，使用 <code>[1 1 1; 1 1 1; 1 1 1]</code> 的 SE 即可弥合所有断裂点。</p>
+<hr />
+<h2 id="_1">四、腐蚀与膨胀的性质与对偶性</h2>
+<h3 id="41">4.1 共同性质</h3>
+<table>
+<thead>
+<tr>
+<th>性质</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>平移不变（Translation Invariant）</strong></td>
+<td><span class="arithmatex">\((A)_z \circ B = (A \circ B)_z\)</span></td>
+</tr>
+<tr>
+<td><strong>顺序不变（Order Invariant）</strong></td>
+<td><span class="arithmatex">\((A \ominus B) \ominus C = A \ominus (B \oplus C)\)</span></td>
+</tr>
+<tr>
+<td><strong>递增算子（Increasing Operator）</strong></td>
+<td>若 <span class="arithmatex">\(A \subseteq A'\)</span>，则 <span class="arithmatex">\(A \circ B \subseteq A' \circ B\)</span></td>
+</tr>
+<tr>
+<td><strong>尺度不变（Scale Invariant）</strong></td>
+<td><span class="arithmatex">\(rA \circ rB = r(A \circ B)\)</span>，<span class="arithmatex">\(r\)</span> 为尺度因子</td>
+</tr>
+</tbody>
+</table>
+<h3 id="42-duality">4.2 腐蚀与膨胀的对偶性（Duality）</h3>
+<p>腐蚀和膨胀关于集合补集和反射互为对偶：</p>
+<div class="arithmatex">\[
+(A \ominus B)^c = A^c \oplus \hat{B}
+\]</div>
+<div class="arithmatex">\[
+(A \oplus B)^c = A^c \ominus \hat{B}
+\]</div>
+<p><strong>等价表述</strong>：</p>
+<div class="arithmatex">\[
+A \ominus B = \{z \mid (B)_z \subseteq A\}
+\]</div>
+<div class="arithmatex">\[
+A \oplus B = \{z \mid (\hat{B})_z \cap A \neq \varnothing\}
+\]</div>
+<hr />
+<h2 id="opening-and-closing">五、开操作与闭操作（Opening and Closing）</h2>
+<!-- 建议插入PPT截图：Lecture8第24页"Opening and Closing"定义页，包含两个公式及效果说明，插入位置：本节开头 -->
+
+<h3 id="51">5.1 定义</h3>
+<p><strong>开操作（Opening）</strong>：先腐蚀，后膨胀：</p>
+<div class="arithmatex">\[
+A \circ B = (A \ominus B) \oplus B
+\]</div>
+<p><strong>闭操作（Closing）</strong>：先膨胀，后腐蚀：</p>
+<div class="arithmatex">\[
+A \bullet B = (A \oplus B) \ominus B
+\]</div>
+<h3 id="52">5.2 效果对比</h3>
+<!-- 建议插入PPT截图：Lecture8第25页开/闭操作处理效果对比图（bridge消除、突起消除、角点圆化等），插入位置：此处 -->
+
+<table>
+<thead>
+<tr>
+<th>效果</th>
+<th style="text-align: center;">开操作（Opening）</th>
+<th style="text-align: center;">闭操作（Closing）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>平滑轮廓</strong></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><strong>断开窄桥（Isthmus）</strong></td>
+<td style="text-align: center;">✅ 断开</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><strong>消除细小突起</strong></td>
+<td style="text-align: center;">✅ 消除</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><strong>融合窄断裂/细长沟</strong></td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅ 融合</td>
+</tr>
+<tr>
+<td><strong>消除小孔洞</strong></td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅ 填补</td>
+</tr>
+<tr>
+<td><strong>填充间隙</strong></td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><strong>外角</strong></td>
+<td style="text-align: center;"><strong>变圆</strong></td>
+<td style="text-align: center;">不变</td>
+</tr>
+<tr>
+<td><strong>内角</strong></td>
+<td style="text-align: center;">不变</td>
+<td style="text-align: center;"><strong>变圆</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">记忆技巧</p>
+<ul>
+<li><strong>开（Open）= 先腐蚀后膨胀</strong> → 像"打开"一个口子，断开窄连接</li>
+<li><strong>闭（Close）= 先膨胀后腐蚀</strong> → 像"闭合"一个口子，填补小孔</li>
+<li>开操作名如其意：把物体"分开"；闭操作把物体"合上"</li>
+</ul>
+</div>
+<h3 id="53">5.3 几何解释</h3>
+<!-- 建议插入PPT截图：Lecture8第26页几何解释示意图（开操作为SE在A内部滚动的轨迹并集，闭操作为SE在A外部滚动的轨迹补集），插入位置：此处 -->
+
+<p><strong>开操作的几何直观</strong>：将 SE 在 <span class="arithmatex">\(A\)</span> 内部滚动，所有 SE 能到达的位置的并集：</p>
+<div class="arithmatex">\[
+A \circ B = \bigcup \{(B)_z \mid (B)_z \subseteq A\}
+\]</div>
+<p><strong>闭操作的几何直观</strong>：将 SE 在 <span class="arithmatex">\(A\)</span> 外部滚动，取补集：</p>
+<div class="arithmatex">\[
+A \bullet B = \left[ \bigcup \{(B)_z \mid (B)_z \subseteq A^c\} \right]^c
+\]</div>
+<h3 id="54">5.4 基本性质</h3>
+<table>
+<thead>
+<tr>
+<th>性质</th>
+<th>开操作</th>
+<th>闭操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>包含关系</strong></td>
+<td><span class="arithmatex">\(A \circ B \subseteq A\)</span>（开结果是 <span class="arithmatex">\(A\)</span> 的子集）</td>
+<td><span class="arithmatex">\(A \subseteq A \bullet B\)</span>（<span class="arithmatex">\(A\)</span> 是闭结果的子集）</td>
+</tr>
+<tr>
+<td><strong>单调性</strong></td>
+<td>若 <span class="arithmatex">\(C \subseteq D\)</span>，则 <span class="arithmatex">\(C \circ B \subseteq D \circ B\)</span></td>
+<td>若 <span class="arithmatex">\(C \subseteq D\)</span>，则 <span class="arithmatex">\(C \bullet B \subseteq D \bullet B\)</span></td>
+</tr>
+<tr>
+<td><strong>幂等性（Idempotent）</strong></td>
+<td><span class="arithmatex">\((A \circ B) \circ B = A \circ B\)</span></td>
+<td><span class="arithmatex">\((A \bullet B) \bullet B = A \bullet B\)</span></td>
+</tr>
+<tr>
+<td><strong>对偶性</strong></td>
+<td><span class="arithmatex">\((A \bullet B)^c = A^c \circ \hat{B}\)</span></td>
+<td><span class="arithmatex">\((A \circ B)^c = A^c \bullet \hat{B}\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">幂等性的意义</p>
+<p>开/闭操作执行一次后，再执行同样的操作不会改变结果。这与中值滤波不同——中值滤波反复做会越来越模糊。幂等性是形态学滤波优于线性滤波的重要特性。</p>
+</div>
+<h3 id="55">5.5 医学应用示例</h3>
+<p><strong>开操作 — 颅骨剥离（Skull Stripping）</strong>：</p>
+<!-- 建议插入PPT截图：Lecture8第28页颅骨剥离流程图（binary brain → largest connected component → erosion r=3 → conditional dilation r=4），插入位置：此处 -->
+
+<ul>
+<li>二值脑图 → 取最大连通分量</li>
+<li>用圆形 SE（半径 3）腐蚀 → 断开脑组织与颅骨的连接</li>
+<li>用圆形 SE（半径 4）条件膨胀 → 恢复脑组织原状</li>
+</ul>
+<p><strong>闭操作 — ROI 修改</strong>：</p>
+<!-- 建议插入PPT截图：Lecture8第29页ROI修改对比图（without closing vs with closing），插入位置：此处 -->
+
+<ul>
+<li>闭操作前：ROI 内部有细小孔洞和缝隙</li>
+<li>闭操作后：小孔洞被填补，ROI 更加完整</li>
+</ul>
+<hr />
+<h2 id="morphological-filter">六、形态学滤波（Morphological Filter）</h2>
+<!-- 建议插入PPT截图：Lecture8第30-31页形态学滤波（先开后闭）消除椒盐噪声的对比图，插入位置：此处 -->
+
+<p><strong>形态学滤波 = 先开操作，再闭操作</strong></p>
+<p>用于消除二值图像中的<strong>椒盐噪声</strong>：</p>
+<ul>
+<li><strong>背景噪声（椒噪声）在腐蚀阶段被消除</strong>：因为噪声分量物理尺寸小于 SE</li>
+<li><strong>前景噪声（盐噪声）在后续操作中被消除</strong></li>
+<li><strong>只有比 SE 小的特征被影响</strong>，大尺度结构保持不变</li>
+</ul>
+<p><strong>与线性滤波的关键区别</strong>：</p>
+<ul>
+<li>线性滤波（如高斯卷积）：<strong>所有尺度</strong>的特征都会被平滑（模糊+退化）</li>
+<li>形态学滤波：只有<strong>小于 SE 的噪声</strong>被消除，<strong>大结构完全不受影响</strong></li>
+</ul>
+<hr />
+<h2 id="hit-or-miss-transformation">七、击中或击不中变换（Hit-or-Miss Transformation）</h2>
+<!-- 建议插入PPT截图：Lecture8第32-33页Hit-or-Miss变换示意图（B1匹配前景、B2匹配背景、结果高亮匹配点），插入位置：此处 -->
+
+<p><strong>用途</strong>：形状检测（Shape Detection）——在图像中定位特定形状。</p>
+<p>用 <span class="arithmatex">\(B\)</span> 表示由前景 <span class="arithmatex">\(B_1\)</span> 和背景 <span class="arithmatex">\(B_2\)</span> 组成的目标形状，<span class="arithmatex">\(B\)</span> 在 <span class="arithmatex">\(A\)</span> 中的匹配 <span class="arithmatex">\(A \otimes B\)</span> 定义为：</p>
+<div class="arithmatex">\[
+A \otimes B = (A \ominus B_1) \cap (A^c \ominus B_2)
+\]</div>
+<p><strong>解释</strong>：
+- <span class="arithmatex">\(A \ominus B_1\)</span>：找到所有 <span class="arithmatex">\(B_1\)</span>（前景）能完全放入的位置
+- <span class="arithmatex">\(A^c \ominus B_2\)</span>：找到所有 <span class="arithmatex">\(B_2\)</span>（背景）能完全放入补集的位置
+- 两者取交集 → 精确匹配完整形状（前景 + 背景）的像素位置</p>
+<hr />
+<h2 id="basic-morphological-algorithms">八、基本形态学算法（Basic Morphological Algorithms）</h2>
+<!-- 建议插入PPT截图：Lecture8第34页基本形态学算法概览图（boundary, connected components, convex hull, skeleton, region filling, thinning, thickening, pruning），插入位置：本节开头 -->
+
+<h3 id="81-boundary-extraction">8.1 边界提取（Boundary Extraction）</h3>
+<p><span class="arithmatex">\(A\)</span> 的边界 <span class="arithmatex">\(\beta(A)\)</span> 通过先腐蚀再与原图作差得到：</p>
+<div class="arithmatex">\[
+\beta(A) = A - (A \ominus B)
+\]</div>
+<p>其中 <span class="arithmatex">\(B\)</span> 为合适的 SE（通常为 <span class="arithmatex">\(3 \times 3\)</span> 十字形）。</p>
+<!-- 建议插入PPT截图：Lecture8第35页边界提取效果图，插入位置：此处 -->
+
+<h3 id="82-hole-filling">8.2 孔洞填充（Hole Filling）</h3>
+<p>已知孔洞内一个起点 <span class="arithmatex">\(p\)</span>（值为 <span class="arithmatex">\(0\)</span>），通过迭代膨胀并限制在 <span class="arithmatex">\(A^c\)</span> 内来填充孔洞：</p>
+<div class="arithmatex">\[
+X_k = (X_{k-1} \oplus B) \cap A^c, \quad k = 1, 2, 3, \ldots
+\]</div>
+<p>其中 <span class="arithmatex">\(X_0\)</span> 在 <span class="arithmatex">\(p\)</span> 处为 <span class="arithmatex">\(1\)</span>，其余为 <span class="arithmatex">\(0\)</span>。当 <span class="arithmatex">\(X_k = X_{k-1}\)</span> 时算法终止。</p>
+<!-- 建议插入PPT截图：Lecture8第36-38页孔洞填充过程示意图及脑分割掩膜填充示例，插入位置：此处 -->
+
+<p><strong>关键</strong>：每步与 <span class="arithmatex">\(A^c\)</span> 取交集，限制填充不超出 ROI 边界。</p>
+<h3 id="83-extraction-of-connected-components">8.3 连通分量提取（Extraction of Connected Components）</h3>
+<p>从连通分量 <span class="arithmatex">\(Y\)</span> 内的一个已知点 <span class="arithmatex">\(p\)</span> 开始（<span class="arithmatex">\(Y \subseteq A\)</span>）：</p>
+<div class="arithmatex">\[
+X_k = (X_{k-1} \oplus B) \cap A, \quad k = 1, 2, 3, \ldots
+\]</div>
+<p>其中 <span class="arithmatex">\(X_0 = p\)</span>，<span class="arithmatex">\(B\)</span> 为合适的 SE。当 <span class="arithmatex">\(X_k = X_{k-1}\)</span> 时收敛，<span class="arithmatex">\(Y = X_k\)</span>。</p>
+<!-- 建议插入PPT截图：Lecture8第39-40页连通分量提取示意图及脑转移瘤提取示例，插入位置：此处 -->
+
+<p><strong>与孔洞填充的区别</strong>：孔洞填充每次与 <span class="arithmatex">\(A^c\)</span> 取交集，连通分量提取每次与 <span class="arithmatex">\(A\)</span> 取交集。</p>
+<h3 id="84-thinning">8.4 细化（Thinning）</h3>
+<p><span class="arithmatex">\(A\)</span> 被 SE <span class="arithmatex">\(B\)</span> 细化的定义为：</p>
+<div class="arithmatex">\[
+A \otimes B = A - (A \otimes B) = A \cap (A \otimes B)^c
+\]</div>
+<p><strong>对称细化</strong>使用 SE 序列 <span class="arithmatex">\(\{B\} = \{B_1, B_2, \ldots, B_n\}\)</span>（<span class="arithmatex">\(B_i\)</span> 是 <span class="arithmatex">\(B_{i-1}\)</span> 的旋转版本）：</p>
+<div class="arithmatex">\[
+A \otimes \{B\} = ((\ldots((A \otimes B_1) \otimes B_2) \ldots) \otimes B_n)
+\]</div>
+<p>整个过程重复进行，直到不再发生变化。</p>
+<!-- 建议插入PPT截图：Lecture8第41-43页细化过程示意图及3D MRA细化结果图，插入位置：此处 -->
+
+<h3 id="85-thickening">8.5 粗化（Thickening）</h3>
+<p>粗化是细化的对偶操作：</p>
+<div class="arithmatex">\[
+A \odot B = A \cup (A \otimes B)
+\]</div>
+<p>实际中通常采用<strong>间接方法</strong>：对 <span class="arithmatex">\(A^c\)</span> 做细化，再取补集得到粗化结果。</p>
+<!-- 建议插入PPT截图：Lecture8第44-46页粗化过程示意图，插入位置：此处 -->
+
+<h3 id="86-skeleton">8.6 骨架提取（Skeleton）</h3>
+<p><span class="arithmatex">\(A\)</span> 的骨架 <span class="arithmatex">\(S(A)\)</span> 可通过对 <span class="arithmatex">\(A\)</span> 反复腐蚀和开操作得到：</p>
+<div class="arithmatex">\[
+S(A) = \bigcup_{k=0}^{K} S_k(A)
+\]</div>
+<div class="arithmatex">\[
+S_k(A) = (A \ominus kB) - (A \ominus kB) \circ B
+\]</div>
+<p>其中 <span class="arithmatex">\((A \ominus kB)\)</span> 表示对 <span class="arithmatex">\(A\)</span> 连续腐蚀 <span class="arithmatex">\(k\)</span> 次，<span class="arithmatex">\(K = \max\{k \mid A \ominus kB \neq \varnothing\}\)</span>。</p>
+<p><strong>最大圆盘（Maximum Disk）</strong>：
+- 若 <span class="arithmatex">\((D)_z\)</span> 是最大圆盘，则不存在更大的圆盘（不一定以 <span class="arithmatex">\(z\)</span> 为中心）包含 <span class="arithmatex">\((D)_z\)</span> 且仍在 <span class="arithmatex">\(A\)</span> 内部
+- 最大圆盘在至少两处与 <span class="arithmatex">\(A\)</span> 的边界相切</p>
+<!-- 建议插入PPT截图：Lecture8第47页骨架提取示意图及最大圆盘概念，插入位置：此处 -->
+
+<hr />
+<h2 id="gray-scale-morphology">九、灰度形态学（Gray-Scale Morphology）</h2>
+<!-- 建议插入PPT截图：Lecture8第48页灰度形态学概述（将二值集合运算扩展到灰度函数），插入位置：本节开头 -->
+
+<p>将形态学从<strong>集合</strong>扩展到<strong>函数</strong>（图像）：</p>
+<ul>
+<li><span class="arithmatex">\(f(x,y)\)</span>：输入灰度图像</li>
+<li><span class="arithmatex">\(b(x,y)\)</span>：结构元素（本身是一个子图像/灰度模板）</li>
+</ul>
+<h3 id="91">9.1 灰度膨胀</h3>
+<p>灰度膨胀的定义：</p>
+<div class="arithmatex">\[
+(f \oplus b)(x,y) = \max_{(s,t) \in b} \{f(x - s, y - t) + b(s,t)\}
+\]</div>
+<p><strong>效果</strong>：
+- 亮区域扩张
+- 暗细节减弱或被消除
+- 整体亮度提升</p>
+<h3 id="92">9.2 灰度腐蚀</h3>
+<p>灰度腐蚀的定义：</p>
+<div class="arithmatex">\[
+(f \ominus b)(x,y) = \min_{(s,t) \in b} \{f(x + s, y + t) - b(s,t)\}
+\]</div>
+<p><strong>效果</strong>：
+- 暗区域扩张
+- 亮细节减弱或被消除
+- 整体亮度降低</p>
+<!-- 建议插入PPT截图：Lecture8第50-51页灰度膨胀/腐蚀效果对比图（erosion vs dilation on gray-scale），插入位置：此处 -->
+
+<h3 id="93">9.3 灰度开操作与闭操作</h3>
+<p><strong>灰度开操作</strong>：先灰度腐蚀，再灰度膨胀</p>
+<div class="arithmatex">\[
+f \circ b = (f \ominus b) \oplus b
+\]</div>
+<ul>
+<li>移除比 SE 小的<strong>亮</strong>细节（小亮斑被消除）</li>
+<li>平滑从上方贴合图像轮廓</li>
+</ul>
+<p><strong>灰度闭操作</strong>：先灰度膨胀，再灰度腐蚀</p>
+<div class="arithmatex">\[
+f \bullet b = (f \oplus b) \ominus b
+\]</div>
+<ul>
+<li>移除比 SE 小的<strong>暗</strong>细节（小黑洞被填补）</li>
+<li>平滑从下方贴合图像轮廓</li>
+</ul>
+<h3 id="94">9.4 灰度形态学应用</h3>
+<ul>
+<li><strong>形态学梯度（Morphological Gradient）</strong>：<span class="arithmatex">\(g = (f \oplus b) - (f \ominus b)\)</span> → 提取边缘</li>
+<li><strong>纹理分割</strong>：基于纹理内容进行区域划分</li>
+<li><strong>平滑与锐化</strong>：开/闭操作可设计为平滑或增强算子</li>
+</ul>
+<hr />
+<h2 id="_2">十、本章总结</h2>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>定义</th>
+<th>效果</th>
+<th style="text-align: center;">幂等性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>腐蚀</strong></td>
+<td><span class="arithmatex">\(A \ominus B = \{z \mid (B)_z \subseteq A\}\)</span></td>
+<td>收缩物体，消除小目标</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><strong>膨胀</strong></td>
+<td><span class="arithmatex">\(A \oplus B = \{z \mid (\hat{B})_z \cap A \neq \varnothing\}\)</span></td>
+<td>扩大物体，填补孔洞</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><strong>开操作</strong></td>
+<td><span class="arithmatex">\(A \circ B = (A \ominus B) \oplus B\)</span></td>
+<td>断开窄连接，消除小突起</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><strong>闭操作</strong></td>
+<td><span class="arithmatex">\(A \bullet B = (A \oplus B) \ominus B\)</span></td>
+<td>融合窄断裂，填补小孔</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><strong>击中击不中</strong></td>
+<td><span class="arithmatex">\(A \otimes B = (A \ominus B_1) \cap (A^c \ominus B_2)\)</span></td>
+<td>形状检测</td>
+<td style="text-align: center;">❌</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_3">对偶性总结</h3>
+<table>
+<thead>
+<tr>
+<th>对偶关系</th>
+<th>公式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>腐蚀 ↔ 膨胀</td>
+<td><span class="arithmatex">\((A \ominus B)^c = A^c \oplus \hat{B}\)</span></td>
+</tr>
+<tr>
+<td>开 ↔ 闭</td>
+<td><span class="arithmatex">\((A \bullet B)^c = A^c \circ \hat{B}\)</span></td>
+</tr>
+<tr>
+<td>细化 ↔ 粗化</td>
+<td>粗化 = 对补集细化的补集</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">考试重点提示</p>
+<ul>
+<li><strong>腐蚀和膨胀的定义与计算</strong>：给定图像矩阵和 SE，能正确计算腐蚀/膨胀结果</li>
+<li><strong>开操作与闭操作的定义、原理和应用场景</strong>：能举例说明分别解决什么问题</li>
+<li><strong>对偶性</strong>：理解腐蚀-膨胀、开-闭之间的对偶关系</li>
+<li><strong>幂等性</strong>：开/闭操作执行一次即达到稳态，不同于线性滤波</li>
+</ul>
+</div>
+<hr />
+<h2 id="_4">课后作业</h2>
+<blockquote>
+<p>本章无独立的课后作业。下面编制一道典型计算题，帮助掌握腐蚀与膨胀的矩阵计算。</p>
+</blockquote>
+<h3 id="_5">腐蚀与膨胀矩阵计算</h3>
+<p>给定 <span class="arithmatex">\(5 \times 5\)</span> 的二值图像 <span class="arithmatex">\(A\)</span> 和结构元素 <span class="arithmatex">\(B\)</span>（原点为 SE 的中心 <span class="arithmatex">\((2,2)\)</span> 位置，即第二行第二列），请分别计算：</p>
+<ol>
+<li><span class="arithmatex">\(A \ominus B\)</span>（腐蚀）</li>
+<li><span class="arithmatex">\(A \oplus B\)</span>（膨胀）</li>
+</ol>
+<p>图像矩阵 <span class="arithmatex">\(A\)</span>：</p>
+<div class="arithmatex">\[
+A = \begin{bmatrix}
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 1 &amp; 1 &amp; 0 \\
+0 &amp; 1 &amp; 1 &amp; 1 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0
+\end{bmatrix}
+\]</div>
+<p>结构元素 <span class="arithmatex">\(B\)</span>：</p>
+<div class="arithmatex">\[
+B = \begin{bmatrix}
+1 &amp; 1 &amp; 1 \\
+1 &amp; 1 &amp; 1 \\
+1 &amp; 1 &amp; 1
+\end{bmatrix}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">解答</p>
+<p><strong>(1) 腐蚀 <span class="arithmatex">\(A \ominus B\)</span></strong></p>
+<p>腐蚀定义：<span class="arithmatex">\(A \ominus B = \{z \mid (B)_z \subseteq A\}\)</span>，即 SE 的中心在位置 <span class="arithmatex">\(z\)</span> 时，SE 完全包含在 <span class="arithmatex">\(A\)</span> 内。</p>
+<p><span class="arithmatex">\(B\)</span> 是 <span class="arithmatex">\(3 \times 3\)</span> 全 <span class="arithmatex">\(1\)</span> 矩阵。逐像素检查：</p>
+<ul>
+<li>对于 <span class="arithmatex">\(A\)</span> 中值为 <span class="arithmatex">\(1\)</span> 的像素，以其为中心的 <span class="arithmatex">\(3 \times 3\)</span> 邻域是否全为 <span class="arithmatex">\(1\)</span>？</li>
+<li>只有中心元素 <span class="arithmatex">\((2,2)\)</span> 满足条件（周围 <span class="arithmatex">\(3 \times 3\)</span> 全为 <span class="arithmatex">\(1\)</span>）</li>
+<li>其他 <span class="arithmatex">\(1\)</span> 像素的 <span class="arithmatex">\(3 \times 3\)</span> 邻域都包含 <span class="arithmatex">\(A\)</span> 中的 <span class="arithmatex">\(0\)</span></li>
+</ul>
+<p>因此腐蚀结果为：</p>
+<div class="arithmatex">\[
+A \ominus B = \begin{bmatrix}
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0
+\end{bmatrix}
+\]</div>
+<p><strong>(2) 膨胀 <span class="arithmatex">\(A \oplus B\)</span></strong></p>
+<p>膨胀定义：<span class="arithmatex">\(A \oplus B = \{z \mid (\hat{B})_z \cap A \neq \varnothing\}\)</span>。由于 <span class="arithmatex">\(B\)</span> 是对称的（<span class="arithmatex">\(B = \hat{B}\)</span>），等价于：只要 SE 与 <span class="arithmatex">\(A\)</span> 有交集，就输出 <span class="arithmatex">\(1\)</span>。</p>
+<p>实际操作：将 <span class="arithmatex">\(B\)</span> 的原点依次放在 <span class="arithmatex">\(A\)</span> 中每个值为 <span class="arithmatex">\(1\)</span> 的像素上，被 <span class="arithmatex">\(B\)</span> 覆盖的所有位置都设为 <span class="arithmatex">\(1\)</span>。相当于对 <span class="arithmatex">\(A\)</span> 做 <span class="arithmatex">\(3 \times 3\)</span> 的"最大值扩张"。</p>
+<p>因此膨胀结果为：</p>
+<div class="arithmatex">\[
+A \oplus B = \begin{bmatrix}
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\
+0 &amp; 1 &amp; 1 &amp; 1 &amp; 0
+\end{bmatrix}
+\]</div>
+<p><strong>总结验证</strong>：
+- 腐蚀后物体<strong>缩小</strong>了（只剩一个像素）
+- 膨胀后物体<strong>扩大</strong>了（几乎充满整个图像）
+- 腐蚀 + 膨胀（先腐蚀再膨胀）= 开操作：会消除小的 <span class="arithmatex">\(1\)</span> 区域
+- 膨胀 + 腐蚀（先膨胀再腐蚀）= 闭操作：会填补小的 <span class="arithmatex">\(0\)</span> 区域</p>
+</div>
+<hr />
+<h2 id="_6">实验</h2>
+<h3 id="_7">实验内容</h3>
+<p>本实验使用数学形态学操作对含噪声的脑部二值掩膜进行修复，并与标准掩膜（Ground Truth）进行对比评估：</p>
+<ul>
+<li><strong>读取数据</strong>：导入 noisy_brain_mask.npy（含噪声掩膜）、brain_tissue_mask_slice.npy（标准掩膜）、original_brain_slice_.npy（原始脑切片）、brain_tissue_slice.npy（标准脑组织切片）</li>
+<li><strong>掩膜修复</strong>：对含噪掩膜依次进行开运算和闭运算，去除外部假阳性噪声（如头骨细线），并填补内部假阴性孔洞</li>
+<li><strong>缺陷检查</strong>：将修复结果与 Ground Truth 对比，分析假阳性（FP）和假阴性（FN）分布</li>
+<li><strong>脑实质提取</strong>：使用修复后的掩膜从原图中提取脑实质</li>
+</ul>
+<h3 id="_8">实验原理</h3>
+<p>形态学修复基于两个核心操作：</p>
+<p><strong>(1) 开运算（Opening）— 去除外部伪影</strong></p>
+<p>对含噪掩膜做开运算（先腐蚀后膨胀），本质是通过腐蚀"切断"大脑外部的细小头骨线，再通过膨胀恢复大脑主体的尺寸。</p>
+<p>利用 <span class="arithmatex">\(3 \times 3\)</span> 十字形结构元素，连续两次开运算迭代，成功消除大部分与脑主体不相连或连接薄弱的外部伪影。</p>
+<p><strong>(2) 闭运算（Closing）— 填补内部孔洞</strong></p>
+<p>对开运算结果做闭运算（先膨胀后腐蚀），通过膨胀"填上"脑实质内部的细小孔洞，再通过腐蚀恢复边界位置。</p>
+<h3 id="_9">核心代码</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.ndimage</span><span class="w"> </span><span class="kn">import</span> <span class="n">binary_opening</span><span class="p">,</span> <span class="n">binary_closing</span><span class="p">,</span> <span class="n">generate_binary_structure</span>
+
+<span class="c1"># 创建 3×3 十字形结构元素</span>
+<span class="n">struct_elem</span> <span class="o">=</span> <span class="n">generate_binary_structure</span><span class="p">(</span><span class="n">rank</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">connectivity</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># 开运算：消除外部头骨线和毛刺（2次迭代）</span>
+<span class="n">mask_opened</span> <span class="o">=</span> <span class="n">binary_opening</span><span class="p">(</span><span class="n">noisy_mask</span><span class="p">,</span> <span class="n">structure</span><span class="o">=</span><span class="n">struct_elem</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># 闭运算：填补内部细小孔洞（1次迭代）</span>
+<span class="n">final_cleaned_mask</span> <span class="o">=</span> <span class="n">binary_closing</span><span class="p">(</span><span class="n">mask_opened</span><span class="p">,</span> <span class="n">structure</span><span class="o">=</span><span class="n">struct_elem</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># 提取脑实质</span>
+<span class="n">extracted_brain</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">original_img</span><span class="p">)</span>
+<span class="n">extracted_brain</span><span class="p">[</span><span class="o">~</span><span class="n">final_cleaned_mask</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</code></pre></div>
+<h3 id="_10">实验结果与分析</h3>
+<table>
+<thead>
+<tr>
+<th>处理阶段</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>原始含噪掩膜</strong></td>
+<td>外部有明显头骨细线和散在噪声点；内部有零星空隙</td>
+</tr>
+<tr>
+<td><strong>开运算后</strong></td>
+<td>外部细线大幅消除，边缘初步平滑</td>
+</tr>
+<tr>
+<td><strong>开 + 闭后</strong></td>
+<td>内部细小孔洞被填补，大尺度脑室结构完整保留</td>
+</tr>
+</tbody>
+</table>
+<p><strong>假阳性（红色）</strong>：主要分布在脑实质最边缘处，原头骨线靠近脑组织的部位。反映了刚性 SE 在处理复杂生物学曲线时的几何不匹配。</p>
+<p><strong>假阴性（蓝色）</strong>：零星出现在脑回尖端处。反映了"过度侵蚀"——在去除外部伪影时，极细的真实组织也被削减。</p>
+<p><strong>核心权衡</strong>：去噪 vs 保边。形态学修复在宏观轮廓上与 Ground Truth 高度一致，但在像素级微观边界上存在不可避免的几何误差。这源于：
+- SE 是刚性的离散网格，难以完美拟合不规则的生物学曲面
+- 全局统一的 SE 尺寸在图像不同位置无法同时做到最优平衡
+- 形态学是纯数学运算，没有生物学认知能力</p>
+<hr />
+<h2 id="_11">历年卷解答</h2>
+<h3 id="2022">一、腐蚀计算（2022 大题）</h3>
+<p><strong>知识点定位</strong>：形态学 — 二值腐蚀</p>
+<p><strong>题目</strong>：给一个图像矩阵和结构，做腐蚀（计算）。</p>
+<p><strong>题目设计（根据回忆还原）</strong>：</p>
+<p>给定 <span class="arithmatex">\(5 \times 5\)</span> 的二值图像 <span class="arithmatex">\(A\)</span> 和结构元素 <span class="arithmatex">\(B\)</span>（十字形，原点为中心），计算 <span class="arithmatex">\(A \ominus B\)</span>：</p>
+<div class="arithmatex">\[
+A = \begin{bmatrix}
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 1 &amp; 1 &amp; 0 \\
+0 &amp; 1 &amp; 1 &amp; 1 &amp; 0 \\
+0 &amp; 1 &amp; 1 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0
+\end{bmatrix}, \quad
+B = \begin{bmatrix}
+0 &amp; 1 &amp; 0 \\
+1 &amp; 1 &amp; 1 \\
+0 &amp; 1 &amp; 0
+\end{bmatrix}
+\]</div>
+<p><strong>解答</strong>：</p>
+<p>腐蚀定义为 <span class="arithmatex">\(A \ominus B = \{z \mid (B)_z \subseteq A\}\)</span>，即 SE 的中心位于 <span class="arithmatex">\(z\)</span> 时，SE 所有 <span class="arithmatex">\(1\)</span> 的位置必须对应 <span class="arithmatex">\(A\)</span> 中的 <span class="arithmatex">\(1\)</span>。</p>
+<p><span class="arithmatex">\(B\)</span> 是十字形：需要上、下、左、右、中五个位置全为 <span class="arithmatex">\(1\)</span>。</p>
+<p>遍历 <span class="arithmatex">\(A\)</span> 中所有 <span class="arithmatex">\(1\)</span> 的位置：
+- <span class="arithmatex">\((1,1)\)</span>：上方是 <span class="arithmatex">\(0\)</span>，不满足 → <span class="arithmatex">\(0\)</span>
+- <span class="arithmatex">\((1,2)\)</span>：上方是 <span class="arithmatex">\(0\)</span>，不满足 → <span class="arithmatex">\(0\)</span>
+- <span class="arithmatex">\((1,3)\)</span>：上方是 <span class="arithmatex">\(0\)</span>，不满足 → <span class="arithmatex">\(0\)</span>
+- <span class="arithmatex">\((2,1)\)</span>：左方是 <span class="arithmatex">\(0\)</span>，不满足 → <span class="arithmatex">\(0\)</span>
+- <span class="arithmatex">\((2,2)\)</span>：上下左右中全是 <span class="arithmatex">\(1\)</span>，满足 → <span class="arithmatex">\(1\)</span>
+- <span class="arithmatex">\((2,3)\)</span>：上方是 <span class="arithmatex">\(1\)</span>，下方是 <span class="arithmatex">\(1\)</span>，左方是 <span class="arithmatex">\(1\)</span>，右方是 <span class="arithmatex">\(1\)</span>，中是 <span class="arithmatex">\(1\)</span>，满足 → <span class="arithmatex">\(1\)</span>
+- ... 以此类推</p>
+<p>最终腐蚀结果：</p>
+<div class="arithmatex">\[
+A \ominus B = \begin{bmatrix}
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 1 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0
+\end{bmatrix}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">考试计算技巧</p>
+<p>腐蚀 = <strong>SE 完全覆盖</strong>：对于 SE 中为 <span class="arithmatex">\(1\)</span> 的每个位置，原图中对应位置必须也是 <span class="arithmatex">\(1\)</span>。只要有一个不满足，该位置输出 <span class="arithmatex">\(0\)</span>。</p>
+<p>膨胀 = <strong>SE 有交集即可</strong>：对于 SE 中为 <span class="arithmatex">\(1\)</span> 的每个位置，只要原图中至少有一个对应位置是 <span class="arithmatex">\(1\)</span>，该位置输出 <span class="arithmatex">\(1\)</span>。</p>
+</div>
+<h3 id="2022_1">二、开操作与闭操作的定义及应用（2022 大题）</h3>
+<p><strong>知识点定位</strong>：形态学 — 开操作与闭操作</p>
+<p><strong>题目</strong>：什么是 Opening、Closing？分别可以解决什么问题？</p>
+<p><strong>解答</strong>：</p>
+<p><strong>(1) 定义</strong></p>
+<ul>
+<li><strong>开操作（Opening）</strong>：<span class="arithmatex">\(A \circ B = (A \ominus B) \oplus B\)</span>，即先腐蚀后膨胀</li>
+<li><strong>闭操作（Closing）</strong>：<span class="arithmatex">\(A \bullet B = (A \oplus B) \ominus B\)</span>，即先膨胀后腐蚀</li>
+</ul>
+<p><strong>(2) Opening 解决的问题</strong></p>
+<ul>
+<li><strong>断开狭窄连接</strong>：消除物体之间细小的"桥"（如脑组织与颅骨之间的细小连接）</li>
+<li><strong>消除细小突起/毛刺</strong>：平滑物体轮廓的外凸部分</li>
+<li><strong>消除尺寸小于 SE 的亮噪声</strong>：相当于去除前景中的"盐"噪声</li>
+</ul>
+<p><strong>医学应用</strong>：颅骨剥离（Skull Stripping）——利用开运算断开脑组织与头骨的窄连接，再进行条件膨胀恢复脑组织。</p>
+<p><strong>(3) Closing 解决的问题</strong></p>
+<ul>
+<li><strong>融合窄断裂/细长沟</strong>：连接物体内部的微小断裂</li>
+<li><strong>填补小孔洞</strong>：消除物体内部的暗噪声</li>
+<li><strong>消除尺寸小于 SE 的暗噪声</strong>：相当于去除前景中的"椒"噪声</li>
+</ul>
+<p><strong>医学应用</strong>：ROI 修饰——脑部分割后，ROI 内有细小空洞，闭运算填补后 ROI 更完整。</p>
+<p><strong>(4) 关键区别</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: center;">Opening</th>
+<th style="text-align: center;">Closing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>操作顺序</strong></td>
+<td style="text-align: center;">腐蚀 → 膨胀</td>
+<td style="text-align: center;">膨胀 → 腐蚀</td>
+</tr>
+<tr>
+<td><strong>对物体的影响</strong></td>
+<td style="text-align: center;">分离、断开</td>
+<td style="text-align: center;">合并、闭合</td>
+</tr>
+<tr>
+<td><strong>对轮廓的影响</strong></td>
+<td style="text-align: center;">外角变圆</td>
+<td style="text-align: center;">内角变圆</td>
+</tr>
+<tr>
+<td><strong>尺寸关系</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(A \circ B \subseteq A\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(A \subseteq A \bullet B\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="2021">三、开操作、闭操作的原理和应用（2021 大题）</h3>
+<p><strong>知识点定位</strong>：形态学 — 开操作与闭操作</p>
+<p><strong>答案</strong>：同上（二），2021 年考查了相同的知识点。补充一点——<strong>幂等性</strong>的含义：</p>
+<p>开/闭操作是<strong>幂等</strong>的：执行一次后，再执行同样的操作不会改变结果。这意味着形态学滤波可以做到"只消除小于 SE 的噪声特征，而完全不损伤大于 SE 的结构特征"——这是线性卷积滤波无法做到的。</p>
+<h3 id="2021_1">四、开操作计算（2021 大题）</h3>
+<p><strong>知识点定位</strong>：形态学 — 开操作矩阵计算</p>
+<p><strong>题目</strong>：做开操作（给出具体图像和结构元素，计算 <span class="arithmatex">\(A \circ B\)</span>）。</p>
+<p><strong>解答思路</strong>：</p>
+<p>开操作 = 先腐蚀、后膨胀。计算分两步：</p>
+<ol>
+<li><strong>腐蚀</strong>：遍历图像，对每个位置检查 SE 是否能完全放入前景</li>
+<li><strong>膨胀</strong>：对腐蚀结果，以 SE 的反射遍历，只要与腐蚀结果有交集就输出前景</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">手工计算技巧</p>
+<p>做开操作计算题时，分两步：
+1. 先做腐蚀（SE 必须完全被包含）
+2. 在腐蚀结果上做膨胀（SE 有交集即可）
+3. 注意 SE 的原点位置（通常是 SE 的中心）</p>
+</div>
+<h3 id="2020">五、膨胀的定义与计算（2020 简答）</h3>
+<p><strong>知识点定位</strong>：形态学 — 膨胀</p>
+<p><strong>题目</strong>：描述膨胀的定义，并给图画出膨胀结果。</p>
+<p><strong>解答</strong>：</p>
+<p><strong>(1) 定义</strong></p>
+<p><span class="arithmatex">\(A\)</span> 被 <span class="arithmatex">\(B\)</span> 膨胀定义为：</p>
+<div class="arithmatex">\[
+A \oplus B = \{z \mid (\hat{B})_z \cap A \neq \varnothing\}
+\]</div>
+<p>即 SE 的反射平移 <span class="arithmatex">\(z\)</span> 后，与 <span class="arithmatex">\(A\)</span> 至少有一个像素重合的 <span class="arithmatex">\(z\)</span> 的集合。</p>
+<p><strong>(2) 膨胀效果</strong></p>
+<ul>
+<li>物体外扩：在物体外围"增加"像素层</li>
+<li>孔洞缩小/消失：物体内部的孔洞被压缩填满</li>
+<li>断裂桥接：不连续的物体被连接起来</li>
+<li>当 SE 对称时（<span class="arithmatex">\(B = \hat{B}\)</span>），膨胀等价于将 SE 的原点放在每个 <span class="arithmatex">\(A\)</span> 的前景像素上，取所有 SE 覆盖位置的<strong>并集</strong></li>
+</ul>
+<h3 id="2020_1">六、腐蚀的定义与计算（2020 简答）</h3>
+<p><strong>知识点定位</strong>：形态学 — 腐蚀</p>
+<p><strong>题目</strong>：描述腐蚀的定义，并给图画出腐蚀结果。</p>
+<p><strong>解答</strong>：</p>
+<p><strong>(1) 定义</strong></p>
+<p><span class="arithmatex">\(A\)</span> 被 <span class="arithmatex">\(B\)</span> 腐蚀定义为：</p>
+<div class="arithmatex">\[
+A \ominus B = \{z \mid (B)_z \subseteq A\}
+\]</div>
+<p>即 SE 平移 <span class="arithmatex">\(z\)</span> 后<strong>完全被包含在 <span class="arithmatex">\(A\)</span> 中</strong>的 <span class="arithmatex">\(z\)</span> 的集合。</p>
+<p><strong>(2) 腐蚀效果</strong></p>
+<ul>
+<li>物体收缩：从外层"剥掉"像素</li>
+<li>小物体消失：尺寸小于 SE 的物体被完全移除</li>
+<li>窄连接断开：薄弱的物体间连接被切断</li>
+<li>孔洞扩大：物体内部的孔洞变大</li>
+</ul>
+<p><strong>(3) 腐蚀与膨胀的对偶性</strong></p>
+<div class="arithmatex">\[
+(A \ominus B)^c = A^c \oplus \hat{B}
+\]</div>
+<p>即对前景的腐蚀 = 对背景的膨胀（取反射 SE）。</p>
+<hr />
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="LH-0124/LHstudy"
+        data-repo-id="R_kgDONJ_OXA"
+        data-category="Announcements"
+        data-category-id="DIC_kwDONJ_OXM4CkE7y"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+<script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light"
+        giscus.setAttribute("data-theme", theme)
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function () {
+        var ref = document.querySelector("[data-md-component=palette]")
+        ref.addEventListener("change", function () {
+            var palette = __md_get("__palette")
+            if (palette && typeof palette.color === "object") {
+                var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+                /* Instruct Giscus to change theme */
+                var frame = document.querySelector(".giscus-frame")
+                frame.contentWindow.postMessage(
+                    { giscus: { setConfig: { theme } } },
+                    "https://giscus.app"
+                )
+            }
+        })
+    })
+</script>
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../notebip6/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 第6章 图像复原">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                第6章 图像复原
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../notebip8/" class="md-footer__link md-footer__link--next" aria-label="下一页: 第8章 图像分割">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                第8章 图像分割
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; LH
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "search.highlight", "search.share", "navigation.footer"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+    
+  </body>
+</html>

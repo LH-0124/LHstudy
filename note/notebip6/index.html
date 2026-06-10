@@ -16,7 +16,7 @@
         <link rel="prev" href="../notebip5/">
       
       
-        <link rel="next" href="../../memorytest/hyj/">
+        <link rel="next" href="../notebip7/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -6110,17 +6110,17 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lab4-project-3" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
-      实验（LAB4 — Project 3：图像复原）
+      实验
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="实验（LAB4 — Project 3：图像复原）">
+    <nav class="md-nav" aria-label="实验">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       实验内容
     </span>
@@ -6129,7 +6129,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       实验原理
     </span>
@@ -6143,7 +6143,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       历年卷解答
     </span>
@@ -6215,6 +6215,75 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebip7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第7章 形态学图像处理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebip8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第8章 图像分割
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebip9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第9章 图像配准
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -7935,17 +8004,17 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lab4-project-3" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
-      实验（LAB4 — Project 3：图像复原）
+      实验
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="实验（LAB4 — Project 3：图像复原）">
+    <nav class="md-nav" aria-label="实验">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       实验内容
     </span>
@@ -7954,7 +8023,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       实验原理
     </span>
@@ -7968,7 +8037,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       历年卷解答
     </span>
@@ -8842,15 +8911,16 @@ H(u,v) = [(j2\pi u)^2 + (j2\pi v)^2] \cdot F(u,v) = -8\pi^3\sigma^2(u^2+v^2) e^{
 W(u,v) = \frac{H(u,v)}{H^2(u,v) + K} = \frac{-8\pi^3\sigma^2(u^2+v^2) e^{-2\pi^2\sigma^2(u^2+v^2)}}{64\pi^6\sigma^4(u^2+v^2)^2 e^{-4\pi^2\sigma^2(u^2+v^2)} + K}
 \]</div>
 <hr />
-<h2 id="lab4-project-3">实验（LAB4 — Project 3：图像复原）</h2>
-<h3 id="_7">实验内容</h3>
+<h2 id="_7">实验</h2>
+<p>LAB4 — Project 3：图像复原</p>
+<h3 id="_8">实验内容</h3>
 <ol>
 <li><strong>图像退化模拟</strong>：在频率域使用高斯低通滤波器（不同截止频率 <span class="arithmatex">\(D_0 = 30, 60, 90\)</span>）对原始图像进行模糊，再添加莱斯噪声。</li>
 <li><strong>已知模糊核的图像复原</strong>：分别采用逆滤波、受限逆滤波和维纳滤波对退化图像进行复原。</li>
 <li><strong>利用 NLM 进行 Rician 噪声降噪</strong>：应用非局部均值算法针对 Rician 噪声进行降噪。</li>
 <li><strong>质量评估</strong>：利用 PSNR 和 SSIM 对复原结果进行定量评估。</li>
 </ol>
-<h3 id="_8">实验原理</h3>
+<h3 id="_9">实验原理</h3>
 <p><strong>1. 图像退化与复原模型</strong></p>
 <p>频率域中图像退化过程：<span class="arithmatex">\(G(u,v) = H(u,v)F(u,v) + N(u,v)\)</span>，复原目标是从观测 <span class="arithmatex">\(G\)</span> 和已知 <span class="arithmatex">\(H\)</span> 估计 <span class="arithmatex">\(\hat{F}\)</span>。</p>
 <p><strong>2. 经典频域复原算法</strong></p>
@@ -8881,7 +8951,7 @@ W(u,v) = \frac{H(u,v)}{H^2(u,v) + K} = \frac{-8\pi^3\sigma^2(u^2+v^2) e^{-2\pi^2
 </ol>
 </div>
 <hr />
-<h2 id="_9">历年卷解答</h2>
+<h2 id="_10">历年卷解答</h2>
 <h3 id="2020">一、周期噪声应该用陷波滤波（2020 判断）</h3>
 <p><strong>知识点定位</strong>：噪声模型 — 周期性噪声的去噪</p>
 <p><strong>答案</strong>：<strong>正确。</strong></p>
@@ -8894,7 +8964,8 @@ W(u,v) = \frac{H(u,v)}{H^2(u,v) + K} = \frac{-8\pi^3\sigma^2(u^2+v^2) e^{-2\pi^2
 <div class="arithmatex">\[
 \hat{F}(u,v) = \frac{G(u,v)}{H(u,v)}
 \]</div>
-<p>直接除以退化函数（去卷积）。致命弱点：在 <span class="arithmatex">\(H(u,v) \to 0\)</span> 的频率处，噪声 <span class="arithmatex">\(N(u,v)/H(u,v)\)</span> 被放大到无穷，导致图像被噪声完全淹没。</p>
+<p>直接除以退化函数（去卷积）。</p>
+<p>致命弱点：在 <span class="arithmatex">\(H(u,v) \to 0\)</span> 的频率处，噪声 <span class="arithmatex">\(N(u,v)/H(u,v)\)</span> 被放大到无穷，导致图像被噪声完全淹没。</p>
 <p><strong>维纳滤波公式与原理，为什么更好？（2022 / 2021 大题）</strong>：</p>
 <div class="arithmatex">\[
 \hat{F}(u,v) = \frac{1}{H(u,v)} \cdot \frac{|H(u,v)|^2}{|H(u,v)|^2 + S_\eta/S_f} \cdot G(u,v)
@@ -9072,13 +9143,13 @@ W(u,v) = \frac{H(u,v)}{H^2(u,v) + K} = \frac{-8\pi^3\sigma^2(u^2+v^2) e^{-2\pi^2
         
         
           
-          <a href="../../memorytest/hyj/" class="md-footer__link md-footer__link--next" aria-label="下一页: 关于本栏">
+          <a href="../notebip7/" class="md-footer__link md-footer__link--next" aria-label="下一页: 第7章 形态学图像处理">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                关于本栏
+                第7章 形态学图像处理
               </div>
             </div>
             <div class="md-footer__button md-icon">
