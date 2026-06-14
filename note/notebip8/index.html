@@ -5929,18 +5929,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#cnn-u-net-2022" class="md-nav__link">
-    <span class="md-ellipsis">
-      七、CNN 在分割中的优势 + U-Net 结构（2022 大题）
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#2020_2" class="md-nav__link">
     <span class="md-ellipsis">
-      八、区域生长算法的正确描述（2020 选择）
+      七、区域生长算法的正确描述（2020 选择）
     </span>
   </a>
   
@@ -7471,18 +7462,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#cnn-u-net-2022" class="md-nav__link">
-    <span class="md-ellipsis">
-      七、CNN 在分割中的优势 + U-Net 结构（2022 大题）
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#2020_2" class="md-nav__link">
     <span class="md-ellipsis">
-      八、区域生长算法的正确描述（2020 选择）
+      七、区域生长算法的正确描述（2020 选择）
     </span>
   </a>
   
@@ -7515,8 +7497,6 @@
   <h1>第8章 图像分割</h1>
 
 <h2 id="fundamentals-of-image-segmentation">一、图像分割基础（Fundamentals of Image Segmentation）</h2>
-<!-- 建议插入PPT截图：Lecture9+10第3页"Where we are?"课程进度图，展示从Lecture 9开始进入Advanced BIP阶段，插入位置：本节开头 -->
-
 <h3 id="11">1.1 什么是图像分割</h3>
 <p>图像分割是将图像细分为其组成区域或目标的过程。设 <span class="arithmatex">\(R\)</span> 表示整个图像区域，分割将 <span class="arithmatex">\(R\)</span> 划分为 <span class="arithmatex">\(n\)</span> 个子区域 <span class="arithmatex">\(R_1, R_2, \ldots, R_n\)</span>，满足：</p>
 <div class="arithmatex">\[
@@ -7547,11 +7527,7 @@ R_i \cap R_j = \varnothing, \quad i \neq j
 </tr>
 </tbody>
 </table>
-<!-- 建议插入PPT截图：Lecture9+10中展示Intensity discontinuity和Similarity分割方式的对比示意图，插入位置：此处 -->
-
 <h3 id="12">1.2 图像分割的发展现状</h3>
-<!-- 建议插入PPT截图：Lecture9+10中展示LeNet / U-Net / nnU-Net / SAM / MedSAM架构图，插入位置：此处 -->
-
 <p>现代图像分割已从传统方法发展到深度学习方法：</p>
 <table>
 <thead>
@@ -7641,14 +7617,15 @@ $$</p>
 \nabla^2 f(x,y) = f(x+1,y) + f(x-1,y) + f(x,y+1) + f(x,y-1) - 4f(x,y)
 \]</div>
 <p>对应的 <span class="arithmatex">\(3 \times 3\)</span> 掩膜：</p>
-<div class="highlight"><pre><span></span><code> 0 -1  0
--1  4 -1
- 0 -1  0
-</code></pre></div>
+<div class="arithmatex">\[
+\begin{bmatrix}
+ 0 &amp; -1 &amp; 0 \\
+-1 &amp; 4 &amp; -1 \\
+ 0 &amp; -1 &amp; 0 \\
+\end{bmatrix}
+\]</div>
 <p>在均匀灰度区域响应为 <span class="arithmatex">\(0\)</span>，在孤立点处产生强响应。</p>
 <h3 id="23-line-detection">2.3 线检测（Line Detection）</h3>
-<!-- 建议插入PPT截图：Lecture9+10中展示不同方向线检测掩膜及其在测试图上的响应图，插入位置：此处 -->
-
 <p>不同方向的线检测掩膜：</p>
 <table>
 <thead>
@@ -7680,8 +7657,6 @@ $$</p>
 <hr />
 <h2 id="edge-detection">三、边缘检测（Edge Detection）</h2>
 <h3 id="31">3.1 什么是边缘</h3>
-<!-- 建议插入PPT截图：Lecture9+10中展示三种边缘类型（Ideal/Step edge, Ramp edge, Roof edge）的灰度剖面图和对应的一阶/二阶导数响应图，插入位置：此处 -->
-
 <p>边缘是位于两个区域之间边界上的<strong>一组连通像素</strong>，是一个局部概念。三种基本边缘类型：</p>
 <table>
 <thead>
@@ -7706,8 +7681,6 @@ $$</p>
 </tbody>
 </table>
 <h3 id="32">3.2 噪声对导数的影响</h3>
-<!-- 建议插入PPT截图：Lecture9+10中展示不同噪声水平（σ=0, 0.1, 1, 10）下一阶和二阶导数响应的对比图，插入位置：此处 -->
-
 <p>导数运算对噪声极为敏感——即使是微小的随机噪声也会被放大。解决方法：<strong>在求导之前先进行平滑</strong>（如高斯平滑），这正是 LoG 和 Canny 算子的核心思想。</p>
 <h3 id="33">3.3 梯度算子（一阶导数）</h3>
 <p>图像 <span class="arithmatex">\(f(x,y)\)</span> 在 <span class="arithmatex">\((x,y)\)</span> 处的梯度定义为：</p>
@@ -7722,8 +7695,6 @@ $$</p>
 <div class="arithmatex">\[
 \alpha(x,y) = \tan^{-1}\left( \frac{G_y}{G_x} \right)
 \]</div>
-<!-- 建议插入PPT截图：Lecture9+10中展示Gx / Gy / |Gx|+|Gy| 以及梯度方向图（角度图像中恒定灰度表示梯度方向相同），插入位置：此处 -->
-
 <h4 id="_1">各种梯度算子</h4>
 <table>
 <thead>
@@ -7761,14 +7732,15 @@ $$</p>
 </tr>
 </tbody>
 </table>
-<!-- 建议插入PPT截图：Lecture9+10中展示Original / Prewitt / Roberts / Sobel边缘检测结果对比图，插入位置：此处 -->
-
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0614/ajnl4h3f.webp" /></p>
 <div class="admonition note">
 <p class="admonition-title">Sobel vs Prewitt vs Roberts</p>
 <ul>
-<li><strong>Roberts</strong>：<span class="arithmatex">\(2 \times 2\)</span> 核，无平滑，对噪声最敏感</li>
+<li><strong>Roberts</strong>：<span class="arithmatex">\(2 \times 2\)</span> 核，无平滑，对噪声最敏感<ul>
 <li><strong>Prewitt</strong>：<span class="arithmatex">\(3 \times 3\)</span>，有平滑但中心无特殊权重</li>
 <li><strong>Sobel</strong>：<span class="arithmatex">\(3 \times 3\)</span>，中心权重加倍（<span class="arithmatex">\(\times 2\)</span>），平滑效果更好，<strong>实际应用中最常用</strong></li>
+</ul>
+</li>
 </ul>
 </div>
 <h3 id="34-laplacian">3.4 二阶导数：Laplacian 算子</h3>
@@ -7802,8 +7774,6 @@ $$</p>
 </ol>
 <p><strong>Laplacian 的优势</strong>：利用零交叉（Zero-Crossing）特性可以精确定位边缘，且符号可用于判断像素在边缘的暗侧还是亮侧。</p>
 <h3 id="35-loglaplacian-of-gaussian">3.5 LoG（Laplacian of Gaussian）</h3>
-<!-- 建议插入PPT截图：Lecture9+10中展示LoG的墨西哥帽函数3D图和CT扫描对LoG不同σ的响应对比图，插入位置：此处 -->
-
 <p>先高斯平滑再 Laplacian，等价于直接使用 LoG 核进行卷积：</p>
 <p>高斯函数：
 $$
@@ -7823,8 +7793,6 @@ $$</p>
 <p>由于卷积的结合性：<span class="arithmatex">\(\nabla^2[f * h] = f * \nabla^2 h\)</span>，因此 LoG 只需一次卷积即可完成"平滑 + 求导"两步操作。</p>
 </div>
 <h3 id="36-active-contoursnakes">3.6 高级边缘检测：Active Contour（Snakes）</h3>
-<!-- 建议插入PPT截图：Lecture9+10中展示Active Contour在肺部CT分割中的演化过程图（标记→初始化→演化→结果），插入位置：此处 -->
-
 <p>Active Contour 将目标检测转化为<strong>能量最小化问题</strong>：</p>
 <p>轮廓定义为参数曲线 <span class="arithmatex">\(v(s) = (x(s), y(s))\)</span>，其能量为：</p>
 <div class="arithmatex">\[
@@ -7839,8 +7807,6 @@ E = \int \left( \alpha |v'(s)|^2 + \beta |v''(s)|^2 + E_{ext}(v(s)) \right) ds
 <hr />
 <h2 id="thresholding">四、阈值分割（Thresholding）</h2>
 <h3 id="41">4.1 基本阈值分割</h3>
-<!-- 建议插入PPT截图：Lecture9+10中展示噪声对阈值分割直方图影响的图（不同噪声水平下直方图从双峰→单峰的退化），插入位置：此处 -->
-
 <p>阈值分割是最简单的分割方法：</p>
 <div class="arithmatex">\[
 g(x,y) = \begin{cases} 1, &amp; f(x,y) &gt; T \\ 0, &amp; f(x,y) \leq T \end{cases}
@@ -7874,11 +7840,7 @@ g(x,y) = \begin{cases} 1, &amp; f(x,y) &gt; T \\ 0, &amp; f(x,y) \leq T \end{cas
 </table>
 <p><strong>噪声的影响</strong>：噪声使直方图中的峰值变宽、谷变浅，严重时两个峰合并为一个→无法通过单一阈值分割。</p>
 <p><strong>光照的影响</strong>：不均匀光照 → 全局阈值失效 → 需要补偿（先拍摄均匀白表面获得 <span class="arithmatex">\(g(x,y) = k \cdot i(x,y)\)</span>，对实际图像 <span class="arithmatex">\(f(x,y) = i(x,y) \cdot r(x,y)\)</span> 做归一化：<span class="arithmatex">\(h(x,y) = f(x,y)/g(x,y) = r(x,y)/k\)</span>）。</p>
-<!-- 建议插入PPT截图：Lecture9+10中展示不均匀光照补偿的流程示意图，插入位置：此处 -->
-
 <h3 id="42">4.2 基本全局阈值法（迭代阈值）</h3>
-<!-- 建议插入PPT截图：Lecture9+10中展示迭代阈值法的算法流程图和3次迭代收敛的示例，插入位置：此处 -->
-
 <p>算法步骤：</p>
 <ol>
 <li>选择初始阈值 <span class="arithmatex">\(T\)</span>（可取图像平均灰度，或最大值和最小值的中间值）</li>
@@ -7889,8 +7851,6 @@ g(x,y) = \begin{cases} 1, &amp; f(x,y) &gt; T \\ 0, &amp; f(x,y) \leq T \end{cas
 </ol>
 <p>该算法通常 2–3 次迭代即可收敛，对初始值不敏感。</p>
 <h3 id="43-otsu">4.3 Otsu 方法（大津法）</h3>
-<!-- 建议插入PPT截图：Lecture9+10中展示Otsu方法与基本全局阈值法的分割结果对比图，插入位置：此处 -->
-
 <p>Otsu 方法通过<strong>最大化类间方差</strong>来自动寻找最优全局阈值。</p>
 <p>设直方图概率 <span class="arithmatex">\(p_i = n_i / N\)</span>，图像均值 <span class="arithmatex">\(m_G = \sum_{i=0}^{L-1} i \cdot p_i\)</span>。</p>
 <p>阈值 <span class="arithmatex">\(k\)</span> 将像素分为两类 <span class="arithmatex">\(C_0\)</span>（<span class="arithmatex">\(\leq k\)</span>）和 <span class="arithmatex">\(C_1\)</span>（<span class="arithmatex">\(&gt;k\)</span>）：</p>
@@ -7909,15 +7869,11 @@ g(x,y) = \begin{cases} 1, &amp; f(x,y) &gt; T \\ 0, &amp; f(x,y) \leq T \end{cas
 <p><strong>局限</strong>：当目标与背景面积比极度悬殊时，阈值会向面积大的一方偏移；对于单峰直方图效果差。</p>
 </div>
 <h3 id="44">4.4 利用平滑改善全局阈值</h3>
-<!-- 建议插入PPT截图：Lecture9+10中展示平滑前后Otsu分割结果对比图（噪声图像→高斯平滑→直方图改善→分割成功），插入位置：此处 -->
-
 <p>先对图像进行平滑处理，再使用 Otsu 方法，可以：
 - 使直方图的峰更尖锐、谷更深
 - 抑制噪声导致的虚假峰
 - 显著改善分割质量</p>
 <h3 id="45">4.5 利用边缘特征改善阈值选择</h3>
-<!-- 建议插入PPT截图：Lecture9+10中展示利用边缘（gadient mask）改善阈值分割的流程对比图，插入位置：此处 -->
-
 <p>如果只依赖灰度信息，结果容易受目标和背景相对大小的干扰。改进策略：</p>
 <ol>
 <li>计算梯度幅值图像</li>
@@ -7934,8 +7890,6 @@ $$
 g(x,y) = \begin{cases} 0, &amp; f(x,y) \leq T_1 \ 1, &amp; T_1 &lt; f(x,y) \leq T_2 \ 0, &amp; f(x,y) &gt; T_2 \end{cases}
 $$</p>
 <h3 id="47">4.7 自适应阈值分割</h3>
-<!-- 建议插入PPT截图：Lecture9+10中展示全局阈值 vs 子图像划分 vs 自适应阈值的分割结果对比图，插入位置：此处 -->
-
 <p>当光照不均匀时，全局阈值失效。自适应方法：</p>
 <ol>
 <li><strong>分块处理</strong>：将图像划分为子图像，为每个子图像独立确定阈值</li>
@@ -7947,8 +7901,7 @@ $$</p>
 <hr />
 <h2 id="region-based-segmentation">五、区域分割（Region-Based Segmentation）</h2>
 <h3 id="51-region-growing">5.1 区域生长（Region Growing）</h3>
-<!-- 建议插入PPT截图：Lecture9+10中展示区域生长算法示意图（种子点→邻域扩张→最终区域），插入位置：此处 -->
-
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0614/kvd5btuj.webp" /></p>
 <p>将像素或子区域基于预定义准则合并为更大的区域：</p>
 <p><strong>基本步骤</strong>：</p>
 <ol>
@@ -7988,8 +7941,7 @@ $$</p>
 <p>对种子点敏感；当目标边界模糊时容易发生<strong>泄漏</strong>（Leakage）——区域通过弱边界扩张到相邻结构中。</p>
 </div>
 <h3 id="52-region-splitting-merging">5.2 区域分裂与合并（Region Splitting &amp; Merging）</h3>
-<!-- 建议插入PPT截图：Lecture9+10中展示四叉树分裂示意图和32×32→16×16→8×8的分裂合并结果图，插入位置：此处 -->
-
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0614/04lzfnum.webp" /></p>
 <p>使用<strong>四叉树（Quadtree）</strong>结构：</p>
 <p><strong>分裂</strong>：
 - 从整个区域开始
@@ -8004,8 +7956,6 @@ $$</p>
 2. 对满足 <span class="arithmatex">\(Q\)</span> 的相邻区域进行合并
 3. 无可合并和可分裂时停止</p>
 <h3 id="53-watershed-segmentation">5.3 分水岭算法（Watershed Segmentation）</h3>
-<!-- 建议插入PPT截图：Lecture9+10中展示分水岭的3D地形可视化图（原图→地形图→集水盆地→分水岭线），插入位置：此处 -->
-
 <p>将灰度图像视为 3D 地形（<span class="arithmatex">\(x\)</span> 坐标、<span class="arithmatex">\(y\)</span> 坐标、灰度值为高度）：</p>
 <table>
 <thead>
@@ -8034,8 +7984,6 @@ $$</p>
 2. 让水以均匀速率从孔中上升，淹没整个地形
 3. 当来自不同集水盆地的水即将汇合时，建坝阻止合并
 4. 坝的边界即为分水岭线</p>
-<!-- 建议插入PPT截图：Lecture9+10中展示分水岭算法在5×5图像上的计算示例（pixel list → k=0→1→2→最终标记），插入位置：此处 -->
-
 <p><strong>算法步骤（按灰度级迭代）</strong>：</p>
 <ol>
 <li>从最低灰度值开始</li>
@@ -8044,14 +7992,18 @@ $$</p>
 <li>若像素邻接<strong>多个</strong>已有区域→标记为边界</li>
 <li>若像素无邻接区域→创建新区域</li>
 </ol>
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0614/o5z2s1sg.webp" /></p>
 <div class="admonition warning">
 <p class="admonition-title">分水岭的过度分割问题</p>
 <p>由于噪声和梯度的局部不规则性，标准分水岭极易产生<strong>过度分割</strong>（Over-segmentation）。解决方案：</p>
 <ol>
-<li>在<strong>梯度图像</strong>而非原始图像上运行（梯度图直接反映边缘位置）</li>
-<li>使用<strong>标记控制（Marker-Controlled）</strong>分水岭——通过手动标记前景和背景种子强制控制注水起点</li>
+<li>
+<p>在<strong>梯度图像</strong>而非原始图像上运行（梯度图直接反映边缘位置）</p>
+</li>
+<li>
+<p>使用<strong>标记控制（Marker-Controlled）</strong>分水岭——通过手动标记前景和背景种子强制控制注水起点</p>
+</li>
 </ol>
-<!-- 建议插入PPT截图：Lecture9+10中展示噪声导致过度分割的对比图（原图→梯度图→分水岭结果中的过度分割），插入位置：此处 -->
 </div>
 <hr />
 <h2 id="_2">六、本章总结</h2>
@@ -8178,8 +8130,7 @@ $$</p>
 </table>
 <hr />
 <h2 id="_4">课后作业</h2>
-<!-- 注：作业2026/hw4的三个题目均与本章（Lecture 9，图像分割）直接相关 -->
-
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0614/f5gnrzoo.webp" /></p>
 <h3 id="1otsu-hw4-1">题目 1：Otsu 最优阈值计算（HW4 第1题）</h3>
 <p><strong>题目</strong>：给定图像的灰度直方图如下：</p>
 <table>
@@ -8276,6 +8227,7 @@ $$</p>
 </table>
 <p>最大类间方差出现在 <span class="arithmatex">\(k = 3\)</span>，<strong>最优阈值 <span class="arithmatex">\(T = 3\)</span></strong>。</p>
 <h3 id="2hw4-2">题目 2：局部自适应阈值（HW4 第2题）</h3>
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0614/0wzsmyan.webp" /></p>
 <p><strong>题目</strong>：将 <span class="arithmatex">\(16 \times 16\)</span> 图像分为四个不重叠的 <span class="arithmatex">\(8 \times 8\)</span> 子图像，分析每个子图像的局部阈值；写出完整的 <span class="arithmatex">\(16 \times 16\)</span> 二值分割结果；判断单一全局阈值能否产生相同结果。</p>
 <p><strong>解答</strong>：</p>
 <p>使用迭代阈值法独立计算四个子区域的局部阈值：</p>
@@ -8363,8 +8315,6 @@ $$</p>
 </div>
 <hr />
 <h2 id="_5">实验</h2>
-<!-- 注：实验2026/lab5的三个Project均与本章（图像分割）直接相关，其余lab均不相关 -->
-
 <h3 id="lab5project-1-3">实验来源：LAB5（Project 1-3）</h3>
 <h3 id="project-1edge-detection">Project 1：边缘检测（Edge Detection）</h3>
 <p><strong>实验内容</strong>：利用 Sobel 梯度算子从 T1/T2 脑部 MRI 图像中提取病灶边缘轮廓。</p>
@@ -8558,84 +8508,7 @@ $$</p>
 4. 选择使 <span class="arithmatex">\(\sigma_B^2(k)\)</span> 最大的 <span class="arithmatex">\(k\)</span> 为最优阈值
 5. 用该阈值对图像进行二值化</p>
 <hr />
-<h3 id="cnn-u-net-2022">七、CNN 在分割中的优势 + U-Net 结构（2022 大题）</h3>
-<p><strong>知识点定位</strong>：图像分割 — 深度学习方法</p>
-<p><strong>题目</strong>：
-1. 相比传统方法（如 Otsu），CNN 在分割任务中的优势
-2. CNN 与 U-Net 的结构区别，U-Net 的 Skip Connection 作用</p>
-<p><strong>解答</strong>：</p>
-<p><strong>(1) CNN 相比传统方法的优势</strong>：</p>
-<table>
-<thead>
-<tr>
-<th>对比维度</th>
-<th>传统方法（Otsu/阈值/边缘）</th>
-<th>CNN</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>特征来源</strong></td>
-<td>人工设计（灰度、梯度、纹理）</td>
-<td><strong>自动从数据中学习</strong>层次化特征</td>
-</tr>
-<tr>
-<td><strong>适应性</strong></td>
-<td>依赖特定假设（双峰分布等）</td>
-<td>可适应各种复杂的图像分布</td>
-</tr>
-<tr>
-<td><strong>语义理解</strong></td>
-<td>仅利用低级像素特征</td>
-<td>可学习高级语义信息（器官类型、病变形态）</td>
-</tr>
-<tr>
-<td><strong>泛化能力</strong></td>
-<td>参数固定，场景变化需重调</td>
-<td>大规模数据训练后可泛化</td>
-</tr>
-<tr>
-<td><strong>准确率</strong></td>
-<td>受噪声/光照/对比度影响大</td>
-<td>在标注充分的医学任务中通常更优</td>
-</tr>
-</tbody>
-</table>
-<p><strong>(2) CNN vs U-Net 结构区别</strong>：</p>
-<table>
-<thead>
-<tr>
-<th>结构</th>
-<th style="text-align: center;">普通 CNN（分类）</th>
-<th style="text-align: center;">U-Net</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>架构</strong></td>
-<td style="text-align: center;">编码器 + 全连接层</td>
-<td style="text-align: center;"><strong>编码器-解码器</strong>（Encoder-Decoder）对称结构</td>
-</tr>
-<tr>
-<td><strong>输出</strong></td>
-<td style="text-align: center;">单标签（分类）</td>
-<td style="text-align: center;"><strong>逐像素密集预测</strong>（分割图）</td>
-</tr>
-<tr>
-<td><strong>跳跃连接</strong></td>
-<td style="text-align: center;">无</td>
-<td style="text-align: center;">有——编码器各层特征与解码器对应层连接</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Skip Connection（跳跃连接）的作用</strong>：</p>
-<ul>
-<li><strong>保留空间信息</strong>：编码器在下采样过程中丢失了精细的空间位置信息；跳跃连接将浅层的高分辨率特征直接传递到深层的解码器</li>
-<li><strong>精确的边界定位</strong>：浅层特征保留了边缘和纹理细节，深层特征保留了语义类别信息——两者融合产生精确的分割边界</li>
-<li><strong>缓解梯度消失</strong>：跳跃连接为梯度提供了直接回传路径，有助于训练深层网络</li>
-</ul>
-<hr />
-<h3 id="2020_2">八、区域生长算法的正确描述（2020 选择）</h3>
+<h3 id="2020_2">七、区域生长算法的正确描述（2020 选择）</h3>
 <p><strong>知识点定位</strong>：区域分割 — 区域生长</p>
 <p><strong>正确描述</strong>：区域生长算法需要<strong>手动或自动选择种子点</strong>，基于<strong>预定义的相似性准则</strong>（灰度、纹理等）将相似邻域像素纳入区域，迭代扩张直到满足停止条件。</p>
 <p><strong>错误说法举例</strong>：

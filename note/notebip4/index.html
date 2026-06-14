@@ -7698,8 +7698,6 @@ f(x, y) = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} F(u, v) e^{j2\pi (ux +
 <p class="admonition-title">K 空间</p>
 <p>MRI 中的 <strong>K 空间（K-space）</strong>就是 MR 图像的傅里叶变换域。K 空间的中心对应低频（图像的整体对比度），外围对应高频（图像的细节和边缘）。</p>
 </div>
-<!-- 建议插入PPT截图：Lecture6中展示K-space中心vs外围频率分布的示意图，插入位置：此处"K空间"注释之后 -->
-
 <h3 id="23-2-d-dft">2.3 二维离散傅里叶变换（2-D DFT）</h3>
 <p>对于大小 <span class="arithmatex">\(M \times N\)</span> 的图像 <span class="arithmatex">\(f(x,y)\)</span>：</p>
 <div class="arithmatex">\[
@@ -8099,7 +8097,6 @@ f(n) = \frac{1}{M} \sum_k W_\varphi(j_0, k) \varphi_{j_0, k}(n) + \frac{1}{M} \s
 <li><strong>图像去噪</strong>：对图像做 DWT → 对细节系数进行<strong>阈值处理</strong>（软阈值/硬阈值）→ 逆 DWT。小波去噪保留边缘的能力优于傅里叶低通滤波</li>
 </ul>
 <hr />
-<hr />
 <h2 id="summary">六、本章总结（Summary）</h2>
 <h3 id="_1">傅里叶变换核心脉络</h3>
 <ol>
@@ -8285,7 +8282,6 @@ N_{\text{min}} = \frac{1}{2} N_{\text{total}} \approx 42
 <li><strong>去噪不完全的可能原因</strong>：中心频率定位偏差、阻带半径 <span class="arithmatex">\(D_0\)</span> 失配（过大误伤有效高频、过小残留噪声能量）、高次谐波遗漏</li>
 </ul>
 <hr />
-<hr />
 <h2 id="_4">历年卷解答</h2>
 <h3 id="2022">一、多分辨率分析是小波变换的应用之一（2022 判断）</h3>
 <p><strong>知识点定位</strong>：小波变换 — 多分辨率分析</p>
@@ -8355,10 +8351,6 @@ N_{\text{min}} = \frac{1}{2} N_{\text{total}} \approx 42
 <p><strong>等价操作</strong>：先 DFT 得到四角亮斑的频谱，再用 <code>fftshift</code> 将四个角的低频汇集到中心。</p>
 <p><strong>为什么要中心化？</strong> 原始 DFT 频谱的四角是低频（包括 DC），中心反而是高频——不符合直觉。中心化后低频在中心、高频在外围，便于观察和处理。</p>
 <hr />
-<!-- 笔记中需要插入的PPT截图汇总：
-1. K空间中心vs外围频率分布示意图（第二章"K空间"注释后）
-PPT源文件：docs/ppt/Lecture5-2026.pdf
--->
 
 
 

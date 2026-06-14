@@ -8168,8 +8168,6 @@ g(x,y) = h(x,y) * f(x,y) + \eta(x,y)
 G(u,v) = H(u,v) \cdot F(u,v) + N(u,v)
 \]</div>
 <p>其中 <span class="arithmatex">\(f(x,y)\)</span> 为原始（未退化）图像，<span class="arithmatex">\(h(x,y)\)</span> 为退化函数（点扩散函数 PSF），<span class="arithmatex">\(\eta(x,y)\)</span> 为加性噪声。</p>
-<!-- 建议插入PPT截图：Lecture7第7页"Previously"对比增强vs复原的示意图，插入位置：本节开头 -->
-
 <h3 id="12">1.2 线性、空间不变退化模型</h3>
 <p>退化系统 <span class="arithmatex">\(H\)</span> 的性质：</p>
 <ul>
@@ -8181,8 +8179,6 @@ G(u,v) = H(u,v) \cdot F(u,v) + N(u,v)
 g(x,y) = \iint h(x - \alpha, y - \beta) f(\alpha, \beta) \, d\alpha \, d\beta + \eta(x,y)
 \]</div>
 <p><strong>复原的本质</strong>：估计噪声 → 估计退化函数 → <strong>图像去卷积（Image Deconvolution）</strong>。</p>
-<!-- 建议插入PPT截图：Lecture7第8页"A Model of Degradations"退化模型示意图，插入位置：此处 -->
-
 <hr />
 <h2 id="noise-models">二、噪声模型（Noise Models）</h2>
 <h3 id="21">2.1 噪声来源</h3>
@@ -8201,22 +8197,20 @@ p(z) = \frac{1}{\sqrt{2\pi}\sigma} e^{-(z - \mu)^2 / (2\sigma^2)}
 <li>参数：均值 <span class="arithmatex">\(\mu\)</span>（整体亮度偏移）、标准差 <span class="arithmatex">\(\sigma\)</span>（噪声强度）</li>
 <li>来源：传感器热噪声、电路电子噪声</li>
 </ul>
-<!-- 建议插入PPT截图：Lecture7第13页高斯噪声PDF曲线及加噪示例图，插入位置：此处 -->
-
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0614/mubtnlaw.webp" /></p>
 <h4 id="2rayleigh-noise">（2）瑞利噪声（Rayleigh Noise）</h4>
 <p>非负随机变量的连续概率分布，向量模长：</p>
 <div class="arithmatex">\[
 p(z) = \begin{cases} \frac{2}{b}(z - a) e^{-(z-a)^2/b}, &amp; z \geq a \\ 0, &amp; z &lt; a \end{cases}
 \]</div>
 <p>均值 <span class="arithmatex">\(\mu = a + \sqrt{\pi b/4}\)</span>，方差 <span class="arithmatex">\(\sigma^2 = b(4 - \pi)/4\)</span></p>
-<!-- 建议插入PPT截图：Lecture7第14页瑞利噪声PDF及示例，插入位置：此处 -->
-
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0614/kv4henq3.webp" /></p>
 <h4 id="3erlang-gamma-noise">（3）爱尔朗/伽马噪声（Erlang / Gamma Noise）</h4>
 <p>激光成像中常见：</p>
 <div class="arithmatex">\[
 p(z) = \begin{cases} \frac{a^b z^{b-1}}{(b-1)!} e^{-az}, &amp; z \geq 0 \\ 0, &amp; z &lt; 0 \end{cases}
 \]</div>
-<p>均值 <span class="arithmatex">\(\mu = b/a\)</span>，方差 <span class="arithmatex">\(\sigma^2 = b/a^2\)</span></p>
+<p>均值 <span class="arithmatex">\(\mu = b/a\)</span>，方差 <span class="arithmatex">\(\sigma^2 = b/a^2\)</span>​</p>
 <h4 id="4exponential-noise">（4）指数噪声（Exponential Noise）</h4>
 <p>伽马噪声的特例（<span class="arithmatex">\(b=1\)</span>）：</p>
 <div class="arithmatex">\[
@@ -8228,9 +8222,7 @@ p(z) = \begin{cases} a e^{-az}, &amp; z \geq 0 \\ 0, &amp; z &lt; 0 \end{cases}
 <div class="arithmatex">\[
 p(z) = \begin{cases} \frac{1}{b-a}, &amp; a \leq z \leq b \\ 0, &amp; \text{其他} \end{cases}
 \]</div>
-<p>均值 <span class="arithmatex">\(\mu = (a+b)/2\)</span>，方差 <span class="arithmatex">\(\sigma^2 = (b-a)^2/12\)</span></p>
-<!-- 建议插入PPT截图：Lecture7第19页六种空间噪声的直方图对比图（Original + 六种噪声直方图），插入位置：此处 -->
-
+<p>均值 <span class="arithmatex">\(\mu = (a+b)/2\)</span>，方差 <span class="arithmatex">\(\sigma^2 = (b-a)^2/12\)</span>​</p>
 <h4 id="6salt-and-pepper-noise">（6）椒盐噪声（Salt-and-Pepper Noise）</h4>
 <p>又称<strong>脉冲噪声（Impulse Noise）</strong>：</p>
 <div class="arithmatex">\[
@@ -8241,8 +8233,8 @@ p(z) = \begin{cases} P_s, &amp; z = 2^k - 1 \; (\text{盐——白点}) \\ P_p, 
 <li>双极脉冲噪声：<span class="arithmatex">\(P_s \approx P_p\)</span>（黑白噪点等概率）</li>
 <li>单极脉冲噪声：<span class="arithmatex">\(P_s \neq P_p\)</span></li>
 </ul>
-<!-- 建议插入PPT截图：Lecture7第20页椒盐噪声示例图，插入位置：此处 -->
-
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0614/jgneolu5.webp" /></p>
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0614/qm2e15l0.webp" /></p>
 <h3 id="23-periodic-noise">2.3 周期性噪声（Periodic Noise）</h3>
 <p>来自图像采集过程中的<strong>电气或机电干扰</strong>：</p>
 <ul>
@@ -8250,8 +8242,6 @@ p(z) = \begin{cases} P_s, &amp; z = 2^k - 1 \; (\text{盐——白点}) \\ P_p, 
 <li>频率域：<strong>一对共轭对称的孤立亮斑</strong>（在 DFT 幅度谱中表现为关于原点对称的两个尖峰）</li>
 <li>消除方法：陷波滤波器（Notch Filter）</li>
 </ul>
-<!-- 建议插入PPT截图：Lecture7第22页正弦噪声图像及其频谱亮斑图，插入位置：此处 -->
-
 <h3 id="24-mri">2.4 MRI 中的噪声</h3>
 <p>MRI 图像中的三类噪声：</p>
 <table>
@@ -8310,8 +8300,7 @@ p(M|I,\sigma) = \frac{M}{\sigma^2} \exp\left(-\frac{M^2 + I^2}{2\sigma^2}\right)
 <li>计算均值和方差：<span class="arithmatex">\(\mu = \sum z_i p(z_i)\)</span>，<span class="arithmatex">\(\sigma^2 = \sum (z_i - \mu)^2 p(z_i)\)</span></li>
 <li>根据直方图形状匹配最近的 PDF → 用均值和方差反解 PDF 参数</li>
 </ul>
-<!-- 建议插入PPT截图：Lecture7第24页噪声参数估计示意图（选取图像区域→直方图匹配），插入位置：此处 -->
-
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0614/cvwma50l.webp" /></p>
 <hr />
 <h2 id="spatial-domain-denoising">三、空间域去噪滤波（Spatial Domain Denoising）</h2>
 <p>当退化<strong>仅由噪声引起</strong>时（<span class="arithmatex">\(H\)</span> 为单位算子）：</p>
@@ -8360,8 +8349,6 @@ G(u,v) = F(u,v) + N(u,v)
 <p class="admonition-title">Q 的符号选择至关重要</p>
 <p>选错 Q 的符号会导致灾难性后果——<span class="arithmatex">\(Q&gt;0\)</span> 处理盐噪声会使图像出现大面积黑斑，<span class="arithmatex">\(Q&lt;0\)</span> 处理椒噪声会使图像出现大面积白斑。</p>
 </div>
-<!-- 建议插入PPT截图：Lecture7第28-29页contraharmonic均值滤波器处理椒噪声和盐噪声的对比图，插入位置：此处 -->
-
 <h3 id="32-order-statistics-filters">3.2 统计排序滤波器（Order-Statistics Filters）</h3>
 <h4 id="1median-filter">（1）中值滤波器（Median Filter）</h4>
 <div class="arithmatex">\[
@@ -8372,8 +8359,6 @@ G(u,v) = F(u,v) + N(u,v)
 <li>相比线性平滑滤波器，<strong>模糊明显更少</strong></li>
 <li>可多次应用，但会逐渐模糊图像</li>
 </ul>
-<!-- 建议插入PPT截图：Lecture7第30页中值滤波器处理椒盐噪声一次的对比图，插入位置：此处 -->
-
 <h4 id="2max-min-filter">（2）最大值/最小值滤波器（Max / Min Filter）</h4>
 <div class="arithmatex">\[
 \hat{f}(x,y) = \max_{(s,t) \in S_{xy}}\{g(s,t)\} \quad \text{— 消除椒（黑）噪声}
@@ -8381,8 +8366,6 @@ G(u,v) = F(u,v) + N(u,v)
 <div class="arithmatex">\[
 \hat{f}(x,y) = \min_{(s,t) \in S_{xy}}\{g(s,t)\} \quad \text{— 消除盐（白）噪声}
 \]</div>
-<!-- 建议插入PPT截图：Lecture7第31页max/min滤波器处理椒盐噪声对比图，插入位置：此处 -->
-
 <h4 id="3midpoint-filter">（3）中点滤波器（Midpoint Filter）</h4>
 <div class="arithmatex">\[
 \hat{f}(x,y) = \frac{1}{2}\left[ \max_{(s,t) \in S_{xy}}\{g(s,t)\} + \min_{(s,t) \in S_{xy}}\{g(s,t)\} \right]
@@ -8396,12 +8379,22 @@ G(u,v) = F(u,v) + N(u,v)
 \hat{f}(x,y) = \frac{1}{mn - d} \sum_{(s,t) \in S_{xy} \setminus \{\text{trimmed } d/2 \text{ lowest, } d/2 \text{ highest}\}} g(s,t)
 \]</div>
 <ul>
-<li><span class="arithmatex">\(d = 0\)</span>：算术均值滤波器</li>
-<li><span class="arithmatex">\(d = mn - 1\)</span>：中值滤波器</li>
-<li>适用于<strong>混合多种噪声类型</strong>（如椒盐+高斯）</li>
+<li>
+<p><strong>核心原理（修剪机制）：</strong> 在大小为 <span class="arithmatex">\(m \times n\)</span> 的邻域窗口 <span class="arithmatex">\(S_{xy}\)</span> 内，将所有像素值按大小进行排序。<strong>无条件剔除（修剪）掉 <span class="arithmatex">\(d/2\)</span> 个最小的像素值和 <span class="arithmatex">\(d/2\)</span> 个最大的像素值</strong>，最后对剩下的 <span class="arithmatex">\(mn - d\)</span> 个中间像素值求算术平均。</p>
+</li>
+<li>
+<p><strong>参数 <span class="arithmatex">\(d\)</span> 的极端情况：</strong></p>
+</li>
+<li><span class="arithmatex">\(d = 0\)</span>：不修剪任何像素（去掉 0 个最高/最低分），此时等价于<strong>算术均值滤波器</strong>。</li>
+<li>
+<p><span class="arithmatex">\(d = mn - 1\)</span>：删除了除中位数以外的所有像素，此时等价于<strong>中值滤波器</strong>。</p>
+</li>
+<li>
+<p><strong>适用场景与优势：</strong></p>
+</li>
+<li>特别适用于<strong>混合多种噪声类型</strong>（如椒盐噪声 + 高斯噪声）的图像。</li>
+<li><strong>物理意义：</strong> 先通过“修剪 <span class="arithmatex">\(d/2\)</span> 个极端值”直接扔掉椒盐噪声的纯黑/纯白坏点；再通过“对剩余值求平均”有效平滑掉高斯噪声的细微波动。</li>
 </ul>
-<!-- 建议插入PPT截图：Lecture7第32页均值滤波器与排序统计滤波器的对比汇总图，插入位置：此处 -->
-
 <h3 id="33-adaptive-filters">3.3 自适应滤波器（Adaptive Filters）</h3>
 <h4 id="1alnrf-adaptive-local-noise-reduction-filter">（1）自适应局部降噪滤波器（ALNRF — Adaptive Local Noise Reduction Filter）</h4>
 <div class="arithmatex">\[
@@ -8435,8 +8428,6 @@ G(u,v) = F(u,v) + N(u,v)
 </tr>
 </tbody>
 </table>
-<!-- 建议插入PPT截图：Lecture7第36-37页ALNRF处理MRI/通用图的效果对比图，插入位置：此处 -->
-
 <h4 id="2amf-adaptive-median-filter">（2）自适应中值滤波器（AMF — Adaptive Median Filter）</h4>
 <p><strong>目标</strong>：
 1. 处理高概率的脉冲噪声（<span class="arithmatex">\(P_s, P_p &gt; 0.2\)</span>）
@@ -8450,9 +8441,6 @@ G(u,v) = F(u,v) + N(u,v)
 <p class="admonition-title">AMF 的关键优势</p>
 <p>只有当中心像素确实是脉冲时才用中值替代，否则保留原始像素——这比标准中值滤波器更好地保留了边缘细节。</p>
 </div>
-<!-- 建议插入PPT截图：Lecture7第39页AMF的流程图，插入位置：此处 -->
-<!-- 建议插入PPT截图：Lecture7第40页AMF与标准中值滤波器处理高密度椒盐噪声的对比图，插入位置：此处 -->
-
 <h3 id="34-non-local-means-filter-nlm">3.4 非局部均值滤波器（Non-Local Means Filter — NLM）</h3>
 <p><strong>核心思想</strong>：不局限于目标像素的局部邻域，而是<strong>在整个图像中搜索相似像素块</strong>，以相似度为权重做加权平均。</p>
 <div class="arithmatex">\[
@@ -8495,8 +8483,6 @@ w(p,q) = \exp\left( -\frac{|N_p - N_q|^2}{h^2} \right)
 </tr>
 </tbody>
 </table>
-<!-- 建议插入PPT截图：Lecture7第42页NLM与Box滤波器的效果对比图，插入位置：此处 -->
-
 <hr />
 <h2 id="optimum-notch-filtering">四、频率域去噪 — 最优陷波滤波（Optimum Notch Filtering）</h2>
 <p>周期性噪声在频率域中表现为<strong>对称亮斑</strong>，用陷波滤波器（Notch Filter）精确阻断。</p>
@@ -8518,8 +8504,6 @@ w(p,q) = \exp\left( -\frac{|N_p - N_q|^2}{h^2} \right)
 w(x,y) = \frac{\overline{g(x,y)\eta(x,y)} - \bar{g}(x,y)\bar{\eta}(x,y)}{\overline{\eta^2(x,y)} - \bar{\eta}^2(x,y)}
 \]</div>
 <p>其中上划线表示邻域均值。</p>
-<!-- 建议插入PPT截图：Lecture7第47页ONF处理干扰模式+复原结果图，插入位置：此处 -->
-
 <hr />
 <h2 id="estimating-the-degradation-function">五、退化函数估计（Estimating the Degradation Function）</h2>
 <p>三种估计方法：</p>
@@ -8543,8 +8527,6 @@ H(u,v) = e^{-k(u^2 + v^2)^{5/6}}
 <li>等价于高斯低通滤波器</li>
 <li><span class="arithmatex">\(k\)</span> 控制退化程度（<span class="arithmatex">\(k\)</span> 越大，模糊越严重）</li>
 </ul>
-<!-- 建议插入PPT截图：Lecture7第51页不同k值下大气湍流模型的模糊效果图，插入位置：此处 -->
-
 <h4 id="uniform-linear-motion">匀速直线运动模糊（Uniform Linear Motion）</h4>
 <p>在曝光时间 <span class="arithmatex">\(T\)</span> 内，传感器与物体之间有相对运动：</p>
 <div class="arithmatex">\[
@@ -8554,8 +8536,6 @@ H(u,v) = \frac{T}{\pi(ua + vb)} \sin[\pi(ua + vb)] \, e^{-j\pi(ua + vb)}
 <li><span class="arithmatex">\(a\)</span>、<span class="arithmatex">\(b\)</span> 分别为 <span class="arithmatex">\(x\)</span>、<span class="arithmatex">\(y\)</span> 方向的运动位移</li>
 <li><span class="arithmatex">\(H(u,v)\)</span> 具有<strong>周期性过零点</strong>——在这些频率处退化函数值为零</li>
 </ul>
-<!-- 建议插入PPT截图：Lecture7第52页运动模糊示意图，插入位置：此处 -->
-
 <hr />
 <h2 id="inverse-filtering">六、逆滤波（Inverse Filtering）</h2>
 <h3 id="61">6.1 直接逆滤波</h3>
@@ -8580,8 +8560,6 @@ H(u,v) = \frac{T}{\pi(ua + vb)} \sin[\pi(ua + vb)] \, e^{-j\pi(ua + vb)}
 <li>避免了高频噪声爆炸</li>
 <li>代价：频域硬截断 → <strong>振铃效应</strong></li>
 </ul>
-<!-- 建议插入PPT截图：Lecture7第53页直接逆滤波在不同截断半径下的结果对比图，插入位置：此处 -->
-
 <hr />
 <h2 id="wiener-filtering">七、维纳滤波（Wiener Filtering — 最小均方误差滤波）</h2>
 <h3 id="71">7.1 基本思想</h3>
@@ -8632,8 +8610,6 @@ H(u,v) = \frac{T}{\pi(ua + vb)} \sin[\pi(ua + vb)] \, e^{-j\pi(ua + vb)}
 </tr>
 </tbody>
 </table>
-<!-- 建议插入PPT截图：Lecture7第56页维纳滤波vs逆滤波的对比结果图，插入位置：此处 -->
-
 <hr />
 <h2 id="constrained-least-squares-filtering-clsf">八、约束最小二乘滤波（Constrained Least Squares Filtering — CLSF）</h2>
 <h3 id="81">8.1 优化目标</h3>
@@ -8676,13 +8652,13 @@ P(u,v) = 4 - 2\cos\left(\frac{2\pi u}{M}\right) - 2\cos\left(\frac{2\pi v}{N}\ri
 <div class="admonition note">
 <p class="admonition-title">CLSF vs 维纳滤波</p>
 <ul>
-<li>维纳滤波需要知道噪声与信号的<strong>功率谱</strong>（或用户指定 <span class="arithmatex">\(K\)</span>）</li>
+<li>维纳滤波需要知道噪声与信号的<strong>功率谱</strong>（或用户指定 <span class="arithmatex">\(K\)</span>）<ul>
 <li>CLSF 只需要知道噪声的<strong>均值和方差</strong>——这也是为什么 CLSF 被称为"约束"的原因：以噪声能量为约束来限制解空间</li>
 <li>可以<strong>交互式调节</strong> <span class="arithmatex">\(\gamma\)</span> 直至结果满意</li>
 </ul>
+</li>
+</ul>
 </div>
-<!-- 建议插入PPT截图：Lecture7第59页CLSF与Wiener滤波的对比结果图，插入位置：此处 -->
-
 <h3 id="84-clsf">8.4 CLSF 处理运动模糊的特殊优势</h3>
 <p>退化函数 <span class="arithmatex">\(H(u,v) = \frac{T}{\pi(ua + vb)} \sin[\pi(ua + vb)] e^{-j\pi(ua + vb)}\)</span> 具有周期性<strong>过零点</strong>。</p>
 <ul>
@@ -8693,9 +8669,6 @@ P(u,v) = 4 - 2\cos\left(\frac{2\pi u}{M}\right) - 2\cos\left(\frac{2\pi v}{N}\ri
 <p class="admonition-title">Laplacian 正则化的物理意义</p>
 <p><span class="arithmatex">\(|P(u,v)|^2\)</span> 在高频处很大，CLSF 的分母在高频处不会为零——拉普拉斯算子天然对高频有惩罚作用，这恰好防止了逆滤波在高频处的噪声爆炸。</p>
 </div>
-<!-- 建议插入PPT截图：Lecture7第60页CLSF在不同gamma值下的结果对比图，插入位置：此处 -->
-
-<hr />
 <h2 id="geometric-mean-filter">九、几何均值滤波器（Geometric Mean Filter — 广义维纳滤波）</h2>
 <h3 id="91">9.1 一般形式</h3>
 <p>几何均值滤波器是维纳滤波的广义化：</p>
@@ -9023,33 +8996,6 @@ W(u,v) = \frac{H(u,v)}{H^2(u,v) + K} = \frac{-8\pi^3\sigma^2(u^2+v^2) e^{-2\pi^2
 <p class="admonition-title">Q 符号不能选错</p>
 <p><span class="arithmatex">\(Q&gt;0\)</span> 时处理盐噪声 → 图像出现大面积黑斑；<span class="arithmatex">\(Q&lt;0\)</span> 时处理椒噪声 → 图像出现大面积白斑。这是选择逆谐波均值滤波器参数时必须注意的。</p>
 </div>
-<hr />
-<!-- 笔记中需要插入的PPT截图汇总：
-1. Lecture7第7页：图像增强vs图像复原对比示意图
-2. Lecture7第8页：退化模型示意图（Degradation Model）
-3. Lecture7第13页：高斯噪声PDF曲线及加噪示例
-4. Lecture7第14页：瑞利噪声PDF及示例
-5. Lecture7第19页：六种空间噪声直方图对比
-6. Lecture7第20页：椒盐噪声示例图
-7. Lecture7第22页：正弦噪声图像及其频谱亮斑
-8. Lecture7第24页：噪声参数估计示意图
-9. Lecture7第28-29页：contraharmonic均值滤波对比图
-10. Lecture7第30页：中值滤波器处理椒盐噪声
-11. Lecture7第31页：max/min滤波器对比图
-12. Lecture7第32页：各类滤波器对比汇总
-13. Lecture7第36-37页：ALNRF滤波效果对比
-14. Lecture7第39页：AMF流程图
-15. Lecture7第40页：AMF vs 标准中值滤波对比
-16. Lecture7第42页：NLM vs Box滤波效果
-17. Lecture7第47页：ONF处理干扰模式及复原结果
-18. Lecture7第51页：大气湍流退化模型示例
-19. Lecture7第52页：运动模糊示意图
-20. Lecture7第53页：直接逆滤波在不同截断半径下的结果
-21. Lecture7第56页：维纳滤波vs逆滤波对比
-22. Lecture7第59页：CLSF与Wiener滤波对比
-23. Lecture7第60页：CLSF在不同gamma值下的结果对比
-   PPT源文件：docs/ppt/Lecture7-2026.pdf
--->
 
 
 

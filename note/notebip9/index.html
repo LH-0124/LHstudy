@@ -5798,22 +5798,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#toolbox-pipeline" class="md-nav__link">
-    <span class="md-ellipsis">
-      七、常用工具（Toolbox &amp; Pipeline）
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#evaluation" class="md-nav__link">
     <span class="md-ellipsis">
-      八、配准评估（Evaluation）
+      七、配准评估（Evaluation）
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="八、配准评估（Evaluation）">
+    <nav class="md-nav" aria-label="七、配准评估（Evaluation）">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -5842,11 +5833,11 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      九、本章总结
+      八、本章总结
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="九、本章总结">
+    <nav class="md-nav" aria-label="八、本章总结">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -7386,22 +7377,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#toolbox-pipeline" class="md-nav__link">
-    <span class="md-ellipsis">
-      七、常用工具（Toolbox &amp; Pipeline）
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#evaluation" class="md-nav__link">
     <span class="md-ellipsis">
-      八、配准评估（Evaluation）
+      七、配准评估（Evaluation）
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="八、配准评估（Evaluation）">
+    <nav class="md-nav" aria-label="七、配准评估（Evaluation）">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -7430,11 +7412,11 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      九、本章总结
+      八、本章总结
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="九、本章总结">
+    <nav class="md-nav" aria-label="八、本章总结">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -7653,8 +7635,6 @@
   <h1>第9章 图像配准</h1>
 
 <h2 id="fundamentals-of-image-registration">一、图像配准基础（Fundamentals of Image Registration）</h2>
-<!-- 建议插入PPT截图：Lecture11+12第1页"Image Registration"标题页，插入位置：本节开头 -->
-
 <h3 id="11">1.1 什么是图像配准</h3>
 <p>图像配准（Image Registration）是将两幅图像之间的点进行<strong>空间变换（Spatial Transform）</strong>，使其在空间上对应到同一解剖位置的过程。</p>
 <!-- 建议插入PPT截图：Lecture11+12中展示Source→Target配准示意图（同一病人在不同时间/不同模态下的配准场景图），插入位置：此处 -->
@@ -7699,8 +7679,6 @@
 <!-- 建议插入PPT截图：Lecture11+12中展示Point-based / Surface-based / Intensity-based三种方法的示意图，插入位置：此处 -->
 
 <h3 id="13-registration-pipeline">1.3 配准流水线（Registration Pipeline）</h3>
-<!-- 建议插入PPT截图：Lecture11+12中展示完整的Registration Pipeline流程图（Fixed image → Metric → Optimizer → Transform → Resampling），插入位置：此处 -->
-
 <p>配准的四个基本步骤：</p>
 <ol>
 <li><strong>定义变换类型</strong>（刚性、仿射、非线性）</li>
@@ -7708,18 +7686,7 @@
 <li><strong>优化变换参数</strong>以最大化相似度指标</li>
 <li><strong>重采样</strong>得到配准后的图像</li>
 </ol>
-<div class="highlight"><pre><span></span><code>Fixed Image ──→ Metric ←── Moving Image
-                   │               ↑
-                   ↓               │
-              Optimizer ──→ Transform Parameters
-                   │               │
-                   ↓               ↓
-              Iteration? ──Yes→ Image Warp &amp; Resampling
-                   │
-                   No
-                   ↓
-                Output
-</code></pre></div>
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0614/lm0oa5p0.webp" /></p>
 <hr />
 <h2 id="linear-transformation">二、线性变换（Linear Transformation）</h2>
 <!-- 建议插入PPT截图：Lecture11+12中展示Affine Transform的几何分解图（identity → translation → rotation → scaling → shear → reflection），插入位置：此处 -->
@@ -8126,55 +8093,7 @@ J = \begin{bmatrix} \frac{\partial u_x}{\partial x} &amp; \frac{\partial u_x}{\p
 <p><strong>雅可比矩阵的各元素是偏导数</strong>——通过对变形场求偏导得到。</p>
 <p>应用：<strong>基于张量的形态测量（TBM, Tensor-Based Morphometry）</strong>——通过比较不同人群（如患者 vs 健康对照）的 <span class="arithmatex">\(\log(\det(J))\)</span> 分布，发现局部的脑组织萎缩或膨胀模式。</p>
 <hr />
-<h2 id="toolbox-pipeline">七、常用工具（Toolbox &amp; Pipeline）</h2>
-<!-- 建议插入PPT截图：Lecture11+12中展示FSL/Freesurfer/ANTs/SPM的软件界面截图，插入位置：此处 -->
-
-<table>
-<thead>
-<tr>
-<th>工具</th>
-<th>全称</th>
-<th>特点</th>
-<th>代表性命令</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>FSL</strong></td>
-<td>FMRIB Software Library</td>
-<td>FMRI/MRI/DTI 综合分析，非线性配准用 FNIRT</td>
-<td><code>flirt</code>, <code>fnirt</code>, <code>applywarp</code></td>
-</tr>
-<tr>
-<td><strong>Freesurfer</strong></td>
-<td>—</td>
-<td>皮层分割和表面配准，CVS 结合体积和表面的配准</td>
-<td><code>mri_cvs_register</code></td>
-</tr>
-<tr>
-<td><strong>ANTs</strong></td>
-<td>Advanced Normalization Tools</td>
-<td>最强大的非线性配准，支持 SyN 微分同胚</td>
-<td><code>antsRegistration</code></td>
-</tr>
-<tr>
-<td><strong>SPM</strong></td>
-<td>Statistical Parametric Mapping</td>
-<td>fMRI 统计分析，DARTEL 微分同胚配准</td>
-<td>MATLAB 调用</td>
-</tr>
-</tbody>
-</table>
-<p><strong>ANTs 配准示例命令</strong>：</p>
-<div class="highlight"><pre><span></span><code>antsRegistration<span class="w"> </span>--dimensionality<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--metric<span class="w"> </span>MI<span class="o">[</span>fixed.nii.gz,moving.nii.gz,1,32,Regular,0.25<span class="o">]</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--transform<span class="w"> </span>SyN<span class="o">[</span><span class="m">0</span>.25,3,0<span class="o">]</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--convergence<span class="w"> </span><span class="o">[</span>100x70x50x20,1e-6,10<span class="o">]</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--shrink-factors<span class="w"> </span>8x4x2x1<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--smoothing-sigmas<span class="w"> </span>3x2x1x0vox
-</code></pre></div>
-<hr />
-<h2 id="evaluation">八、配准评估（Evaluation）</h2>
+<h2 id="evaluation">七、配准评估（Evaluation）</h2>
 <h3 id="81">8.1 评估方法</h3>
 <table>
 <thead>
@@ -8207,7 +8126,7 @@ Dice = \frac{2|A \cap B|}{|A| + |B|}
 \]</div>
 <p>取值范围 <span class="arithmatex">\([0, 1]\)</span>，<span class="arithmatex">\(1\)</span> 表示完全重合。</p>
 <hr />
-<h2 id="_1">九、本章总结</h2>
+<h2 id="_1">八、本章总结</h2>
 <h3 id="_2">配准核心要素</h3>
 <table>
 <thead>
@@ -8424,17 +8343,6 @@ J = \begin{bmatrix} \frac{\partial u}{\partial x} &amp; \frac{\partial u}{\parti
 - 使用掩膜（Mask）排除背景噪声（阈值 <span class="arithmatex">\(&gt;10\)</span>）
 - MI 通过 <code>np.histogram2d</code> 计算联合直方图，再转为联合概率分布
 - 避免 <span class="arithmatex">\(\log 0\)</span>：仅对 <span class="arithmatex">\(p(x,y) &gt; 0\)</span> 的位置求和</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">calc_mi_manual</span><span class="p">(</span><span class="n">img1</span><span class="p">,</span> <span class="n">img2</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">256</span><span class="p">):</span>
-    <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span> <span class="o">=</span> <span class="n">img1</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="n">img2</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
-    <span class="n">hist_2d</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram2d</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">)</span>
-    <span class="n">pxy</span> <span class="o">=</span> <span class="n">hist_2d</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">hist_2d</span><span class="p">))</span>
-    <span class="n">px</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">pxy</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">py</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">pxy</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">px_py</span> <span class="o">=</span> <span class="n">px</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">py</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
-    <span class="n">non_zero</span> <span class="o">=</span> <span class="n">pxy</span> <span class="o">&gt;</span> <span class="mi">0</span>
-    <span class="n">mi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">pxy</span><span class="p">[</span><span class="n">non_zero</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">pxy</span><span class="p">[</span><span class="n">non_zero</span><span class="p">]</span> <span class="o">/</span> <span class="n">px_py</span><span class="p">[</span><span class="n">non_zero</span><span class="p">]))</span>
-    <span class="k">return</span> <span class="n">mi</span>
-</code></pre></div>
 <p><strong>关键发现</strong>：</p>
 <table>
 <thead>
@@ -8664,14 +8572,7 @@ J = \begin{bmatrix} \frac{\partial u}{\partial x} &amp; \frac{\partial u}{\parti
 3. 计算联合直方图（数对应 <span class="arithmatex">\((x,y)\)</span> 的数量）</p>
 <p><strong>解答</strong>：</p>
 <p><strong>(1) 配准流程图</strong></p>
-<div class="highlight"><pre><span></span><code>Fixed Image ──→ Metric ←── Moving Image
-                   │               ↑
-                   ↓               │
-              Optimizer ──→ Transform ──→ Interpolator
-                   │
-                   ↓
-              Output Image
-</code></pre></div>
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0614/lm0oa5p0.webp" /></p>
 <p>核心三大步骤：
 1. 定义变换类型（刚性/仿射/非线性）
 2. 定义相似度指标（SSD/CC/MI）

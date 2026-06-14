@@ -7581,8 +7581,7 @@
   <h1>第7章 形态学图像处理</h1>
 
 <h2 id="preliminaries">一、形态学图像处理基础（Preliminaries）</h2>
-<!-- 建议插入PPT截图：Lecture8第4页"Morphological operation"概述图，展示形态学操作的优势（preserves edge information, shape-based processing, idempotent, computationally efficient），插入位置：本节开头 -->
-
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0614/zi15ijqx.webp" /></p>
 <p>形态学（Morphology）是<strong>以形状为基础</strong>对图像进行分析和处理的技术，主要用于<strong>二值图像</strong>（也扩展到灰度图像）。</p>
 <p>与卷积等线性滤波相比，形态学的优势：</p>
 <table>
@@ -7644,8 +7643,6 @@
 </tr>
 </tbody>
 </table>
-<!-- 建议插入PPT截图：Lecture8第5页"Logical operations"示意图（B1, B2的and/or/xor/not运算结果），插入位置：此处 -->
-
 <h3 id="12">1.2 集合论基本操作</h3>
 <p>设 <span class="arithmatex">\(A\)</span> 为 <span class="arithmatex">\(\mathbb{Z}^2\)</span> 中的集合。若 <span class="arithmatex">\(a = (a_1, a_2)\)</span> 是 <span class="arithmatex">\(A\)</span> 的元素，记为 <span class="arithmatex">\(a \in A\)</span>；否则 <span class="arithmatex">\(a \notin A\)</span>。空集记为 <span class="arithmatex">\(\varnothing\)</span>。</p>
 <table>
@@ -7699,11 +7696,7 @@
 </tr>
 </tbody>
 </table>
-<!-- 建议插入PPT截图：Lecture8第6-7页中集合反射和平移的示意图，插入位置：此处 -->
-
 <h3 id="13-structure-element-se">1.3 结构元素（Structure Element — SE）</h3>
-<!-- 建议插入PPT截图：Lecture8第8-9页"Structure Elements"示意图（展示不同形状和大小的SE以及"x: not care"的含义），插入位置：此处 -->
-
 <p><strong>结构元素（SE）</strong> 类似于卷积核，是形态学操作的"探针"：</p>
 <ul>
 <li>SE 有<strong>定义好的形状和大小</strong>（如圆形、方形、十字形等）</li>
@@ -7713,16 +7706,13 @@
 </ul>
 <hr />
 <h2 id="erosion">二、腐蚀（Erosion）</h2>
-<!-- 建议插入PPT截图：Lecture8第10页"Erosion"定义示意图（SE在A内部平移的几何解释），插入位置：此处 -->
-
 <h3 id="21">2.1 定义</h3>
 <p><span class="arithmatex">\(A\)</span> 被 <span class="arithmatex">\(B\)</span> 腐蚀，记为 <span class="arithmatex">\(A \ominus B\)</span>，定义为：</p>
 <div class="arithmatex">\[
 A \ominus B = \{z \mid (B)_z \subseteq A\}
 \]</div>
 <p><strong>含义</strong>：所有使得 <span class="arithmatex">\(B\)</span> 平移 <span class="arithmatex">\(z\)</span> 后<strong>完全包含在 <span class="arithmatex">\(A\)</span> 中</strong>的点 <span class="arithmatex">\(z\)</span> 的集合。即 SE 必须<strong>完全在物体内部</strong>才能保留中心点。</p>
-<!-- 建议插入PPT截图：Lecture8第11页腐蚀操作逐像素平移示意图，插入位置：此处 -->
-
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0614/uan1rllj.webp" /></p>
 <h3 id="22">2.2 效果</h3>
 <ul>
 <li><strong>缩小/收缩物体</strong>：像剥洋葱一样从物体外层"剥掉"像素层</li>
@@ -7730,19 +7720,13 @@ A \ominus B = \{z \mid (B)_z \subseteq A\}
 <li><strong>断开狭窄连接</strong>：物体之间的细桥被断开</li>
 <li><strong>扩大孔洞</strong>：物体内部的孔洞变大</li>
 </ul>
-<!-- 建议插入PPT截图：Lecture8第12页不同SE尺寸（11×11, 15×15, 45×45）的腐蚀效果对比图，插入位置：此处 -->
-
 <h3 id="23">2.3 医学应用示例</h3>
 <ul>
 <li><strong>胸腺组织提取</strong>：用 7×7 → 13×13 SE 逐步腐蚀，消除细小无关组织</li>
 <li><strong>大物体检测</strong>：腐蚀 + 开操作 → 只保留大物体，去除小的无关结构</li>
 </ul>
-<!-- 建议插入PPT截图：Lecture8第14-15页胸腺组织腐蚀结果图，插入位置：此处 -->
-
 <hr />
 <h2 id="dilation">三、膨胀（Dilation）</h2>
-<!-- 建议插入PPT截图：Lecture8第16页"Dilation"定义示意图，插入位置：此处 -->
-
 <h3 id="31">3.1 定义</h3>
 <p><span class="arithmatex">\(A\)</span> 被 <span class="arithmatex">\(B\)</span> 膨胀，记为 <span class="arithmatex">\(A \oplus B\)</span>，定义为：</p>
 <div class="arithmatex">\[
@@ -7750,8 +7734,7 @@ A \oplus B = \{z \mid (\hat{B})_z \cap A \neq \varnothing\}
 \]</div>
 <p><strong>含义</strong>：所有使得 <span class="arithmatex">\(B\)</span> 的反射平移 <span class="arithmatex">\(z\)</span> 后<strong>与 <span class="arithmatex">\(A\)</span> 至少有一个像素重合</strong>的点 <span class="arithmatex">\(z\)</span> 的集合。</p>
 <p>即：将 SE 的反射在图像上滑动，只要 SE 与原图有交集，中心点就输出为前景。</p>
-<!-- 建议插入PPT截图：Lecture8第17-18页膨胀操作示意图，插入位置：此处 -->
-
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0614/o5hclfv1.webp" /></p>
 <h3 id="32">3.2 效果</h3>
 <ul>
 <li><strong>膨胀/扩大物体</strong>：在物体外层"增加"像素层</li>
@@ -7759,8 +7742,6 @@ A \oplus B = \{z \mid (\hat{B})_z \cap A \neq \varnothing\}
 <li><strong>桥接间隙</strong>：物体之间的断开区域被连接</li>
 </ul>
 <h3 id="33">3.3 膨胀桥接间隙示例</h3>
-<!-- 建议插入PPT截图：Lecture8第19-20页膨胀桥接间隙示例（已知最大断裂宽度为2 pixel → 使用合适的SE弥合），插入位置：此处 -->
-
 <p>已知最大断裂宽度为 2 像素时，使用 <code>[1 1 1; 1 1 1; 1 1 1]</code> 的 SE 即可弥合所有断裂点。</p>
 <hr />
 <h2 id="_1">四、腐蚀与膨胀的性质与对偶性</h2>
@@ -7808,20 +7789,18 @@ A \oplus B = \{z \mid (\hat{B})_z \cap A \neq \varnothing\}
 \]</div>
 <hr />
 <h2 id="opening-and-closing">五、开操作与闭操作（Opening and Closing）</h2>
-<!-- 建议插入PPT截图：Lecture8第24页"Opening and Closing"定义页，包含两个公式及效果说明，插入位置：本节开头 -->
-
 <h3 id="51">5.1 定义</h3>
-<p><strong>开操作（Opening）</strong>：先腐蚀，后膨胀：</p>
-<div class="arithmatex">\[
+<p><strong>开操作（Opening）</strong>：先腐蚀，后膨胀：
+$$
 A \circ B = (A \ominus B) \oplus B
-\]</div>
+$$</p>
 <p><strong>闭操作（Closing）</strong>：先膨胀，后腐蚀：</p>
 <div class="arithmatex">\[
 A \bullet B = (A \oplus B) \ominus B
 \]</div>
 <h3 id="52">5.2 效果对比</h3>
-<!-- 建议插入PPT截图：Lecture8第25页开/闭操作处理效果对比图（bridge消除、突起消除、角点圆化等），插入位置：此处 -->
-
+<p>开运算（Opening）在图像处理中其底层逻辑是先腐蚀后膨胀。它的主要作用是消除图像中的明亮小噪点、断开物体之间细长的粘连部分，并平滑物体的外轮廓。</p>
+<p>闭运算（Closing）则像是一种其底层逻辑与开运算刚好相反，是先膨胀后腐蚀。它的核心作用是填补物体内部的暗色小孔洞、弥合断裂的狭窄缝隙，以及将距离极近的相邻碎块连接成一个完整的整体。</p>
 <table>
 <thead>
 <tr>
@@ -7882,16 +7861,15 @@ A \bullet B = (A \oplus B) \ominus B
 </ul>
 </div>
 <h3 id="53">5.3 几何解释</h3>
-<!-- 建议插入PPT截图：Lecture8第26页几何解释示意图（开操作为SE在A内部滚动的轨迹并集，闭操作为SE在A外部滚动的轨迹补集），插入位置：此处 -->
-
-<p><strong>开操作的几何直观</strong>：将 SE 在 <span class="arithmatex">\(A\)</span> 内部滚动，所有 SE 能到达的位置的并集：</p>
-<div class="arithmatex">\[
-A \circ B = \bigcup \{(B)_z \mid (B)_z \subseteq A\}
-\]</div>
-<p><strong>闭操作的几何直观</strong>：将 SE 在 <span class="arithmatex">\(A\)</span> 外部滚动，取补集：</p>
-<div class="arithmatex">\[
-A \bullet B = \left[ \bigcup \{(B)_z \mid (B)_z \subseteq A^c\} \right]^c
-\]</div>
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0614/mby4wiwf.webp" /></p>
+<p><strong>开操作的几何直观</strong>：将 SE 在 <span class="arithmatex">\(A\)</span> 内部滚动，所有 SE 能到达的位置的并集：
+$$
+A \circ B = \bigcup {(B)_z \mid (B)_z \subseteq A}
+$$</p>
+<p><strong>闭操作的几何直观</strong>：将 SE 在 <span class="arithmatex">\(A\)</span> 外部滚动，取补集：
+$$
+A \bullet B = \left[ \bigcup {(B)_z \mid (B)_z \subseteq A^c} \right]^c
+$$</p>
 <h3 id="54">5.4 基本性质</h3>
 <table>
 <thead>
@@ -7930,24 +7908,20 @@ A \bullet B = \left[ \bigcup \{(B)_z \mid (B)_z \subseteq A^c\} \right]^c
 </div>
 <h3 id="55">5.5 医学应用示例</h3>
 <p><strong>开操作 — 颅骨剥离（Skull Stripping）</strong>：</p>
-<!-- 建议插入PPT截图：Lecture8第28页颅骨剥离流程图（binary brain → largest connected component → erosion r=3 → conditional dilation r=4），插入位置：此处 -->
-
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0614/zuonqecl.webp" /></p>
 <ul>
 <li>二值脑图 → 取最大连通分量</li>
 <li>用圆形 SE（半径 3）腐蚀 → 断开脑组织与颅骨的连接</li>
 <li>用圆形 SE（半径 4）条件膨胀 → 恢复脑组织原状</li>
 </ul>
 <p><strong>闭操作 — ROI 修改</strong>：</p>
-<!-- 建议插入PPT截图：Lecture8第29页ROI修改对比图（without closing vs with closing），插入位置：此处 -->
-
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0614/2pfvwcf2.webp" /></p>
 <ul>
 <li>闭操作前：ROI 内部有细小孔洞和缝隙</li>
 <li>闭操作后：小孔洞被填补，ROI 更加完整</li>
 </ul>
 <hr />
 <h2 id="morphological-filter">六、形态学滤波（Morphological Filter）</h2>
-<!-- 建议插入PPT截图：Lecture8第30-31页形态学滤波（先开后闭）消除椒盐噪声的对比图，插入位置：此处 -->
-
 <p><strong>形态学滤波 = 先开操作，再闭操作</strong></p>
 <p>用于消除二值图像中的<strong>椒盐噪声</strong>：</p>
 <ul>
@@ -7962,8 +7936,7 @@ A \bullet B = \left[ \bigcup \{(B)_z \mid (B)_z \subseteq A^c\} \right]^c
 </ul>
 <hr />
 <h2 id="hit-or-miss-transformation">七、击中或击不中变换（Hit-or-Miss Transformation）</h2>
-<!-- 建议插入PPT截图：Lecture8第32-33页Hit-or-Miss变换示意图（B1匹配前景、B2匹配背景、结果高亮匹配点），插入位置：此处 -->
-
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0614/khftbjl0.webp" /></p>
 <p><strong>用途</strong>：形状检测（Shape Detection）——在图像中定位特定形状。</p>
 <p>用 <span class="arithmatex">\(B\)</span> 表示由前景 <span class="arithmatex">\(B_1\)</span> 和背景 <span class="arithmatex">\(B_2\)</span> 组成的目标形状，<span class="arithmatex">\(B\)</span> 在 <span class="arithmatex">\(A\)</span> 中的匹配 <span class="arithmatex">\(A \otimes B\)</span> 定义为：</p>
 <div class="arithmatex">\[
@@ -7975,24 +7948,18 @@ A \otimes B = (A \ominus B_1) \cap (A^c \ominus B_2)
 - 两者取交集 → 精确匹配完整形状（前景 + 背景）的像素位置</p>
 <hr />
 <h2 id="basic-morphological-algorithms">八、基本形态学算法（Basic Morphological Algorithms）</h2>
-<!-- 建议插入PPT截图：Lecture8第34页基本形态学算法概览图（boundary, connected components, convex hull, skeleton, region filling, thinning, thickening, pruning），插入位置：本节开头 -->
-
 <h3 id="81-boundary-extraction">8.1 边界提取（Boundary Extraction）</h3>
 <p><span class="arithmatex">\(A\)</span> 的边界 <span class="arithmatex">\(\beta(A)\)</span> 通过先腐蚀再与原图作差得到：</p>
 <div class="arithmatex">\[
 \beta(A) = A - (A \ominus B)
 \]</div>
 <p>其中 <span class="arithmatex">\(B\)</span> 为合适的 SE（通常为 <span class="arithmatex">\(3 \times 3\)</span> 十字形）。</p>
-<!-- 建议插入PPT截图：Lecture8第35页边界提取效果图，插入位置：此处 -->
-
 <h3 id="82-hole-filling">8.2 孔洞填充（Hole Filling）</h3>
 <p>已知孔洞内一个起点 <span class="arithmatex">\(p\)</span>（值为 <span class="arithmatex">\(0\)</span>），通过迭代膨胀并限制在 <span class="arithmatex">\(A^c\)</span> 内来填充孔洞：</p>
 <div class="arithmatex">\[
 X_k = (X_{k-1} \oplus B) \cap A^c, \quad k = 1, 2, 3, \ldots
 \]</div>
 <p>其中 <span class="arithmatex">\(X_0\)</span> 在 <span class="arithmatex">\(p\)</span> 处为 <span class="arithmatex">\(1\)</span>，其余为 <span class="arithmatex">\(0\)</span>。当 <span class="arithmatex">\(X_k = X_{k-1}\)</span> 时算法终止。</p>
-<!-- 建议插入PPT截图：Lecture8第36-38页孔洞填充过程示意图及脑分割掩膜填充示例，插入位置：此处 -->
-
 <p><strong>关键</strong>：每步与 <span class="arithmatex">\(A^c\)</span> 取交集，限制填充不超出 ROI 边界。</p>
 <h3 id="83-extraction-of-connected-components">8.3 连通分量提取（Extraction of Connected Components）</h3>
 <p>从连通分量 <span class="arithmatex">\(Y\)</span> 内的一个已知点 <span class="arithmatex">\(p\)</span> 开始（<span class="arithmatex">\(Y \subseteq A\)</span>）：</p>
@@ -8000,8 +7967,6 @@ X_k = (X_{k-1} \oplus B) \cap A^c, \quad k = 1, 2, 3, \ldots
 X_k = (X_{k-1} \oplus B) \cap A, \quad k = 1, 2, 3, \ldots
 \]</div>
 <p>其中 <span class="arithmatex">\(X_0 = p\)</span>，<span class="arithmatex">\(B\)</span> 为合适的 SE。当 <span class="arithmatex">\(X_k = X_{k-1}\)</span> 时收敛，<span class="arithmatex">\(Y = X_k\)</span>。</p>
-<!-- 建议插入PPT截图：Lecture8第39-40页连通分量提取示意图及脑转移瘤提取示例，插入位置：此处 -->
-
 <p><strong>与孔洞填充的区别</strong>：孔洞填充每次与 <span class="arithmatex">\(A^c\)</span> 取交集，连通分量提取每次与 <span class="arithmatex">\(A\)</span> 取交集。</p>
 <h3 id="84-thinning">8.4 细化（Thinning）</h3>
 <p><span class="arithmatex">\(A\)</span> 被 SE <span class="arithmatex">\(B\)</span> 细化的定义为：</p>
@@ -8013,16 +7978,12 @@ A \otimes B = A - (A \otimes B) = A \cap (A \otimes B)^c
 A \otimes \{B\} = ((\ldots((A \otimes B_1) \otimes B_2) \ldots) \otimes B_n)
 \]</div>
 <p>整个过程重复进行，直到不再发生变化。</p>
-<!-- 建议插入PPT截图：Lecture8第41-43页细化过程示意图及3D MRA细化结果图，插入位置：此处 -->
-
 <h3 id="85-thickening">8.5 粗化（Thickening）</h3>
 <p>粗化是细化的对偶操作：</p>
 <div class="arithmatex">\[
 A \odot B = A \cup (A \otimes B)
 \]</div>
 <p>实际中通常采用<strong>间接方法</strong>：对 <span class="arithmatex">\(A^c\)</span> 做细化，再取补集得到粗化结果。</p>
-<!-- 建议插入PPT截图：Lecture8第44-46页粗化过程示意图，插入位置：此处 -->
-
 <h3 id="86-skeleton">8.6 骨架提取（Skeleton）</h3>
 <p><span class="arithmatex">\(A\)</span> 的骨架 <span class="arithmatex">\(S(A)\)</span> 可通过对 <span class="arithmatex">\(A\)</span> 反复腐蚀和开操作得到：</p>
 <div class="arithmatex">\[
@@ -8035,12 +7996,8 @@ S_k(A) = (A \ominus kB) - (A \ominus kB) \circ B
 <p><strong>最大圆盘（Maximum Disk）</strong>：
 - 若 <span class="arithmatex">\((D)_z\)</span> 是最大圆盘，则不存在更大的圆盘（不一定以 <span class="arithmatex">\(z\)</span> 为中心）包含 <span class="arithmatex">\((D)_z\)</span> 且仍在 <span class="arithmatex">\(A\)</span> 内部
 - 最大圆盘在至少两处与 <span class="arithmatex">\(A\)</span> 的边界相切</p>
-<!-- 建议插入PPT截图：Lecture8第47页骨架提取示意图及最大圆盘概念，插入位置：此处 -->
-
 <hr />
 <h2 id="gray-scale-morphology">九、灰度形态学（Gray-Scale Morphology）</h2>
-<!-- 建议插入PPT截图：Lecture8第48页灰度形态学概述（将二值集合运算扩展到灰度函数），插入位置：本节开头 -->
-
 <p>将形态学从<strong>集合</strong>扩展到<strong>函数</strong>（图像）：</p>
 <ul>
 <li><span class="arithmatex">\(f(x,y)\)</span>：输入灰度图像</li>
@@ -8064,8 +8021,6 @@ S_k(A) = (A \ominus kB) - (A \ominus kB) \circ B
 - 暗区域扩张
 - 亮细节减弱或被消除
 - 整体亮度降低</p>
-<!-- 建议插入PPT截图：Lecture8第50-51页灰度膨胀/腐蚀效果对比图（erosion vs dilation on gray-scale），插入位置：此处 -->
-
 <h3 id="93">9.3 灰度开操作与闭操作</h3>
 <p><strong>灰度开操作</strong>：先灰度腐蚀，再灰度膨胀</p>
 <div class="arithmatex">\[
@@ -8182,7 +8137,7 @@ A = \begin{bmatrix}
 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
 0 &amp; 1 &amp; 1 &amp; 1 &amp; 0 \\
 0 &amp; 1 &amp; 1 &amp; 1 &amp; 0 \\
-0 &amp; 1 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 1 &amp; 1 &amp; 1 &amp; 0 \\
 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0
 \end{bmatrix}
 \]</div>
@@ -8224,7 +8179,7 @@ A \oplus B = \begin{bmatrix}
 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\
 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\
 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\
-0 &amp; 1 &amp; 1 &amp; 1 &amp; 0
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1
 \end{bmatrix}
 \]</div>
 <p><strong>总结验证</strong>：
@@ -8325,15 +8280,14 @@ B = \begin{bmatrix}
 - <span class="arithmatex">\((1,3)\)</span>：上方是 <span class="arithmatex">\(0\)</span>，不满足 → <span class="arithmatex">\(0\)</span>
 - <span class="arithmatex">\((2,1)\)</span>：左方是 <span class="arithmatex">\(0\)</span>，不满足 → <span class="arithmatex">\(0\)</span>
 - <span class="arithmatex">\((2,2)\)</span>：上下左右中全是 <span class="arithmatex">\(1\)</span>，满足 → <span class="arithmatex">\(1\)</span>
-- <span class="arithmatex">\((2,3)\)</span>：上方是 <span class="arithmatex">\(1\)</span>，下方是 <span class="arithmatex">\(1\)</span>，左方是 <span class="arithmatex">\(1\)</span>，右方是 <span class="arithmatex">\(1\)</span>，中是 <span class="arithmatex">\(1\)</span>，满足 → <span class="arithmatex">\(1\)</span>
 - ... 以此类推</p>
 <p>最终腐蚀结果：</p>
 <div class="arithmatex">\[
 A \ominus B = \begin{bmatrix}
 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
-0 &amp; 1 &amp; 1 &amp; 1 &amp; 0 \\
-0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0
 \end{bmatrix}
 \]</div>

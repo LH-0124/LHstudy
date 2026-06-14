@@ -7071,8 +7071,7 @@
   <h1>第5章 频率域滤波</h1>
 
 <h2 id="frequency-domain-filtering-fundamentals">一、频率域滤波基础（Frequency Domain Filtering Fundamentals）</h2>
-<!-- 建议插入PPT截图：Lecture6中"Spatial and Frequency"图中展示的低频vs高频在K空间中的位置示意，插入位置：本节开头 -->
-
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0614/oeyyknnp.webp" /></p>
 <h3 id="11">1.1 频域与空域的对应关系</h3>
 <p>频率域中不同位置对应图像中不同特征：</p>
 <table>
@@ -7104,8 +7103,6 @@
 <div class="arithmatex">\[
 \text{窄频域高斯} \Leftrightarrow \text{宽空域高斯}
 \]</div>
-<!-- 建议插入PPT截图：Lecture6中展示高斯在频域和空域对应的图（narrow frequency → wider spatial），插入位置：此处"高斯滤波器的频域-空域对偶性"之后 -->
-
 <p>低通滤波：空域高斯核宽 → 频域高斯核窄（只保留中心低频）
 高通滤波：频域外围保留 → 空域提取边缘</p>
 <h3 id="12">1.2 频率域滤波基本方程</h3>
@@ -7120,8 +7117,7 @@ g(x,y) = \Re\left\{ \mathcal{F}^{-1}\left[ H(u,v) \cdot F(u,v) \right] \right\}
 </ul>
 <p><strong>滤波器要求对称性</strong>：<span class="arithmatex">\(H(u,v) = H(-u, -v)\)</span>（利用共轭对称性，保证滤波结果为实数）。</p>
 <h3 id="13">1.3 频率域滤波的标准步骤</h3>
-<!-- 建议插入PPT截图：Lecture6中"如何把大象放进冰箱"的频率滤波步骤示意图（三步骤：open→filter→close），插入位置：此处"标准步骤"开头 -->
-
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0614/q4segpxu.webp" /></p>
 <p>对于 <span class="arithmatex">\(M \times N\)</span> 的原图 <span class="arithmatex">\(f(x,y)\)</span>：</p>
 <p><strong>(1) 预处理 — Open</strong></p>
 <ol>
@@ -7144,8 +7140,7 @@ g(x,y) = \Re\left\{ \mathcal{F}^{-1}\left[ H(u,v) \cdot F(u,v) \right] \right\}
 <li>DFT 假设图像周期延拓 → 不做 padding 时，卷积核会"穿过"图像边界从另一边回来</li>
 <li>零填充在图像周围加一圈黑边 → 周期延拓后的图像之间有了"隔离带"，避免了边界干扰</li>
 </ul>
-<!-- 建议插入PPT截图：Lecture6中展示wraparound effect的对比图（without padding vs zero-padding），插入位置：此处"为什么要Padding"段落附近 -->
-
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0614/xx2llgb4.webp" /></p>
 <h3 id="14">1.4 空间域与频率域滤波的等价性</h3>
 <table>
 <thead>
@@ -7189,8 +7184,7 @@ g(x,y) = \Re\left\{ \mathcal{F}^{-1}\left[ H(u,v) \cdot F(u,v) \right] \right\}
 <h2 id="lowpass-filtering-in-frequency-domain">二、频率域低通滤波（Lowpass Filtering in Frequency Domain）</h2>
 <p>低通滤波器<strong>衰减高频分量、保留低频分量</strong>，主要效果是<strong>平滑/模糊（Smoothing）</strong>。</p>
 <p>三种经典频率域低通滤波器：</p>
-<!-- 建议插入PPT截图：Lecture6中三种低通滤波器（Ideal/Butterworth/Gaussian）的频率响应3D曲面图对比，插入位置：此处"三种经典频率域低通滤波器"下方 -->
-
+<p><img alt="&lt;!-- 建议插入PPT截图：Lecture6中三种低通滤波器（Ideal/Butterworth/Gaussian）的频率响应3D曲面图对比，插入位置：此处&quot;三种经典频率域低通滤波器&quot;下方 --&gt;" src="https://file.cc98.org/v4-upload/d/2026/0614/dehydobr.webp" /></p>
 <h3 id="21-ideal-lowpass-filter-ilpf">2.1 理想低通滤波器（Ideal Lowpass Filter — ILPF）</h3>
 <p>传递函数为矩形截断：</p>
 <div class="arithmatex">\[
@@ -7234,8 +7228,7 @@ H(u,v) = \begin{cases} 1, &amp; D(u,v) \leq D_0 \\ 0, &amp; D(u,v) &gt; D_0 \end
 <p>截止频率越小（越窄的频域窗）→ 空间域 sinc 主瓣越宽 → 模糊越重 + 振铃越明显。</p>
 <p>这是 <strong>Box → Sinc 傅里叶变换对</strong>的直接体现——也是理想滤波器不被用于医学诊断图像的原因。</p>
 </div>
-<!-- 建议插入PPT截图：Lecture6中理想低通滤波器不同D0下的振铃效应对比图，插入位置：此处"振铃效应"警告框附近 -->
-
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0614/u2ltz3hk.webp" /></p>
 <h3 id="22-butterworth-lowpass-filter-blpf">2.2 巴特沃斯低通滤波器（Butterworth Lowpass Filter — BLPF）</h3>
 <div class="arithmatex">\[
 H(u,v) = \frac{1}{1 + \left[ D(u,v) / D_0 \right]^{2n}}
@@ -7247,8 +7240,7 @@ H(u,v) = \frac{1}{1 + \left[ D(u,v) / D_0 \right]^{2n}}
 <li><span class="arithmatex">\(n\)</span> 较大（如 <span class="arithmatex">\(n=20\)</span>）：行为趋近理想滤波器，振铃明显</li>
 </ul>
 <p><strong>特点</strong>：在截止频率锐度和振铃抑制之间提供<strong>定量可控的平衡</strong>。</p>
-<!-- 建议插入PPT截图：Lecture6中不同阶数n的巴特沃斯滤波器频率响应曲线对比，插入位置：此处"巴特沃斯低通"附近 -->
-
+<p><img alt="&lt;!-- 建议插入PPT截图：Lecture6中不同阶数n的巴特沃斯滤波器频率响应曲线对比，插入位置：此处&quot;巴特沃斯低通&quot;附近 --&gt;" src="https://file.cc98.org/v4-upload/d/2026/0614/mwbajoyp.webp" /></p>
 <h3 id="23-gaussian-lowpass-filter-glpf">2.3 高斯低通滤波器（Gaussian Lowpass Filter — GLPF）</h3>
 <div class="arithmatex">\[
 H(u,v) = e^{-D^2(u,v) / (2D_0^2)}
@@ -7304,8 +7296,7 @@ H(u,v) = e^{-D^2(u,v) / (2D_0^2)}
 </tr>
 </tbody>
 </table>
-<!-- 建议插入PPT截图：Lecture6中三种低通滤波器滤波结果对比图（同一图像分别用Ideal/Butterworth/Gaussian处理），插入位置：此处"三种低通滤波器对比"表格附近 -->
-
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0614/2vmrvsij.webp" /></p>
 <div class="admonition note">
 <p class="admonition-title">高斯 vs 巴特沃斯选择建议</p>
 <ul>
@@ -7320,18 +7311,16 @@ H(u,v) = e^{-D^2(u,v) / (2D_0^2)}
 <li><strong>皮肤纹理平滑</strong>：减少细纹和小瑕疵</li>
 <li><strong>MRI 去噪</strong>：去除脑白质的高频噪声</li>
 </ul>
-<!-- 建议插入PPT截图：Lecture6中低通滤波应用实例（如脑MRI去噪前后的sigma=4,8对比），插入位置：本小节 -->
-
 <hr />
 <h2 id="highpass-filtering-in-frequency-domain">三、频率域高通滤波（Highpass Filtering in Frequency Domain）</h2>
-<p>高通滤波器 = <strong>衰减低频、保留高频</strong>。效果：<strong>图像锐化（Sharpening）</strong>。</p>
+<p>高通滤波器 = <strong>衰减低频、保留高频</strong>。</p>
+<p>效果：<strong>图像锐化（Sharpening）</strong>。</p>
 <h3 id="31">3.1 高通滤波器的通用构建方法</h3>
 <div class="arithmatex">\[
 H_{\text{HP}}(u,v) = 1 - H_{\text{LP}}(u,v)
 \]</div>
 <p>三种经典高通滤波器可由对应低通滤波器直接推导：</p>
-<!-- 建议插入PPT截图：Lecture6中三种高通滤波器（Ideal/Butterworth/Gaussian）的频率响应图，插入位置：此处 -->
-
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0614/jg1jf1e5.webp" /></p>
 <table>
 <thead>
 <tr>
@@ -7358,10 +7347,9 @@ H_{\text{HP}}(u,v) = 1 - H_{\text{LP}}(u,v)
 <ul>
 <li>DC 项被设为零 → 滤波结果均值 = 0 → 出现<strong>正负值</strong></li>
 <li>直接显示时负值被裁剪为 0（黑色）→ 只能看到正值的亮边缘</li>
-<li>完整显示时包含灰背景（正为亮、负为暗）→ 可看清完整边缘结构</li>
+<li>完整显示时（加常数）包含灰背景（正为亮、负为暗）→ 可看清完整边缘结构</li>
 </ul>
-<!-- 建议插入PPT截图：Lecture6中IHPF/GHPF/BHPF滤波后的正负值显示对比图（包含直接显示和完整显示两种模式），插入位置：此处 -->
-
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0614/wvcuy01v.webp" /></p>
 <p><strong>高通滤波的应用</strong>：BHPF（4阶，<span class="arithmatex">\(D_0=50\)</span>）→ 阈值化 → 可提取图像中主要结构的边缘轮廓。</p>
 <h3 id="32-laplacian-in-frequency-domain">3.2 频率域拉普拉斯滤波器（Laplacian in Frequency Domain）</h3>
 <p>从空间域二阶微分推导到频率域：</p>
@@ -7387,25 +7375,21 @@ G(u,v) = \left[ 1 - H(u,v) \right] \cdot F(u,v) = \left[ 1 + 4\pi^2 D^2(u,v) \ri
 \]</div>
 <p>其中 <span class="arithmatex">\(D^2(u,v) = (u - M/2)^2 + (v - N/2)^2\)</span>。</p>
 <p><strong>频率域 vs 空间域 Laplacian 增强对比</strong>：两者数学完全等价（卷积定理），结果一致。</p>
-<!-- 建议插入PPT截图：Lecture6中频率域Laplacian增强和空间域Laplacian增强的结果对比图，插入位置：此处 -->
-
 <h3 id="33-unsharp-masking-high-frequency-emphasis">3.3 反锐化掩膜与高频增强滤波（Unsharp Masking / High-Frequency-Emphasis）</h3>
 <p><strong>标准反锐化掩膜</strong>：</p>
 <div class="arithmatex">\[
 g(x,y) = f(x,y) + k \cdot [f(x,y) - f_{\text{LP}}(x,y)]
 \]</div>
-<p><strong>高频增强滤波（High-Frequency-Emphasis）</strong>：不仅增强高频，还为低频添加一个偏移量以防止图像发暗：</p>
-<div class="arithmatex">\[
+<p><strong>高频增强滤波（High-Frequency-Emphasis）</strong>：不仅增强高频，还为低频添加一个偏移量以防止图像发暗：
+$$
 H_{\text{HFE}}(u,v) = a + b \cdot H_{\text{HP}}(u,v)
-\]</div>
+$$</p>
 <p>其中 <span class="arithmatex">\(a \geq 0\)</span> 控制低频偏移，<span class="arithmatex">\(b &gt; 0\)</span> 控制高频增益。</p>
 <p><strong>完整管线</strong>：</p>
 <div class="arithmatex">\[
 g(x,y) = \mathcal{F}^{-1}\{ [a + b \cdot H_{\text{HP}}(u,v)] \cdot F(u,v) \}
 \]</div>
 <p>典型应用流程：原图 → GHPF → 高频增强滤波 → 直方图均衡化 → 最终增强图像。</p>
-<!-- 建议插入PPT截图：Lecture6中高频增强滤波+直方图均衡化的处理管线结果图，插入位置：此处 -->
-
 <hr />
 <h2 id="selective-filtering">四、选择性滤波（Selective Filtering）</h2>
 <h3 id="41-band-reject-and-band-pass-filters">4.1 带阻与带通滤波器（Band-Reject and Band-Pass Filters）</h3>
@@ -7436,8 +7420,6 @@ g(x,y) = \mathcal{F}^{-1}\{ [a + b \cdot H_{\text{HP}}(u,v)] \cdot F(u,v) \}
 </tr>
 </tbody>
 </table>
-<!-- 建议插入PPT截图：Lecture6中带阻/带通滤波器的频率响应示意图，插入位置：此处 -->
-
 <h3 id="42-notch-filter">4.2 陷波滤波器（Notch Filter）</h3>
 <p><strong>陷波滤波器</strong>是一种特殊的带阻滤波器，只阻止<strong>特定离散频率点</strong>（及其关于原点的对称点）。</p>
 <p><strong>构建方法</strong>：陷波带阻滤波器由多个高通滤波器（经过中心平移）的<strong>乘积</strong>组成：</p>
@@ -7452,8 +7434,6 @@ H_{\text{NR}}(u,v) = \prod_{k=1}^{Q} H_k(u,v) \cdot H_{-k}(u,v)
 <li><strong>土星环干扰消除</strong>：周期性垂直干扰 → 垂直陷波滤波器 → 在频域精确定位并阻断</li>
 <li><strong>MRI 周期性噪声去除</strong>：斜向条纹噪声 → 频域幅度谱中定位对称亮斑 → 陷波滤波</li>
 </ul>
-<!-- 建议插入PPT截图：Lecture6中摩尔纹图像消除及土星环干扰消除的对比图，插入位置：此处 -->
-
 <hr />
 <h2 id="summary">五、本章总结（Summary）</h2>
 <h3 id="_1">频率域滤波</h3>
@@ -7500,7 +7480,7 @@ H_{\text{NR}}(u,v) = \prod_{k=1}^{Q} H_k(u,v) \cdot H_{-k}(u,v)
 </table>
 <hr />
 <blockquote>
-<p>频率域滤波的实验部分（含振铃效应观察、空间域与频率域等价性验证、陷波滤波器去噪）请参见 <a href="../notebip4/">第4章笔记</a> 中的实验（LAB3）部分。</p>
+<p>频率域滤波的实验部分（含振铃效应观察、空间域与频率域等价性验证、陷波滤波器去噪）请参见<a href="../notebip4/">第4章笔记</a> 中的实验（LAB3）部分。</p>
 </blockquote>
 <hr />
 <h2 id="_2">历年卷解答</h2>
