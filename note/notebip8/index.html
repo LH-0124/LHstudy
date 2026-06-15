@@ -5253,6 +5253,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../notebip0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    笔记说明
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../notebip1/" class="md-nav__link">
         
   
@@ -5964,6 +5987,75 @@
   
   <span class="md-ellipsis">
     第9章 图像配准
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebip10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第10章 图像特征提取
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebip11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    第11章 人工智能与生物医学图像处理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebip12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    历年卷解答
     
   </span>
   
@@ -8327,12 +8419,6 @@ $$</p>
 <li><strong>形态学闭运算</strong>：5×5 椭圆核桥接断裂的边缘线段</li>
 <li><strong>连通域面积过滤</strong>：去除小于 150 或大于 3000 像素的噪声区域</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="n">Kx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-<span class="n">Ky</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-<span class="n">Gx</span> <span class="o">=</span> <span class="n">convolve2d</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">Kx</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">,</span> <span class="n">boundary</span><span class="o">=</span><span class="s1">&#39;symm&#39;</span><span class="p">)</span>
-<span class="n">Gy</span> <span class="o">=</span> <span class="n">convolve2d</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">Ky</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">,</span> <span class="n">boundary</span><span class="o">=</span><span class="s1">&#39;symm&#39;</span><span class="p">)</span>
-<span class="n">magnitude</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Gx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">Gy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div>
 <p><strong>结果分析</strong>：T2 模态（病灶高信号）效果显著优于 T1（病灶低信号与正常组织对比度低）；Sobel 提取的边缘线条断裂不闭合，需要闭运算连接。</p>
 <h3 id="project-2thresholding">Project 2：阈值分割（Thresholding）</h3>
 <p><strong>实验内容</strong>：实现<strong>迭代全局阈值法</strong>和<strong>Otsu 方法</strong>，对比在 T1/T2 MRI 上的分割效果。</p>
@@ -8341,16 +8427,6 @@ $$</p>
 <li><strong>迭代全局阈值法</strong>：<span class="arithmatex">\(T_{new} = \frac{\mu_1 + \mu_2}{2}\)</span>，迭代至 <span class="arithmatex">\(|T - T_{new}| &lt; \Delta\)</span></li>
 <li><strong>Otsu 方法</strong>：<span class="arithmatex">\(\sigma_B^2 = w_1 w_2 (\mu_1 - \mu_2)^2\)</span>，遍历 0-255 找最大值</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">otsu_threshold_manual</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
-    <span class="n">hist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">brain_pixels</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">256</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">255</span><span class="p">):</span>
-        <span class="n">w0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">hist</span><span class="p">[:</span><span class="n">t</span><span class="p">])</span> <span class="o">/</span> <span class="n">total_pixels</span>
-        <span class="n">w1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">hist</span><span class="p">[</span><span class="n">t</span><span class="p">:])</span> <span class="o">/</span> <span class="n">total_pixels</span>
-        <span class="n">mu0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">hist</span><span class="p">[:</span><span class="n">t</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">w0</span> <span class="o">*</span> <span class="n">total_pixels</span><span class="p">)</span>
-        <span class="n">mu1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span> <span class="o">*</span> <span class="n">hist</span><span class="p">[</span><span class="n">t</span><span class="p">:])</span> <span class="o">/</span> <span class="p">(</span><span class="n">w1</span> <span class="o">*</span> <span class="n">total_pixels</span><span class="p">)</span>
-        <span class="n">variance</span> <span class="o">=</span> <span class="n">w0</span> <span class="o">*</span> <span class="n">w1</span> <span class="o">*</span> <span class="p">((</span><span class="n">mu0</span> <span class="o">-</span> <span class="n">mu1</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
-        <span class="c1"># 选择使 variance 最大的 t</span>
-</code></pre></div>
 <p><strong>关键发现</strong>：</p>
 <ul>
 <li>迭代法对初始值不敏感（<span class="arithmatex">\(T_{init}=60, 125, 190\)</span> 均收敛到接近值）</li>
