@@ -8013,15 +8013,29 @@ R = R_z(\theta) \cdot R_x(\phi) \cdot R_y(\psi)
 \]</div>
 <p>绕 X 轴旋转 <span class="arithmatex">\(\phi\)</span>：
 $$
-R_x(\phi) = \begin{bmatrix} 1 &amp; 0 &amp; 0 \ 0 &amp; \cos\phi &amp; \sin\phi \ 0 &amp; -\sin\phi &amp; \cos\phi \end{bmatrix}
+R_x(\phi) = 
+\begin{bmatrix} 
+1 &amp; 0 &amp; 0 \ 
+0 &amp; \cos\phi &amp; \sin\phi \ 
+0 &amp; -\sin\phi &amp; \cos\phi 
+\end{bmatrix}
 $$</p>
 <p>绕 Y 轴旋转 <span class="arithmatex">\(\psi\)</span>：
 $$
-R_y(\psi) = \begin{bmatrix} \cos\psi &amp; 0 &amp; -\sin\psi \ 0 &amp; 1 &amp; 0 \ \sin\psi &amp; 0 &amp; \cos\psi \end{bmatrix}
+R_y(\psi) = 
+\begin{bmatrix} 
+\cos\psi &amp; 0 &amp; -\sin\psi \ 
+0 &amp; 1 &amp; 0 \ 
+\sin\psi &amp; 0 &amp; \cos\psi 
+\end{bmatrix}
 $$</p>
 <p>绕 Z 轴旋转 <span class="arithmatex">\(\theta\)</span>：
 $$
-R_z(\theta) = \begin{bmatrix} \cos\theta &amp; \sin\theta &amp; 0 \ -\sin\theta &amp; \cos\theta &amp; 0 \ 0 &amp; 0 &amp; 1 \end{bmatrix}
+R_z(\theta) = 
+\begin{bmatrix} 
+\cos\theta &amp; \sin\theta &amp; 0 \ 
+-\sin\theta &amp; \cos\theta &amp; 0 \ 
+0 &amp; 0 &amp; 1 \end{bmatrix}
 $$</p>
 <h3 id="25-3-d">2.5 3-D 仿射变换</h3>
 <div class="arithmatex">\[
@@ -8056,7 +8070,7 @@ x' = A x, \quad A \in \mathbb{R}^{3 \times 3}
 <h3 id="31">3.1 点处理的基本概念</h3>
 <p>点处理仅依赖于<strong>该点的灰度级</strong>，邻域大小为 <span class="arithmatex">\(1 \times 1\)</span>：</p>
 <div class="arithmatex">\[
-s = T(r)$$
+s = T(r)
 \]</div>
 <p><span class="arithmatex">\(T\)</span> 成为灰度级映射函数（intensity mapping function）。</p>
 <h3 id="32">3.2 基本灰度变换</h3>
@@ -8510,8 +8524,8 @@ s_k = T(r_k) = (L-1) \sum_{j=0}^{k} p_r(r_j) = \frac{L-1}{N} \sum_{j=0}^{k} n_j
 <tr>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">4</td>
-<td style="text-align: center;"><span class="arithmatex">\(G(3)=3\)</span> vs <span class="arithmatex">\(G(4)=5\)</span>，$</td>
-<td style="text-align: center;">4-3</td>
+<td style="text-align: center;"><span class="arithmatex">\(G(3)=3\)</span> vs <span class="arithmatex">\(G(4)=5\)</span>，平局选小 → <strong>3</strong></td>
+<td style="text-align: center;"><strong>3</strong></td>
 </tr>
 <tr>
 <td style="text-align: center;">2</td>
@@ -8540,13 +8554,13 @@ s_k = T(r_k) = (L-1) \sum_{j=0}^{k} p_r(r_j) = \frac{L-1}{N} \sum_{j=0}^{k} n_j
 <tr>
 <td style="text-align: center;">6</td>
 <td style="text-align: center;">7</td>
-<td style="text-align: center;">同上 → <strong>6</strong></td>
+<td style="text-align: center;">同上 → 6</td>
 <td style="text-align: center;"><strong>6</strong></td>
 </tr>
 <tr>
 <td style="text-align: center;">7</td>
 <td style="text-align: center;">7</td>
-<td style="text-align: center;">同上 → 6****</td>
+<td style="text-align: center;">同上 → 6</td>
 <td style="text-align: center;"><strong>6</strong></td>
 </tr>
 </tbody>
