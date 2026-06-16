@@ -8011,26 +8011,26 @@
 <div class="arithmatex">\[
 R = R_z(\theta) \cdot R_x(\phi) \cdot R_y(\psi)
 \]</div>
-<p>绕 X 轴旋转 <span class="arithmatex">\(\phi\)</span>：
-<span class="arithmatex">\(<span class="arithmatex">\(R_x(\phi) = 
+<p>绕 X 轴旋转 <span class="arithmatex">\(\phi\)</span>：</p>
+<div class="arithmatex">\[R_x(\phi) = 
 \begin{bmatrix} 
 1 &amp; 0 &amp; 0 \\ 
 0 &amp; \cos\phi &amp; \sin\phi \\ 
 0 &amp; -\sin\phi &amp; \cos\phi 
-\end{bmatrix}\)</span>\)</span></p>
-<p>绕 Y 轴旋转 <span class="arithmatex">\(\psi\)</span>：
-<span class="arithmatex">\(<span class="arithmatex">\(R_y(\psi) = 
+\end{bmatrix}\]</div>
+<p>绕 Y 轴旋转 <span class="arithmatex">\(\psi\)</span>：</p>
+<div class="arithmatex">\[R_y(\psi) = 
 \begin{bmatrix} 
 \cos\psi &amp; 0 &amp; -\sin\psi \\ 
 0 &amp; 1 &amp; 0 \\ 
 \sin\psi &amp; 0 &amp; \cos\psi 
-\end{bmatrix}\)</span>\)</span></p>
-<p>绕 Z 轴旋转 <span class="arithmatex">\(\theta\)</span>：
-<span class="arithmatex">\(<span class="arithmatex">\(R_z(\theta) = 
+\end{bmatrix}\]</div>
+<p>绕 Z 轴旋转 <span class="arithmatex">\(\theta\)</span>：</p>
+<div class="arithmatex">\[R_z(\theta) = 
 \begin{bmatrix} 
 \cos\theta &amp; \sin\theta &amp; 0 \\ 
 -\sin\theta &amp; \cos\theta &amp; 0 \\ 
-0 &amp; 0 &amp; 1 \end{bmatrix}\)</span>\)</span></p>
+0 &amp; 0 &amp; 1 \end{bmatrix}\]</div>
 <h3 id="25-3-d">2.5 3-D 仿射变换</h3>
 <div class="arithmatex">\[
 x' = A x, \quad A \in \mathbb{R}^{3 \times 3}
@@ -8592,11 +8592,13 @@ s_k = T(r_k) = (L-1) \sum_{j=0}^{k} p_r(r_j) = \frac{L-1}{N} \sum_{j=0}^{k} n_j
 <h2 id="lab2">实验（LAB2）</h2>
 <h3 id="1_1">实验 1：空间变换 — 图像旋转与插值对比</h3>
 <p><strong>实验内容</strong>：使用 <code>lab2_MRI.npy</code> 脑部 MRI 数据，通过<strong>矩阵运算</strong>手动实现图像的仿射旋转。将图像正向旋转 <span class="arithmatex">\(\pi/5\)</span> 后再反向旋转 <span class="arithmatex">\(-\pi/5\)</span>，分别使用<strong>最近邻插值</strong>和<strong>双线性插值</strong>执行上述旋转操作，对比两种插值方法的信息损失差异。Bonus 部分额外比较 1 次旋转循环与 5 次连续旋转循环的误差累积情况。</p>
-<p><strong>实验步骤</strong>：
-1. 生成目标图像坐标网格，构建逆旋转矩阵 <span class="arithmatex">\(R(-\theta)\)</span>，通过矩阵乘法一次性完成所有像素的反向映射
-2. 对反向映射得到的小数坐标，分别使用最近邻（直接四舍五入）和双线性（<span class="arithmatex">\(2 \times 2\)</span> 邻域加权平均）两种方法进行插值
-3. 计算正向-反向旋转后与原图的 MSE，用滑动窗口自动寻找差异最大区域并用箭头标注
-4. Bonus：比较 1 次循环与 5 次循环的 MSE 变化</p>
+<p><strong>实验步骤</strong>：</p>
+<ol>
+<li>生成目标图像坐标网格，构建逆旋转矩阵 <span class="arithmatex">\(R(-\theta)\)</span>，通过矩阵乘法一次性完成所有像素的反向映射</li>
+<li>对反向映射得到的小数坐标，分别使用最近邻（直接四舍五入）和双线性（<span class="arithmatex">\(2 \times 2\)</span> 邻域加权平均）两种方法进行插值</li>
+<li>计算正向-反向旋转后与原图的 MSE，用滑动窗口自动寻找差异最大区域并用箭头标注</li>
+<li>Bonus：比较 1 次循环与 5 次循环的 MSE 变化</li>
+</ol>
 <p><strong>涉及原理</strong>：</p>
 <ul>
 <li><strong>反向映射（Inverse Mapping）</strong>：遍历目标图每个像素，通过逆旋转矩阵反推原图对应坐标 → 保证目标图无"空洞"</li>
@@ -8610,12 +8612,24 @@ s_k = T(r_k) = (L-1) \sum_{j=0}^{k} p_r(r_j) = \frac{L-1}{N} \sum_{j=0}^{k} n_j
 <hr />
 <h3 id="2_1">实验 2：强度变换 — 对数变换与幂律变换的参数优化</h3>
 <p><strong>实验内容</strong>：使用 <code>lab2_CT.npy</code> 头部 CT 数据，通过矩阵运算手动实现对数和幂律（Gamma）两种非线性强度变换。分别调整对数变换的尺度参数 <span class="arithmatex">\(v\)</span>（取 <span class="arithmatex">\(v=1, 10, 100\)</span>）和幂律变换的指数 <span class="arithmatex">\(\gamma\)</span>（取 <span class="arithmatex">\(\gamma=0.3, 0.6, 2.0, 4.0\)</span>），观察不同参数对图像视觉效果的影响。最后针对<strong>肺部组织观察</strong>和<strong>骨骼结构观察</strong>两个具体临床目标，分别设计最优变换策略。</p>
-<p><strong>实验步骤</strong>：
-1. 将 CT 图像归一化到 <span class="arithmatex">\([0,1]\)</span> 区间
-2. 实现广义对数变换 <span class="arithmatex">\(s = c \cdot \log(1 + v \cdot r)\)</span>，测试 <span class="arithmatex">\(v=1, 10, 100\)</span> 的效果
-3. 实现幂律变换 <span class="arithmatex">\(s = c \cdot r^\gamma\)</span>，测试 <span class="arithmatex">\(\gamma=0.3, 0.6, 2.0, 4.0\)</span> 的效果
-4. 针对肺部组织（暗区），采用 <span class="arithmatex">\(v=50\)</span> 的对数变换进行定向增强
-5. 针对骨骼结构（亮区），采用 <span class="arithmatex">\(\gamma=3.0\)</span> 的幂律变换进行定向增强</p>
+<p><strong>实验步骤</strong>：</p>
+<ol>
+<li>
+<p>将 CT 图像归一化到 <span class="arithmatex">\([0,1]\)</span> 区间</p>
+</li>
+<li>
+<p>实现广义对数变换 <span class="arithmatex">\(s = c \cdot \log(1 + v \cdot r)\)</span>，测试 <span class="arithmatex">\(v=1, 10, 100\)</span> 的效果</p>
+</li>
+<li>
+<p>实现幂律变换 <span class="arithmatex">\(s = c \cdot r^\gamma\)</span>，测试 <span class="arithmatex">\(\gamma=0.3, 0.6, 2.0, 4.0\)</span> 的效果</p>
+</li>
+<li>
+<p>针对肺部组织（暗区），采用 <span class="arithmatex">\(v=50\)</span> 的对数变换进行定向增强</p>
+</li>
+<li>
+<p>针对骨骼结构（亮区），采用 <span class="arithmatex">\(\gamma=3.0\)</span> 的幂律变换进行定向增强</p>
+</li>
+</ol>
 <p><strong>涉及原理</strong>：</p>
 <ul>
 <li><strong>对数变换的数学特性</strong>：导数 <span class="arithmatex">\(\frac{1}{1+v \cdot r}\)</span> 随 <span class="arithmatex">\(r\)</span> 增大单调递减 → 只能单方向"提亮暗部"。<span class="arithmatex">\(v\)</span> 越大，对极暗像素的敏感度越高（暗部提亮越剧烈），但亮区过曝风险越大</li>
