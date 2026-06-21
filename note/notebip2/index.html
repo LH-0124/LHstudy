@@ -8083,7 +8083,7 @@ s = c \cdot \log(1 + r)
 \]</div>
 <ul>
 <li><strong>非线性变换</strong></li>
-<li>作用：<strong>压缩高灰度区域、扩展低灰度区域</strong>（增强暗区细节）</li>
+<li>作用：<strong>压缩高灰度（亮、白）区域、扩展低灰度（暗、黑）区域</strong>（增强暗区细节）</li>
 <li>适用于：傅里叶频谱显示（动态范围很大，需压缩）</li>
 </ul>
 <h4 id="3-power-law-gamma-transformation">（3）幂律变换 / 伽马变换（Power-law / Gamma Transformation）</h4>
@@ -8155,8 +8155,10 @@ p(r_k) = \frac{n_k}{N}, \quad N = \sum_{k=0}^{L-1} n_k
 <div class="admonition warning">
 <p class="admonition-title">直方图的特性</p>
 <ul>
-<li>直方图<strong>不包含空间位置信息</strong>（丢失了像素在哪里）</li>
+<li>直方图<strong>不包含空间位置信息</strong>（丢失了像素在哪里）<ul>
 <li><strong>不同的图像可以有相同的直方图</strong></li>
+</ul>
+</li>
 </ul>
 </div>
 <h3 id="42">4.2 直方图的统计量</h3>
@@ -8242,9 +8244,11 @@ s_k = T(r_k) = (L-1) \sum_{j=0}^{k} p_r(r_j) = \frac{L-1}{N} \sum_{j=0}^{k} n_j
 <p>直方图均衡化 → 均匀直方图（总是固定的目标）</p>
 <p>直方图匹配 → <strong>任意指定形状的直方图</strong>作为目标</p>
 <h3 id="62">6.2 基本原理</h3>
-<p>定义三个变换：
-1. <span class="arithmatex">\(s = T(r) = (L-1) \int_0^r p_r(w) \, dw\)</span> — 将输入均衡化到均匀</p>
+<p>定义三个变换：</p>
 <ol>
+<li>
+<p><span class="arithmatex">\(s = T(r) = (L-1) \int_0^r p_r(w) \, dw\)</span> — 将输入均衡化到均匀</p>
+</li>
 <li>
 <p><span class="arithmatex">\(G(z) = (L-1) \int_0^z p_z(w) \, dw\)</span> — 将目标均衡化到均匀</p>
 </li>
@@ -8258,7 +8262,7 @@ s_k = T(r_k) = (L-1) \sum_{j=0}^{k} p_r(r_j) = \frac{L-1}{N} \sum_{j=0}^{k} n_j
 <li>计算输入图像的均衡化映射 <span class="arithmatex">\(s_k = T(r_k) = (L-1) \sum_{j=0}^{k} p_r(r_j)\)</span>，四舍五入</li>
 <li>计算目标直方图的均衡化映射 <span class="arithmatex">\(v_q = G(z_q) = (L-1) \sum_{j=0}^{q} p_z(z_j)\)</span></li>
 <li>构建<strong>查找表（Lookup Table）</strong>：对于每个 <span class="arithmatex">\(s_k\)</span>，找到最接近的 <span class="arithmatex">\(v_q\)</span>，将 <span class="arithmatex">\(r_k\)</span> 映射到 <span class="arithmatex">\(z_q\)</span></li>
-<li>若有平局（tie），选较小的 <span class="arithmatex">\(z_q\)</span></li>
+<li>若有平局（tie），选较小的 <span class="arithmatex">\(z_q\)</span>（具体看题目要求）</li>
 </ol>
 <hr />
 <h2 id="summary">七、本章总结（Summary）</h2>
@@ -8753,8 +8757,8 @@ s_k = T(r_k) = (L-1) \sum_{j=0}^{k} p_r(r_j) = \frac{L-1}{N} \sum_{j=0}^{k} n_j
 <p><strong>答案</strong>：<strong>错误。</strong></p>
 <p>对数变换 <span class="arithmatex">\(s = c \cdot \log(1+r)\)</span> 是<strong>非线性变换</strong>。其特点：</p>
 <ul>
-<li>压缩高灰度区域（大 <span class="arithmatex">\(r\)</span> 值被"压扁"）</li>
-<li>扩展低灰度区域（小 <span class="arithmatex">\(r\)</span> 值被"拉宽"）</li>
+<li>压缩高灰度（偏亮、白）区域（大 <span class="arithmatex">\(r\)</span> 值被"压扁"）</li>
+<li>扩展低灰度（偏黑、暗）区域（小 <span class="arithmatex">\(r\)</span> 值被"拉宽"）</li>
 <li>适用于动态范围很大的图像（如傅里叶频谱），增强暗区细节的可视性</li>
 <li>与伽马变换、指数变换一样，都属于<strong>非线性点处理</strong></li>
 </ul>
@@ -8875,10 +8879,10 @@ s_k = T(r_k) = (L-1) \sum_{j=0}^{k} p_r(r_j) = \frac{L-1}{N} \sum_{j=0}^{k} n_j
 <p>直方图均衡化主要解决以下核心问题：</p>
 <ul>
 <li>
-<p><strong>图像对比度低、整体偏暗或偏亮</strong>：当图像的灰度值集中分布在较窄的灰度区间内时（直方图呈窄而尖的山峰状），图像表现为低对比度，灰蒙蒙一片，关键解剖结构或病变区域的细节难以辨识。直方图均衡化通过<strong>重新分配灰度值</strong>，将原本集中的灰度分布拉伸到整个 <span class="arithmatex">\([0, L-1]\)</span> 范围，使直方图趋于<strong>均匀分布</strong>。</p>
+<p><strong>图像对比度低、整体偏暗或偏亮</strong>：当图像的灰度值集中分布在较窄的灰度区间内时（直方图呈窄而尖的山峰状），图像表现为低对比度，键解剖结构或病变区域的细节难以辨识。直方图均衡化通过<strong>重新分配灰度值</strong>，将原本集中的灰度分布拉伸到整个 <span class="arithmatex">\([0, L-1]\)</span> 范围，使直方图趋于<strong>均匀分布</strong>，提高图像对比度。</p>
 </li>
 <li>
-<p><strong>灰度动态范围不足（Dynamic Range Underutilization）</strong>：某些医学成像设备输出的图像只利用了可显示灰度级的一小部分（如仅占 256 级的中间 30 级），导致图像灰度层次贫乏。均衡化充分利用全部灰度级，将灰度级"铺满"整个范围。</p>
+<p><strong>灰度动态范围不足</strong>：某些医学成像设备输出的图像只利用了可显示灰度级的一小部分（如仅占 256 级的中间 30 级），导致图像灰度层次贫乏。均衡化充分利用全部灰度级，将灰度级"铺满"整个范围。</p>
 </li>
 <li>
 <p><strong>细节不可见</strong>：在人眼视觉特性中，细微信号差异在低对比度图像中无法被分辨。均衡化后灰度差被拉大 → 原本模糊的组织边界变得清晰可辨 → 细节从"看不见"变为"看得见"。</p>
@@ -8892,14 +8896,6 @@ s_k = T(r_k) = (L-1) \sum_{j=0}^{k} p_r(r_j) = \frac{L-1}{N} \sum_{j=0}^{k} n_j
 <p>X 射线胸片的原始直方图往往集中在较暗的灰度区域（整体偏暗），肺部微小结节（如早期肺癌）与周围组织的对比度极低。直方图均衡化将灰度拉伸到全范围后，结节的灰度与肺实质背景的差异被放大，放射科医生更容易在阅片时发现早期病变。</p>
 <p><strong>应用三：数字乳腺 X 线摄影（Mammography）中增强微钙化点</strong></p>
 <p>乳腺 X 线图像中，微钙化点（乳腺导管癌的早期标志）极其微小且与致密乳腺组织的灰度差极小。直方图均衡化在局部区域应用后，微钙化点的高灰度特征被放大，显著提升了早期乳腺癌的检出率。</p>
-<div class="admonition note">
-<p class="admonition-title">考试答题要点</p>
-<ul>
-<li>问题回答核心：<strong>低对比度 → 拉伸灰度分布 → 增大动态范围 → 提高对比度</strong></li>
-<li>应用回答公式：<strong>具体医学图像类型 + 具体增强目标 + 临床意义</strong></li>
-<li>推荐记忆：脑部 MRI 肿瘤分割增强、X 线胸片肺结节检测、乳腺 X 线微钙化点增强（任答一个即可）</li>
-</ul>
-</div>
 
 
 
