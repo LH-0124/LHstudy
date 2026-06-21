@@ -6424,57 +6424,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      十、本章总结
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="十、本章总结">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      核心知识框架
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cnn" class="md-nav__link">
-    <span class="md-ellipsis">
-      CNN 经典网络速查
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      生成模型速查
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      考试重点预测
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -8398,57 +8347,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      十、本章总结
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="十、本章总结">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      核心知识框架
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cnn" class="md-nav__link">
-    <span class="md-ellipsis">
-      CNN 经典网络速查
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      生成模型速查
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      考试重点预测
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -9758,10 +9656,6 @@ L_{t-1} \propto \left\| \boldsymbol{\mu}_t(\boldsymbol{x}_t, \boldsymbol{x}_0) -
 
 <hr />
 <h2 id="_2">八、历年卷解答</h2>
-<div class="admonition note">
-<p class="admonition-title">关于本章历年卷</p>
-<p>人工智能与深度学习是生物医学图像处理课程中较新的内容，历年卷中直接涉及本章的题目较少。以下收录了与机器学习/深度学习的图像处理相关的历年考题，并进行解答。预计未来考试中，本章内容（尤其是 CNN、UNet、Transformer 在医学图像中的应用、生成模型等）将成为<strong>大题重点</strong>。</p>
-</div>
 <h3 id="81-vs">8.1 特征工程 vs 可学习特征</h3>
 <p><strong>知识点定位</strong>：机器学习在 BIP 中的应用</p>
 <p><strong>可能的考点</strong>：传统特征工程与深度学习可学习特征的区别与优劣对比。</p>
@@ -10165,27 +10059,7 @@ L_{t-1} \propto \left\| \boldsymbol{\mu}_t(\boldsymbol{x}_t, \boldsymbol{x}_0) -
 </tr>
 </tbody>
 </table>
-<p><strong>六、示意图（文字描述）</strong></p>
-<div class="highlight"><pre><span></span><code>编码器:    Conv1→Pool ─────────── Skip ──────┐
-              ↓                               │
-           Conv2→Pool ──────── Skip ────┐     │
-              ↓                          │     │
-           Conv3→Pool ──── Skip ──┐      │     │
-              ↓                    │      │     │
-           Bottleneck              │      │     │
-              ↓                    │      │     │
-           上采样 → Concat ←───────┘      │     │
-              ↓                            │     │
-           上采样 → Concat ←───────────────┘     │
-              ↓                                  │
-           上采样 → Concat ←─────────────────────┘
-              ↓
-           输出分割掩膜
-</code></pre></div>
-<p>每条 Skip Connection 将对应编码器层的特征图直接拼接到同分辨率的解码器层——<strong>浅层提供位置，深层提供语义</strong>。</p>
-<hr />
 <h2 id="_3">九、补充练习题</h2>
-<p>本章人工智能内容很可能考察<strong>生物医学领域相关的大题</strong>。以下结合本课程全部知识，编制若干综合性参考题目。</p>
 <h3 id="1cnn">题 1：CNN 在医学图像分割中的应用流程设计</h3>
 <p><strong>题目</strong>：某医院希望构建一个基于深度学习的肺部 CT 结节自动分割系统。请回答以下问题：</p>
 <p>(1) 请画出 CNN 在医学图像分割中的典型流水线架构（从输入图像到最终分割结果），并标注每个模块的名称和功能。</p>
@@ -10702,133 +10576,6 @@ p_{\boldsymbol{\theta}}(\boldsymbol{x}_{t-1} | \boldsymbol{x}_t) = \mathcal{N}(\
 </li>
 </ol>
 <p><strong>融合趋势</strong>：两者并非互斥——深度学习可用于<strong>自动化 ROI 分割</strong>（UNet），影像组学可从深度学习分割的 ROI 中<strong>提取可解释特征</strong>，然后输入传统统计模型。这种"深度学习分割 + 影像组学特征 + 传统建模"的混合方案在临床中最为现实。</p>
-<hr />
-<h2 id="_4">十、本章总结</h2>
-<h3 id="_5">核心知识框架</h3>
-<table>
-<thead>
-<tr>
-<th>模块</th>
-<th>核心内容</th>
-<th>关键模型/概念</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>医学 AI 发展</strong></td>
-<td>专家系统 → ML → DL → 大模型</td>
-<td>LLaVA-Med, Med-PaLM M, Med-Gemini</td>
-</tr>
-<tr>
-<td><strong>ML 基础</strong></td>
-<td>特征工程 → 可学习特征 → 高维特征</td>
-<td>线性分类器、非线性可分、维度提升</td>
-</tr>
-<tr>
-<td><strong>神经网络</strong></td>
-<td>感知机 → MLP → BP 算法</td>
-<td>全连接、激活函数、SGD+Momentum</td>
-</tr>
-<tr>
-<td><strong>CNN</strong></td>
-<td>卷积 → 池化 → 全连接</td>
-<td>AlexNet, VGG, ResNet, UNet</td>
-</tr>
-<tr>
-<td><strong>注意力</strong></td>
-<td>SE → BAM → CBAM → Transformer</td>
-<td>通道/空间注意力、Self-Attention、ViT</td>
-</tr>
-<tr>
-<td><strong>生成模型</strong></td>
-<td>GAN → 扩散模型</td>
-<td>生成器+判别器、前向/逆向扩散、条件扩散</td>
-</tr>
-</tbody>
-</table>
-<h3 id="cnn">CNN 经典网络速查</h3>
-<table>
-<thead>
-<tr>
-<th>网络</th>
-<th style="text-align: center;">年份</th>
-<th>核心创新</th>
-<th>医学应用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>LeNet</strong></td>
-<td style="text-align: center;">1998</td>
-<td>首个 CNN 范式</td>
-<td>手写识别</td>
-</tr>
-<tr>
-<td><strong>AlexNet</strong></td>
-<td style="text-align: center;">2012</td>
-<td>ReLU + Dropout + 双 GPU</td>
-<td>通用分类</td>
-</tr>
-<tr>
-<td><strong>VGG</strong></td>
-<td style="text-align: center;">2015</td>
-<td>堆叠 <span class="arithmatex">\(3 \times 3\)</span> 小卷积核</td>
-<td>特征提取骨干</td>
-</tr>
-<tr>
-<td><strong>ResNet</strong></td>
-<td style="text-align: center;">2015</td>
-<td>残差学习（Skip Connection）</td>
-<td>深度骨干网络</td>
-</tr>
-<tr>
-<td><strong>UNet</strong></td>
-<td style="text-align: center;">2015</td>
-<td>U 形 + 跳跃连接</td>
-<td><strong>医学分割首选</strong></td>
-</tr>
-</tbody>
-</table>
-<h3 id="_6">生成模型速查</h3>
-<table>
-<thead>
-<tr>
-<th>模型</th>
-<th>核心机制</th>
-<th>训练方式</th>
-<th style="text-align: center;">生成速度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>GAN</strong></td>
-<td>生成器 vs 判别器对抗</td>
-<td>交替博弈训练</td>
-<td style="text-align: center;">快（单步前向）</td>
-</tr>
-<tr>
-<td><strong>VAE</strong></td>
-<td>编码-解码 + 隐变量采样</td>
-<td>ELBO 最大化</td>
-<td style="text-align: center;">快（单步前向）</td>
-</tr>
-<tr>
-<td><strong>扩散模型</strong></td>
-<td>逐步加噪 + 逐步去噪</td>
-<td>噪声预测 MSE</td>
-<td style="text-align: center;">慢（多步迭代）</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_7">考试重点预测</h3>
-<ol>
-<li><strong>CNN 基本原理</strong>：卷积、池化、感受野、权值共享</li>
-<li><strong>UNet 结构与跳跃连接</strong>：为什么在医学图像中广泛应用</li>
-<li><strong>注意力机制</strong>：SE Block、Self-Attention 的数学原理</li>
-<li><strong>扩散模型原理</strong>：前向/逆向过程、训练目标</li>
-<li><strong>深度学习 vs 传统方法</strong>：在医学图像处理中的优劣对比</li>
-<li><strong>大模型在医学中的应用</strong>：Med-PaLM M、Med-Gemini 的能力</li>
-</ol>
 
 
 
@@ -10973,9 +10720,9 @@ p_{\boldsymbol{\theta}}(\boldsymbol{x}_{t-1} | \boldsymbol{x}_t) = \mathcal{N}(\
     
       <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-      
         <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>
