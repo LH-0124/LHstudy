@@ -7981,12 +7981,24 @@ g(x,y) = f(x,y) + c \cdot [\nabla^2 f(x,y)]
 <h2 id="lab4">实验（LAB4）</h2>
 <h3 id="1">实验 1：噪声参数估计与自适应去噪</h3>
 <p><strong>实验内容</strong>：使用 <code>lab4-1.npy</code> 脑部 MRI 数据，开发程序向图像分别添加：(a) 指定均值 <span class="arithmatex">\(\mu=0.05\)</span> 和方差 <span class="arithmatex">\(\sigma^2=0.02\)</span> 的高斯噪声，(b) 不同密度（5%、15%、30%）的椒盐噪声。通过选取图像<strong>平坦背景区域（ROI）</strong>估计噪声参数，再利用估计参数选择合适的滤波器（高斯噪声 → NLM 滤波；椒盐噪声 → 中值滤波）进行降噪，验证估计精度与去噪效果。</p>
-<p><strong>实验步骤</strong>：
-1. 加载 MRI 图像并归一化到 <span class="arithmatex">\([0,1]\)</span>
-2. 添加高斯噪声：<span class="arithmatex">\(g = f + \mathcal{N}(\mu, \sigma^2)\)</span>，选取 <span class="arithmatex">\(30 \times 30\)</span> 的背景 ROI 统计均值/方差估计噪声参数
-3. 高斯降噪：先减去估计均值校正亮度偏移，再用 NLM（平滑参数 <span class="arithmatex">\(h = 0.8 \times \hat{\sigma}\)</span>）
-4. 添加椒盐噪声：随机将像素置为 1（盐）或 0（椒），<strong>仅统计纯白像素（盐噪声）的比例 × 2</strong> 来估计总密度（避免 MRI 自身大面积黑色背景被误判为椒噪声）
-5. 椒盐降噪：根据估计密度自适应选择中值滤波窗口大小（密度 &lt; 10% → size=3；10%~20% → size=4；&gt; 20% → size=5）</p>
+<p><strong>实验步骤</strong>：</p>
+<ol>
+<li>
+<p>加载 MRI 图像并归一化到 <span class="arithmatex">\([0,1]\)</span></p>
+</li>
+<li>
+<p>添加高斯噪声：<span class="arithmatex">\(g = f + \mathcal{N}(\mu, \sigma^2)\)</span>，选取 <span class="arithmatex">\(30 \times 30\)</span> 的背景 ROI 统计均值/方差估计噪声参数</p>
+</li>
+<li>
+<p>高斯降噪：先减去估计均值校正亮度偏移，再用 NLM（平滑参数 <span class="arithmatex">\(h = 0.8 \times \hat{\sigma}\)</span>）</p>
+</li>
+<li>
+<p>添加椒盐噪声：随机将像素置为 1（盐）或 0（椒），<strong>仅统计纯白像素（盐噪声）的比例 × 2</strong> 来估计总密度（避免 MRI 自身大面积黑色背景被误判为椒噪声）</p>
+</li>
+<li>
+<p>椒盐降噪：根据估计密度自适应选择中值滤波窗口大小（密度 &lt; 10% → size=3；10%~20% → size=4；&gt; 20% → size=5）</p>
+</li>
+</ol>
 <p><strong>涉及原理</strong>：</p>
 <ul>
 <li><strong>ROI 参数估计的前提</strong>：MRI 脱骨后存在大面积无信号的纯黑背景区，该区域灰度变化完全由噪声决定 → 统计该 ROI 可精准估计全局噪声参数（高斯估计误差 &lt; 5%，椒盐估计误差 &lt; 1%）</li>
