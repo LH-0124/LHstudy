@@ -5343,20 +5343,29 @@
           <li class="md-nav__item">
   <a href="#12" class="md-nav__link">
     <span class="md-ellipsis">
-      1.2 图像数字化的两个步骤
+      1.2数字图像的存储格式
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#13-sampling" class="md-nav__link">
+  <a href="#13" class="md-nav__link">
     <span class="md-ellipsis">
-      1.3 采样（Sampling）
+      1.3 图像数字化的两个步骤
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1.3 采样（Sampling）">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-sampling" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 采样（Sampling）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 采样（Sampling）">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -5401,13 +5410,13 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#14-quantization" class="md-nav__link">
+  <a href="#15-quantization" class="md-nav__link">
     <span class="md-ellipsis">
-      1.4 量化（Quantization）
+      1.5 量化（Quantization）
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1.4 量化（Quantization）">
+    <nav class="md-nav" aria-label="1.5 量化（Quantization）">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -7208,20 +7217,29 @@
           <li class="md-nav__item">
   <a href="#12" class="md-nav__link">
     <span class="md-ellipsis">
-      1.2 图像数字化的两个步骤
+      1.2数字图像的存储格式
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#13-sampling" class="md-nav__link">
+  <a href="#13" class="md-nav__link">
     <span class="md-ellipsis">
-      1.3 采样（Sampling）
+      1.3 图像数字化的两个步骤
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1.3 采样（Sampling）">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-sampling" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 采样（Sampling）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 采样（Sampling）">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -7266,13 +7284,13 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#14-quantization" class="md-nav__link">
+  <a href="#15-quantization" class="md-nav__link">
     <span class="md-ellipsis">
-      1.4 量化（Quantization）
+      1.5 量化（Quantization）
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1.4 量化（Quantization）">
+    <nav class="md-nav" aria-label="1.5 量化（Quantization）">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -7800,10 +7818,16 @@
 <p>矢量图形难以生成具有丰富色调或过多色彩变化的图像，例如自然场景图像。</p>
 <p>位图使用像素来形成图像，适合展示色彩丰富的图像。医学图像基本上是位图。</p>
 <p>位图文件通常比矢量图形更大。</p>
-<h3 id="12">1.2 图像数字化的两个步骤</h3>
+<h3 id="12">1.2数字图像的存储格式</h3>
+<p>BMP(未压缩)：每个像素位置对应图像中该像素的空间位置，位图数据值对应相应像素的亮度值。</p>
+<p>TIFF(标签图像文件格式)：支持多种编码方式，包括未压缩的RGB、RLE压缩及JPEG压缩等，同时具备可扩展性、便捷性及可修改性。ATTIFF图像由三个数据结构组成:文件头、一个或多个名为IFDs的目录(其中包含标记指针)以及数据本身。</p>
+<p>JPG：JPEG是最为流行的高效率静态图像压缩标准格式之一。在保存图像文件时，JPEG通过压缩编码来减小文件大小，并删除那些对视觉认知而言并不重要的图像信息，从而节省存储空间并降低传输流量。</p>
+<p>GIF(图形交换格式)：基于LZW算法的连续色调无损压缩格式，其压缩率通常约为50%，常用于网页动画。</p>
+<p>DICOM：医学影像与通信，定义了一种可用于数据交换的医学图像格式，其质量符合临床需求。广泛应用于医学影像(如X光、CT、磁共振成像、超声等)，并在眼科和牙科等其他医疗领域也得到广泛接受。</p>
+<h3 id="13">1.3 图像数字化的两个步骤</h3>
 <p>物理信号（连续信号）经过数字化（Digitalization）变成数字信号，包含两个核心步骤：</p>
 <p><strong>采样（Sampling）+ 量化（Quantization）→ 数字图像</strong></p>
-<h3 id="13-sampling">1.3 采样（Sampling）</h3>
+<h3 id="14-sampling">1.4 采样（Sampling）</h3>
 <h4 id="_1">基本概念</h4>
 <ul>
 <li>采样将<strong>空间连续的图像</strong> <span class="arithmatex">\(f(x,y)\)</span> 转换为<strong>离散的像素矩阵</strong></li>
@@ -7835,7 +7859,7 @@
 <li>采样点越密集（矩阵越大），图像细节保留越多</li>
 <li><span class="arithmatex">\(256 \times 256 \to 128 \times 128 \to 64 \times 64 \to 16 \times 16\)</span>：随着采样数减少，图像变得模糊</li>
 </ul>
-<h3 id="14-quantization">1.4 量化（Quantization）</h3>
+<h3 id="15-quantization">1.5 量化（Quantization）</h3>
 <h4 id="_3">基本概念</h4>
 <ul>
 <li>量化将<strong>连续灰度值</strong>映射为<strong>离散灰度级（Gray Levels）</strong></li>
