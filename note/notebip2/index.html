@@ -8000,9 +8000,15 @@
 </ul>
 </div>
 <h3 id="24-3-d">2.4 3-D 刚体变换</h3>
-<p>3-D 刚体变换有 <strong>6 个自由度</strong>：
-- 3 个平移：沿 X、Y、Z 轴
-- 3 个旋转：绕 X 轴（Pitch <span class="arithmatex">\(\phi\)</span>）、绕 Y 轴（Roll <span class="arithmatex">\(\psi\)</span>）、绕 Z 轴（Yaw <span class="arithmatex">\(\theta\)</span>）</p>
+<p>3-D 刚体变换有 <strong>6 个自由度</strong>：</p>
+<ul>
+<li>
+<p>3 个平移：沿 X、Y、Z 轴</p>
+</li>
+<li>
+<p>3 个旋转：绕 X 轴（Pitch <span class="arithmatex">\(\phi\)</span>）、绕 Y 轴（Roll <span class="arithmatex">\(\psi\)</span>）、绕 Z 轴（Yaw <span class="arithmatex">\(\theta\)</span>）</p>
+</li>
+</ul>
 <p>旋转矩阵由三个基本旋转矩阵合成，<strong>运算顺序影响结果</strong>：</p>
 <div class="arithmatex">\[
 R = R_z(\theta) \cdot R_x(\phi) \cdot R_y(\psi)

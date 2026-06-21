@@ -8113,7 +8113,7 @@
 <h3 id="22">2.2 旋转矩阵</h3>
 <p>二维旋转矩阵：</p>
 <div class="arithmatex">\[
-R(\theta) = \begin{bmatrix} \cos\theta &amp; \sin\theta &amp; 0 \\ -\sin\theta &amp; \cos\theta &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}
+R(\theta) = \begin{bmatrix} \cos\theta &amp; -\sin\theta &amp; 0 \\ \sin\theta &amp; \cos\theta &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}
 \]</div>
 <p>从旋转矩阵恢复角度：<strong>需要同时知道 <span class="arithmatex">\(\sin\theta\)</span> 和 <span class="arithmatex">\(\cos\theta\)</span></strong>（即 <span class="arithmatex">\(a_{11}\)</span> 和 <span class="arithmatex">\(a_{21}\)</span> 或 <span class="arithmatex">\(a_{12}\)</span> 和 <span class="arithmatex">\(a_{22}\)</span>），因为仅靠一个值无法唯一确定角度（例如 <span class="arithmatex">\(\cos\theta = 0.5\)</span> 对应 <span class="arithmatex">\(\theta = 60^\circ\)</span> 或 <span class="arithmatex">\(\theta = 300^\circ\)</span>）。</p>
 <h3 id="23">2.3 插值方法</h3>
