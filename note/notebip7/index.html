@@ -5892,31 +5892,13 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      核心代码
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      实验结果与分析
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       历年卷解答
     </span>
@@ -7559,31 +7541,13 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      核心代码
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      实验结果与分析
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       历年卷解答
     </span>
@@ -7904,33 +7868,33 @@ A \bullet B = (A \oplus B) \ominus B
 <tbody>
 <tr>
 <td><strong>平滑轮廓</strong></td>
-<td style="text-align: center;">✅</td>
-<td style="text-align: center;">✅</td>
+<td style="text-align: center;">能</td>
+<td style="text-align: center;">能</td>
 </tr>
 <tr>
 <td><strong>断开窄桥（Isthmus）</strong></td>
-<td style="text-align: center;">✅ 断开</td>
-<td style="text-align: center;">❌</td>
+<td style="text-align: center;">能</td>
+<td style="text-align: center;">无</td>
 </tr>
 <tr>
 <td><strong>消除细小突起</strong></td>
-<td style="text-align: center;">✅ 消除</td>
-<td style="text-align: center;">❌</td>
+<td style="text-align: center;">能</td>
+<td style="text-align: center;">无</td>
 </tr>
 <tr>
 <td><strong>融合窄断裂/细长沟</strong></td>
-<td style="text-align: center;">❌</td>
-<td style="text-align: center;">✅ 融合</td>
+<td style="text-align: center;">无</td>
+<td style="text-align: center;">能</td>
 </tr>
 <tr>
 <td><strong>消除小孔洞</strong></td>
-<td style="text-align: center;">❌</td>
-<td style="text-align: center;">✅ 填补</td>
+<td style="text-align: center;">无</td>
+<td style="text-align: center;">能</td>
 </tr>
 <tr>
 <td><strong>填充间隙</strong></td>
-<td style="text-align: center;">❌</td>
-<td style="text-align: center;">✅</td>
+<td style="text-align: center;">无</td>
+<td style="text-align: center;">能</td>
 </tr>
 <tr>
 <td><strong>外角</strong></td>
@@ -8152,31 +8116,31 @@ f \bullet b = (f \oplus b) \ominus b
 <td><strong>腐蚀</strong></td>
 <td><span class="arithmatex">\(A \ominus B = \{z \mid (B)_z \subseteq A\}\)</span></td>
 <td>收缩物体，消除小目标</td>
-<td style="text-align: center;">❌</td>
+<td style="text-align: center;">无</td>
 </tr>
 <tr>
 <td><strong>膨胀</strong></td>
 <td><span class="arithmatex">\(A \oplus B = \{z \mid (\hat{B})_z \cap A \neq \varnothing\}\)</span></td>
 <td>扩大物体，填补孔洞</td>
-<td style="text-align: center;">❌</td>
+<td style="text-align: center;">无</td>
 </tr>
 <tr>
 <td><strong>开操作</strong></td>
 <td><span class="arithmatex">\(A \circ B = (A \ominus B) \oplus B\)</span></td>
 <td>断开窄连接，消除小突起</td>
-<td style="text-align: center;">✅</td>
+<td style="text-align: center;">有</td>
 </tr>
 <tr>
 <td><strong>闭操作</strong></td>
 <td><span class="arithmatex">\(A \bullet B = (A \oplus B) \ominus B\)</span></td>
 <td>融合窄断裂，填补小孔</td>
-<td style="text-align: center;">✅</td>
+<td style="text-align: center;">有</td>
 </tr>
 <tr>
 <td><strong>击中击不中</strong></td>
 <td><span class="arithmatex">\(A \otimes B = (A \ominus B_1) \cap (A^c \ominus B_2)\)</span></td>
 <td>形状检测</td>
-<td style="text-align: center;">❌</td>
+<td style="text-align: center;">无</td>
 </tr>
 </tbody>
 </table>
@@ -8204,12 +8168,14 @@ f \bullet b = (f \oplus b) \ominus b
 </tbody>
 </table>
 <div class="admonition note">
-<p class="admonition-title">考试重点提示</p>
+<p class="admonition-title">Note</p>
 <ul>
-<li><strong>腐蚀和膨胀的定义与计算</strong>：给定图像矩阵和 SE，能正确计算腐蚀/膨胀结果</li>
+<li><strong>腐蚀和膨胀的定义与计算</strong>：给定图像矩阵和 SE，能正确计算腐蚀/膨胀结果<ul>
 <li><strong>开操作与闭操作的定义、原理和应用场景</strong>：能举例说明分别解决什么问题</li>
 <li><strong>对偶性</strong>：理解腐蚀-膨胀、开-闭之间的对偶关系</li>
 <li><strong>幂等性</strong>：开/闭操作执行一次即达到稳态，不同于线性滤波</li>
+</ul>
+</li>
 </ul>
 </div>
 <hr />
@@ -8298,53 +8264,8 @@ A \oplus B = \begin{bmatrix}
 <p>利用 <span class="arithmatex">\(3 \times 3\)</span> 十字形结构元素，连续两次开运算迭代，成功消除大部分与脑主体不相连或连接薄弱的外部伪影。</p>
 <p><strong>(2) 闭运算（Closing）— 填补内部孔洞</strong></p>
 <p>对开运算结果做闭运算（先膨胀后腐蚀），通过膨胀"填上"脑实质内部的细小孔洞，再通过腐蚀恢复边界位置。</p>
-<h3 id="_9">核心代码</h3>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.ndimage</span><span class="w"> </span><span class="kn">import</span> <span class="n">binary_opening</span><span class="p">,</span> <span class="n">binary_closing</span><span class="p">,</span> <span class="n">generate_binary_structure</span>
-
-<span class="c1"># 创建 3×3 十字形结构元素</span>
-<span class="n">struct_elem</span> <span class="o">=</span> <span class="n">generate_binary_structure</span><span class="p">(</span><span class="n">rank</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">connectivity</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="c1"># 开运算：消除外部头骨线和毛刺（2次迭代）</span>
-<span class="n">mask_opened</span> <span class="o">=</span> <span class="n">binary_opening</span><span class="p">(</span><span class="n">noisy_mask</span><span class="p">,</span> <span class="n">structure</span><span class="o">=</span><span class="n">struct_elem</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="c1"># 闭运算：填补内部细小孔洞（1次迭代）</span>
-<span class="n">final_cleaned_mask</span> <span class="o">=</span> <span class="n">binary_closing</span><span class="p">(</span><span class="n">mask_opened</span><span class="p">,</span> <span class="n">structure</span><span class="o">=</span><span class="n">struct_elem</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="c1"># 提取脑实质</span>
-<span class="n">extracted_brain</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">original_img</span><span class="p">)</span>
-<span class="n">extracted_brain</span><span class="p">[</span><span class="o">~</span><span class="n">final_cleaned_mask</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-</code></pre></div>
-<h3 id="_10">实验结果与分析</h3>
-<table>
-<thead>
-<tr>
-<th>处理阶段</th>
-<th>效果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>原始含噪掩膜</strong></td>
-<td>外部有明显头骨细线和散在噪声点；内部有零星空隙</td>
-</tr>
-<tr>
-<td><strong>开运算后</strong></td>
-<td>外部细线大幅消除，边缘初步平滑</td>
-</tr>
-<tr>
-<td><strong>开 + 闭后</strong></td>
-<td>内部细小孔洞被填补，大尺度脑室结构完整保留</td>
-</tr>
-</tbody>
-</table>
-<p><strong>假阳性（红色）</strong>：主要分布在脑实质最边缘处，原头骨线靠近脑组织的部位。反映了刚性 SE 在处理复杂生物学曲线时的几何不匹配。</p>
-<p><strong>假阴性（蓝色）</strong>：零星出现在脑回尖端处。反映了"过度侵蚀"——在去除外部伪影时，极细的真实组织也被削减。</p>
-<p><strong>核心权衡</strong>：去噪 vs 保边。形态学修复在宏观轮廓上与 Ground Truth 高度一致，但在像素级微观边界上存在不可避免的几何误差。这源于：
-- SE 是刚性的离散网格，难以完美拟合不规则的生物学曲面
-- 全局统一的 SE 尺寸在图像不同位置无法同时做到最优平衡
-- 形态学是纯数学运算，没有生物学认知能力</p>
 <hr />
-<h2 id="_11">历年卷解答</h2>
+<h2 id="_9">历年卷解答</h2>
 <h3 id="2022">一、腐蚀计算（2022 大题）</h3>
 <p><strong>知识点定位</strong>：形态学 — 二值腐蚀</p>
 <p><strong>题目</strong>：给一个图像矩阵和结构，做腐蚀（计算）。</p>

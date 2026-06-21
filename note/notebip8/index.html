@@ -8078,12 +8078,23 @@ $$</p>
 4. 坝的边界即为分水岭线</p>
 <p><strong>算法步骤（按灰度级迭代）</strong>：</p>
 <ol>
-<li>从最低灰度值开始</li>
-<li>对于每个灰度级 <span class="arithmatex">\(k\)</span>：</li>
-<li>若像素仅邻接<strong>一个</strong>已有区域→加入该区域</li>
-<li>若像素邻接<strong>多个</strong>已有区域→标记为边界</li>
-<li>若像素无邻接区域→创建新区域</li>
+<li>
+<p>从最低灰度值开始</p>
+</li>
+<li>
+<p>对于每个灰度级 <span class="arithmatex">\(k\)</span>：</p>
+</li>
+<li>
+<p>若像素仅邻接<strong>一个</strong>已有区域→加入该区域</p>
+</li>
+<li>
+<p>若像素邻接<strong>多个</strong>已有区域→标记为边界</p>
+</li>
+<li>
+<p>若像素无邻接区域→创建新区域</p>
+</li>
 </ol>
+<p>具体可看动图理解，网站无法呈现动图。</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0614/o5z2s1sg.webp" /></p>
 <div class="admonition warning">
 <p class="admonition-title">分水岭的过度分割问题</p>

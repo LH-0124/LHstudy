@@ -5582,58 +5582,7 @@
           <li class="md-nav__item">
   <a href="#13" class="md-nav__link">
     <span class="md-ellipsis">
-      1.3 代表性医学大模型
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1.3 代表性医学大模型">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#llava-med" class="md-nav__link">
-    <span class="md-ellipsis">
-      LLaVA-Med（微软）
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#med-palm-m" class="md-nav__link">
-    <span class="md-ellipsis">
-      Med-PaLM M（谷歌）
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#med-gemini" class="md-nav__link">
-    <span class="md-ellipsis">
-      Med-Gemini（谷歌）
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#14" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.4 国内医疗大模型应用实践
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#15" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.5 医疗大模型发展目标
+      1.3 医疗大模型发展目标
     </span>
   </a>
   
@@ -7505,58 +7454,7 @@
           <li class="md-nav__item">
   <a href="#13" class="md-nav__link">
     <span class="md-ellipsis">
-      1.3 代表性医学大模型
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1.3 代表性医学大模型">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#llava-med" class="md-nav__link">
-    <span class="md-ellipsis">
-      LLaVA-Med（微软）
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#med-palm-m" class="md-nav__link">
-    <span class="md-ellipsis">
-      Med-PaLM M（谷歌）
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#med-gemini" class="md-nav__link">
-    <span class="md-ellipsis">
-      Med-Gemini（谷歌）
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#14" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.4 国内医疗大模型应用实践
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#15" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.5 医疗大模型发展目标
+      1.3 医疗大模型发展目标
     </span>
   </a>
   
@@ -8434,87 +8332,7 @@
 </tr>
 </tbody>
 </table>
-<!-- 建议插入PPT截图：Lecture15 Page 4，医学人工智能发展时间线图（1980-至今），插入位置：此处 -->
-
-<h3 id="13">1.3 代表性医学大模型</h3>
-<h4 id="llava-med">LLaVA-Med（微软）</h4>
-<p>LLaVA-Med 是<strong>首次将多模态指令微调扩展到生物医学领域</strong>的尝试，是一个生物医学多模态对话模型：</p>
-<ul>
-<li><strong>模型基座</strong>：通用数据上训练的 LLaVA</li>
-<li><strong>训练三阶段</strong>：</li>
-<li>Stage 1：对 LLaVA 进行微调，对齐文本和图像（表征学习）</li>
-<li>Stage 2：使用 instruction-following 数据学习开放式会话语义</li>
-<li>Stage 3：在下游生物医学数据集上进行微调</li>
-<li><strong>数据集</strong>：PMC-15M——来自 PubMed Central 的 1500 万生物医学图像-文本对</li>
-</ul>
-<!-- 建议插入PPT截图：Lecture15 Page 6，LLaVA-Med三阶段训练流程图，插入位置：此处 -->
-
-<h4 id="med-palm-m">Med-PaLM M（谷歌）</h4>
-<p><strong>首个通才（Generalist）医疗大模型</strong>：</p>
-<ul>
-<li>构建了 <strong>MultiMedBench</strong> 基准：跨越多种模态（医学成像、临床文本、基因组学），包含 12 个开源数据集、14 种不同任务、超过 100 万个样本</li>
-<li><strong>单一模型权重</strong>可同时执行：医学图像分类、医学问答、视觉问答、放射学报告生成和总结、基因组变异调用等</li>
-<li>多个任务达到或超过 SOTA 专业模型，<strong>无需任何特定于任务的定制</strong></li>
-<li>246 张回顾性胸部 X 光片盲选：40.50% 的病例中，临床医生更偏好模型生成的检查报告</li>
-</ul>
-<!-- 建议插入PPT截图：Lecture15 Page 7，Med-PaLM M的多任务能力示意图，插入位置：此处 -->
-
-<h4 id="med-gemini">Med-Gemini（谷歌）</h4>
-<p>基于 Google 的 <strong>Gemini 大模型</strong>构建的多模态医学模型：</p>
-<ul>
-<li>引入高质量、多模态的真实世界医疗数据</li>
-<li>通过<strong>人在回路的思维链增强训练</strong>（Human-in-the-loop Chain-of-Thought）</li>
-<li>融合高级推理、多模态理解和长文本处理能力</li>
-<li>在医学文本摘要、转诊信生成和医学简化任务上<strong>优于人类专家</strong></li>
-<li>能够进行<strong>多模态医学对话</strong>，为临床医生和患者提供更自然的交互方式</li>
-</ul>
-<!-- 建议插入PPT截图：Lecture15 Page 8，Med-Gemini能力展示图，插入位置：此处 -->
-
-<h3 id="14">1.4 国内医疗大模型应用实践</h3>
-<table>
-<thead>
-<tr>
-<th>机构</th>
-<th>合作方</th>
-<th>应用场景</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>浙江卫健委</td>
-<td>蚂蚁集团</td>
-<td>云陪诊、健康咨询，覆盖 200 家医疗机构</td>
-</tr>
-<tr>
-<td>华西医院</td>
-<td>讯飞医疗</td>
-<td>挂号、导诊导医、报告解读、个性化健康管理、用药指导</td>
-</tr>
-<tr>
-<td>武汉协和医院</td>
-<td>华为</td>
-<td>智能加号、智能分导诊、智能候诊室</td>
-</tr>
-<tr>
-<td>深圳市人民医院</td>
-<td>百度健康</td>
-<td>预问诊</td>
-</tr>
-<tr>
-<td>香港中文大学（深圳）附属第二医院</td>
-<td>腾讯健康</td>
-<td>智能导诊、自动生成影像报告</td>
-</tr>
-<tr>
-<td>广州红会医院</td>
-<td>港中大（深圳）</td>
-<td>预问诊、病历点评</td>
-</tr>
-</tbody>
-</table>
-<h3 id="15">1.5 医疗大模型发展目标</h3>
-<!-- 建议插入PPT截图：Lecture15 Page 10，医疗大规模预训练模型库系统架构图，插入位置：此处 -->
-
+<h3 id="13">1.3 医疗大模型发展目标</h3>
 <p>发展目标的核心要点：</p>
 <ul>
 <li><strong>数据层面</strong>：隐私保护、多源融合、数据治理、数据质控</li>

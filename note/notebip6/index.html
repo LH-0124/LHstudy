@@ -8231,7 +8231,7 @@
 <tbody>
 <tr>
 <td><strong>目标</strong></td>
-<td style="text-align: center;">让图像"看起来更好"</td>
+<td style="text-align: center;">让图像看起来更好</td>
 <td style="text-align: center;">尽可能重建原始图像</td>
 </tr>
 <tr>
@@ -8382,7 +8382,7 @@ p(M|I,\sigma) = \frac{M}{\sigma^2} \exp\left(-\frac{M^2 + I^2}{2\sigma^2}\right)
 <h4 id="_2">其他噪声</h4>
 <p>两种估计策略：</p>
 <ol>
-<li><strong>有成像设备可用</strong>：拍摄一组"平坦"图像（如灰卡），直接统计</li>
+<li><strong>有成像设备可用</strong>：拍摄一组平坦图像，直接统计</li>
 <li><strong>仅有图像可用</strong>：从图像中<strong>灰度恒定的小区域</strong>估计</li>
 </ol>
 <p><strong>具体步骤</strong>：</p>
@@ -8437,8 +8437,8 @@ G(u,v) = F(u,v) + N(u,v)
 <li><span class="arithmatex">\(Q &gt; 0\)</span>：消除<strong>椒噪声</strong>（黑色噪点）</li>
 <li><span class="arithmatex">\(Q &lt; 0\)</span>：消除<strong>盐噪声</strong>（白色噪点）</li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">Q 的符号选择至关重要</p>
+<div class="admonition note">
+<p class="admonition-title">Q 的符号选择</p>
 <p>选错 Q 的符号会导致灾难性后果——<span class="arithmatex">\(Q&gt;0\)</span> 处理盐噪声会使图像出现大面积黑斑，<span class="arithmatex">\(Q&lt;0\)</span> 处理椒噪声会使图像出现大面积白斑。</p>
 </div>
 <h3 id="32-order-statistics-filters">3.2 统计排序滤波器（Order-Statistics Filters）</h3>
@@ -8472,7 +8472,7 @@ G(u,v) = F(u,v) + N(u,v)
 \]</div>
 <ul>
 <li>
-<p><strong>核心原理（修剪机制）：</strong> 在大小为 <span class="arithmatex">\(m \times n\)</span> 的邻域窗口 <span class="arithmatex">\(S_{xy}\)</span> 内，将所有像素值按大小进行排序。<strong>无条件剔除（修剪）掉 <span class="arithmatex">\(d/2\)</span> 个最小的像素值和 <span class="arithmatex">\(d/2\)</span> 个最大的像素值</strong>，最后对剩下的 <span class="arithmatex">\(mn - d\)</span> 个中间像素值求算术平均。</p>
+<p><strong>原理：</strong> 在大小为 <span class="arithmatex">\(m \times n\)</span> 的邻域窗口 <span class="arithmatex">\(S_{xy}\)</span> 内，将所有像素值按大小进行排序。<strong>无条件剔除掉 <span class="arithmatex">\(d/2\)</span> 个最小的像素值和 <span class="arithmatex">\(d/2\)</span> 个最大的像素值</strong>，最后对剩下的 <span class="arithmatex">\(mn - d\)</span> 个中间像素值求算术平均。</p>
 </li>
 <li>
 <p><strong>参数 <span class="arithmatex">\(d\)</span> 的极端情况：</strong></p>
@@ -8637,12 +8637,11 @@ H(u,v) = \frac{T}{\pi(ua + vb)} \sin[\pi(ua + vb)] \, e^{-j\pi(ua + vb)}
 <h3 id="62">6.2 逆滤波的两大问题</h3>
 <ol>
 <li><strong>无法完全恢复 <span class="arithmatex">\(F\)</span></strong>：<span class="arithmatex">\(N(u,v)\)</span> 仍然未知</li>
-<li><strong>噪声放大</strong>：当 <span class="arithmatex">\(H(u,v) \to 0\)</span> 时（如运动模糊的<strong>过零点</strong>、高斯模糊的<strong>高频区域</strong>），</li>
-</ol>
-<p>$$
+<li><strong>噪声放大</strong>：当 <span class="arithmatex">\(H(u,v) \to 0\)</span> 时（如运动模糊的<strong>过零点</strong>、高斯模糊的<strong>高频区域</strong>） 噪声被无限放大，图像被噪声完全淹没
+   $$
    \frac{N(u,v)}{H(u,v)} \to \infty
-   $$</p>
-<p>→ 噪声被无限放大，图像被噪声完全淹没</p>
+   $$</li>
+</ol>
 <h3 id="63-limited-inverse-filtering">6.3 受限逆滤波（Limited Inverse Filtering）</h3>
 <p>只在一个有限频率半径内做逆滤波（截断高频）：</p>
 <div class="arithmatex">\[
@@ -8662,8 +8661,8 @@ H(u,v) = \frac{T}{\pi(ua + vb)} \sin[\pi(ua + vb)] \, e^{-j\pi(ua + vb)}
 \]</div>
 <p>其中 <span class="arithmatex">\(S_\eta(u,v) = |N(u,v)|^2\)</span> 为噪声功率谱，<span class="arithmatex">\(S_f(u,v) = |F(u,v)|^2\)</span> 为原始图像功率谱。</p>
 <h3 id="72">7.2 维纳滤波的直观理解</h3>
-<p>当 <span class="arithmatex">\(H(u,v)\)</span> 很大且 <span class="arithmatex">\(S_\eta/S_f\)</span> 很小时 → 趋近于逆滤波
-当 <span class="arithmatex">\(H(u,v) \to 0\)</span> 时 → <span class="arithmatex">\(\hat{F} \to 0\)</span>（抑制噪声，而非放大）</p>
+<p>当 <span class="arithmatex">\(H(u,v)\)</span> 很大且 <span class="arithmatex">\(S_\eta/S_f\)</span> 很小时 → 趋近于逆滤波</p>
+<p>当 <span class="arithmatex">\(H(u,v) \to 0\)</span> 时 → <span class="arithmatex">\(\hat{F}\)</span>趋向于0​（抑制噪声）</p>
 <h3 id="73">7.3 实用近似</h3>
 <p>当噪声功率谱和信号功率谱未知时：</p>
 <div class="arithmatex">\[
@@ -8744,11 +8743,9 @@ P(u,v) = 4 - 2\cos\left(\frac{2\pi u}{M}\right) - 2\cos\left(\frac{2\pi v}{N}\ri
 <div class="admonition note">
 <p class="admonition-title">CLSF vs 维纳滤波</p>
 <ul>
-<li>维纳滤波需要知道噪声与信号的<strong>功率谱</strong>（或用户指定 <span class="arithmatex">\(K\)</span>）<ul>
-<li>CLSF 只需要知道噪声的<strong>均值和方差</strong>——这也是为什么 CLSF 被称为"约束"的原因：以噪声能量为约束来限制解空间</li>
+<li>维纳滤波需要知道噪声与信号的<strong>功率谱</strong>（或用户指定 <span class="arithmatex">\(K\)</span>）</li>
+<li>CLSF 只需要知道噪声的<strong>均值和方差</strong>——这也是为什么约束最小二乘滤波 被称为约束的原因：以噪声能量为约束来限制解空间</li>
 <li>可以<strong>交互式调节</strong> <span class="arithmatex">\(\gamma\)</span> 直至结果满意</li>
-</ul>
-</li>
 </ul>
 </div>
 <h3 id="84-clsf">8.4 CLSF 处理运动模糊的特殊优势</h3>
