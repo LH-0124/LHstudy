@@ -7195,8 +7195,8 @@
 <div class="arithmatex">\[
 \text{窄频域高斯} \Leftrightarrow \text{宽空域高斯}
 \]</div>
-<p>低通滤波：空域高斯核宽 → 频域高斯核窄（只保留中心低频）
-高通滤波：频域外围保留 → 空域提取边缘</p>
+<p>低通滤波：空域高斯核宽 → 频域高斯核窄（只保留中心低频）</p>
+<p>高通滤波：频域外围保留 → 空域提取边缘</p>
 <h3 id="12">1.2 频率域滤波基本方程</h3>
 <div class="arithmatex">\[
 g(x,y) = \Re\left\{ \mathcal{F}^{-1}\left[ H(u,v) \cdot F(u,v) \right] \right\}
@@ -7338,13 +7338,13 @@ H(u,v) = \frac{1}{1 + \left[ D(u,v) / D_0 \right]^{2n}}
 H(u,v) = e^{-D^2(u,v) / (2D_0^2)}
 \]</div>
 <p>当 <span class="arithmatex">\(D(u,v) = D_0\)</span> 时，<span class="arithmatex">\(H = e^{-1/2} \approx 0.607\)</span>。</p>
-<p><strong>高斯的魔法性质</strong>：</p>
+<p><strong>高斯的性质</strong>：</p>
 <ul>
 <li>高斯函数的导数仍是高斯函数</li>
 <li>高斯函数的傅里叶变换仍是高斯函数</li>
 <li>高斯函数的逆傅里叶变换仍是高斯函数</li>
 </ul>
-<p>→ <strong>零振铃</strong>！因为高斯函数无旁瓣（sinc 有振荡旁瓣，高斯只有光滑钟形曲线）。</p>
+<p>高斯滤波不会产生振铃效应，因为高斯函数无旁瓣（sinc 有振荡旁瓣，高斯只有光滑钟形曲线）。</p>
 <h3 id="24">2.4 三种低通滤波器对比</h3>
 <table>
 <thead>
@@ -7382,9 +7382,9 @@ H(u,v) = e^{-D^2(u,v) / (2D_0^2)}
 </tr>
 <tr>
 <td><strong>医学应用</strong></td>
-<td style="text-align: center;">❌ 不推荐</td>
+<td style="text-align: center;">不推荐</td>
 <td style="text-align: center;">需控制 <span class="arithmatex">\(n\)</span></td>
-<td style="text-align: center;">✅ 安全首选</td>
+<td style="text-align: center;">首选</td>
 </tr>
 </tbody>
 </table>
