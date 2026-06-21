@@ -5334,20 +5334,29 @@
           <li class="md-nav__item">
   <a href="#11" class="md-nav__link">
     <span class="md-ellipsis">
-      1.1 图像数字化的两个步骤
+      1.1 数字图像的类型
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#12-sampling" class="md-nav__link">
+  <a href="#12" class="md-nav__link">
     <span class="md-ellipsis">
-      1.2 采样（Sampling）
+      1.2 图像数字化的两个步骤
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1.2 采样（Sampling）">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-sampling" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 采样（Sampling）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 采样（Sampling）">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -5392,13 +5401,13 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#13-quantization" class="md-nav__link">
+  <a href="#14-quantization" class="md-nav__link">
     <span class="md-ellipsis">
-      1.3 量化（Quantization）
+      1.4 量化（Quantization）
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1.3 量化（Quantization）">
+    <nav class="md-nav" aria-label="1.4 量化（Quantization）">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -7190,20 +7199,29 @@
           <li class="md-nav__item">
   <a href="#11" class="md-nav__link">
     <span class="md-ellipsis">
-      1.1 图像数字化的两个步骤
+      1.1 数字图像的类型
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#12-sampling" class="md-nav__link">
+  <a href="#12" class="md-nav__link">
     <span class="md-ellipsis">
-      1.2 采样（Sampling）
+      1.2 图像数字化的两个步骤
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1.2 采样（Sampling）">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-sampling" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 采样（Sampling）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 采样（Sampling）">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -7248,13 +7266,13 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#13-quantization" class="md-nav__link">
+  <a href="#14-quantization" class="md-nav__link">
     <span class="md-ellipsis">
-      1.3 量化（Quantization）
+      1.4 量化（Quantization）
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1.3 量化（Quantization）">
+    <nav class="md-nav" aria-label="1.4 量化（Quantization）">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -7775,17 +7793,24 @@
   <h1>第1章 图像处理基础概念与彩色图像处理</h1>
 
 <h2 id="basic-bip-concepts">一、图像数字化基础（Basic BIP Concepts）</h2>
-<h3 id="11">1.1 图像数字化的两个步骤</h3>
+<h3 id="11">1.1 数字图像的类型</h3>
+<p>位图（bitemap）: 由许多像素表示的图像，每个像素具有颜色属性和位置属性。位图可分为强度图像、索引彩色图像和真彩色图像。</p>
+<p>矢量图像（Vector Images）：利用几何形状（如点、线段和曲线）来描述图像的轮廓，并根据轮廓用颜色填充图像以展现图像内容。矢量图形通过矢量（向量）来描述边缘方向，从而描绘图像的轮廓。</p>
+<p><strong>区别：</strong>因为矢量图形使用几何图形来描述轮廓，因此图像可以无限放大而仍然清晰显示。而位图放大后会变模糊。</p>
+<p>矢量图形难以生成具有丰富色调或过多色彩变化的图像，例如自然场景图像。</p>
+<p>位图使用像素来形成图像，适合展示色彩丰富的图像。医学图像基本上是位图。</p>
+<p>位图文件通常比矢量图形更大。</p>
+<h3 id="12">1.2 图像数字化的两个步骤</h3>
 <p>物理信号（连续信号）经过数字化（Digitalization）变成数字信号，包含两个核心步骤：</p>
 <p><strong>采样（Sampling）+ 量化（Quantization）→ 数字图像</strong></p>
-<h3 id="12-sampling">1.2 采样（Sampling）</h3>
+<h3 id="13-sampling">1.3 采样（Sampling）</h3>
 <h4 id="_1">基本概念</h4>
 <ul>
 <li>采样将<strong>空间连续的图像</strong> <span class="arithmatex">\(f(x,y)\)</span> 转换为<strong>离散的像素矩阵</strong></li>
 <li>采样结果：图像大小 <span class="arithmatex">\(M \times N\)</span>（矩阵的行数和列数）</li>
 <li>采样分为：<ul>
-<li><strong>时间采样（Temporal Sampling）</strong>：沿时间轴离散化</li>
-<li><strong>空间采样（Spatial Sampling）</strong>：沿空间轴离散化，将图像空间划分成网格</li>
+<li><strong>时间采样（Temporal Sampling）</strong>：沿时间轴离散化（一维信号）</li>
+<li><strong>空间采样（Spatial Sampling）</strong>：沿空间轴离散化，将图像空间划分成网格（二维信号，图像）</li>
 </ul>
 </li>
 </ul>
@@ -7810,7 +7835,7 @@
 <li>采样点越密集（矩阵越大），图像细节保留越多</li>
 <li><span class="arithmatex">\(256 \times 256 \to 128 \times 128 \to 64 \times 64 \to 16 \times 16\)</span>：随着采样数减少，图像变得模糊</li>
 </ul>
-<h3 id="13-quantization">1.3 量化（Quantization）</h3>
+<h3 id="14-quantization">1.4 量化（Quantization）</h3>
 <h4 id="_3">基本概念</h4>
 <ul>
 <li>量化将<strong>连续灰度值</strong>映射为<strong>离散灰度级（Gray Levels）</strong></li>
