@@ -5752,24 +5752,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      实验 2：形态学操作 — 脑部掩膜修复
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-nlm" class="md-nav__link">
-    <span class="md-ellipsis">
-      实验 3：图像退化与复原 — 维纳滤波与 NLM
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -7472,24 +7454,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      实验 2：形态学操作 — 脑部掩膜修复
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-nlm" class="md-nav__link">
-    <span class="md-ellipsis">
-      实验 3：图像退化与复原 — 维纳滤波与 NLM
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -7608,10 +7572,10 @@ g(x,y) = \sum_{i=-a}^{a} \sum_{j=-b}^{b} w(i,j) \cdot f(x+i, y+j)
 </ul>
 <p>二维离散形式下：</p>
 <div class="arithmatex">\[
-\text{Correlation: } g(x,y) = \sum_{i} \sum_{j} w(i,j) \cdot f(x+i, y+j)
+\text{相关: } g(x,y) = \sum_{i} \sum_{j} w(i,j) \cdot f(x+i, y+j)
 \]</div>
 <div class="arithmatex">\[
-\text{Convolution: } g(x,y) = \sum_{i} \sum_{j} w(i,j) \cdot f(x-i, y-j)
+\text{卷积: } g(x,y) = \sum_{i} \sum_{j} w(i,j) \cdot f(x-i, y-j)
 \]</div>
 <p>对于<strong>对称核</strong>（如高斯核），相关和卷积结果相同。</p>
 <h3 id="13">1.3 卷积的性质</h3>
@@ -7641,7 +7605,7 @@ g(x,y) = \sum_{i=-a}^{a} \sum_{j=-b}^{b} w(i,j) \cdot f(x+i, y+j)
 </tr>
 </tbody>
 </table>
-<p><strong>可分离性的意义</strong>：将 2-D 卷积分解为两次 1-D 卷积，大幅降低计算量（从 <span class="arithmatex">\(O(K^2)\)</span> 降为 <span class="arithmatex">\(O(2K)\)</span>）。</p>
+<p><strong>可分离性的意义</strong>：将 2-D 卷积分解为两次 1-D 卷积，大幅降低计算量，从 <span class="arithmatex">\(O(K^2)\)</span> 降为 <span class="arithmatex">\(O(2K)\)</span>。</p>
 <h3 id="14-boundary-conditions">1.4 边界处理（Boundary Conditions）</h3>
 <p>滤波时核中心移动到图像边缘时，部分核元素会超出图像范围，需要边界处理：</p>
 <table>
@@ -7695,9 +7659,15 @@ g(x,y) = \sum_{i=-a}^{a} \sum_{j=-b}^{b} w(i,j) \cdot f(x+i, y+j)
 \frac{1}{16} \begin{bmatrix} 1 &amp; 2 &amp; 1 \\ 2 &amp; 4 &amp; 2 \\ 1 &amp; 2 &amp; 1 \end{bmatrix}
 \]</div>
 <p><strong>核必须归一化</strong>：保证整体亮度不变（核系数之和 = 1）。</p>
-<p><strong>特点</strong>：
-- 优点：简单，计算快
-- 缺点：边缘过渡不够平滑，方块效应明显</p>
+<p><strong>特点</strong>：</p>
+<ul>
+<li>
+<p>优点：简单，计算快</p>
+</li>
+<li>
+<p>缺点：边缘过渡不够平滑，方块效应明显</p>
+</li>
+</ul>
 <h3 id="23-gaussian-filter">2.3 高斯滤波器（Gaussian Filter）</h3>
 <p><strong>高斯核</strong>：权重从中心向外呈高斯函数递减。</p>
 <div class="arithmatex">\[
@@ -7841,7 +7811,30 @@ G_{\sigma_1} \star G_{\sigma_2} = G_{\sqrt{\sigma_1^2 + \sigma_2^2}}
 </li>
 </ul>
 <p><img alt="img" src="https://file.cc98.org/v4-upload/d/2026/0610/jwt3z024.webp" /></p>
-<div class="admonition warning">
+<h3 id="34-sobel">3.4 Sobel 算子</h3>
+<p>Sobel 是一阶微分算子，在求导的同时带有<strong>平滑效果</strong>（中间行/列权重加倍）。</p>
+<p><strong>水平方向 <span class="arithmatex">\(Sobel_x\)</span></strong>（检测垂直边缘）：</p>
+<div class="arithmatex">\[
+\begin{bmatrix} -1 &amp; 0 &amp; 1 \\ -2 &amp; 0 &amp; 2 \\ -1 &amp; 0 &amp; 1 \end{bmatrix}
+\]</div>
+<p><strong>垂直方向 <span class="arithmatex">\(Sobel_y\)</span></strong>（检测水平边缘）：</p>
+<div class="arithmatex">\[
+\begin{bmatrix} -1 &amp; -2 &amp; -1 \\ 0 &amp; 0 &amp; 0 \\ 1 &amp; 2 &amp; 1 \end{bmatrix}
+\]</div>
+<p><strong>Sobel 幅值</strong>（常用近似）：<span class="arithmatex">\(M(x,y) \approx |g_x| + |g_y|\)</span></p>
+<p><strong>Sobel 的特点</strong>：</p>
+<ul>
+<li>
+<p>相对"迟钝"：只对<strong>粗壮的、真实的结构边缘</strong>有强响应</p>
+</li>
+<li>
+<p>能有效忽略细微的高频背景噪声</p>
+</li>
+<li>
+<p>中心权重加倍（2 和 -2）提供了<strong>内置平滑</strong></p>
+</li>
+</ul>
+<div class="admonition note">
 <p class="admonition-title">一阶 vs 二阶</p>
 <table>
 <thead>
@@ -7875,21 +7868,6 @@ G_{\sigma_1} \star G_{\sigma_2} = G_{\sqrt{\sigma_1^2 + \sigma_2^2}}
 </tbody>
 </table>
 </div>
-<h3 id="34-sobel">3.4 Sobel 算子</h3>
-<p>Sobel 是一阶微分算子，在求导的同时带有<strong>平滑效果</strong>（中间行/列权重加倍）。</p>
-<p><strong>水平方向 <span class="arithmatex">\(Sobel_x\)</span></strong>（检测垂直边缘）：</p>
-<div class="arithmatex">\[
-\begin{bmatrix} -1 &amp; 0 &amp; 1 \\ -2 &amp; 0 &amp; 2 \\ -1 &amp; 0 &amp; 1 \end{bmatrix}
-\]</div>
-<p><strong>垂直方向 <span class="arithmatex">\(Sobel_y\)</span></strong>（检测水平边缘）：</p>
-<div class="arithmatex">\[
-\begin{bmatrix} -1 &amp; -2 &amp; -1 \\ 0 &amp; 0 &amp; 0 \\ 1 &amp; 2 &amp; 1 \end{bmatrix}
-\]</div>
-<p><strong>Sobel 幅值</strong>（常用近似）：<span class="arithmatex">\(M(x,y) \approx |g_x| + |g_y|\)</span></p>
-<p><strong>Sobel 的特点</strong>：
-- 相对"迟钝"：只对<strong>粗壮的、真实的结构边缘</strong>有强响应
-- 能有效忽略细微的高频背景噪声
-- 中心权重加倍（2 和 -2）提供了<strong>内置平滑</strong></p>
 <hr />
 <h2 id="spatial-enhancement">四、空间增强（Spatial Enhancement）</h2>
 <h3 id="41-laplacian">4.1 Laplacian 锐化增强</h3>
@@ -7904,6 +7882,7 @@ g(x,y) = f(x,y) + c \cdot [\nabla^2 f(x,y)]
 <p><strong>效果</strong>：边缘处产生"过冲"（overshoot），视觉上更锐利。</p>
 <h3 id="42-unsharp-masking">4.2 反锐化掩膜（Unsharp Masking）</h3>
 <p>经典图像增强技术：</p>
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0621/w1m1rd33.webp" /></p>
 <ol>
 <li><strong>获取低频分量</strong>：<span class="arithmatex">\(f_L = \text{LowPass}(f)\)</span>（如高斯模糊）</li>
 <li><strong>提取高频分量（掩膜）</strong>：<span class="arithmatex">\(f_h = f - f_L\)</span></li>
@@ -7915,6 +7894,7 @@ g(x,y) = f(x,y) + c \cdot [\nabla^2 f(x,y)]
 </li>
 </ol>
 <h3 id="43">4.3 复合空间增强管线</h3>
+<p>流程图：<img alt="" src="https://file.cc98.org/v4-upload/d/2026/0621/bmv3uwee.webp" /></p>
 <p><strong>问题</strong>：直接用 Laplacian 锐化 → 边缘清晰 + <strong>噪声也被放大</strong>（雪花噪声）</p>
 <p><strong>解决方案</strong>：利用 Sobel 的抗噪性约束 Laplacian（双分支管线）：</p>
 <div class="highlight"><pre><span></span><code>分支 A（初级锐化）：
@@ -8013,37 +7993,6 @@ g(x,y) = f(x,y) + c \cdot [\nabla^2 f(x,y)]
 <li><strong>NLM 的非局部优势</strong>：对高斯噪声，NLM 利用脑组织自相似性搜索相似块做加权平均，在抑制斑驳噪声的同时保护脑沟回锐利边界——优于传统高斯滤波（后者会模糊皮层边缘）</li>
 <li><strong>中值滤波对椒盐噪声的优越性</strong>：非线性排序后，极端灰度值（纯黑/纯白椒盐点）自然被排到两端丢弃 → 去噪同时保边缘。但窗口过大时会产生块状伪影和微细纹理的过度平滑</li>
 <li><strong>估计偏差的教训</strong>：若不对前景和背景做合理区分，高亮度解剖结构像素极易被误判为"盐"噪声，导致密度估计严重偏高</li>
-</ul>
-<hr />
-<h3 id="2">实验 2：形态学操作 — 脑部掩膜修复</h3>
-<p><strong>实验内容</strong>：使用 <code>lab4-2</code> 相关四组数据（含噪掩膜、真实掩膜、原始切片、真实脑组织切片），对含有噪声的脑部二值掩膜应用<strong>开运算</strong>（去除外部头骨细线等假阳性）和<strong>闭运算</strong>（填补内部细小孔洞），将修复后的掩膜与真实掩膜对比，并用修复掩膜提取脑实质。</p>
-<p><strong>实验步骤</strong>：
-1. 对含噪掩膜先做 <strong>2 次迭代开运算</strong>（<span class="arithmatex">\(3 \times 3\)</span> 十字形结构元素）：先腐蚀掉外部细线/毛刺，再膨胀恢复大脑主体大小
-2. 再做 <strong>1 次迭代闭运算</strong>：先膨胀填补内部小孔洞，再腐蚀恢复主体轮廓
-3. 将修复掩膜与 Ground Truth 逐像素对比，生成<strong>误差热力图</strong>（红色 = 假阳性 / 多留的区域，蓝色 = 假阴性 / 错删的区域）
-4. 用修复掩膜 × 原图 → 提取脑实质</p>
-<p><strong>涉及原理</strong>：</p>
-<ul>
-<li><strong>开运算 = 先腐蚀后膨胀</strong>：切断并清除与脑主体连接薄弱的外部伪影（头骨细线、边界噪声），同时保持脑主体面积基本不变</li>
-<li><strong>闭运算 = 先膨胀后腐蚀</strong>：填补脑实质内部因信号不均产生的零星空隙，同时保留大脑内部真实的解剖学孔洞（脑室）——因为大型空洞超出结构元素尺寸不会被填充</li>
-<li><strong>形态学的固有限制</strong>：结构元素是刚性的离散几何图块（如 <span class="arithmatex">\(3 \times 3\)</span> 十字形），无法完美拟合大脑皮层高度不规则的连续曲面 → 边缘拐角处产生几何不匹配与锯齿效应；在"去噪"与"保边"之间存在无法跨越的算法博弈</li>
-</ul>
-<hr />
-<h3 id="3-nlm">实验 3：图像退化与复原 — 维纳滤波与 NLM</h3>
-<p><strong>实验内容</strong>：使用 <code>lab4-3.npy</code> 数据，在频率域用高斯低通滤波器（<span class="arithmatex">\(D_0 = 30, 60, 90\)</span>）模拟图像模糊退化，再添加 Rician 噪声（<span class="arithmatex">\(\sigma=0.05\)</span>）。假设模糊核已知，分别使用<strong>逆滤波</strong>、<strong>受限逆滤波</strong>和<strong>维纳滤波</strong>进行复原，并与 <strong>NLM 纯降噪</strong>对比。用 PSNR 和 SSIM 定量评估各方法的复原质量，同时探讨盲去卷积与 K 空间可视化。</p>
-<p><strong>实验步骤</strong>：
-1. 频域退化：原图 FFT → 乘以高斯低通 <span class="arithmatex">\(H(u,v)\)</span> → IFFT → 添加 Rician 噪声
-2. 逆滤波：<span class="arithmatex">\(\hat{F} = G/H\)</span>（直接除法）
-3. 受限逆滤波：仅当 <span class="arithmatex">\(H &gt; 0.1\)</span> 时才做除法（截断高频，避免噪声爆炸但会引入振铃）
-4. 维纳滤波：<span class="arithmatex">\(\hat{F} = \frac{H^*}{|H|^2 + K} \cdot G\)</span>，<span class="arithmatex">\(K=0.02\)</span>
-5. NLM 纯降噪：直接对退化图像做 NLM 处理（<span class="arithmatex">\(h = 1.2\sigma\)</span>），不做任何反卷积
-6. 用 PSNR 和 SSIM 评估每种方法的结果</p>
-<p><strong>涉及原理</strong>：</p>
-<ul>
-<li><strong>逆滤波的致命缺陷</strong>：高斯滤波器 <span class="arithmatex">\(H(u,v)\)</span> 在高频处趋近于 0 → 除法时微小噪声被无限放大 → <span class="arithmatex">\(D_0=30\)</span> 时 PSNR 仅 3.13 dB，图像彻底崩溃</li>
-<li><strong>维纳滤波的平衡之道</strong>：通过引入信噪比常数 <span class="arithmatex">\(K\)</span> 对抗高频噪声放大，在去模糊和抑制噪声之间达到数学最优（<span class="arithmatex">\(D_0=90\)</span> 时 SSIM 达 0.628）</li>
-<li><strong>NLM 对 Rician 噪声的特殊优势</strong>：Rician 噪声是信号相关、非零均值的非线性噪声，维纳滤波基于 AWGN 假设存在统计不适应。NLM 利用全局块匹配自相似性，在极高噪声下仍能保护脑沟回真实边缘——<span class="arithmatex">\(D_0=90\)</span> 时 SSIM 超越维纳滤波成为全场最优</li>
-<li><strong>盲去卷积</strong>：当模糊核未知时，需通过交替迭代（如 Richardson-Lucy 算法）或深度学习（CNN/GAN 隐式学习逆映射）来同时估计模糊核和复原图像</li>
 </ul>
 <hr />
 <h2 id="_6">历年卷解答</h2>
