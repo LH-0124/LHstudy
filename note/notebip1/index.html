@@ -5548,7 +5548,7 @@
           <li class="md-nav__item">
   <a href="#3bi-cubic-interpolation" class="md-nav__link">
     <span class="md-ellipsis">
-      （3）双三次插值（Bi-Cubic Interpolation）
+      （3）双三次插值（Bi-Cubic Interpolation，仅作了解即可）
     </span>
   </a>
   
@@ -5572,15 +5572,6 @@
   <a href="#25" class="md-nav__link">
     <span class="md-ellipsis">
       2.5 插值方法对比
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#26" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.6 插值小结
     </span>
   </a>
   
@@ -7422,7 +7413,7 @@
           <li class="md-nav__item">
   <a href="#3bi-cubic-interpolation" class="md-nav__link">
     <span class="md-ellipsis">
-      （3）双三次插值（Bi-Cubic Interpolation）
+      （3）双三次插值（Bi-Cubic Interpolation，仅作了解即可）
     </span>
   </a>
   
@@ -7446,15 +7437,6 @@
   <a href="#25" class="md-nav__link">
     <span class="md-ellipsis">
       2.5 插值方法对比
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#26" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.6 插值小结
     </span>
   </a>
   
@@ -7839,7 +7821,7 @@
 </li>
 </ul>
 <h4 id="line-plot">一维切片（Line Plot）</h4>
-<p>对一幅二维图像沿某个方向取一条线（切片），得到该位置像素灰度值沿该方向变化的<strong>一维曲线</strong>，称为 Line Plot。这是理解图像空间变化的重要工具——可以看作是图像在该位置的"剖面图"。</p>
+<p>对一幅二维图像沿某个方向取一条线（切片），得到该位置像素灰度值沿该方向变化的<strong>一维曲线</strong>，称为 Line Plot。这是理解图像空间变化的重要工具——可以看作是图像在该位置的"剖面图"。<span class="arithmatex">\(0\)</span> 表示黑色（Black），<span class="arithmatex">\(2^N-1\)</span> 表示白色（White）</p>
 <blockquote>
 <p>三种典型的切片方向：水平切片（沿 <span class="arithmatex">\(x\)</span> 方向 <span class="arithmatex">\(y\)</span> 固定）、垂直切片（沿 <span class="arithmatex">\(y\)</span> 方向 <span class="arithmatex">\(x\)</span> 固定）、任意方向切片。</p>
 </blockquote>
@@ -7948,8 +7930,6 @@
 </ul>
 <p><img alt="img" src="https://file.cc98.org/v4-upload/d/2026/0608/vr0nauev.webp" /></p>
 <p>解决思路：<strong>反向映射（Reverse Mapping）</strong>——从目标图像坐标反推源图像对应位置，再通过插值获取该位置的像素值。</p>
-<!-- TODO: 插入截图 - PDF第20页：1-D 最近邻 vs 线性插值对比图 -->
-
 <h3 id="24">2.4 常用插值方法</h3>
 <h4 id="1nearest-neighbor-nn">（1）最近邻插值（Nearest Neighbor, NN）</h4>
 <p>最简单的插值方法，直接取离目标点<strong>最近的源像素值</strong>。</p>
@@ -7990,7 +7970,7 @@
 <li>优点：比最近邻更平滑</li>
 <li>缺点：有一定模糊效应</li>
 </ul>
-<h4 id="3bi-cubic-interpolation">（3）双三次插值（Bi-Cubic Interpolation）</h4>
+<h4 id="3bi-cubic-interpolation">（3）双三次插值（Bi-Cubic Interpolation，仅作了解即可）</h4>
 <p>使用目标点周围 <strong>16 个像素</strong>（<span class="arithmatex">\(4 \times 4\)</span> 邻域）进行更高阶插值：</p>
 <p><strong>1-D 形式</strong>（使用 4 个点）：</p>
 <div class="arithmatex">\[
@@ -8004,10 +7984,10 @@ L_i(x) = \prod_{k=0, k\neq i}^{3} \frac{x - x_k}{x_i - x_k}
 <div class="arithmatex">\[
 f(x) = \sum_{i=0}^{3} y_i \cdot L_i(x)
 \]</div>
-<p><strong>2-D 形式</strong>（使用 16 个点）：</p>
-<div class="arithmatex">\[
+<p><strong>2-D 形式</strong>（使用 16 个点）：
+$$
 f(x,y) = \sum_{i=0}^{3} \sum_{j=0}^{3} a_{ij} \cdot x^i \cdot y^j
-\]</div>
+$$</p>
 <p>其中 <span class="arithmatex">\(a_{ij}\)</span> 由 <span class="arithmatex">\(N_{16}\)</span> 邻域的 16 个像素确定。</p>
 <h4 id="4">（4）其他方法</h4>
 <p>样条插值（Spline）、小波插值（Wavelet）、基于深度学习的超分辨率（Super-Resolution）等。</p>
@@ -8038,11 +8018,8 @@ f(x,y) = \sum_{i=0}^{3} \sum_{j=0}^{3} a_{ij} \cdot x^i \cdot y^j
 </tr>
 </tbody>
 </table>
-<h3 id="26">2.6 插值小结</h3>
-<p>插值 = <strong>索引（x, y）+ 强度（v）</strong> 的综合恢复过程。</p>
 <hr />
 <h2 id="color-image-processing">三、彩色图像处理（Color Image Processing）</h2>
-<p>灰度值0-黑色，255-白色</p>
 <h3 id="31-color-fundamentals">3.1 彩色视觉基础（Color Fundamentals）</h3>
 <h4 id="_8">人眼中的感光细胞</h4>
 <ul>
@@ -8223,7 +8200,7 @@ f(x,y) = \sum_{i=0}^{3} \sum_{j=0}^{3} a_{ij} \cdot x^i \cdot y^j
 <li>如果在<strong>灰度变化区域</strong>（如边缘处）切片 → 一维曲线有明显阶跃/跳变</li>
 <li>如果在<strong>渐变区域</strong>切片 → 一维曲线呈缓慢上升或下降趋势</li>
 </ul>
-<p>具体答案取决于题目所给图像和切片位置。判断原则：<strong>切片结果 = 原图沿切片方向的灰度剖面曲线</strong>，需要与图像的几何结构和灰度分布对应。</p>
+<p>具体答案取决于题目所给图像和切片位置。判断原则：<strong>切片结果 = 原图沿切片方向的灰度剖面曲线</strong>，需要与图像的几何结构和灰度分布对应。<strong>注意点：0为黑色，最大值为白色</strong></p>
 <hr />
 <h3 id="2020-2021">二、空间变换 + 双线性插值（2020 / 2021）</h3>
 <p><strong>知识点定位</strong>：插值（Interpolation）中的双线性插值</p>
