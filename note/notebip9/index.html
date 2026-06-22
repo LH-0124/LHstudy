@@ -8049,8 +8049,6 @@
 </tr>
 </tbody>
 </table>
-<!-- 建议插入PPT截图：Lecture11+12中展示Point-based / Surface-based / Intensity-based三种方法的示意图，插入位置：此处 -->
-
 <h3 id="13-registration-pipeline">1.3 配准流水线（Registration Pipeline）</h3>
 <p>配准的四个基本步骤：</p>
 <ol>
@@ -8115,7 +8113,6 @@
 <div class="arithmatex">\[
 R(\theta) = \begin{bmatrix} \cos\theta &amp; -\sin\theta &amp; 0 \\ \sin\theta &amp; \cos\theta &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}
 \]</div>
-<p>从旋转矩阵恢复角度：<strong>需要同时知道 <span class="arithmatex">\(\sin\theta\)</span> 和 <span class="arithmatex">\(\cos\theta\)</span></strong>（即 <span class="arithmatex">\(a_{11}\)</span> 和 <span class="arithmatex">\(a_{21}\)</span> 或 <span class="arithmatex">\(a_{12}\)</span> 和 <span class="arithmatex">\(a_{22}\)</span>），因为仅靠一个值无法唯一确定角度（例如 <span class="arithmatex">\(\cos\theta = 0.5\)</span> 对应 <span class="arithmatex">\(\theta = 60^\circ\)</span> 或 <span class="arithmatex">\(\theta = 300^\circ\)</span>）。</p>
 <h3 id="23">2.3 插值方法</h3>
 <p>变换后的图像坐标可能落在非整数位置，需要<strong>插值</strong>：</p>
 <table>
@@ -8418,9 +8415,11 @@ NMI(A,B) = \frac{H(A) + H(B)}{H(A,B)}
 </table>
 <h3 id="54-mi">5.4 MI 与梯度下降的冲突</h3>
 <p>离散 MI 通过直方图分箱（Binning）计算，导致其能量曲面呈<strong>阶梯状</strong>——微小的参数变化不会改变分箱结果 → 梯度为零 → 梯度下降法失效。</p>
-<p><strong>解决方案</strong>：
-- 使用<strong>无梯度优化器</strong>（如 Powell 算法）
-- 使用<strong>Mattes MI</strong>（B-spline 核密度估计使 MI 曲面连续可导）</p>
+<p><strong>解决方案</strong>：</p>
+<ul>
+<li>使用<strong>无梯度优化器</strong>（如 Powell 算法）</li>
+<li>使用<strong>Mattes MI</strong>（B-spline 核密度估计使 MI 曲面连续可导）</li>
+</ul>
 <hr />
 <h2 id="non-linear-registration">六、非线性配准（Non-linear Registration）</h2>
 <h3 id="61">6.1 从线性到非线性</h3>
@@ -8503,14 +8502,16 @@ NMI(A,B) = \frac{H(A) + H(B)}{H(A,B)}
 </tbody>
 </table>
 <p><strong>微分同胚 = 同胚（Homeomorphism）+ 可微性</strong>：同胚保证拓扑不变（一一映射），微分同胚在此基础上额外要求光滑性。</p>
-<p><strong>核心思想</strong>：大变形 = 许多小变形的<strong>复合（Composition）</strong>，而非一步到位。每一步都是微小且光滑的推动，累积产生任意大的变形。</p>
-<div class="arithmatex">\[
+<p><strong>核心思想</strong>：大变形 = 许多小变形的复合（Composition），而非一步到位。每一步都是微小且光滑的推动，累积产生任意大的变形。
+$$
 \Phi = \phi_1 \circ \phi_2 \circ \cdots \circ \phi_n
-\]</div>
-<p><strong>为什么微分同胚在计算解剖学中至关重要？</strong>
-- 它<strong>保持拓扑结构</strong>——不会出现解剖上不可能的折叠（<span class="arithmatex">\(\det(J) &gt; 0\)</span> 处处成立）
-- 逆变换始终存在——可以从配准后的空间<strong>无损地映射回原始空间</strong>
-- 本质上是解剖学配准的物理约束：两个大脑之间确实存在光滑的一一对应</p>
+$$</p>
+<p><strong>为什么微分同胚在计算解剖学中至关重要？</strong></p>
+<ul>
+<li>它保持拓扑结构——不会出现解剖上不可能的折叠（<span class="arithmatex">\(\det(J) &gt; 0\)</span> 处处成立）</li>
+<li>逆变换始终存在——可以从配准后的空间无损地映射回原始空间</li>
+<li>本质上是解剖学配准的物理约束：两个大脑之间确实存在光滑的一一对应</li>
+</ul>
 <h4 id="632">6.3.2 与普通非线性变换的对比</h4>
 <table>
 <thead>
@@ -8556,13 +8557,10 @@ NMI(A,B) = \frac{H(A) + H(B)}{H(A,B)}
 <li>对更新后的 <span class="arithmatex">\(\mathbf{u}\)</span> 做<strong>高斯平滑</strong>（正则化，确保变形场光滑）</li>
 <li>迭代至收敛</li>
 </ol>
-<p><strong>Demons 算法的核心直觉</strong>：</p>
-<blockquote>
-<p>小妖（Demon）站在浮动图像的边缘（梯度非零处），比较当前位置的浮动图像值与目标图像值。如果浮动值偏小，就往梯度正方向推（让值变大去匹配目标）；如果浮动值偏大，就往反方向推（让值变小去匹配目标）。</p>
-</blockquote>
+<p><strong>Demons 算法的核心直觉</strong>：Demon站在浮动图像的边缘（梯度非零处），比较当前位置的浮动图像值与目标图像值。如果浮动值偏小，就往梯度正方向推（让值变大去匹配目标）；如果浮动值偏大，就往反方向推（让值变小去匹配目标）。</p>
 <p><strong>为什么需要高斯平滑？</strong>
 - 不加平滑：变形场会出现锯齿和断裂，产生物理上不可能的变形
-- 高斯平滑相当于施加<strong>扩散正则化</strong>，使变形场光滑连续</p>
+- 高斯平滑相当于施加扩散正则化，使变形场光滑连续</p>
 <h3 id="65-ffd-free-form-deformation">6.5 自由形变（FFD, Free-Form Deformation）</h3>
 <p>FFD 是一种<strong>参数化</strong>的非线性配准方法，使用 <strong>B 样条（B-spline）</strong> 基函数来表示变形场：</p>
 <ul>
@@ -8613,7 +8611,7 @@ NMI(A,B) = \frac{H(A) + H(B)}{H(A,B)}
 </tbody>
 </table>
 <h3 id="68-jacobian-matrix">6.8 雅可比矩阵（Jacobian Matrix）</h3>
-<p>变形场 <span class="arithmatex">\(\mathbf{u}(x,y,z)\)</span> 的雅可比矩阵，其中各元素为变形场分量对空间坐标的<strong>偏导数</strong>：</p>
+<p>变形场 <span class="arithmatex">\(\mathbf{u}(x,y,z)\)</span> 的雅可比矩阵，其中各元素为变形场分量对空间坐标的偏导数：</p>
 <div class="arithmatex">\[
 J = \begin{bmatrix} \frac{\partial u_x}{\partial x} &amp; \frac{\partial u_x}{\partial y} &amp; \frac{\partial u_x}{\partial z} \\ \frac{\partial u_y}{\partial x} &amp; \frac{\partial u_y}{\partial y} &amp; \frac{\partial u_y}{\partial z} \\ \frac{\partial u_z}{\partial x} &amp; \frac{\partial u_z}{\partial y} &amp; \frac{\partial u_z}{\partial z} \end{bmatrix}
 \]</div>
@@ -8824,10 +8822,12 @@ SSD = \frac{1}{N} \sum_{i=1}^{N} [A(i) - kA(i) - t]^2 = \frac{1}{N} \sum_{i=1}^{
 SSD &amp;= \frac{1}{N} \sum \left[ (1-k)^2 (A(i) - \bar{A})^2 + 2(1-k)(A(i) - \bar{A})[(1-k)\bar{A} - t] + [(1-k)\bar{A} - t]^2 \right]
 \end{aligned}
 \]</div>
-<p>三项分别处理：
-- 第一项：<span class="arithmatex">\(\frac{1}{N}(1-k)^2 \sum (A(i) - \bar{A})^2 = (1-k)^2 \sigma^2(A)\)</span>
-- 第二项：含 <span class="arithmatex">\(\sum (A(i) - \bar{A}) = 0\)</span>，所以此项为 <span class="arithmatex">\(0\)</span>
-- 第三项：常数累加 <span class="arithmatex">\(N\)</span> 次除以 <span class="arithmatex">\(N\)</span> → <span class="arithmatex">\([(1-k)\bar{A} - t]^2\)</span></p>
+<p>三项分别处理：</p>
+<ul>
+<li>第一项：<span class="arithmatex">\(\frac{1}{N}(1-k)^2 \sum (A(i) - \bar{A})^2 = (1-k)^2 \sigma^2(A)\)</span></li>
+<li>第二项：含 <span class="arithmatex">\(\sum (A(i) - \bar{A}) = 0\)</span>，所以此项为 <span class="arithmatex">\(0\)</span></li>
+<li>第三项：常数累加 <span class="arithmatex">\(N\)</span> 次除以 <span class="arithmatex">\(N\)</span> → <span class="arithmatex">\([(1-k)\bar{A} - t]^2\)</span></li>
+</ul>
 <p>因此：</p>
 <div class="arithmatex">\[
 \boxed{SSD = (1-k)^2 \sigma^2(A) + [(1-k)\bar{A} - t]^2}
@@ -8887,7 +8887,7 @@ H(A') = H(B') &amp;= -\left[2 \cdot \frac{1}{N+2}\log\frac{1}{N+2} + \frac{N}{N+
 <div class="arithmatex">\[
 I(A', B') = H(A') + H(B') - H(A', B') = H(A') + H(A') - H(A') = H(A')
 \]</div>
-<p><strong>关键发现</strong>：<span class="arithmatex">\(I(A', B') = H(A')\)</span> 会随 <span class="arithmatex">\(N\)</span> 的增加而变化！当 <span class="arithmatex">\(N \to \infty\)</span>（背景占绝对主导）时，<span class="arithmatex">\(H(A') \to 0\)</span>，即 <span class="arithmatex">\(I(A', B') \to 0\)</span>。</p>
+<p><span class="arithmatex">\(I(A', B') = H(A')\)</span> 会随 <span class="arithmatex">\(N\)</span> 的增加而变化，当 <span class="arithmatex">\(N \to \infty\)</span>（背景占绝对主导）时，<span class="arithmatex">\(H(A') \to 0\)</span>，即 <span class="arithmatex">\(I(A', B') \to 0\)</span>。</p>
 <p>但：</p>
 <div class="arithmatex">\[
 NMI(A', B') = \frac{H(A') + H(B')}{H(A', B')} = \frac{2H(A')}{H(A')} = 2
@@ -8896,7 +8896,7 @@ NMI(A', B') = \frac{H(A') + H(B')}{H(A', B')} = \frac{2H(A')}{H(A')} = 2
 <p><strong>为什么 NMI 比标准 MI 更常用？</strong></p>
 <ol>
 <li><strong>标准 MI 对图像重叠区域（FOV）大小敏感</strong>：FOV 变化（如扫描范围不同、背景增加）会导致 MI 值显著漂移，无法客观比较不同配准结果</li>
-<li><strong>NMI 对 FOV 和背景比例具有鲁棒性</strong>：通过除以联合熵，消除了重叠区域大小的影响，只反映两幅图像之间<strong>内在的统计相关性</strong></li>
+<li><strong>NMI 对 FOV 和背景比例具有鲁棒性</strong>：通过除以联合熵，消除了重叠区域大小的影响，只反映两幅图像之间内在的统计相关性</li>
 <li><strong>在实际配准中</strong>，浮动图像和固定图像的 FOV 几乎总是不同的（如不同被试者的脑部扫描覆盖范围不同），NMI 能提供稳定、可比的相似度度量</li>
 </ol>
 <hr />

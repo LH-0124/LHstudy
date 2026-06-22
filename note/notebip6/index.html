@@ -8468,7 +8468,7 @@ G(u,v) = F(u,v) + N(u,v)
 </ul>
 <h4 id="4alpha-alpha-trimmed-mean-filter">（4）Alpha-修剪均值滤波器（Alpha-Trimmed Mean Filter）</h4>
 <div class="arithmatex">\[
-\hat{f}(x,y) = \frac{1}{mn - d} \sum_{(s,t) \in S_{xy} \setminus \{\text{trimmed } d/2 \text{ lowest, } d/2 \text{ highest}\}} g(s,t)
+\hat{f}(x,y) = \frac{1}{mn - d} \sum_{(s,t) \in S_{xy}  \{\text{trimmed } d/2 \text{ lowest, } d/2 \text{ highest}\}} g(s,t)
 \]</div>
 <ul>
 <li>
@@ -8477,15 +8477,18 @@ G(u,v) = F(u,v) + N(u,v)
 <li>
 <p><strong>参数 <span class="arithmatex">\(d\)</span> 的极端情况：</strong></p>
 </li>
-<li><span class="arithmatex">\(d = 0\)</span>：不修剪任何像素（去掉 0 个最高/最低分），此时等价于<strong>算术均值滤波器</strong>。</li>
+<li>
+<p><span class="arithmatex">\(d = 0\)</span>：不修剪任何像素（去掉 0 个最高/最低分），此时等价于<strong>算术均值滤波器</strong>。</p>
+</li>
 <li>
 <p><span class="arithmatex">\(d = mn - 1\)</span>：删除了除中位数以外的所有像素，此时等价于<strong>中值滤波器</strong>。</p>
 </li>
 <li>
-<p><strong>适用场景与优势：</strong></p>
+<p><strong>适用场景与优势：</strong>特别适用于<strong>混合多种噪声类型</strong>（如椒盐噪声 + 高斯噪声）的图像。</p>
 </li>
-<li>特别适用于<strong>混合多种噪声类型</strong>（如椒盐噪声 + 高斯噪声）的图像。</li>
-<li><strong>物理意义：</strong> 先通过“修剪 <span class="arithmatex">\(d/2\)</span> 个极端值”直接扔掉椒盐噪声的纯黑/纯白坏点；再通过“对剩余值求平均”有效平滑掉高斯噪声的细微波动。</li>
+<li>
+<p><strong>物理意义：</strong> 先通过“修剪 <span class="arithmatex">\(d/2\)</span> 个极端值”直接扔掉椒盐噪声的纯黑/纯白坏点；再通过“对剩余值求平均”有效平滑掉高斯噪声的细微波动。</p>
+</li>
 </ul>
 <h3 id="33-adaptive-filters">3.3 自适应滤波器（Adaptive Filters）</h3>
 <h4 id="1alnrf-adaptive-local-noise-reduction-filter">（1）自适应局部降噪滤波器（ALNRF — Adaptive Local Noise Reduction Filter）</h4>
@@ -8521,9 +8524,15 @@ G(u,v) = F(u,v) + N(u,v)
 </tbody>
 </table>
 <h4 id="2amf-adaptive-median-filter">（2）自适应中值滤波器（AMF — Adaptive Median Filter）</h4>
-<p><strong>目标</strong>：
-1. 处理高概率的脉冲噪声（<span class="arithmatex">\(P_s, P_p &gt; 0.2\)</span>）
-2. 在平滑非脉冲噪声的同时保留细节</p>
+<p><strong>目标</strong>：</p>
+<ol>
+<li>
+<p>处理高概率的脉冲噪声（<span class="arithmatex">\(P_s, P_p &gt; 0.2\)</span>）</p>
+</li>
+<li>
+<p>在平滑非脉冲噪声的同时保留细节</p>
+</li>
+</ol>
 <p><strong>两级判断</strong>：</p>
 <ul>
 <li><strong>Level A</strong>：检查 <span class="arithmatex">\(z_{\text{med}}\)</span> 是否为脉冲 → 若不是，转 Level B；若是，增大窗口 → 若窗口已达上限 <span class="arithmatex">\(S_{\max}\)</span>，输出 <span class="arithmatex">\(z_{\text{med}}\)</span></li>
