@@ -9755,9 +9755,18 @@ I = \begin{bmatrix}
 \]</div>
 <p>使用 <span class="arithmatex">\(3 \times 3\)</span> Sobel 算子（零填充处理边界），计算 <span class="arithmatex">\(G_x\)</span>、<span class="arithmatex">\(G_y\)</span>、梯度幅值 <span class="arithmatex">\(\sqrt{G_x^2 + G_y^2}\)</span> 以及梯度方向 <span class="arithmatex">\(\theta = \arctan(G_y/G_x)\)</span>。</p>
 <p><strong>解答</strong>：</p>
-<p>Sobel 算子的标准形式：
-$$
-G_x = \begin{bmatrix} -1 &amp; 0 &amp; 1 \ -2 &amp; 0 &amp; 2 \ -1 &amp; 0 &amp; 1 \end{bmatrix}, \quad G_y = \begin{bmatrix} -1 &amp; -2 &amp; -1 \ 0 &amp; 0 &amp; 0 \ 1 &amp; 2 &amp; 1 \end{bmatrix}
+<p>Sobel 算子的标准形式：</p>
+<p>$$
+G_x = \begin{bmatrix} 
+-1 &amp; 0 &amp; 1 \ 
+-2 &amp; 0 &amp; 2 \ 
+-1 &amp; 0 &amp; 1 
+\end{bmatrix}, </p>
+<p>\quad G_y = \begin{bmatrix} 
+-1 &amp; -2 &amp; -1 \ 
+0 &amp; 0 &amp; 0 \ 
+1 &amp; 2 &amp; 1 
+\end{bmatrix}
 $$</p>
 <p>零填充后扩展为 <span class="arithmatex">\(7 \times 7\)</span>，卷积得到 <span class="arithmatex">\(5 \times 5\)</span> 的梯度结果：</p>
 <div class="arithmatex">\[
@@ -9770,26 +9779,26 @@ G_x = \begin{bmatrix}
 \end{bmatrix}
 \]</div>
 <p>（由于原图对称 <span class="arithmatex">\(I = I^T\)</span> 且 <span class="arithmatex">\(G_y = G_x^T\)</span>，<span class="arithmatex">\(G_y\)</span> 为 <span class="arithmatex">\(G_x\)</span> 的转置。）</p>
-<p>梯度幅值（保留一位小数）：
-$$
+<p>梯度幅值（保留一位小数）：</p>
+<div class="arithmatex">\[
 M \approx \begin{bmatrix}
-240.4 &amp; 247.5 &amp; 277.2 &amp; 301.5 &amp; 311.8 \
-247.5 &amp; 183.8 &amp; 317.8 &amp; 301.5 &amp; 398.6 \
-277.2 &amp; 317.8 &amp; 410.1 &amp; 344.8 &amp; 580.9 \
-301.5 &amp; 301.5 &amp; 344.8 &amp; 226.3 &amp; 600.3 \
+240.4 &amp; 247.5 &amp; 277.2 &amp; 301.5 &amp; 311.8 \\
+247.5 &amp; 183.8 &amp; 317.8 &amp; 301.5 &amp; 398.6 \\
+277.2 &amp; 317.8 &amp; 410.1 &amp; 344.8 &amp; 580.9 \\
+301.5 &amp; 301.5 &amp; 344.8 &amp; 226.3 &amp; 600.3 \\
 311.8 &amp; 398.6 &amp; 580.9 &amp; 600.3 &amp; 523.3
 \end{bmatrix}
-$$</p>
-<p>对幅值应用迭代阈值法（收敛于 <span class="arithmatex">\(T \approx 398.6\)</span>），最终边缘图：
-$$
+\]</div>
+<p>对幅值应用迭代阈值法（收敛于 <span class="arithmatex">\(T \approx 398.6\)</span>），最终边缘图：</p>
+<div class="arithmatex">\[
 E = \begin{bmatrix}
-0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \
-0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \
-0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 \
-0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \\
 0 &amp; 1 &amp; 1 &amp; 1 &amp; 1
 \end{bmatrix}
-$$</p>
+\]</div>
 <div class="admonition tip">
 <p class="admonition-title">Sobel 边缘检测的完整流程</p>
 <ol>
