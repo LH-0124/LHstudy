@@ -8137,8 +8137,8 @@ E = C - H
 </tr>
 <tr>
 <td><strong>均值（Mean）</strong></td>
-<td>$\bar{f} = \frac{1}{</td>
-<td>N</td>
+<td><span class="arithmatex">\(\bar{f} = \frac{1}{\lvert N \rvert} \sum_{(x,y)\in N} f(x,y)\)</span></td>
+<td>整体平均亮度</td>
 </tr>
 <tr>
 <td><strong>中位数（Median）</strong></td>
@@ -8157,13 +8157,13 @@ E = C - H
 </tr>
 <tr>
 <td><strong>标准差（Std）</strong></td>
-<td>$\sigma = \sqrt{\frac{1}{</td>
-<td>N</td>
+<td><span class="arithmatex">\(\sigma = \sqrt{\frac{1}{\lvert N \rvert}\sum(f - \bar{f})^2}\)</span></td>
+<td>对比度/异质性</td>
 </tr>
 <tr>
 <td><strong>方差（Variance）</strong></td>
-<td>$\sigma^2 = \frac{1}{</td>
-<td>N</td>
+<td><span class="arithmatex">\(\sigma^2 = \frac{1}{\lvert N \rvert}\sum(f - \bar{f})^2\)</span></td>
+<td>标准差的平方</td>
 </tr>
 </tbody>
 </table>
@@ -8334,9 +8334,9 @@ R(z) = 1 - \frac{1}{1 + \sigma^2(z)}
 </tr>
 <tr>
 <td><strong>同质性（Homogeneity）</strong></td>
-<td>$\sum_{i,j} \frac{p_{ij}}{1+</td>
-<td>i-j</td>
-<td style="text-align: center;">}$</td>
+<td><span class="arithmatex">\(\sum_{i,j} \frac{p_{ij}}{1+\lvert i-j \rvert}\)</span></td>
+<td>局部均匀程度</td>
+<td style="text-align: center;"><span class="arithmatex">\([0, 1]\)</span></td>
 </tr>
 <tr>
 <td><strong>熵（Entropy）</strong></td>
@@ -8459,14 +8459,18 @@ S(r) = \sum_{\theta=0}^{\pi} S_\theta(r), \quad S(\theta) = \sum_{r=1}^{R} S_r(\
 </tbody>
 </table>
 <h3 id="55">5.5 工具与局限</h3>
-<p><strong>常用工具</strong>：
-- <strong>MATLAB</strong>：传统影像组学工具
-- <strong>PyRadiomics</strong>：Python 开源影像组学库，标准化特征提取</p>
-<p><strong>局限性</strong>：
-- 可重复性差（缺乏标准化、报告不充分、开源代码和数据有限）
-- 缺乏适当的外部验证，假阳性结果风险高
-- 特征的可解释性不足
-- 多为回顾性研究，证据等级较低</p>
+<p><strong>常用工具</strong>：</p>
+<ul>
+<li><strong>MATLAB</strong>：传统影像组学工具</li>
+<li><strong>PyRadiomics</strong>：Python 开源影像组学库，标准化特征提取</li>
+</ul>
+<p><strong>局限性</strong>：</p>
+<ul>
+<li>可重复性差（缺乏标准化、报告不充分、开源代码和数据有限）</li>
+<li>缺乏适当的外部验证，假阳性结果风险高</li>
+<li>特征的可解释性不足</li>
+<li>多为回顾性研究，证据等级较低</li>
+</ul>
 <hr />
 <h2 id="_3">六、本章总结</h2>
 <h3 id="_4">特征提取三大类别</h3>
@@ -8584,8 +8588,6 @@ r(\theta) = 2 - 2\sin\theta + \frac{\sin\theta \sqrt{|\cos\theta|}}{\sin\theta +
 <p><strong>解答</strong>：</p>
 <p><strong>(1) 真实 Signature 判断</strong></p>
 <p>答案为 <strong>A</strong>。需要从肿瘤轮廓图中识别对应的 <span class="arithmatex">\(r(\theta)\)</span> 曲线。</p>
-<!-- 建议插入PPT截图：Lecture13 Page 62，肿瘤Signature选择题的四个选项图，插入位置：此处 -->
-
 <p><strong>(2) 绘制边界</strong></p>
 <p>使用 Python 计算 <span class="arithmatex">\(x = r(\theta)\cos\theta\)</span>，<span class="arithmatex">\(y = r(\theta)\sin\theta\)</span>，直接绘制即可。</p>
 <p><strong>(3) 傅里叶描述子重建——第一部分</strong></p>
@@ -8770,12 +8772,14 @@ e &amp;= -(0.4\log_2 0.4 + 0.32\log_2 0.32 + 0.16\log_2 0.16 + 0.12\log_2 0.12) 
 </tr>
 </tbody>
 </table>
-<p><strong>解释</strong>：<span class="arithmatex">\(I_\infty\)</span> 是恒值图像（所有像素 <span class="arithmatex">\(=1.0\)</span>），因此：
-- energy = <span class="arithmatex">\(25 \times 1^2 = 25\)</span>
-- range = 0（无灰度变化）
-- <span class="arithmatex">\(\mu_2, \mu_3\)</span> = 0（无偏离均值的像素）
-- uniformity = 1（仅一个灰度级）
-- entropy = 0（无不确定性）</p>
+<p><strong>解释</strong>：<span class="arithmatex">\(I_\infty\)</span> 是恒值图像（所有像素 <span class="arithmatex">\(=1.0\)</span>），因此：</p>
+<ul>
+<li>energy = <span class="arithmatex">\(25 \times 1^2 = 25\)</span></li>
+<li>range = 0（无灰度变化）</li>
+<li><span class="arithmatex">\(\mu_2, \mu_3\)</span> = 0（无偏离均值的像素）</li>
+<li>uniformity = 1（仅一个灰度级）</li>
+<li>entropy = 0（无不确定性）</li>
+</ul>
 <hr />
 <h3 id="3glcm">题目 3：GLCM（灰度共生矩阵）</h3>
 <p><strong>题目</strong>（PPT HW3）：</p>
@@ -8864,8 +8868,6 @@ P_2 = \frac{M_2}{15} = \begin{bmatrix} 0 &amp; 0 &amp; 0.2 \\ 0 &amp; 7/15 &amp;
 <li><strong>DFT 获取描述子</strong>：<span class="arithmatex">\(a(k) = \frac{1}{N} \sum_{n=0}^{N-1} s(n) e^{-j \frac{2\pi k n}{N}}\)</span></li>
 <li><strong>截断与重建</strong>：通过 <code>fftshift</code> 将低频分量集中到频谱中心，仅保留中心 <span class="arithmatex">\(P\)</span> 个系数（其余置零），再做 <code>ifftshift</code> + <code>ifft</code> 重建轮廓</li>
 </ol>
-<!-- 建议插入PPT截图：LAB7 Project 1的结果图，$P=2,4,8,16,32,64,128$ 的 2×4 重建轮廓对比图，插入位置：此处 -->
-
 <p><strong>关键发现—<span class="arithmatex">\(P\)</span> 与保真度的三个阶段</strong>：</p>
 <table>
 <thead>
@@ -8900,11 +8902,13 @@ P_2 = \frac{M_2}{15} = \begin{bmatrix} 0 &amp; 0 &amp; 0.2 \\ 0 &amp; 7/15 &amp;
 <p><strong>核心结论</strong>：<span class="arithmatex">\(P\)</span> 与形状保真度存在<strong>非线性收益递减</strong>关系——中等 <span class="arithmatex">\(P\)</span> 是数据压缩与几何精度的最优权衡点。</p>
 <hr />
 <h3 id="project-2">Project 2：一阶统计特征与迭代模糊</h3>
-<p><strong>实验内容</strong>：
-1. 基于肿瘤掩膜计算<strong>质心</strong>，以质心为中心提取 <span class="arithmatex">\(120 \times 120\)</span> 的 ROI
-2. 计算 ROI 与全图的均值、方差、均匀度、熵
-3. 执行 30 次迭代 <span class="arithmatex">\(3 \times 3\)</span> 均值滤波（模拟渐进高斯模糊），记录四项指标的动态演变
-4. 对比 ROI 与全图的指标演变差异</p>
+<p><strong>实验内容</strong>：</p>
+<ol>
+<li>基于肿瘤掩膜计算<strong>质心</strong>，以质心为中心提取 <span class="arithmatex">\(120 \times 120\)</span> 的 ROI</li>
+<li>计算 ROI 与全图的均值、方差、均匀度、熵</li>
+<li>执行 30 次迭代 <span class="arithmatex">\(3 \times 3\)</span> 均值滤波（模拟渐进高斯模糊），记录四项指标的动态演变</li>
+<li>对比 ROI 与全图的指标演变差异</li>
+</ol>
 <p><strong>实验原理</strong>：</p>
 <ol>
 <li><strong>质心计算</strong>（基于图像矩）：</li>
@@ -8920,8 +8924,6 @@ P_2 = \frac{M_2}{15} = \begin{bmatrix} 0 &amp; 0 &amp; 0.2 \\ 0 &amp; 7/15 &amp;
 <p><strong>迭代滤波模拟高斯模糊</strong>：基于中心极限定理，多次 <span class="arithmatex">\(3 \times 3\)</span> 均值滤波等效于逐渐增大高斯核的标准差</p>
 </li>
 </ol>
-<!-- 建议插入PPT截图：LAB7 Project 2的结果图（两个窗口），Figure 1：质心标记+ROI框+原始ROI+模糊后ROI；Figure 2：四项指标演变曲线（ROI vs 全图），插入位置：此处 -->
-
 <p><strong>关键发现</strong>：</p>
 <p><strong>(I) ROI 指标随滤波迭代的单调演变</strong></p>
 <table>
@@ -9001,8 +9003,6 @@ P_2 = \frac{M_2}{15} = \begin{bmatrix} 0 &amp; 0 &amp; 0.2 \\ 0 &amp; 7/15 &amp;
 <li><strong>GLCM 计算</strong>：<code>skimage.feature.graycomatrix</code>，对称+归一化</li>
 <li><strong>GLCM 可视化</strong>：<code>np.log1p</code> 对数变换突出暗部细节，对角线附近亮度 = 像素灰度相近的频率</li>
 </ol>
-<!-- 建议插入PPT截图：LAB7 Project 3的结果图（两个窗口），Figure 1：ROI+量化ROI+Contrast/Homogeneity双Y轴曲线；Figure 2：$d=1$ vs $d=15$ 的GLCM对数可视化对比，插入位置：此处 -->
-
 <p><strong>关键发现</strong>：</p>
 <p><strong>(I) 纹理特征随步长的单调演变</strong></p>
 <table>

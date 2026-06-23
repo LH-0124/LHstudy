@@ -8450,10 +8450,12 @@ NMI(A,B) = \frac{H(A) + H(B)}{H(A,B)}
 </tbody>
 </table>
 <p>非线性变换通过<strong>变形场（Deformation Field）</strong> <span class="arithmatex">\(\mathbf{u}: \mathbb{R}^3 \to \mathbb{R}^3\)</span> 表示——图像中每个体素都有一个位移向量，描述该点从源空间到目标空间的移动。</p>
-<p>非线性配准面临的核心挑战：
-- 自由度极高，搜索空间呈指数级增长
-- 初始化和局部极值问题比线性配准<strong>严重得多</strong>
-- 必须有<strong>正则化</strong>约束（如平滑性），否则会过拟合噪声</p>
+<p>非线性配准面临的核心挑战：</p>
+<ul>
+<li>自由度极高，搜索空间呈指数级增长</li>
+<li>初始化和局部极值问题比线性配准<strong>严重得多</strong></li>
+<li>必须有<strong>正则化</strong>约束（如平滑性），否则会过拟合噪声</li>
+</ul>
 <h3 id="62">6.2 非线性配准的两大类方法</h3>
 <table>
 <thead>
@@ -8558,9 +8560,11 @@ $$</p>
 <li>迭代至收敛</li>
 </ol>
 <p><strong>Demons 算法的核心直觉</strong>：Demon站在浮动图像的边缘（梯度非零处），比较当前位置的浮动图像值与目标图像值。如果浮动值偏小，就往梯度正方向推（让值变大去匹配目标）；如果浮动值偏大，就往反方向推（让值变小去匹配目标）。</p>
-<p><strong>为什么需要高斯平滑？</strong>
-- 不加平滑：变形场会出现锯齿和断裂，产生物理上不可能的变形
-- 高斯平滑相当于施加扩散正则化，使变形场光滑连续</p>
+<p><strong>为什么需要高斯平滑？</strong></p>
+<ul>
+<li>不加平滑：变形场会出现锯齿和断裂，产生物理上不可能的变形</li>
+<li>高斯平滑相当于施加扩散正则化，使变形场光滑连续</li>
+</ul>
 <h3 id="65-ffd-free-form-deformation">6.5 自由形变（FFD, Free-Form Deformation）</h3>
 <p>FFD 是一种<strong>参数化</strong>的非线性配准方法，使用 <strong>B 样条（B-spline）</strong> 基函数来表示变形场：</p>
 <ul>
@@ -8771,7 +8775,7 @@ Dice = \frac{2|A \cap B|}{|A| + |B|}
 <hr />
 <h2 id="_3">课后作业</h2>
 <h3 id="1-cc-ssdppt-hw1">题目 1：线性变换下的 CC 与 SSD（PPT HW1）</h3>
-<p><strong>题目</strong>（与 hw5 一致）：对于两幅 MRI 图像 <span class="arithmatex">\(A\)</span>（固定图像）和 <span class="arithmatex">\(B'\)</span>（浮动图像），两者为同一被试的两次扫描，因此仅存在线性变换：<span class="arithmatex">\(B'(i) = kA(i) + t\)</span>，对所有满足 <span class="arithmatex">\(B'(i) &gt; 0\)</span> 的像素 <span class="arithmatex">\(i\)</span> 成立，其中 <span class="arithmatex">\(k &gt; 0\)</span>。</p>
+<p><strong>题目</strong>：对于两幅 MRI 图像 <span class="arithmatex">\(A\)</span>（固定图像）和 <span class="arithmatex">\(B'\)</span>（浮动图像），两者为同一被试的两次扫描，因此仅存在线性变换：<span class="arithmatex">\(B'(i) = kA(i) + t\)</span>，对所有满足 <span class="arithmatex">\(B'(i) &gt; 0\)</span> 的像素 <span class="arithmatex">\(i\)</span> 成立，其中 <span class="arithmatex">\(k &gt; 0\)</span>。</p>
 <ol>
 <li>证明 <span class="arithmatex">\(A\)</span> 与 <span class="arithmatex">\(B'\)</span> 之间的互相关系数 CC 为 <span class="arithmatex">\(1\)</span></li>
 <li>用 <span class="arithmatex">\(k\)</span>, <span class="arithmatex">\(t\)</span>, 总像素数 <span class="arithmatex">\(N\)</span>, 以及 <span class="arithmatex">\(A\)</span> 的均值 <span class="arithmatex">\(\bar{A}\)</span> 和标准差 <span class="arithmatex">\(\sigma(A)\)</span> 表示 <span class="arithmatex">\(A\)</span> 与 <span class="arithmatex">\(B'\)</span> 之间的 SSD</li>
@@ -8839,7 +8843,7 @@ SSD = (1-k)^2(\sigma^2(A) + \bar{A}^2) - 2t(1-k)\bar{A} + t^2
 <p><strong>验证</strong>：当 <span class="arithmatex">\(k = 1\)</span>, <span class="arithmatex">\(t = 0\)</span> 时（无变换），<span class="arithmatex">\(SSD = 0\)</span>，符合预期。</p>
 <hr />
 <h3 id="2ppt-hw2">题目 2：熵与归一化互信息计算（PPT HW2）</h3>
-<p><strong>题目</strong>（与 hw5 一致）：给定图像 <span class="arithmatex">\(A = [18, 97]\)</span>，<span class="arithmatex">\(B = [97, 18]\)</span>。</p>
+<p><strong>题目</strong>：给定图像 <span class="arithmatex">\(A = [18, 97]\)</span>，<span class="arithmatex">\(B = [97, 18]\)</span>。</p>
 <ol>
 <li>计算 <span class="arithmatex">\(H(A)\)</span> 和 <span class="arithmatex">\(H(B)\)</span>（用 <span class="arithmatex">\(\log(m)\)</span> 形式表示，<span class="arithmatex">\(m \in \mathbb{N}\)</span>）</li>
 <li>计算 <span class="arithmatex">\(I(A,B)\)</span> 和 <span class="arithmatex">\(NMI(A,B) = \frac{H(A)+H(B)}{H(A,B)}\)</span></li>

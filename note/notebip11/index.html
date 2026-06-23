@@ -8361,8 +8361,8 @@
 <tr>
 <td><strong>边缘清晰度（Clear Edge）</strong></td>
 <td>组织边界是否锐利</td>
-<td style="text-align: center;">✓</td>
-<td style="text-align: center;">✗</td>
+<td style="text-align: center;">高</td>
+<td style="text-align: center;">低</td>
 </tr>
 <tr>
 <td><strong>对比度（High Contrast）</strong></td>
@@ -8761,8 +8761,7 @@ b_i^{(l)} := b_i^{(l)} - \alpha \cdot \frac{1}{m} \sum \delta_i^{(l+1)}
 <p>典型 CNN 流水线：</p>
 <div class="highlight"><pre><span></span><code>输入图像 → 卷积(Conv) → 池化(Pooling) → 卷积(Conv) → 池化(Pooling) → ... → Flatten → 全连接(FC) → 输出
 </code></pre></div>
-<!-- 建议插入PPT截图：Lecture15 Page 58，CNN典型结构流水线图（Conv→Pooling→Conv→Pooling→Flatten→FC→Output），插入位置：此处 -->
-
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0623/k3zak3ou.webp" /></p>
 <h3 id="44-convolution">4.4 卷积运算（Convolution）</h3>
 <p><strong>卷积核（Filter/Kernel）</strong> 在输入图像上滑动，计算局部区域的加权和。</p>
 <ul>
@@ -9404,7 +9403,7 @@ L_{t-1} \propto \left\| \boldsymbol{\mu}_t(\boldsymbol{x}_t, \boldsymbol{x}_0) -
 </tbody>
 </table>
 <h4 id="736-conditional-diffusion">7.3.6 条件扩散（Conditional Diffusion）</h4>
-<p>对于配对数据 <span class="arithmatex">\(\{\boldsymbol{x}, \boldsymbol{y}\}\)</span>，希望建模 <span class="arithmatex">\(p(\boldsymbol{x} | \boldsymbol{y})\)</span>：</p>
+<p>对于配对数据 <span class="arithmatex">\(\{\boldsymbol{x}, \boldsymbol{y}\}\)</span>，希望建模 <span class="arithmatex">\(p(\boldsymbol{x} | \boldsymbol{y})\)</span>​：</p>
 <ul>
 <li><strong>挑战</strong>：条件信号 <span class="arithmatex">\(\boldsymbol{y}\)</span> 可能与 <span class="arithmatex">\(\boldsymbol{x}\)</span> 形状不同、非同质</li>
 <li><strong>解决方案</strong>：通过<strong>注意力机制</strong>或其他方式将条件信号注入去噪网络</li>
@@ -9635,14 +9634,13 @@ L_{t-1} \propto \left\| \boldsymbol{\mu}_t(\boldsymbol{x}_t, \boldsymbol{x}_0) -
 <h4 id="1-otsucnn">(1) 相比传统方法（如 Otsu），CNN 在分割任务中的优势</h4>
 <p><strong>Otsu 阈值法的原理与局限</strong>：</p>
 <p>Otsu（大津法）是一种基于灰度直方图的自动阈值分割方法——遍历所有可能的阈值，选择使<strong>类间方差最大</strong>的阈值作为最优分割点。</p>
-<div class="arithmatex">\[
-\sigma_B^2(t) = \omega_0(t) \omega_1(t) [\mu_0(t) - \mu_1(t)]^2
-\]</div>
-<p>Otsu 的局限：
-- <strong>仅利用灰度信息</strong>：只考虑像素灰度值，忽略了纹理、形状、空间上下文等
-- <strong>假设两类分布</strong>：适用于双峰直方图，多目标分割效果差
-- <strong>对灰度不均匀敏感</strong>：光照不均、场偏移效应（MRI 中常见）使分割失败
-- <strong>全局阈值</strong>：整张图使用同一个阈值，不能局部自适应</p>
+<p>Otsu 的局限：</p>
+<ul>
+<li><strong>仅利用灰度信息</strong>：只考虑像素灰度值，忽略了纹理、形状、空间上下文等</li>
+<li><strong>假设两类分布</strong>：适用于双峰直方图，多目标分割效果差</li>
+<li><strong>对灰度不均匀敏感</strong>：光照不均、场偏移效应（MRI 中常见）使分割失败</li>
+<li><strong>全局阈值</strong>：整张图使用同一个阈值，不能局部自适应</li>
+</ul>
 <p><strong>CNN 在分割任务中的优势</strong>：</p>
 <table>
 <thead>
@@ -9765,23 +9763,23 @@ L_{t-1} \propto \left\| \boldsymbol{\mu}_t(\boldsymbol{x}_t, \boldsymbol{x}_0) -
 </tr>
 <tr>
 <td><strong>编码器</strong></td>
-<td>✓ 有</td>
-<td>✓ 有</td>
+<td>有</td>
+<td>有</td>
 </tr>
 <tr>
 <td><strong>解码器</strong></td>
-<td>✗ 无</td>
-<td>✓ 有（上采样恢复分辨率）</td>
+<td>无</td>
+<td>有（上采样恢复分辨率）</td>
 </tr>
 <tr>
 <td><strong>跳跃连接</strong></td>
-<td>✗ 无（或仅 ResNet 中的残差连接）</td>
-<td>✓ <strong>核心设计</strong>（编码器→解码器直连）</td>
+<td>无（或仅 ResNet 中的残差连接）</td>
+<td><strong>核心设计</strong>（编码器→解码器直连）</td>
 </tr>
 <tr>
 <td><strong>全连接层</strong></td>
-<td>✓ 有（分类头）</td>
-<td>✗ 无（全卷积）</td>
+<td>有（分类头）</td>
+<td>无（全卷积）</td>
 </tr>
 <tr>
 <td><strong>输入尺寸</strong></td>
