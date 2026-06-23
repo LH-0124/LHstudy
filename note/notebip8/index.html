@@ -9756,18 +9756,20 @@ I = \begin{bmatrix}
 <p>使用 <span class="arithmatex">\(3 \times 3\)</span> Sobel 算子（零填充处理边界），计算 <span class="arithmatex">\(G_x\)</span>、<span class="arithmatex">\(G_y\)</span>、梯度幅值 <span class="arithmatex">\(\sqrt{G_x^2 + G_y^2}\)</span> 以及梯度方向 <span class="arithmatex">\(\theta = \arctan(G_y/G_x)\)</span>。</p>
 <p><strong>解答</strong>：</p>
 <p>Sobel 算子的标准形式：</p>
-<p>$$
+<div class="arithmatex">\[
 G_x = \begin{bmatrix} 
--1 &amp; 0 &amp; 1 \ 
--2 &amp; 0 &amp; 2 \ 
+-1 &amp; 0 &amp; 1 \\ 
+-2 &amp; 0 &amp; 2 \\ 
 -1 &amp; 0 &amp; 1 
-\end{bmatrix}, </p>
-<p>\quad G_y = \begin{bmatrix} 
--1 &amp; -2 &amp; -1 \ 
-0 &amp; 0 &amp; 0 \ 
+\end{bmatrix}, 
+\]</div>
+<div class="arithmatex">\[
+G_y = \begin{bmatrix} 
+-1 &amp; -2 &amp; -1 \\ 
+0 &amp; 0 &amp; 0 \\ 
 1 &amp; 2 &amp; 1 
 \end{bmatrix}
-$$</p>
+\]</div>
 <p>零填充后扩展为 <span class="arithmatex">\(7 \times 7\)</span>，卷积得到 <span class="arithmatex">\(5 \times 5\)</span> 的梯度结果：</p>
 <div class="arithmatex">\[
 G_x = \begin{bmatrix}
