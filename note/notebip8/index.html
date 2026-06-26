@@ -8582,11 +8582,9 @@ $$</p>
 <div class="admonition note">
 <p class="admonition-title">Sobel vs Prewitt vs Roberts</p>
 <ul>
-<li><strong>Roberts</strong>：<span class="arithmatex">\(2 \times 2\)</span> 核，无平滑，对噪声最敏感<ul>
+<li><strong>Roberts</strong>：<span class="arithmatex">\(2 \times 2\)</span> 核，无平滑，对噪声最敏感</li>
 <li><strong>Prewitt</strong>：<span class="arithmatex">\(3 \times 3\)</span>，有平滑但中心无特殊权重</li>
 <li><strong>Sobel</strong>：<span class="arithmatex">\(3 \times 3\)</span>，中心权重加倍（<span class="arithmatex">\(\times 2\)</span>），平滑效果更好，<strong>实际应用中最常用</strong></li>
-</ul>
-</li>
 </ul>
 </div>
 <h3 id="34-laplacian">3.4 二阶导数：Laplacian 算子</h3>
@@ -8669,7 +8667,7 @@ G(x,y) = e^{-\frac{x^2 + y^2}{2\sigma^2}}
 <p><strong>判断逻辑：</strong></p>
 </li>
 <li>
-<p>如果 <span class="arithmatex">\(K\)</span> <strong>小于</strong>其中一个或两个邻居的值（即没在最高点），则该点被<strong>抑制 (Suppression)</strong>，输出值为 0,<span class="arithmatex">\(g_N(x,y) = 0\)</span></p>
+<p>如果 <span class="arithmatex">\(K\)</span> <strong>小于</strong>其中一个或两个邻居的值（即没在最高点），则该点被<strong>抑制 (Suppression)</strong>，输出值为 0，<span class="arithmatex">\(g_N(x,y) = 0\)</span></p>
 </li>
 <li>
 <p>否则（即该点是局部极大值），<strong>保留</strong>原强度：<span class="arithmatex">\(g_N(x,y) = K\)</span></p>
@@ -8778,18 +8776,28 @@ g(x,y) = \begin{cases} 1, &amp; f(x,y) &gt; T \\ 0, &amp; f(x,y) \leq T \end{cas
 <p><strong>原理</strong>：靠近边缘的像素更均匀地来自目标和背景两类，避免了面积不平衡导致的直方图偏斜。</p>
 <h3 id="46">4.6 多阈值分割</h3>
 <p>对具有多个目标类别的图像使用多个阈值：</p>
-<p>双阈值（Dual Threshold）：
-$$
-g(x,y) = \begin{cases} 0, &amp; f(x,y) \leq T_1 \ 1, &amp; T_1 &lt; f(x,y) \leq T_2 \ 0, &amp; f(x,y) &gt; T_2 \end{cases}
-$$</p>
+<p>双阈值（Dual Threshold）：</p>
+<div class="arithmatex">\[
+g(x,y) = \begin{cases} 0, &amp; f(x,y) \leq T_1 \\ 1, &amp; T_1 &lt; f(x,y) \leq T_2 \\ 0, &amp; f(x,y) &gt; T_2 \end{cases}
+\]</div>
 <h3 id="47">4.7 自适应阈值分割</h3>
 <p>当光照不均匀时，全局阈值失效。自适应方法：</p>
 <ol>
-<li><strong>分块处理</strong>：将图像划分为子图像，为每个子图像独立确定阈值</li>
-<li><strong>分类处理</strong>：</li>
-<li>灰度方差 <span class="arithmatex">\(&lt; T_1\)</span> 的子图像：不包含目标边界 → 合并后统一处理</li>
-<li>灰度方差 <span class="arithmatex">\(&gt; T_2\)</span> 的子图像：包含目标边界 → 独立阈值处理</li>
-<li><strong>基于局部图像属性</strong>：<span class="arithmatex">\(T = T(x,y, p(x,y))\)</span>，利用局部标准差和均值动态确定阈值</li>
+<li>
+<p><strong>分块处理</strong>：将图像划分为子图像，为每个子图像独立确定阈值</p>
+</li>
+<li>
+<p><strong>分类处理</strong>：</p>
+</li>
+<li>
+<p>灰度方差 <span class="arithmatex">\(&lt; T_1\)</span> 的子图像：不包含目标边界 → 合并后统一处理</p>
+</li>
+<li>
+<p>灰度方差 <span class="arithmatex">\(&gt; T_2\)</span> 的子图像：包含目标边界 → 独立阈值处理</p>
+</li>
+<li>
+<p><strong>基于局部图像属性</strong>：<span class="arithmatex">\(T = T(x,y, p(x,y))\)</span>，利用局部标准差和均值动态确定阈值</p>
+</li>
 </ol>
 <hr />
 <h2 id="region-based-segmentation">五、区域分割（Region-Based Segmentation）</h2>
