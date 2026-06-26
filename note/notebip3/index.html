@@ -5734,30 +5734,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lab4" class="md-nav__link">
-    <span class="md-ellipsis">
-      实验（LAB4）
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="实验（LAB4）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      实验 1：噪声参数估计与自适应去噪
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       历年卷解答
@@ -7436,30 +7412,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lab4" class="md-nav__link">
-    <span class="md-ellipsis">
-      实验（LAB4）
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="实验（LAB4）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      实验 1：噪声参数估计与自适应去噪
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       历年卷解答
@@ -7680,10 +7632,10 @@ w(x,y) = G(x,y) = K \cdot e^{-\frac{x^2 + y^2}{2\sigma^2}}
 <li><strong>圆对称性（Circularly Symmetric）</strong>：各方向平滑程度相同</li>
 </ul>
 <p><img alt="img" src="https://file.cc98.org/v4-upload/d/2026/0610/lihqi3pc.webp" /></p>
-<p><strong>高斯平滑的级联特性</strong>：</p>
-<div class="arithmatex">\[
+<p><strong>高斯平滑的级联特性</strong>：给一张图连续做两次高斯模糊，其最终效果等效于做了一次参数为等效值的高斯模糊，等效值公式如下：
+$$
 G_{\sigma_1} \star G_{\sigma_2} = G_{\sqrt{\sigma_1^2 + \sigma_2^2}}
-\]</div>
+$$</p>
 <div class="admonition note">
 <p class="admonition-title">高斯 vs 盒式</p>
 <p>相同程度的模糊效果下，高斯核的尺寸需要比盒式核更大。但高斯核的边缘过渡<strong>更加平滑自然</strong>，不会出现盒式滤波的方块效应。</p>
@@ -7826,7 +7778,7 @@ G_{\sigma_1} \star G_{\sigma_2} = G_{\sqrt{\sigma_1^2 + \sigma_2^2}}
 <p><strong>Sobel 的特点</strong>：</p>
 <ul>
 <li>
-<p>相对"迟钝"：只对<strong>粗壮的、真实的结构边缘</strong>有强响应</p>
+<p>相对迟钝：只对<strong>粗壮的、真实的结构边缘</strong>有强响应</p>
 </li>
 <li>
 <p>能有效忽略细微的高频背景噪声</p>
@@ -7854,7 +7806,7 @@ G_{\sigma_1} \star G_{\sigma_2} = G_{\sqrt{\sigma_1^2 + \sigma_2^2}}
 <tr>
 <td>对噪声</td>
 <td style="text-align: center;">相对迟钝</td>
-<td style="text-align: center;"><strong>极其敏感</strong></td>
+<td style="text-align: center;">极其敏感</td>
 </tr>
 <tr>
 <td>对斜坡</td>
@@ -7880,7 +7832,7 @@ g(x,y) = f(x,y) + c \cdot [\nabla^2 f(x,y)]
 <li><span class="arithmatex">\(c = -1\)</span>（N4 Laplacian 中心为负时取 <span class="arithmatex">\(c=-1\)</span>，叠加后边缘变亮）</li>
 <li><span class="arithmatex">\(c = 1\)</span>（N8 Laplacian 中心为正时取 <span class="arithmatex">\(c=1\)</span>）</li>
 </ul>
-<p><strong>效果</strong>：边缘处产生"过冲"（overshoot），视觉上更锐利。</p>
+<p><strong>效果</strong>：边缘处产生过冲（overshoot），视觉上更锐利。</p>
 <h3 id="42-unsharp-masking">4.2 反锐化掩膜（Unsharp Masking）</h3>
 <p>经典图像增强技术：</p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0621/w1m1rd33.webp" /></p>
@@ -7908,7 +7860,7 @@ g(x,y) = f(x,y) + c \cdot [\nabla^2 f(x,y)]
   掩膜 × Laplacian细节 = 只在边缘处保留锐化，平坦处抑制噪声
   → + 原图 → Gamma 提亮 → 最终增强图像
 </code></pre></div>
-<p><strong>设计哲学</strong>：Sobel 的"迟钝"恰好弥补了 Laplacian 的"过度敏感"——利用不同数学工具的优势互补。</p>
+<p><strong>设计哲学</strong>：Sobel 的迟钝恰好弥补了 Laplacian 的过度敏感——利用不同数学工具的优势互补。</p>
 <hr />
 <h2 id="band-pass-band-reject-filter">五、带通/带阻滤波器（Band Pass / Band Reject Filter）</h2>
 <h3 id="51">5.1 基本概念</h3>
@@ -7977,35 +7929,6 @@ g(x,y) = f(x,y) + c \cdot [\nabla^2 f(x,y)]
 <ul>
 <li>由低通和高通组合构建</li>
 <li>陷波滤波器用于消除周期性噪声</li>
-</ul>
-<hr />
-<h2 id="lab4">实验（LAB4）</h2>
-<h3 id="1">实验 1：噪声参数估计与自适应去噪</h3>
-<p><strong>实验内容</strong>：使用 <code>lab4-1.npy</code> 脑部 MRI 数据，开发程序向图像分别添加：(a) 指定均值 <span class="arithmatex">\(\mu=0.05\)</span> 和方差 <span class="arithmatex">\(\sigma^2=0.02\)</span> 的高斯噪声，(b) 不同密度（5%、15%、30%）的椒盐噪声。通过选取图像<strong>平坦背景区域（ROI）</strong>估计噪声参数，再利用估计参数选择合适的滤波器（高斯噪声 → NLM 滤波；椒盐噪声 → 中值滤波）进行降噪，验证估计精度与去噪效果。</p>
-<p><strong>实验步骤</strong>：</p>
-<ol>
-<li>
-<p>加载 MRI 图像并归一化到 <span class="arithmatex">\([0,1]\)</span></p>
-</li>
-<li>
-<p>添加高斯噪声：<span class="arithmatex">\(g = f + \mathcal{N}(\mu, \sigma^2)\)</span>，选取 <span class="arithmatex">\(30 \times 30\)</span> 的背景 ROI 统计均值/方差估计噪声参数</p>
-</li>
-<li>
-<p>高斯降噪：先减去估计均值校正亮度偏移，再用 NLM（平滑参数 <span class="arithmatex">\(h = 0.8 \times \hat{\sigma}\)</span>）</p>
-</li>
-<li>
-<p>添加椒盐噪声：随机将像素置为 1（盐）或 0（椒），<strong>仅统计纯白像素（盐噪声）的比例 × 2</strong> 来估计总密度（避免 MRI 自身大面积黑色背景被误判为椒噪声）</p>
-</li>
-<li>
-<p>椒盐降噪：根据估计密度自适应选择中值滤波窗口大小（密度 &lt; 10% → size=3；10%~20% → size=4；&gt; 20% → size=5）</p>
-</li>
-</ol>
-<p><strong>涉及原理</strong>：</p>
-<ul>
-<li><strong>ROI 参数估计的前提</strong>：MRI 脱骨后存在大面积无信号的纯黑背景区，该区域灰度变化完全由噪声决定 → 统计该 ROI 可精准估计全局噪声参数（高斯估计误差 &lt; 5%，椒盐估计误差 &lt; 1%）</li>
-<li><strong>NLM 的非局部优势</strong>：对高斯噪声，NLM 利用脑组织自相似性搜索相似块做加权平均，在抑制斑驳噪声的同时保护脑沟回锐利边界——优于传统高斯滤波（后者会模糊皮层边缘）</li>
-<li><strong>中值滤波对椒盐噪声的优越性</strong>：非线性排序后，极端灰度值（纯黑/纯白椒盐点）自然被排到两端丢弃 → 去噪同时保边缘。但窗口过大时会产生块状伪影和微细纹理的过度平滑</li>
-<li><strong>估计偏差的教训</strong>：若不对前景和背景做合理区分，高亮度解剖结构像素极易被误判为"盐"噪声，导致密度估计严重偏高</li>
 </ul>
 <hr />
 <h2 id="_6">历年卷解答</h2>
