@@ -8904,8 +8904,8 @@ D = \sum_{k=1}^{K} \sum_{\mathbf{x}_i \in C_k} \|\mathbf{x}_i - \mathbf{m}_k\|^2
 </tr>
 <tr>
 <td><strong>3. 更新中心</strong></td>
-<td>$\mathbf{m}_k^{(ic+1)} = \frac{1}{</td>
-<td>C_k</td>
+<td><span class="arithmatex">\(\mathbf{m}_k^{(ic+1)} = \frac{1}{\lvert C_k \rvert} \sum_{\mathbf{x} \in C_k} \mathbf{x}\)</span></td>
+<td>新中心 = 当前聚类所有样本的均值</td>
 </tr>
 <tr>
 <td><strong>4. 检查收敛</strong></td>
