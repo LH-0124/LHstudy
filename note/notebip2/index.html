@@ -7987,7 +7987,8 @@
 <h3 id="23-2-d-rigid-body-transform">2.3 2-D 刚体变换（Rigid-body Transform）</h3>
 <div class="arithmatex">\[M = \begin{bmatrix} \cos\theta &amp; -\sin\theta &amp; t_x \\ \sin\theta &amp; \cos\theta &amp; t_y \\ 0 &amp; 0 &amp; 1 \end{bmatrix}\]</div>
 <ul>
-<li>只有 3 个自由度（<span class="arithmatex">\(\theta, t_x, t_y\)</span>）</li>
+<li>只有 3 个自由度（<span class="arithmatex">\(\theta, t_x, t_y\)</span>​）</li>
+<li><span class="arithmatex">\(\theta\)</span>为逆时针旋转的角度</li>
 <li><strong>旋转角度 <span class="arithmatex">\(\theta\)</span> 的确定</strong>：需要 <span class="arithmatex">\(\sin\theta\)</span> 和 <span class="arithmatex">\(\cos\theta\)</span> 两个参数才能唯一确定角度，否则存在两个解</li>
 </ul>
 <div class="admonition note">
@@ -8210,7 +8211,6 @@ p(r_k) = \frac{n_k}{N}, \quad N = \sum_{k=0}^{L-1} n_k
 <li><strong>增大动态范围</strong>：充分利用全部可用灰度级，避免灰度级浪费</li>
 <li><strong>增强对比度</strong>：使原本灰度相近的像素被拉开，细节更易分辨</li>
 <li><strong>便于后续处理</strong>：均衡化后的图像具有更稳定的统计特性，有利于后续的分割、特征提取等任务</li>
-<li><strong>自动增强</strong>：无需人工设定参数，变换函数完全由图像自身的累积分布函数（CDF）决定</li>
 </ul>
 <p><strong>目标</strong>：设计 <span class="arithmatex">\(s = T(r)\)</span>，使输出图像的直方图 <span class="arithmatex">\(p_s(s)\)</span> 为<strong>均匀分布</strong>（<span class="arithmatex">\(p_s(s) = \frac{1}{L-1}\)</span>）。</p>
 <h3 id="52">5.2 连续情况</h3>
@@ -8222,8 +8222,8 @@ s = T(r) = (L-1) \int_0^r p_r(w) \, dw
 <div class="arithmatex">\[
 s_k = T(r_k) = (L-1) \sum_{j=0}^{k} p_r(r_j) = \frac{L-1}{N} \sum_{j=0}^{k} n_j
 \]</div>
-<p><strong>步骤</strong>：
-1.统计各灰度级的像素数 <span class="arithmatex">\(n_k\)</span>​</p>
+<p><strong>步骤</strong>：</p>
+<p>1.统计各灰度级的像素数 <span class="arithmatex">\(n_k\)</span>​​</p>
 <p>2.计算概率 <span class="arithmatex">\(p(r_k) = n_k / N\)</span></p>
 <p>3.计算累积概率 CDF</p>
 <p>4.乘以 <span class="arithmatex">\((L-1)\)</span> 并<strong>四舍五入取整</strong>得到映射值 <span class="arithmatex">\(s_k\)</span></p>
@@ -8518,7 +8518,7 @@ s_k = T(r_k) = (L-1) \sum_{j=0}^{k} p_r(r_j) = \frac{L-1}{N} \sum_{j=0}^{k} n_j
 <tr>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">4</td>
-<td style="text-align: center;"><span class="arithmatex">\(G(3)=3\)</span> vs <span class="arithmatex">\(G(4)=5\)</span>，平局选小 → <strong>3</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(G(3)=3\)</span> ，<span class="arithmatex">\(G(4)=5\)</span>，选小 → <strong>3</strong></td>
 <td style="text-align: center;"><strong>3</strong></td>
 </tr>
 <tr>
@@ -8542,7 +8542,7 @@ s_k = T(r_k) = (L-1) \sum_{j=0}^{k} p_r(r_j) = \frac{L-1}{N} \sum_{j=0}^{k} n_j
 <tr>
 <td style="text-align: center;">5</td>
 <td style="text-align: center;">7</td>
-<td style="text-align: center;"><span class="arithmatex">\(G(6)=7\)</span>, <span class="arithmatex">\(G(7)=7\)</span>，平局选小 → <strong>6</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(G(6)=7\)</span>, <span class="arithmatex">\(G(7)=7\)</span>，选小 → <strong>6</strong></td>
 <td style="text-align: center;"><strong>6</strong></td>
 </tr>
 <tr>
