@@ -5826,23 +5826,8 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      课后作业
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="课后作业">
-      <ul class="md-nav__list">
-        
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       腐蚀与膨胀矩阵计算
     </span>
@@ -5856,7 +5841,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       实验
     </span>
@@ -5866,7 +5851,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       实验内容
     </span>
@@ -5875,7 +5860,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       实验原理
     </span>
@@ -5889,7 +5874,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       历年卷解答
     </span>
@@ -7466,23 +7451,8 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      课后作业
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="课后作业">
-      <ul class="md-nav__list">
-        
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       腐蚀与膨胀矩阵计算
     </span>
@@ -7496,7 +7466,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       实验
     </span>
@@ -7506,7 +7476,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       实验内容
     </span>
@@ -7515,7 +7485,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       实验原理
     </span>
@@ -7529,7 +7499,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       历年卷解答
     </span>
@@ -7738,7 +7708,7 @@
 <p><strong>结构元素（SE）</strong> 类似于卷积核：</p>
 <ul>
 <li>SE 有<strong>定义好的形状和大小</strong>（如圆形、方形、十字形等）</li>
-<li>SE 中的 "x" 表示<strong>不关心该位置的值</strong>（don't care）</li>
+<li>SE 中的 "x" 表示<strong>不关心该位置的值</strong></li>
 <li>SE 通常比被处理图像小得多</li>
 <li>SE 在图像上<strong>逐像素平移</strong>，每次检查 SE 与原图的<strong>集合关系</strong></li>
 </ul>
@@ -7826,14 +7796,14 @@ A \oplus B = \{z \mid (\hat{B})_z \cap A \neq \varnothing\}
 <hr />
 <h2 id="opening-and-closing">五、开操作与闭操作（Opening and Closing）</h2>
 <h3 id="51">5.1 定义</h3>
-<p><strong>开操作（Opening）</strong>：先腐蚀，后膨胀：
+<p><strong>开操作（Opening）</strong>：先腐蚀，后膨胀
 $$
 A \circ B = (A \ominus B) \oplus B
 $$</p>
-<p><strong>闭操作（Closing）</strong>：先膨胀，后腐蚀：</p>
-<div class="arithmatex">\[
+<p><strong>闭操作（Closing）</strong>：先膨胀，后腐蚀
+$$
 A \bullet B = (A \oplus B) \ominus B
-\]</div>
+$$</p>
 <h3 id="52">5.2 效果对比</h3>
 <p>开运算（Opening）在图像处理中其底层逻辑是先腐蚀后膨胀。它的主要作用是<strong>消除图像中的明亮小噪点、断开物体之间细长的粘连部分，并平滑物体的外轮廓。</strong></p>
 <p>闭运算（Closing）则像是一种其底层逻辑与开运算刚好相反，是先膨胀后腐蚀。它的核心作用是<strong>填补物体内部的暗色小孔洞、弥合断裂的狭窄缝隙，以及将距离极近的相邻碎块连接成一个完整的整体。</strong></p>
@@ -7980,10 +7950,12 @@ $$</p>
 <div class="arithmatex">\[
 A \otimes B = (A \ominus B_1) \cap (A^c \ominus B_2)
 \]</div>
-<p><strong>解释</strong>：
-- <span class="arithmatex">\(A \ominus B_1\)</span>：找到所有 <span class="arithmatex">\(B_1\)</span>（前景）能完全放入的位置
-- <span class="arithmatex">\(A^c \ominus B_2\)</span>：找到所有 <span class="arithmatex">\(B_2\)</span>（背景）能完全放入补集的位置
-- 两者取交集 → 精确匹配完整形状（前景 + 背景）的像素位置</p>
+<p><strong>解释</strong>：</p>
+<ul>
+<li><span class="arithmatex">\(A \ominus B_1\)</span>：找到所有 <span class="arithmatex">\(B_1\)</span>（前景）能完全放入的位置</li>
+<li><span class="arithmatex">\(A^c \ominus B_2\)</span>：找到所有 <span class="arithmatex">\(B_2\)</span>（背景）能完全放入补集的位置</li>
+<li>两者取交集 → 精确匹配完整形状（前景 + 背景）的像素位置</li>
+</ul>
 <hr />
 <h2 id="basic-morphological-algorithms">八、基本形态学算法（Basic Morphological Algorithms）</h2>
 <h3 id="81-boundary-extraction">8.1 边界提取（Boundary Extraction）</h3>
@@ -8152,20 +8124,14 @@ f \bullet b = (f \oplus b) \ominus b
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
-<li><strong>腐蚀和膨胀的定义与计算</strong>：给定图像矩阵和 SE，能正确计算腐蚀/膨胀结果<ul>
+<li><strong>腐蚀和膨胀的定义与计算</strong>：给定图像矩阵和 SE，能正确计算腐蚀/膨胀结果</li>
 <li><strong>开操作与闭操作的定义、原理和应用场景</strong>：能举例说明分别解决什么问题</li>
 <li><strong>对偶性</strong>：理解腐蚀-膨胀、开-闭之间的对偶关系</li>
 <li><strong>幂等性</strong>：开/闭操作执行一次即达到稳态，不同于线性滤波</li>
 </ul>
-</li>
-</ul>
 </div>
 <hr />
-<h2 id="_4">课后作业</h2>
-<blockquote>
-<p>本章无独立的课后作业。</p>
-</blockquote>
-<h3 id="_5">腐蚀与膨胀矩阵计算</h3>
+<h3 id="_4">腐蚀与膨胀矩阵计算</h3>
 <p>给定 <span class="arithmatex">\(5 \times 5\)</span> 的二值图像 <span class="arithmatex">\(A\)</span> 和结构元素 <span class="arithmatex">\(B\)</span>（原点为 SE 的中心 <span class="arithmatex">\((2,2)\)</span> 位置，即第二行第二列），请分别计算：</p>
 <ol>
 <li><span class="arithmatex">\(A \ominus B\)</span>（腐蚀）</li>
@@ -8229,9 +8195,9 @@ A \oplus B = \begin{bmatrix}
 - 膨胀 + 腐蚀（先膨胀再腐蚀）= 闭操作：会填补小的 <span class="arithmatex">\(0\)</span> 区域</p>
 </div>
 <hr />
-<h2 id="_6">实验</h2>
+<h2 id="_5">实验</h2>
 <p>实验4-project2</p>
-<h3 id="_7">实验内容</h3>
+<h3 id="_6">实验内容</h3>
 <p>本实验使用数学形态学操作对含噪声的脑部二值掩膜进行修复，并与标准掩膜（Ground Truth）进行对比评估：</p>
 <ul>
 <li><strong>读取数据</strong>：导入 noisy_brain_mask.npy（含噪声掩膜）、brain_tissue_mask_slice.npy（标准掩膜）、original_brain_slice_.npy（原始脑切片）、brain_tissue_slice.npy（标准脑组织切片）</li>
@@ -8239,7 +8205,7 @@ A \oplus B = \begin{bmatrix}
 <li><strong>缺陷检查</strong>：将修复结果与 Ground Truth 对比，分析假阳性（FP）和假阴性（FN）分布</li>
 <li><strong>脑实质提取</strong>：使用修复后的掩膜从原图中提取脑实质</li>
 </ul>
-<h3 id="_8">实验原理</h3>
+<h3 id="_7">实验原理</h3>
 <p>形态学修复基于两个核心操作：</p>
 <p><strong>(1) 开运算（Opening）— 去除外部伪影</strong></p>
 <p>对含噪掩膜做开运算（先腐蚀后膨胀），本质是通过腐蚀"切断"大脑外部的细小头骨线，再通过膨胀恢复大脑主体的尺寸。</p>
@@ -8247,7 +8213,7 @@ A \oplus B = \begin{bmatrix}
 <p><strong>(2) 闭运算（Closing）— 填补内部孔洞</strong></p>
 <p>对开运算结果做闭运算（先膨胀后腐蚀），通过膨胀"填上"脑实质内部的细小孔洞，再通过腐蚀恢复边界位置。</p>
 <hr />
-<h2 id="_9">历年卷解答</h2>
+<h2 id="_8">历年卷解答</h2>
 <h3 id="2022">一、腐蚀计算（2022 大题）</h3>
 <p><strong>知识点定位</strong>：形态学 — 二值腐蚀</p>
 <p><strong>题目</strong>：给一个图像矩阵和结构，做腐蚀（计算）。</p>
