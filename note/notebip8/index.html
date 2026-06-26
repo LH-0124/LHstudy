@@ -8918,11 +8918,13 @@ D = \sum_{k=1}^{K} \sum_{\mathbf{x}_i \in C_k} \|\mathbf{x}_i - \mathbf{m}_k\|^2
 <h4 id="623-k">6.2.3 K 值的选择</h4>
 <p>K-means 必须事先指定 <span class="arithmatex">\(K\)</span>，而最优 <span class="arithmatex">\(K\)</span> 往往未知。常用两种方法：</p>
 <p><strong>（1）L 曲线法（Elbow Method / L-Curve）</strong></p>
-<p>绘制类内平方误差和 <span class="arithmatex">\(D\)</span> 随 <span class="arithmatex">\(K\)</span> 的变化曲线：
-- <span class="arithmatex">\(D\)</span> 随 <span class="arithmatex">\(K\)</span> 增大单调递减（聚类越多，每个聚类越小，类内误差自然越小）
-- 寻找曲线的<strong>"肘部"（Elbow Point）</strong>——下降速率由快变慢的转折点
-- 肘部对应的 <span class="arithmatex">\(K\)</span> 被认为是最优聚类数
-- 若曲线平滑无明显肘部，则 L 曲线法不适用</p>
+<p>绘制类内平方误差和 <span class="arithmatex">\(D\)</span> 随 <span class="arithmatex">\(K\)</span> 的变化曲线：</p>
+<ul>
+<li><span class="arithmatex">\(D\)</span> 随 <span class="arithmatex">\(K\)</span> 增大单调递减（聚类越多，每个聚类越小，类内误差自然越小）</li>
+<li>寻找曲线的<strong>"肘部"（Elbow Point）</strong>——下降速率由快变慢的转折点</li>
+<li>肘部对应的 <span class="arithmatex">\(K\)</span> 被认为是最优聚类数</li>
+<li>若曲线平滑无明显肘部，则 L 曲线法不适用</li>
+</ul>
 <p><strong>（2）轮廓分析（Silhouette Analysis）</strong></p>
 <p>对每个样本 <span class="arithmatex">\(\mathbf{x}_i\)</span> 定义<strong>轮廓系数（Silhouette Coefficient）</strong>：</p>
 <div class="arithmatex">\[
@@ -9380,7 +9382,7 @@ $$</p>
 </ol>
 <p><strong>缺点</strong>：</p>
 <ol>
-<li><strong>对噪声极度敏感——原始算法几乎总会过分割</strong>：噪声产生大量虚假局部极小值 → 产生数百甚至数千个微小无意义区域，直接使用完全不可行</li>
+<li><strong>对噪声极度敏感——原始算法几乎总会过分割</strong>：噪声产生大量虚假局部极小值 → 产生数百甚至数千个微小无意义区域，直接使用完全不可行，会发生<strong>过分割</strong></li>
 <li><strong>必须依赖标记提取来控制过分割</strong>：标记控制的预处理步骤（阈值、形态学、距离变换等）显著增加了整体流程的复杂度和调参负担</li>
 <li><strong>标记质量直接决定分割质量</strong>：标记缺失 → 目标被邻近区域吞并；标记包含背景 → 产生虚假目标；质量无法保证</li>
 <li><strong>对纹理丰富区域极为不利</strong>：纹理的灰度波动产生密集的伪极小值，标记提取极为困难</li>
@@ -9415,7 +9417,7 @@ $$</p>
 <li><strong>仅收敛到局部最优</strong>：<span class="arithmatex">\(D\)</span> 非凸，梯度下降式迭代不保证全局最小值</li>
 <li><strong>类别不平衡时表现差</strong>：小聚类被大聚类"淹没"，聚类中心向大聚类靠拢</li>
 <li><strong>完全不考虑空间邻域信息——在图像分割中最致命的缺点</strong>：聚类结果在空间上可能是<strong>碎片化</strong>的——同一聚类标签的像素散布在图像各处，缺乏空间连续性（例如肝脏和脾脏在 CT 中灰度相似，仅靠灰度无法区分）</li>
-<li><strong>硬分配（Hard Assignment）无法表达部分体积效应</strong>：边界像素被强制分配给某一聚类，在医学图像中处理组织过渡时尤其不理想</li>
+<li><strong>硬分配无法表达部分体积效应</strong>：边界像素被强制分配给某一聚类，在医学图像中处理组织过渡时尤其不理想</li>
 </ol>
 <h4 id="752-slic-slic-superpixel">7.5.2 SLIC 超像素（SLIC Superpixel）</h4>
 <p><strong>优点</strong>：</p>
@@ -9796,7 +9798,7 @@ E = \begin{bmatrix}
 <p><strong>(1) 阈值分割与直方图的联系</strong>：</p>
 <p>阈值分割<strong>直接依赖于图像的灰度直方图</strong>。直方图的形状决定了阈值分割是否可行：</p>
 <ul>
-<li>直方图呈现<strong>明显的双峰</strong>（Bimodal）且有<strong>深谷</strong> → 阈值分割效果好（谷底即为最优阈值）</li>
+<li>直方图呈现<strong>明显的双峰</strong>且有<strong>深谷</strong> → 阈值分割效果好（谷底即为最优阈值）</li>
 <li>直方图呈现<strong>单峰</strong> → 目标和背景灰度重叠严重 → 单一阈值无法有效分割</li>
 <li>噪声使峰变宽、谷变浅 → 阈值选择困难</li>
 <li>目标和背景面积比悬殊 → 直方图中较小的峰可能被淹没</li>
