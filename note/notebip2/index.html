@@ -8702,8 +8702,8 @@ s_k = T(r_k) = (L-1) \sum_{j=0}^{k} p_r(r_j) = \frac{L-1}{N} \sum_{j=0}^{k} n_j
 </table>
 <p><strong>涉及原理</strong>：</p>
 <ul>
-<li><strong>二阶微分（Laplacian）的"过度敏感"</strong>：核对灰度突变极其敏感，能抓取微细纹理，但同时也将背景高频噪声急剧放大——直接使用会导致画面被"雪花噪声"淹没，丧失临床价值</li>
-<li><strong>一阶微分（Sobel）的"迟钝即优势"</strong>：Sobel 中心权重加倍（2 和 -2）提供内置平滑，只对粗壮真实结构边缘有强响应，恰好弥补 Laplacian 的过度敏感</li>
+<li><strong>二阶微分（Laplacian）的过度敏感</strong>：拉普拉斯核对灰度突变极其敏感，能抓取微细纹理，但同时也将背景高频噪声急剧放大——直接使用会导致画面被"雪花噪声"淹没，丧失临床价值</li>
+<li><strong>一阶微分（Sobel）</strong>：Sobel 中心权重加倍（2 和 -2）提供内置平滑，只对粗壮真实结构边缘有强响应，恰好弥补 Laplacian 的过度敏感</li>
 <li><strong>设计哲学</strong>：利用一阶微分（Sobel）的抗噪性，制作平滑权重掩膜去<strong>约束和过滤</strong>二阶微分（Laplacian）的噪声——不同数学工具的优势互补、化解矛盾</li>
 <li><strong>复合管线的医学意义</strong>：最终输出在大幅提升骨骼锐度的同时，完美维持软组织背景的纯净与平滑，具备临床诊断价值</li>
 </ul>
@@ -8808,10 +8808,12 @@ s_k = T(r_k) = (L-1) \sum_{j=0}^{k} p_r(r_j) = \frac{L-1}{N} \sum_{j=0}^{k} n_j
 <p><strong>答案</strong>：</p>
 <p><strong>对比度 — 增大</strong>：直方图均衡化将灰度级拉伸到整个 <span class="arithmatex">\([0, L-1]\)</span> 范围，使得像素灰度分布更加均匀，灰度动态范围被充分利用。因此<strong>对比度总体上增大</strong>。</p>
 <p><strong>亮度 — 可能改变</strong>：均衡化后图像的均值会发生改变。若原图中大量像素集中在低灰度（暗图），均衡化后暗区被拉伸，均值可能向右移动（变亮）；反之则可能向左移动。<strong>亮度变化方向取决于原图的灰度分布</strong>。</p>
-<p><strong>总结</strong>：
-- 均衡化<strong>一定增大对比度</strong>（灰度分布被拉宽）
-- 均衡化<strong>亮度不保证不变</strong>（均值可能漂移）
-- 均衡化后直方图并非完美平坦（离散情况下是近似均匀）</p>
+<p><strong>总结</strong>：</p>
+<ul>
+<li>均衡化<strong>一定增大对比度</strong>（灰度分布被拉宽）</li>
+<li>均衡化<strong>亮度不保证不变</strong>（均值可能漂移）</li>
+<li>均衡化后直方图并非完美平坦（离散情况下是近似均匀）</li>
+</ul>
 <hr />
 <h3 id="2022">五、图像灰度方差较大反映了什么（2022）</h3>
 <p><strong>知识点定位</strong>：直方图统计量</p>
