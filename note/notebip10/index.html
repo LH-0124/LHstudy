@@ -8208,11 +8208,6 @@ E = C - H
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center;"><span class="arithmatex">\(\mu_1\)</span></td>
-<td>一阶矩</td>
-<td>恒为 0（均值定义）</td>
-</tr>
-<tr>
 <td style="text-align: center;"><span class="arithmatex">\(\mu_2\)</span></td>
 <td>方差（Variance）</td>
 <td>对比度 / 灰度分散程度</td>
@@ -8236,7 +8231,7 @@ E = C - H
 <ul>
 <li><strong>偏度</strong> <span class="arithmatex">\(&gt;0\)</span>：分布右偏（长尾在右侧，大多数像素偏暗但少数高亮）</li>
 <li><strong>偏度</strong> <span class="arithmatex">\(&lt;0\)</span>：分布左偏（长尾在左侧）</li>
-<li><strong>峰度</strong> 大：数据在尾部/离群值较多；峰度小：数据分布较为平缓</li>
+<li>峰度大：数据在尾部/离群值较多；峰度小：数据分布较为平缓</li>
 </ul>
 <h3 id="34-smoothness">3.4 平滑度（Smoothness）</h3>
 <div class="arithmatex">\[
@@ -8992,11 +8987,13 @@ P_2 = \frac{M_2}{15} = \begin{bmatrix} 0 &amp; 0 &amp; 0.2 \\ 0 &amp; 7/15 &amp;
 <p><strong>启示</strong>：精准的 ROI 提取是防止背景干扰、获取有效特征的<strong>绝对前提</strong>。全图在模糊过程中还会发生组织与背景之间的<strong>灰度扩散渗透</strong>，导致一致性不升反降——这是宏观边界效应。</p>
 <hr />
 <h3 id="project-3glcm">Project 3：GLCM 纹理分析与采样步长</h3>
-<p><strong>实验内容</strong>：
-1. 将肿瘤 ROI 量化到 16 个灰度级
-2. 计算 10 个不同采样步长（<span class="arithmatex">\(d = 1, 2, 3, 5, 8, 12, 15, 20, 25, 30\)</span>）下水平方向的 GLCM
-3. 提取对比度（Contrast）、同质性（Homogeneity）、能量（Energy）随 <span class="arithmatex">\(d\)</span> 的变化曲线
-4. 可视化 <span class="arithmatex">\(d=1\)</span> 和 <span class="arithmatex">\(d=15\)</span> 的 256 级原图 GLCM 矩阵（对数变换增强显示）</p>
+<p><strong>实验内容</strong>：</p>
+<ol>
+<li>将肿瘤 ROI 量化到 16 个灰度级</li>
+<li>计算 10 个不同采样步长（<span class="arithmatex">\(d = 1, 2, 3, 5, 8, 12, 15, 20, 25, 30\)</span>）下水平方向的 GLCM</li>
+<li>提取对比度（Contrast）、同质性（Homogeneity）、能量（Energy）随 <span class="arithmatex">\(d\)</span> 的变化曲线</li>
+<li>可视化 <span class="arithmatex">\(d=1\)</span> 和 <span class="arithmatex">\(d=15\)</span> 的 256 级原图 GLCM 矩阵（对数变换增强显示）</li>
+</ol>
 <p><strong>实验原理</strong>：</p>
 <ol>
 <li><strong>灰度量化</strong>：将 256 级降为 16 级，使统计更集中、特征更具代表性</li>

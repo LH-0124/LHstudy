@@ -8303,28 +8303,38 @@ p(z) = \begin{cases} \frac{2}{b}(z - a) e^{-(z-a)^2/b}, &amp; z \geq a \\ 0, &am
 p(z) = \begin{cases} \frac{a^b z^{b-1}}{(b-1)!} e^{-az}, &amp; z \geq 0 \\ 0, &amp; z &lt; 0 \end{cases}
 \]</div>
 <p>均值 <span class="arithmatex">\(\mu = b/a\)</span>，方差 <span class="arithmatex">\(\sigma^2 = b/a^2\)</span>​</p>
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0623/zl1bm0l5.webp" /></p>
 <h4 id="4exponential-noise">（4）指数噪声（Exponential Noise）</h4>
 <p>伽马噪声的特例（<span class="arithmatex">\(b=1\)</span>）：</p>
 <div class="arithmatex">\[
 p(z) = \begin{cases} a e^{-az}, &amp; z \geq 0 \\ 0, &amp; z &lt; 0 \end{cases}
 \]</div>
-<p>均值 <span class="arithmatex">\(\mu = 1/a\)</span>，方差 <span class="arithmatex">\(\sigma^2 = 1/a^2\)</span></p>
+<p>均值 <span class="arithmatex">\(\mu = 1/a\)</span>，方差 <span class="arithmatex">\(\sigma^2 = 1/a^2\)</span>​</p>
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0623/zxp3ftyv.webp" /></p>
 <h4 id="5uniform-noise">（5）均匀噪声（Uniform Noise）</h4>
 <p>量化噪声：</p>
 <div class="arithmatex">\[
 p(z) = \begin{cases} \frac{1}{b-a}, &amp; a \leq z \leq b \\ 0, &amp; \text{其他} \end{cases}
 \]</div>
 <p>均值 <span class="arithmatex">\(\mu = (a+b)/2\)</span>，方差 <span class="arithmatex">\(\sigma^2 = (b-a)^2/12\)</span>​</p>
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0623/cho5ayo2.webp" /></p>
 <h4 id="6salt-and-pepper-noise">（6）椒盐噪声（Salt-and-Pepper Noise）</h4>
 <p>又称<strong>脉冲噪声（Impulse Noise）</strong>：</p>
 <div class="arithmatex">\[
 p(z) = \begin{cases} P_s, &amp; z = 2^k - 1 \; (\text{盐——白点}) \\ P_p, &amp; z = 0 \; (\text{椒——黑点}) \\ 1 - (P_s + P_p), &amp; z = V \end{cases}
 \]</div>
 <ul>
-<li>来源：模数转换器错误、传输误码、传感器故障</li>
-<li>双极脉冲噪声：<span class="arithmatex">\(P_s \approx P_p\)</span>（黑白噪点等概率）</li>
-<li>单极脉冲噪声：<span class="arithmatex">\(P_s \neq P_p\)</span></li>
+<li>
+<p>来源：模数转换器错误、传输误码、传感器故障</p>
+</li>
+<li>
+<p>双极脉冲噪声：<span class="arithmatex">\(P_s \approx P_p\)</span>（黑白噪点等概率）</p>
+</li>
+<li>
+<p>单极脉冲噪声：<span class="arithmatex">\(P_s \neq P_p\)</span>​</p>
+</li>
 </ul>
+<p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0623/kwgxnxne.webp" /></p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0614/jgneolu5.webp" /></p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0614/qm2e15l0.webp" /></p>
 <h3 id="23-periodic-noise">2.3 周期性噪声（Periodic Noise）</h3>

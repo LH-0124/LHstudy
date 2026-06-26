@@ -8415,7 +8415,7 @@
 </table>
 <hr />
 <h4 id="5x-gamma">题 5：X 射线成像——选择合适的 Gamma 变换</h4>
-<p><strong>答案</strong>：<span class="arithmatex">\(r &lt; 1\)</span>（对暗区域对比度提升）</p>
+<p><strong>答案</strong>：<span class="arithmatex">\(\gamma &lt; 1\)</span>（对暗区域对比度提升）</p>
 <p><strong>解析</strong>：X 射线成像中，高信号区域（亮区）对比度好，低信号区域（暗区）太暗且对比度差。Gamma 变换 <span class="arithmatex">\(s = cr^\gamma\)</span>：</p>
 <ul>
 <li><span class="arithmatex">\(\gamma &lt; 1\)</span>：拉伸暗区，压缩亮区 → 提升暗区域对比度</li>
@@ -8615,10 +8615,6 @@ A \ominus B = \{z \mid (B)_z \subseteq A\}
 <p>统计两个矩阵在对应位置 <span class="arithmatex">\((x, y)\)</span> 上灰度值对出现的频数，填入二维直方图。</p>
 <hr />
 <h4 id="6_1">题 6：人工智能</h4>
-<div class="admonition note">
-<p class="admonition-title">说明</p>
-<p>本大题（6.人工智能）的详细解答已整合在 <a href="../notebip11/">notebip11.md</a> 第八节「历年卷解答」中，请参见该笔记的 <strong>8.6 节</strong>。此处仅做要点概述。</p>
-</div>
 <p><strong>(1) 相比传统方法（如 Otsu），CNN 在分割任务中的优势</strong></p>
 <table>
 <thead>
@@ -8656,7 +8652,6 @@ A \ominus B = \{z \mid (B)_z \subseteq A\}
 </tr>
 </tbody>
 </table>
-<p>详见 <a href="../notebip11/">notebip11.md §8.6.1</a>。</p>
 <p><strong>(2) CNN 与 U-Net 的结构区别，Skip Connection 的作用</strong></p>
 <table>
 <thead>
@@ -8690,7 +8685,6 @@ A \ominus B = \{z \mid (B)_z \subseteq A\}
 </tbody>
 </table>
 <p><strong>Skip Connection 的作用</strong>：将编码器低层的精确空间信息（边界位置）与解码器高层的语义信息（"这是什么组织"）融合 → 分割边界更精确。</p>
-<p>详见 <a href="../notebip11/">notebip11.md §8.6.2</a>。</p>
 <hr />
 <h2 id="2021">二、2021 年真题解答</h2>
 <h3 id="21-2-10">2.1 选择题（每题 2 分，共 10 题）</h3>
