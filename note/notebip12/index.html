@@ -8414,12 +8414,12 @@
 <p><strong>答案</strong>：<span class="arithmatex">\(a_{11}\)</span> 和 <span class="arithmatex">\(a_{21}\)</span>（选项 C）</p>
 <p><strong>解析</strong>：2D 旋转矩阵为：</p>
 <div class="arithmatex">\[
-\begin{bmatrix} a_{11} &amp; a_{12} &amp; 0 \\ a_{21} &amp; a_{22} &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix} = \begin{bmatrix} \cos\theta &amp; \sin\theta &amp; 0 \\ -\sin\theta &amp; \cos\theta &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}
+\begin{bmatrix} a_{11} &amp; a_{12} &amp; 0 \\ a_{21} &amp; a_{22} &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix} = \begin{bmatrix} \cos\theta &amp; -\sin\theta &amp; 0 \\ \sin\theta &amp; \cos\theta &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}
 \]</div>
 <ul>
 <li>仅用 <span class="arithmatex">\(a_{11} = \cos\theta\)</span> 无法唯一确定 <span class="arithmatex">\(\theta\)</span>（<span class="arithmatex">\(\cos\theta = c\)</span> 有两个解：<span class="arithmatex">\(\theta\)</span> 和 <span class="arithmatex">\(-\theta\)</span>）</li>
 <li>仅用 <span class="arithmatex">\(a_{12} = \sin\theta\)</span> 同样有两个解</li>
-<li>同时用 <span class="arithmatex">\(a_{11} = \cos\theta\)</span> 和 <span class="arithmatex">\(a_{21} = -\sin\theta\)</span>（即 <span class="arithmatex">\(\cos\)</span> 和 <span class="arithmatex">\(\sin\)</span> 两个参数），可唯一确定角度：<span class="arithmatex">\(\theta = \text{atan2}(-a_{21}, a_{11})\)</span></li>
+<li>同时用 <span class="arithmatex">\(a_{11} = \cos\theta\)</span> 和 <span class="arithmatex">\(a_{21} = \sin\theta\)</span>（即 <span class="arithmatex">\(\cos\)</span> 和 <span class="arithmatex">\(\sin\)</span> 两个参数），可唯一确定角度：<span class="arithmatex">\(\theta = \text{arctan}(\frac{a_{21}}{a_{11}})\)</span></li>
 </ul>
 <hr />
 <h4 id="8">题 8：分水岭算法可能遇到的问题</h4>
@@ -8574,9 +8574,11 @@ A \ominus B = \{z \mid (B)_z \subseteq A\}
 \]</div>
 <p>其中 <span class="arithmatex">\(K = S_n(u,v) / S_f(u,v)\)</span>（噪声功率谱 / 信号功率谱之比）。</p>
 <p><strong>原理</strong>：在逆滤波基础上，引入信噪比约束——在 <span class="arithmatex">\(H(u,v)\)</span> 小的频率处，滤波器增益自动降低，避免噪声放大。本质是最小化复原图像与原始图像之间的均方误差。</p>
-<p><strong>比逆滤波好的原因</strong>：
-- 在 <span class="arithmatex">\(H(u,v) \approx 0\)</span> 时不放大噪声（分母有 <span class="arithmatex">\(K\)</span> 项保护）
-- 考虑了噪声的存在，利用信号和噪声的功率谱信息做最优权衡</p>
+<p><strong>比逆滤波好的原因</strong>：</p>
+<ul>
+<li>在 <span class="arithmatex">\(H(u,v) \approx 0\)</span> 时不放大噪声（分母有 <span class="arithmatex">\(K\)</span> 项保护）</li>
+<li>考虑了噪声的存在，利用信号和噪声的功率谱信息做最优权衡</li>
+</ul>
 <hr />
 <h4 id="4segmentation">题 4：分割（Segmentation）</h4>
 <p><strong>(1) 使用边缘检测算子 <span class="arithmatex">\([-1, 1]\)</span> 做卷积</strong></p>
@@ -8794,8 +8796,7 @@ A \ominus B = \{z \mid (B)_z \subseteq A\}
 <p><strong>解析</strong>：直方图均衡化的<strong>主要目的</strong>就是改变（提升）对比度。通过拉伸灰度分布使其更加均匀，增强图像的对比度。均衡化也会改变图像的整体亮度（均值向中间灰度偏移）。</p>
 <hr />
 <h4 id="3otsu">题 3：Otsu 是自适应阈值</h4>
-<p><strong>答案</strong>：正确</p>
-<p><strong>解析</strong>：Otsu（大津法）根据图像的灰度直方图<strong>自动确定</strong>最佳阈值——最大化类间方差。阈值是数据驱动的，无需人工设定，因此属于自适应阈值法。</p>
+<p><strong>答案</strong>：错误，大津法是全局阈值分割</p>
 <hr />
 <h4 id="4canny">题 4：Canny 相关</h4>
 <p><strong>解析</strong>：Canny 边缘检测的步骤：高斯平滑 → 梯度计算 → 非极大值抑制 → 双阈值检测 + 滞后边界跟踪。可能考察其中某一步骤的说法是否正确。</p>
@@ -8898,7 +8899,7 @@ $$</p>
 <tr>
 <td>公式</td>
 <td><span class="arithmatex">\(\hat{F} = G/H\)</span></td>
-<td>$\hat{F} = \frac{H^*}{</td>
+<td><span class="arithmatex">\(\hat{F} = \frac{H^*}{\lvert H \rvert ^2 + S_\eta/S_f} G\)</span></td>
 </tr>
 <tr>
 <td>噪声处理</td>
@@ -8998,7 +8999,7 @@ W(s) = \frac{1}{1 + S_\eta(s)/S_f(s)}
 <ol>
 <li><strong>可微（Differentiable）</strong></li>
 <li><strong>可逆（Invertible）</strong></li>
-<li><strong>逆映射也可微（Smooth Inverse）</strong></li>
+<li><strong>一一映射</strong></li>
 </ol>
 <p>选项中不属于这三个之一的就是答案。</p>
 <hr />
