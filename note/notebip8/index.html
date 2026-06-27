@@ -8723,9 +8723,7 @@ g(x,y) = \begin{cases} 0, &amp; f(x,y) \leq T_1 \\ 1, &amp; T_1 &lt; f(x,y) \leq
 <li>
 <p><strong>分类处理</strong>：</p>
 </li>
-<li>
-<p>灰度方差 <span class="arithmatex">\(&lt; T_1\)</span> 的子图像：不包含目标边界 → 合并后统一处理</p>
-</li>
+<li>灰度方差 <span class="arithmatex">\(&lt; T_1\)</span> 的子图像：不包含目标边界 → 合并后统一处理</li>
 <li>
 <p>灰度方差 <span class="arithmatex">\(&gt; T_2\)</span> 的子图像：包含目标边界 → 独立阈值处理</p>
 </li>
@@ -9805,18 +9803,22 @@ E = \begin{bmatrix}
 </ul>
 <p>阈值分割的本质是<strong>在直方图中寻找一个最优的分界点</strong>。</p>
 <p><strong>(2) Otsu 方法的优点和关键步骤</strong>：</p>
-<p><strong>优点</strong>：
-- <strong>全自动</strong>：无需人工设定阈值或初始值
-- <strong>数学严谨</strong>：基于最大化类间方差，具有统计学上的最优性
-- <strong>适应性广</strong>：对直方图呈双峰的图像效果极佳</p>
-<p><strong>关键步骤</strong>：
-1. 计算图像的灰度直方图 <span class="arithmatex">\(p_i = n_i/N\)</span>
-2. 计算全局灰度均值 <span class="arithmatex">\(m_G\)</span>
-3. 遍历所有可能的阈值 <span class="arithmatex">\(k = 0, 1, \ldots, L-1\)</span>：
-   - 计算 <span class="arithmatex">\(C_0\)</span>（<span class="arithmatex">\(\leq k\)</span>）和 <span class="arithmatex">\(C_1\)</span>（<span class="arithmatex">\(&gt;k\)</span>）的概率和累积均值
-   - 计算类间方差 <span class="arithmatex">\(\sigma_B^2(k) = \frac{(m_G \cdot \omega(k) - m(k))^2}{\omega(k)\mu(k)}\)</span>
-4. 选择使 <span class="arithmatex">\(\sigma_B^2(k)\)</span> 最大的 <span class="arithmatex">\(k\)</span> 为最优阈值
-5. 用该阈值对图像进行二值化</p>
+<p><strong>优点</strong>：</p>
+<ul>
+<li><strong>全自动</strong>：无需人工设定阈值或初始值</li>
+<li><strong>数学严谨</strong>：基于最大化类间方差，具有统计学上的最优性</li>
+<li><strong>适应性广</strong>：对直方图呈双峰的图像效果极佳</li>
+</ul>
+<p><strong>关键步骤</strong>：</p>
+<ol>
+<li>计算图像的灰度直方图 <span class="arithmatex">\(p_i = n_i/N\)</span></li>
+<li>计算全局灰度均值 <span class="arithmatex">\(m_G\)</span></li>
+<li>遍历所有可能的阈值 <span class="arithmatex">\(k = 0, 1, \ldots, L-1\)</span>：</li>
+<li>计算 <span class="arithmatex">\(C_0\)</span>（<span class="arithmatex">\(\leq k\)</span>）和 <span class="arithmatex">\(C_1\)</span>（<span class="arithmatex">\(&gt;k\)</span>）的概率和累积均值</li>
+<li>计算类间方差 <span class="arithmatex">\(\sigma_B^2(k) = \frac{(m_G \cdot \omega(k) - m(k))^2}{\omega(k)\mu(k)}\)</span></li>
+<li>选择使 <span class="arithmatex">\(\sigma_B^2(k)\)</span> 最大的 <span class="arithmatex">\(k\)</span> 为最优阈值</li>
+<li>用该阈值对图像进行二值化</li>
+</ol>
 <hr />
 <h3 id="2020_2">七、区域生长算法的正确描述（2020 选择）</h3>
 <p><strong>知识点定位</strong>：区域分割 — 区域生长</p>
