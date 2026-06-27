@@ -9764,9 +9764,11 @@ E = \begin{bmatrix}
 <hr />
 <h3 id="2022_2">三、边缘检测算子与方向响应（2022 大题）</h3>
 <p><strong>知识点定位</strong>：边缘检测 — 梯度算子</p>
-<p><strong>题目</strong>：给一个边缘检测算子 <span class="arithmatex">\([-1 \quad 1]\)</span>，做卷积：
-1. 为什么没有对所有边缘都有响应？
-2. 设计另外一个算子，使其与原算子同时使用完成边缘检测任务。</p>
+<p><strong>题目</strong>：给一个边缘检测算子 <span class="arithmatex">\([-1 \quad 1]\)</span>，做卷积：</p>
+<ol>
+<li>为什么没有对所有边缘都有响应？</li>
+<li>设计另外一个算子，使其与原算子同时使用完成边缘检测任务。</li>
+</ol>
 <p><strong>解答</strong>：</p>
 <p><strong>(1)</strong> 算子 <span class="arithmatex">\([-1 \quad 1]\)</span> 实际上计算的是水平方向的一阶差分 <span class="arithmatex">\(f(x+1) - f(x)\)</span>，即 <span class="arithmatex">\(\frac{\partial f}{\partial x}\)</span> 的近似。它<strong>只对水平方向（垂直边缘）有响应</strong>——当灰度在水平方向发生变化时（从暗到亮的垂直边缘），该算子产生强输出。对于水平边缘（垂直方向的灰度变化），该算子几乎不产生响应。</p>
 <p><strong>(2)</strong> 只需对原算子做<strong>转置</strong>，得到提取竖直方向梯度（水平边缘）的算子：</p>
@@ -9789,9 +9791,11 @@ E = \begin{bmatrix}
 <hr />
 <h3 id="otsu-2020">六、阈值分割与直方图的关系 + Otsu 的优点和步骤（2020 简答）</h3>
 <p><strong>知识点定位</strong>：阈值分割 — Otsu 方法</p>
-<p><strong>题目</strong>：
-1. 简述阈值分割和直方图的联系
-2. 简述 Otsu 的优点和关键步骤</p>
+<p><strong>题目</strong>：</p>
+<ol>
+<li>简述阈值分割和直方图的联系</li>
+<li>简述 Otsu 的优点和关键步骤</li>
+</ol>
 <p><strong>解答</strong>：</p>
 <p><strong>(1) 阈值分割与直方图的联系</strong>：</p>
 <p>阈值分割<strong>直接依赖于图像的灰度直方图</strong>。直方图的形状决定了阈值分割是否可行：</p>

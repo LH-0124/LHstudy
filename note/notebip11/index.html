@@ -8338,9 +8338,15 @@ d(\boldsymbol{y}) = \sum_{i=1}^{n+1} w_i x_i = \boldsymbol{w}^T \boldsymbol{y}
 <li>
 <p>若 <span class="arithmatex">\(\boldsymbol{y} \in C_1\)</span> 且 <span class="arithmatex">\(\boldsymbol{w}^T\boldsymbol{y} \leq 0\)</span>，则 <span class="arithmatex">\(\boldsymbol{w}(k+1) = \boldsymbol{w}(k) + \alpha \boldsymbol{y}\)</span></p>
 </li>
-<li>若 <span class="arithmatex">\(\boldsymbol{y} \in C_2\)</span> 且 <span class="arithmatex">\(\boldsymbol{w}^T\boldsymbol{y} \geq 0\)</span>，则 <span class="arithmatex">\(\boldsymbol{w}(k+1) = \boldsymbol{w}(k) - \alpha \boldsymbol{y}\)</span></li>
-<li>否则 <span class="arithmatex">\(\boldsymbol{w}(k)\)</span> 保持不变</li>
-<li>当整个训练集的两类样本循环通过机器而<strong>没有任何错误</strong>时，算法收敛</li>
+<li>
+<p>若 <span class="arithmatex">\(\boldsymbol{y} \in C_2\)</span> 且 <span class="arithmatex">\(\boldsymbol{w}^T\boldsymbol{y} \geq 0\)</span>，则 <span class="arithmatex">\(\boldsymbol{w}(k+1) = \boldsymbol{w}(k) - \alpha \boldsymbol{y}\)</span></p>
+</li>
+<li>
+<p>否则 <span class="arithmatex">\(\boldsymbol{w}(k)\)</span> 保持不变</p>
+</li>
+<li>
+<p>当整个训练集的两类样本循环通过机器而<strong>没有任何错误</strong>时，算法收敛</p>
+</li>
 </ul>
 <h3 id="34-xor">3.4 单层感知机的局限——XOR 问题</h3>
 <p>单层感知机是<strong>线性分类器</strong>，无法解决 XOR 等非线性可分问题。</p>

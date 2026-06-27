@@ -6102,19 +6102,25 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
-      四、傅里叶描述子的系数含义（自编计算题）
+      自编计算题
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="自编计算题">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
-      五、图像矩与质心计算（自编计算题）
+      一、傅里叶描述子的系数含义（自编计算题）
     </span>
   </a>
   
@@ -6123,7 +6129,7 @@
           <li class="md-nav__item">
   <a href="#glcm_1" class="md-nav__link">
     <span class="md-ellipsis">
-      六、GLCM 计算练习（自编计算题）
+      二、GLCM 计算练习（自编计算题）
     </span>
   </a>
   
@@ -7781,19 +7787,25 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
-      四、傅里叶描述子的系数含义（自编计算题）
+      自编计算题
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="自编计算题">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
-      五、图像矩与质心计算（自编计算题）
+      一、傅里叶描述子的系数含义（自编计算题）
     </span>
   </a>
   
@@ -7802,7 +7814,7 @@
           <li class="md-nav__item">
   <a href="#glcm_1" class="md-nav__link">
     <span class="md-ellipsis">
-      六、GLCM 计算练习（自编计算题）
+      二、GLCM 计算练习（自编计算题）
     </span>
   </a>
   
@@ -8851,7 +8863,7 @@ P_2 = \frac{M_2}{15} = \begin{bmatrix} 0 &amp; 0 &amp; 0.2 \\ 0 &amp; 7/15 &amp;
 </tr>
 </tbody>
 </table>
-<p><strong>步长增大 → Contrast 增大、Homogeneity 也增大？这里的 Homogeneity 增大是因为矩阵 <span class="arithmatex">\(M\)</span> 具有 2 像素周期的结构。</strong> 具体来说，<span class="arithmatex">\(d=1\)</span> 时相邻像素对的灰度差始终为 1；<span class="arithmatex">\(d=2\)</span> 时出现了 <span class="arithmatex">\((1,1)\)</span> 和 <span class="arithmatex">\((2,2)\)</span> 的对角线项（<span class="arithmatex">\(|i-j|=0\)</span>），显著提升了 Homogeneity。这个现象说明<strong>采样步长与纹理周期会产生「共振」</strong>。</p>
+<p><strong>步长增大 → Contrast 增大、Homogeneity 也增大？这里的 Homogeneity 增大是因为矩阵 <span class="arithmatex">\(M\)</span> 具有 2 像素周期的结构。</strong> 具体来说，<span class="arithmatex">\(d=1\)</span> 时相邻像素对的灰度差始终为 1；<span class="arithmatex">\(d=2\)</span> 时出现了 <span class="arithmatex">\((1,1)\)</span> 和 <span class="arithmatex">\((2,2)\)</span> 的对角线项（<span class="arithmatex">\(|i-j|=0\)</span>），显著提升了 Homogeneity。这个现象说明<strong>采样步长与纹理周期会产生共振</strong>。</p>
 <hr />
 <h2 id="lab7">八、实验（LAB7）</h2>
 <h3 id="lab7project-1-3">实验来源：LAB7（Project 1-3）</h3>
@@ -9099,7 +9111,8 @@ P_2 = \frac{M_2}{15} = \begin{bmatrix} 0 &amp; 0 &amp; 0.2 \\ 0 &amp; 7/15 &amp;
 <li>周期结构 → GLCM 呈现<strong>对角线 + 规则侧支</strong>的叶状/羽状结构</li>
 </ul>
 <hr />
-<h3 id="_7">四、傅里叶描述子的系数含义（自编计算题）</h3>
+<h2 id="_7">自编计算题</h2>
+<h3 id="_8">一、傅里叶描述子的系数含义（自编计算题）</h3>
 <p><strong>题目</strong>：某闭合边界的傅里叶描述子中仅 <span class="arithmatex">\(a(0) = 2 + 3j\)</span>，<span class="arithmatex">\(a(1) = 5\)</span>，其余系数均为 0。问：</p>
 <ol>
 <li>该边界在复平面上是什么形状？</li>
@@ -9130,42 +9143,16 @@ y(k) = 3 + 5\sin\theta_k
 <li>圆心在 <span class="arithmatex">\((2, 3)\)</span>，半径 <span class="arithmatex">\(= |a(1)| = 5\)</span></li>
 </ol>
 <hr />
-<h3 id="_8">五、图像矩与质心计算（自编计算题）</h3>
-<p><strong>题目</strong>：给定二值肿瘤掩膜 <span class="arithmatex">\(M\)</span>（1 = 肿瘤，0 = 背景）：</p>
-<div class="arithmatex">\[
-M = \begin{bmatrix}
-0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
-0 &amp; 1 &amp; 1 &amp; 0 &amp; 0 \\
-0 &amp; 1 &amp; 1 &amp; 1 &amp; 0 \\
-0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
-0 &amp; 0 &amp; 0 &amp; 0 &amp; 0
-\end{bmatrix}
-\]</div>
-<p>求肿瘤的：(1) 面积；(2) 质心坐标； (3) 紧凑度（Compactness）的粗略估计。</p>
-<p><strong>解答</strong>：</p>
-<p><strong>(1) 面积</strong>：<span class="arithmatex">\(A = M_{00} = \sum M(x,y) = 6\)</span>（6 个肿瘤像素）</p>
-<p><strong>(2) 质心</strong>：</p>
-<div class="arithmatex">\[
-M_{10} = \sum_x \sum_y x \cdot M(x,y) = 1 \times 1 + 1 \times 1 + 1 \times 2 + 1 \times 2 + 1 \times 2 + 1 \times 3 = 11
-\]</div>
-<div class="arithmatex">\[
-M_{01} = \sum_x \sum_y y \cdot M(x,y) = 1 \times 1 + 1 \times 2 + 1 \times 1 + 1 \times 2 + 1 \times 3 + 1 \times 2 = 11
-\]</div>
-<div class="arithmatex">\[
-\bar{x} = M_{10} / M_{00} = 11/6 \approx 1.833,\quad \bar{y} = M_{01} / M_{00} = 11/6 \approx 1.833
-\]</div>
-<p><strong>(3) 紧凑度</strong>：<span class="arithmatex">\(p^2 / A\)</span>。用 8-连通边界粗略统计：边界像素约为 8 个 → <span class="arithmatex">\(p^2/A \approx 64/6 \approx 10.67\)</span>（仅示意，实际周长需精确计算）。</p>
-<hr />
-<h3 id="glcm_1">六、GLCM 计算练习（自编计算题）</h3>
-<p><strong>题目</strong>：给定 <span class="arithmatex">\(4 \times 4\)</span> 图像，灰度级为 <span class="arithmatex">\(\{0, 1\}\)</span>（二值）：</p>
-<div class="arithmatex">\[
+<h3 id="glcm_1">二、GLCM 计算练习（自编计算题）</h3>
+<p><strong>题目</strong>：给定 <span class="arithmatex">\(4 \times 4\)</span> 图像，灰度级为 <span class="arithmatex">\(\{0, 1\}\)</span>（二值）：
+$$
 I = \begin{bmatrix}
-0 &amp; 1 &amp; 0 &amp; 1 \\
-1 &amp; 0 &amp; 1 &amp; 0 \\
-0 &amp; 1 &amp; 0 &amp; 1 \\
+0 &amp; 1 &amp; 0 &amp; 1 \
+1 &amp; 0 &amp; 1 &amp; 0 \
+0 &amp; 1 &amp; 0 &amp; 1 \
 1 &amp; 0 &amp; 1 &amp; 0
 \end{bmatrix}
-\]</div>
+$$</p>
 <p>以 <span class="arithmatex">\(Q\)</span> = "右侧相邻像素" 计算 GLCM，并求 Contrast 和 Energy。</p>
 <p><strong>解答</strong>：</p>
 <p>逐行统计：</p>
