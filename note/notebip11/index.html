@@ -5940,6 +5940,102 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="5.5 UNet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#551" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.1 背景与动机
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#552-u" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.2 整体架构——U 形对称结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#553-contracting-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.3 编码器（Contracting Path）——特征提取
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#554-bottleneck" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.4 瓶颈层（Bottleneck）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#555-expanding-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.5 解码器（Expanding Path）——分辨率恢复
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#556-skip-connectionunet" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.6 跳跃连接（Skip Connection）——UNet 最核心的设计
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#557" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.7 损失函数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#558-unet" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.8 UNet 成功的原因总结
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#559-unet" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.9 UNet 变体
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5510-cnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.10 与分类 CNN 的本质区别
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -7749,6 +7845,102 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="5.5 UNet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#551" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.1 背景与动机
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#552-u" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.2 整体架构——U 形对称结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#553-contracting-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.3 编码器（Contracting Path）——特征提取
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#554-bottleneck" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.4 瓶颈层（Bottleneck）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#555-expanding-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.5 解码器（Expanding Path）——分辨率恢复
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#556-skip-connectionunet" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.6 跳跃连接（Skip Connection）——UNet 最核心的设计
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#557" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.7 损失函数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#558-unet" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.8 UNet 成功的原因总结
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#559-unet" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.9 UNet 变体
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5510-cnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5.10 与分类 CNN 的本质区别
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -8898,9 +9090,365 @@ b_i^{(l)} := b_i^{(l)} - \alpha \cdot \frac{1}{m} \sum \delta_i^{(l+1)}
 <!-- 建议插入PPT截图：Lecture15 Page 78，残差块的Skip Connection结构图，插入位置：此处 -->
 
 <h3 id="55-unet">5.5 UNet</h3>
-<p>UNet 是<strong>医学图像领域最广泛使用的模型</strong>，采用编码器-解码器（Encoder-Decoder）结构。</p>
-<p><strong>核心设计——跳跃连接（Skip Connection）</strong>：</p>
-<p>编码器各层的特征图<strong>直接连接到</strong>解码器的对应层，将低级空间信息与高级语义信息融合。</p>
+<h4 id="551">5.5.1 背景与动机</h4>
+<p>UNet 由 <strong>Ronneberger, Fischer &amp; Brox</strong> 在 2015 年 MICCAI 会议上提出（论文：<em>U-Net: Convolutional Networks for Biomedical Image Segmentation</em>），是<strong>医学图像分割领域影响力最大的网络架构</strong>，截至 2026 年引用量已超过 70,000 次。</p>
+<p><strong>提出的动机</strong>：</p>
+<p>传统的分类 CNN（如 AlexNet、VGG）输出的是整张图像的类别标签，而医学图像分析中更常见的需求是<strong>像素级的分割</strong>——即对图像中每一个像素判断它属于哪个组织/器官/病变。此外，医学图像数据集通常<strong>标注样本极少</strong>（几十到几百张），需要在有限数据下实现高精度分割。UNet 正是为解决这两大挑战而设计的。</p>
+<h4 id="552-u">5.5.2 整体架构——U 形对称结构</h4>
+<p>UNet 的整体架构形如字母 <strong>"U"</strong>，由三部分组成：</p>
+<div class="highlight"><pre><span></span><code>输入图像 ──────────────────────────────────────────→ 输出分割掩膜
+    │                                                    ↑
+    ▼                                                    │
+  编码器（Contracting Path）                          解码器（Expanding Path）
+    │                                                    ↑
+    ├─ [Conv3×3×2 + ReLU + MaxPool2×2] × 4 ──┐          │
+    │                     │                   │          │
+    │                     └─── Skip ──────────┼──→ [UpConv2×2 + Concat + Conv3×3×2 + ReLU] × 4
+    │                                         │          │
+    └──────────────→ Bottleneck ──────────────┘──────────┘
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>组成部分</th>
+<th>英文名称</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>编码器（收缩路径）</strong></td>
+<td>Contracting Path / Encoder</td>
+<td>逐层提取特征，空间分辨率逐步降低，通道数逐步增加</td>
+</tr>
+<tr>
+<td><strong>瓶颈层</strong></td>
+<td>Bottleneck</td>
+<td>最深层的特征表示——空间尺寸最小（<span class="arithmatex">\(32 \times 32\)</span>），通道数最多（<span class="arithmatex">\(1024\)</span>），语义信息最丰富</td>
+</tr>
+<tr>
+<td><strong>解码器（扩张路径）</strong></td>
+<td>Expanding Path / Decoder</td>
+<td>逐层恢复空间分辨率，通道数逐步减少，最终输出像素级预测</td>
+</tr>
+<tr>
+<td><strong>跳跃连接</strong></td>
+<td>Skip Connection</td>
+<td>将编码器第 <span class="arithmatex">\(l\)</span> 层的特征图<strong>直接复制并拼接</strong>到解码器的对应层</td>
+</tr>
+</tbody>
+</table>
+<h4 id="553-contracting-path">5.5.3 编码器（Contracting Path）——特征提取</h4>
+<p>编码器的设计遵循典型的 CNN 结构，每一层包含：</p>
+<ol>
+<li><strong>两个 <span class="arithmatex">\(3 \times 3\)</span> 卷积</strong>（Valid Convolution，无填充），每个卷积后接 <strong>ReLU</strong> 激活</li>
+<li>一个 <strong><span class="arithmatex">\(2 \times 2\)</span> 最大池化</strong>（步长为 2），将特征图尺寸减半</li>
+</ol>
+<p>编码器共 <strong>4 次下采样</strong>：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">层级</th>
+<th>操作</th>
+<th style="text-align: center;">特征图尺寸（以 <span class="arithmatex">\(572 \times 572\)</span> 输入为例）</th>
+<th style="text-align: center;">通道数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">输入</td>
+<td>—</td>
+<td style="text-align: center;"><span class="arithmatex">\(572 \times 572\)</span></td>
+<td style="text-align: center;">1（灰度图）</td>
+</tr>
+<tr>
+<td style="text-align: center;">Encoder 1</td>
+<td>Conv3×3 ×2 + ReLU → MaxPool2×2</td>
+<td style="text-align: center;"><span class="arithmatex">\(568 \to 284\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(1 \to 64\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">Encoder 2</td>
+<td>Conv3×3 ×2 + ReLU → MaxPool2×2</td>
+<td style="text-align: center;"><span class="arithmatex">\(280 \to 140\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(64 \to 128\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">Encoder 3</td>
+<td>Conv3×3 ×2 + ReLU → MaxPool2×2</td>
+<td style="text-align: center;"><span class="arithmatex">\(136 \to 68\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(128 \to 256\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">Encoder 4</td>
+<td>Conv3×3 ×2 + ReLU → MaxPool2×2</td>
+<td style="text-align: center;"><span class="arithmatex">\(64 \to 32\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(256 \to 512\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">Bottleneck</td>
+<td>Conv3×3 ×2 + ReLU</td>
+<td style="text-align: center;"><span class="arithmatex">\(32\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(512 \to 1024\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>每次下采样操作：特征图尺寸减半，但通道数翻倍——这是 CNN 设计的经典模式：<strong>空间信息压缩，语义信息浓缩</strong>。</p>
+<div class="highlight"><pre><span></span><code>        Encoder Layer
+    ┌─────────────────────┐
+    │  Conv 3×3 + ReLU    │
+    │  Conv 3×3 + ReLU    │
+    │  MaxPool 2×2 (stride=2) │
+    └─────────────────────┘
+</code></pre></div>
+<h4 id="554-bottleneck">5.5.4 瓶颈层（Bottleneck）</h4>
+<p>瓶颈层是编码器和解码器的交汇处：</p>
+<ul>
+<li>空间尺寸达到<strong>最小</strong>（原图的 <span class="arithmatex">\(1/16\)</span>）</li>
+<li>通道数达到<strong>最大</strong>（<span class="arithmatex">\(1024\)</span>）</li>
+<li>这一层的每个像素具有<strong>极大的全局感受野</strong>，可以"看到"输入图像的很大区域</li>
+<li>此处的特征表示包含了最高级别的<strong>语义抽象</strong>——"这个区域是肝脏"、"这是肿瘤"</li>
+</ul>
+<p>瓶颈层仅做两个 <span class="arithmatex">\(3 \times 3\)</span> 卷积（不再下采样），保持特征图尺寸不变。</p>
+<h4 id="555-expanding-path">5.5.5 解码器（Expanding Path）——分辨率恢复</h4>
+<p>解码器的任务是<strong>从压缩的语义特征恢复出与输入同尺寸的分割掩膜</strong>。每一层包含：</p>
+<ol>
+<li><strong><span class="arithmatex">\(2 \times 2\)</span> 转置卷积（Transposed Convolution / Up-Convolution）</strong>：将特征图尺寸放大 2 倍，通道数减半</li>
+<li><strong>跳跃连接拼接（Skip Connection Concatenation）</strong>：将对应编码器层的特征图沿通道维度拼接</li>
+<li><strong>两个 <span class="arithmatex">\(3 \times 3\)</span> 卷积 + ReLU</strong>：融合拼接后的特征</li>
+</ol>
+<p>解码器共 <strong>4 次上采样</strong>，每次将特征图尺寸加倍：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">层级</th>
+<th>操作</th>
+<th style="text-align: center;">特征图尺寸</th>
+<th style="text-align: center;">通道数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Decoder 4</td>
+<td>UpConv2×2 + Concat(E4) + Conv3×3 ×2</td>
+<td style="text-align: center;"><span class="arithmatex">\(32 \to 56\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(1024 \to 512\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">Decoder 3</td>
+<td>UpConv2×2 + Concat(E3) + Conv3×3 ×2</td>
+<td style="text-align: center;"><span class="arithmatex">\(56 \to 104\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(512 \to 256\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">Decoder 2</td>
+<td>UpConv2×2 + Concat(E2) + Conv3×3 ×2</td>
+<td style="text-align: center;"><span class="arithmatex">\(104 \to 200\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(256 \to 128\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">Decoder 1</td>
+<td>UpConv2×2 + Concat(E1) + Conv3×3 ×2</td>
+<td style="text-align: center;"><span class="arithmatex">\(200 \to 392\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(128 \to 64\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">输出</td>
+<td>Conv1×1</td>
+<td style="text-align: center;"><span class="arithmatex">\(388\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(64 \to N_{class}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>上采样方式</strong>：原始 UNet 使用<strong>转置卷积</strong>（学得的参数化上采样）；后续变体也常用双线性插值 + 普通卷积的组合。</p>
+<div class="highlight"><pre><span></span><code>        Decoder Layer
+    ┌─────────────────────┐
+    │  UpConv 2×2 (stride=2)  │  ← 上采样
+    │  Concat(skip_features)  │  ← 跳跃连接拼接
+    │  Conv 3×3 + ReLU    │
+    │  Conv 3×3 + ReLU    │
+    └─────────────────────┘
+</code></pre></div>
+<h4 id="556-skip-connectionunet">5.5.6 跳跃连接（Skip Connection）——UNet 最核心的设计</h4>
+<p>跳跃连接是 UNet 区别于普通编码器-解码器（如 SegNet）的<strong>关键创新</strong>，也是其在医学图像分割中表现卓越的根本原因。</p>
+<p><strong>操作方式</strong>：</p>
+<p>将编码器第 <span class="arithmatex">\(l\)</span> 层的特征图<strong>完整复制</strong>，并与解码器对应层上采样后的特征图沿<strong>通道维度拼接（Concatenate）</strong>：</p>
+<div class="arithmatex">\[
+\text{Decoder\_input}_l = \text{Concat}\left(\text{UpConv}(\text{Decoder}_{l+1}),\; \text{Encoder}_l\right)
+\]</div>
+<p><strong>为什么是拼接而非相加？</strong></p>
+<table>
+<thead>
+<tr>
+<th>融合方式</th>
+<th>代表模型</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>拼接（Concatenation）</strong></td>
+<td><strong>UNet</strong></td>
+<td>保留两路特征的独立性，后续卷积层可以学习如何最优地融合——哪些特征来自编码器，哪些来自解码器</td>
+</tr>
+<tr>
+<td><strong>逐元素相加（Element-wise Addition）</strong></td>
+<td>ResNet, FCN</td>
+<td>假设两路特征在同一特征空间中，直接将它们叠加——但编码器和解码器的特征性质差异很大，直接相加可能损失信息</td>
+</tr>
+</tbody>
+</table>
+<p>UNet 的拼接策略使得解码器可以<strong>选择性利用</strong>跳跃连接传递的低级特征和解码器自身的高级特征，融合更加灵活。</p>
+<p><strong>跳跃连接的四大作用</strong>：</p>
+<ol>
+<li><strong>融合低级空间信息与高级语义信息</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>信息类型</th>
+<th>来源</th>
+<th>包含的内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>低级空间信息</strong></td>
+<td>编码器浅层</td>
+<td>精确的边缘方向、边界位置、细小结构（如血管末梢）</td>
+</tr>
+<tr>
+<td><strong>高级语义信息</strong></td>
+<td>瓶颈层 + 解码器深层</td>
+<td>"这一大片区域是肝脏"、"这些像素属于肿瘤"</td>
+</tr>
+</tbody>
+</table>
+<p>在编码器深层（如 Bottleneck），感受野已经非常大了（数百像素范围），网络有很强的<strong>语义判别能力</strong>（知道"这是什么"），但由于多次池化，<strong>空间位置已经非常模糊</strong>（不知道"边界在哪里"）。编码器浅层相反——感受野很小（<span class="arithmatex">\(3 \times 3 \sim 5 \times 5\)</span>），网络的<strong>空间定位能力极强</strong>（知道边界的确切位置），但<strong>语义判别能力很弱</strong>（不知道"这是哪种组织的边界"）。</p>
+<p>跳跃连接将两者拼接，解码器就可以<strong>同时知道"是什么"和"在哪里"</strong>，实现精确的分割边界。</p>
+<ol>
+<li>
+<p><strong>补偿下采样造成的信息损失</strong></p>
+</li>
+<li>
+<p>4 次 <span class="arithmatex">\(2 \times 2\)</span> 池化使空间分辨率下降 16 倍</p>
+</li>
+<li>每个池化操作丢弃了 75% 的空间信息（<span class="arithmatex">\(2 \times 2\)</span> 窗口只保留一个值）</li>
+<li>仅靠上采样（插值或转置卷积）是<strong>无法完全恢复这些被丢弃的细节</strong>的</li>
+<li>
+<p>跳跃连接提供了"旁路通道"，将<strong>未被池化的原始低级特征</strong>直接传给解码器——绕过了信息瓶颈</p>
+</li>
+<li>
+<p><strong>改善梯度流动，缓解深层网络训练困难</strong></p>
+</li>
+<li>
+<p>UNet 共 23 个卷积层，属于深层网络</p>
+</li>
+<li>反向传播时，梯度从输出层逐层回传，经过 23 层后可能衰减到几乎为零（<strong>梯度消失</strong>）</li>
+<li>跳跃连接为梯度提供了一条<strong>直接流向编码器浅层的捷径（Shortcut）</strong></li>
+<li>这使得编码器的浅层也能获得足够强的训练信号——类似于 ResNet 中残差连接的梯度流动作用，但 UNet 的跳跃是<strong>跨整个网络</strong>的，跨度更大</li>
+</ol>
+<div class="arithmatex">\[
+\frac{\partial L}{\partial \theta_{\text{encoder}}} = \underbrace{\frac{\partial L}{\partial \text{output}} \cdot \frac{\partial \text{output}}{\partial \text{decoder}} \cdot \frac{\partial \text{decoder}}{\partial \text{skip}}}_{\text{经解码器的长路径}} + \underbrace{\frac{\partial L}{\partial \text{output}} \cdot \frac{\partial \text{output}}{\partial \text{skip}}}_{\text{经跳跃连接的短路径}}
+\]</div>
+<p>短路径的存在保证了编码器浅层参数的梯度不会因路径过长而消失。</p>
+<ol>
+<li><strong>多尺度特征融合</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">层级</th>
+<th>编码器跳跃连接传递的信息</th>
+<th>解码器对应层处理的内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Encoder 1 → Decoder 1</td>
+<td>最细粒度的边缘/纹理</td>
+<td>与深层语义融合，恢复最精确的边界</td>
+</tr>
+<tr>
+<td style="text-align: center;">Encoder 2 → Decoder 2</td>
+<td>局部形状、中等纹理</td>
+<td>恢复器官的大致轮廓</td>
+</tr>
+<tr>
+<td style="text-align: center;">Encoder 3 → Decoder 3</td>
+<td>区域级特征</td>
+<td>确定器官的大致位置</td>
+</tr>
+<tr>
+<td style="text-align: center;">Encoder 4 → Decoder 4</td>
+<td>较抽象的局部语义</td>
+<td>与瓶颈层的全局语义协调</td>
+</tr>
+</tbody>
+</table>
+<p>解码器因此可以同时感知从<strong>最精细到最粗糙</strong>的多个尺度的信息，实现多尺度分析。</p>
+<h4 id="557">5.5.7 损失函数</h4>
+<p>UNet 常用的损失函数：</p>
+<p><strong>1. 交叉熵损失（Cross-Entropy Loss）</strong></p>
+<p>对于 <span class="arithmatex">\(C\)</span> 类分割任务，逐像素计算：</p>
+<div class="arithmatex">\[
+\mathcal{L}_{\text{CE}} = -\frac{1}{N} \sum_{i=1}^{N} \sum_{c=1}^{C} y_{i,c} \log \hat{y}_{i,c}
+\]</div>
+<p>其中 <span class="arithmatex">\(y_{i,c} \in \{0, 1\}\)</span> 是像素 <span class="arithmatex">\(i\)</span> 属于类别 <span class="arithmatex">\(c\)</span> 的真实标签（one-hot），<span class="arithmatex">\(\hat{y}_{i,c}\)</span> 是网络输出的 Softmax 概率。</p>
+<p><strong>问题</strong>：医学图像中常存在严重的<strong>类别不平衡</strong>（如肿瘤像素仅占整张图的 1%），模型会倾向于将所有像素预测为背景。</p>
+<p><strong>2. Dice 损失（Dice Loss）</strong></p>
+<p>基于 Dice 相似系数（Dice Similarity Coefficient, DSC）：</p>
+<div class="arithmatex">\[
+\text{Dice} = \frac{2 |A \cap B|}{|A| + |B|}
+\]</div>
+<p>Dice 损失：</p>
+<div class="arithmatex">\[
+\mathcal{L}_{\text{Dice}} = 1 - \frac{2 \sum_{i} y_i \hat{y}_i}{\sum_{i} y_i + \sum_{i} \hat{y}_i}
+\]</div>
+<p><strong>优势</strong>：Dice 损失直接优化分割质量指标，对类别不平衡不敏感——因为它在计算时对前景和背景做了等权处理（Dice 衡量的是重叠度，而非像素级准确率）。</p>
+<p><strong>3. 组合损失（Combined Loss）</strong></p>
+<p>实践中常将两者结合：</p>
+<div class="arithmatex">\[
+\mathcal{L} = \mathcal{L}_{\text{CE}} + \mathcal{L}_{\text{Dice}}
+\]</div>
+<p>交叉熵保证训练稳定性，Dice 损失处理类别不平衡。这已成为许多医学图像分割任务的<strong>默认损失配置</strong>。</p>
+<p><strong>V-Net 的贡献</strong>（Milletari et al., 2016）：将 UNet 扩展到 3D，并首次提出用 Dice 损失替换交叉熵，在类别严重不平衡的前列腺 MRI 分割中取得显著提升。</p>
+<h4 id="558-unet">5.5.8 UNet 成功的原因总结</h4>
+<table>
+<thead>
+<tr>
+<th>原因</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>对称的编码器-解码器结构</strong></td>
+<td>天然的像素级密集预测架构——输入图像，输出等大的分割掩膜</td>
+</tr>
+<tr>
+<td><strong>跳跃连接</strong></td>
+<td>弥补下采样造成的信息损失，融合低级空间精度与高级语义理解</td>
+</tr>
+<tr>
+<td><strong>全卷积设计</strong></td>
+<td>没有全连接层，理论上可处理<strong>任意尺寸</strong>的输入图像（实际受限于拼接时尺寸匹配）</td>
+</tr>
+<tr>
+<td><strong>数据效率高</strong></td>
+<td>跳跃连接减少了网络需要从头学习的参数——低级的边缘/纹理特征被直接传递给解码器，而非从噪声中重新学习。在标注样本极少（几十张）的医学图像任务中，这种设计尤为重要</td>
+</tr>
+<tr>
+<td><strong>端到端训练</strong></td>
+<td>输入原始图像，直接输出分割掩膜——无需手工设计特征或后处理步骤</td>
+</tr>
+<tr>
+<td><strong>易于扩展</strong></td>
+<td>架构灵活，可通过替换骨干（如 VGG → ResNet）、添加注意力机制、修改跳跃连接方式等衍生出大量变体</td>
+</tr>
+</tbody>
+</table>
+<h4 id="559-unet">5.5.9 UNet 变体</h4>
 <table>
 <thead>
 <tr>
@@ -8912,27 +9460,88 @@ b_i^{(l)} := b_i^{(l)} - \alpha \cdot \frac{1}{m} \sum \delta_i^{(l+1)}
 <tbody>
 <tr>
 <td>2D</td>
-<td><strong>UNet</strong></td>
-<td>经典 U 形结构</td>
+<td><strong>UNet</strong>（Ronneberger et al., 2015）</td>
+<td>经典 U 形结构，<span class="arithmatex">\(3 \times 3\)</span> Valid Convolution</td>
 </tr>
 <tr>
 <td>3D</td>
-<td><strong>3D-UNet</strong></td>
-<td>3D 卷积 + 转置卷积替代上采样</td>
+<td><strong>3D-UNet</strong>（Çiçek et al., 2016）</td>
+<td>将 2D 卷积替换为 3D 卷积，适用于 CT/MRI 体数据</td>
 </tr>
 <tr>
 <td>3D</td>
-<td><strong>V-Net</strong></td>
-<td>使用 Dice 系数作为损失函数</td>
+<td><strong>V-Net</strong>（Milletari et al., 2016）</td>
+<td>引入残差连接 + Dice 损失函数</td>
+</tr>
+<tr>
+<td>2D/3D</td>
+<td><strong>Attention UNet</strong>（Oktay et al., 2018）</td>
+<td>在跳跃连接前加入<strong>注意力门（Attention Gate）</strong>，让网络自动学习关注相关区域，抑制无关背景</td>
+</tr>
+<tr>
+<td>2D</td>
+<td><strong>UNet++</strong>（Zhou et al., 2018）</td>
+<td>嵌套的密集跳跃连接，通过<strong>深度监督</strong>实现可灵活剪枝的架构</td>
+</tr>
+<tr>
+<td>2D/3D</td>
+<td><strong>nnUNet</strong>（Isensee et al., 2021）</td>
+<td>自动化 UNet 配置——根据数据集特性<strong>自动调整</strong>预处理、网络结构、后处理，无需人工调参，成为医学图像分割的<strong>事实标准基准（De Facto Standard）</strong></td>
 </tr>
 </tbody>
 </table>
-<p><strong>UNet 成功的原因</strong>：</p>
-<ul>
-<li>在医学图像分割领域表现卓越</li>
-<li>衍生出<strong>大量改进变体</strong>（Attention UNet, UNet++, nnUNet 等）</li>
-<li>几乎所有医学图像分析流水线中都有 UNet 的身影</li>
-</ul>
+<h4 id="5510-cnn">5.5.10 与分类 CNN 的本质区别</h4>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>传统分类 CNN（AlexNet, VGG）</th>
+<th>UNet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>网络形状</strong></td>
+<td>单塔形（仅编码器）</td>
+<td><strong>U 形</strong>（编码器 + 解码器对称）</td>
+</tr>
+<tr>
+<td><strong>输出类型</strong></td>
+<td>图像级标签（<span class="arithmatex">\(1 \times 1 \times C\)</span>）</td>
+<td><strong>像素级</strong>分割掩膜（<span class="arithmatex">\(H \times W \times C\)</span>）</td>
+</tr>
+<tr>
+<td><strong>编码器</strong></td>
+<td>有，以分类为导向</td>
+<td>有，以<strong>特征提取和复用</strong>为导向</td>
+</tr>
+<tr>
+<td><strong>解码器</strong></td>
+<td>无（Flatten 后直接 FC）</td>
+<td>有（上采样恢复分辨率）</td>
+</tr>
+<tr>
+<td><strong>跳跃连接</strong></td>
+<td>无（ResNet 有残差连接但局限于残差块内）</td>
+<td><strong>核心设计</strong>——编码器→解码器跨层直连</td>
+</tr>
+<tr>
+<td><strong>全连接层</strong></td>
+<td>有（分类头）</td>
+<td><strong>无</strong>（全卷积，用 <span class="arithmatex">\(1 \times 1\)</span> 卷积产生输出）</td>
+</tr>
+<tr>
+<td><strong>输入尺寸</strong></td>
+<td>固定（FC 层要求固定维度）</td>
+<td>灵活（全卷积，理论上任意尺寸）</td>
+</tr>
+<tr>
+<td><strong>适用任务</strong></td>
+<td>图像分类</td>
+<td>图像分割、去噪、重建、合成</td>
+</tr>
+</tbody>
+</table>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0623/2j1jvu4s.webp" /></p>
 <hr />
 <h2 id="attention">六、注意力机制（Attention）</h2>
