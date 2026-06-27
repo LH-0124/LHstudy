@@ -8291,11 +8291,21 @@ p(a, b) = \frac{h[a, b]}{\sum_{a,b} h[a, b]}
 <div class="arithmatex">\[
 A = \begin{bmatrix} 1 &amp; 2 \\ 2 &amp; 1 \end{bmatrix}, \quad B = \begin{bmatrix} 2 &amp; 1 \\ 1 &amp; 2 \end{bmatrix}
 \]</div>
-<p>逐像素配对：
-- 位置 <span class="arithmatex">\((0,0)\)</span>：<span class="arithmatex">\((A=1, B=2)\)</span> → <span class="arithmatex">\(H[1,2] \mathrel{+}= 1\)</span>
-- 位置 <span class="arithmatex">\((0,1)\)</span>：<span class="arithmatex">\((A=2, B=1)\)</span> → <span class="arithmatex">\(H[2,1] \mathrel{+}= 1\)</span>
-- 位置 <span class="arithmatex">\((1,0)\)</span>：<span class="arithmatex">\((A=2, B=1)\)</span> → <span class="arithmatex">\(H[2,1] \mathrel{+}= 1\)</span>
-- 位置 <span class="arithmatex">\((1,1)\)</span>：<span class="arithmatex">\((A=1, B=2)\)</span> → <span class="arithmatex">\(H[1,2] \mathrel{+}= 1\)</span></p>
+<p>逐像素配对：</p>
+<ul>
+<li>
+<p>位置 <span class="arithmatex">\((0,0)\)</span>：<span class="arithmatex">\((A=1, B=2)\)</span> → <span class="arithmatex">\(H[1,2] \mathrel{+}= 1\)</span></p>
+</li>
+<li>
+<p>位置 <span class="arithmatex">\((0,1)\)</span>：<span class="arithmatex">\((A=2, B=1)\)</span> → <span class="arithmatex">\(H[2,1] \mathrel{+}= 1\)</span></p>
+</li>
+<li>
+<p>位置 <span class="arithmatex">\((1,0)\)</span>：<span class="arithmatex">\((A=2, B=1)\)</span> → <span class="arithmatex">\(H[2,1] \mathrel{+}= 1\)</span></p>
+</li>
+<li>
+<p>位置 <span class="arithmatex">\((1,1)\)</span>：<span class="arithmatex">\((A=1, B=2)\)</span> → <span class="arithmatex">\(H[1,2] \mathrel{+}= 1\)</span></p>
+</li>
+</ul>
 <div class="arithmatex">\[
 H = \begin{bmatrix} 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 2 \\ 0 &amp; 2 &amp; 0 \end{bmatrix}, \quad
 p = \begin{bmatrix} 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0.5 \\ 0 &amp; 0.5 &amp; 0 \end{bmatrix}
