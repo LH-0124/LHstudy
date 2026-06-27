@@ -5653,6 +5653,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#37" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.7 各指标适用场景
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#38" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.8 优化目标方向
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -7439,6 +7457,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#37" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.7 各指标适用场景
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#38" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.8 优化目标方向
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -8246,6 +8282,55 @@ MI(I_1, I_2) = H(I_1) + H(I_2) - H(I_1, I_2)
 </tr>
 </tbody>
 </table>
+<h3 id="37">3.7 各指标适用场景</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">指标</th>
+<th style="text-align: left;">适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>SSD/MSQ</strong></td>
+<td style="text-align: left;">序列 MR 图像及功能磁共振成像 (fMRI)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>CC</strong></td>
+<td style="text-align: left;">单模态 (同种影像设备配准)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>RIU</strong></td>
+<td style="text-align: left;">多张 PET 图像、脑部序列 MR 图像</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>PIU</strong></td>
+<td style="text-align: left;">MR-PET 跨模态配准</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MI / 联合熵</strong></td>
+<td style="text-align: left;">多模态、单模态</td>
+</tr>
+</tbody>
+</table>
+<h3 id="38">3.8 优化目标方向</h3>
+<ul>
+<li>
+<p><strong>单模态配准</strong></p>
+<ul>
+<li>均方误差SSD<strong>最小化</strong></li>
+<li>归一化互相关CC<strong>最大化</strong></li>
+<li>差分熵<strong>最小化</strong></li>
+</ul>
+</li>
+<li>
+<p>**多模态配准 **</p>
+<ul>
+<li>互信息<strong>最大化</strong></li>
+<li>归一化互信息<strong>最大化</strong></li>
+</ul>
+</li>
+</ul>
 <hr />
 <h2 id="information-theory">四、信息论基础（Information Theory）</h2>
 <h3 id="41">4.1 信息的定义</h3>
