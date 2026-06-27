@@ -8593,10 +8593,12 @@ $$</p>
 <li>通过求解<strong>微分方程</strong>，保证产生的变换严格满足微分同胚性质</li>
 <li>使用<strong>微分算子</strong>（如 <span class="arithmatex">\(L = -\alpha\nabla^2 + \beta\nabla\nabla\cdot + \gamma\)</span>）对速度场施加平滑约束，产生<strong>测地线距离最小</strong>的光滑变换</li>
 </ul>
-<p><strong>LDDMM 的优势</strong>：
-- 数学上严格保证微分同胚的三大性质
-- 测地线路径对应<strong>能量最小的变形路径</strong>
-- 在脑图谱构建（Atlas Building）和群体分析中应用广泛</p>
+<p><strong>LDDMM 的优势</strong>：</p>
+<ul>
+<li>数学上严格保证微分同胚的三大性质</li>
+<li>测地线路径对应<strong>能量最小的变形路径</strong></li>
+<li>在脑图谱构建（Atlas Building）和群体分析中应用广泛</li>
+</ul>
 <h3 id="67">6.7 其他非线性配准方法</h3>
 <table>
 <thead>
@@ -8633,10 +8635,12 @@ J = \begin{bmatrix} \frac{\partial u_x}{\partial x} &amp; \frac{\partial u_x}{\p
 <div class="arithmatex">\[
 \det(J) \begin{cases} &gt; 1 &amp; \text{局部膨胀（Expansion）} \\ = 1 &amp; \text{体积不变（No change）} \\ &lt; 1 &amp; \text{局部收缩（Contraction）} \end{cases}
 \]</div>
-<p><strong>关键注意事项</strong>：
-- <span class="arithmatex">\(0 &lt; \det(J) &lt; 1\)</span> 表示体积收缩但方向不变
-- <span class="arithmatex">\(\det(J) &lt; 0\)</span> 表示发生了<strong>方向翻转</strong>（镜面反射），这在微分同胚配准中是不允许的——微分同胚要求 <span class="arithmatex">\(\det(J) &gt; 0\)</span> 处处成立
-- <span class="arithmatex">\(|\det(J)|\)</span> 才是纯体积缩放比</p>
+<p><strong>关键注意事项</strong>：</p>
+<ul>
+<li><span class="arithmatex">\(0 &lt; \det(J) &lt; 1\)</span> 表示体积收缩但方向不变</li>
+<li><span class="arithmatex">\(\det(J) &lt; 0\)</span> 表示发生了<strong>方向翻转</strong>（镜面反射），这在微分同胚配准中是不允许的——微分同胚要求 <span class="arithmatex">\(\det(J) &gt; 0\)</span> 处处成立</li>
+<li><span class="arithmatex">\(|\det(J)|\)</span> 才是纯体积缩放比</li>
+</ul>
 <p><strong>应用：基于张量的形态测量（TBM, Tensor-Based Morphometry）</strong>——通过比较不同人群（如患者 vs 健康对照）的 <span class="arithmatex">\(\log(\det(J))\)</span> 空间分布，检测局部的脑组织萎缩或膨胀模式。</p>
 <hr />
 <h2 id="evaluation-tools">七、配准评估与实用工具（Evaluation &amp; Tools）</h2>
@@ -9179,23 +9183,33 @@ x + y = \frac{5\pi}{6} + 0 = \frac{5\pi}{6}
 <li>
 <p><strong>正则化步长梯度下降（Regular Step Gradient Descent）</strong>：</p>
 </li>
-<li>梯度方向一致 → 维持步长</li>
-<li>梯度方向反转（跨越极小值）→ 步长自动减半</li>
+<li>
+<p>梯度方向一致 → 维持步长</p>
+</li>
+<li>
+<p>梯度方向反转（跨越极小值）→ 步长自动减半</p>
+</li>
 <li>
 <p>无需手工调整学习率衰减</p>
 </li>
 <li>
 <p><strong>多分辨率金字塔（Multi-resolution Pyramid）</strong>：</p>
 </li>
-<li><code>ShrinkFactors = [4, 2, 1]</code>：先 <span class="arithmatex">\(4\times\)</span> 降采样粗配准 → <span class="arithmatex">\(2\times\)</span> → 原始分辨率微调</li>
+<li>
+<p><code>ShrinkFactors = [4, 2, 1]</code>：先 <span class="arithmatex">\(4\times\)</span> 降采样粗配准 → <span class="arithmatex">\(2\times\)</span> → 原始分辨率微调</p>
+</li>
 <li>
 <p>粗分辨率上快速跨越局部极小值，细分辨率上精准收敛</p>
 </li>
 <li>
 <p><strong>物理空间参数缩放（Physical Shift Scaling）</strong>：</p>
 </li>
-<li>自动均衡角度（弧度量级）与平移（像素量级）的更新步长</li>
-<li>解决了手动 SGD 无法处理参数量纲失衡的问题</li>
+<li>
+<p>自动均衡角度（弧度量级）与平移（像素量级）的更新步长</p>
+</li>
+<li>
+<p>解决了手动 SGD 无法处理参数量纲失衡的问题</p>
+</li>
 </ol>
 <p><strong>对比结果</strong>：</p>
 <table>
@@ -9234,9 +9248,11 @@ x + y = \frac{5\pi}{6} + 0 = \frac{5\pi}{6}
 </tr>
 </tbody>
 </table>
-<p><strong>结论</strong>：
-- 同模态：SITK 达到亚像素级精度，归功于参数缩放和多分辨率策略
-- 跨模态：SSD/CC 的误差在 SITK <strong>同样无法消除</strong>——问题在相似度指标的数学假设被破坏，而非优化器不够优秀</p>
+<p><strong>结论</strong>：</p>
+<ul>
+<li>同模态：SITK 达到亚像素级精度，归功于参数缩放和多分辨率策略</li>
+<li>跨模态：SSD/CC 的误差在 SITK <strong>同样无法消除</strong>——问题在相似度指标的数学假设被破坏，而非优化器不够优秀</li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">智能梯度下降 vs 手动 SGD</p>
 <p>SimpleITK 的 Regular Step Gradient Descent 通过<strong>自适应步长</strong>和<strong>物理空间参数缩放</strong>两大机制，将手动 SGD 难以收敛的参数量纲问题、步长震荡问题彻底解决。但要完成跨模态配准，仍需在 Project 2 Bonus 中使用 MI + Powell 策略。</p>
@@ -9257,32 +9273,44 @@ x + y = \frac{5\pi}{6} + 0 = \frac{5\pi}{6}
 <hr />
 <h3 id="2022_2">三、配准流程与熵计算（2022 大题）</h3>
 <p><strong>知识点定位</strong>：配准流水线 + 信息论</p>
-<p><strong>题目</strong>：
-1. 画出配准流程图
-2. 给定两个矩阵，分别计算熵 <span class="arithmatex">\(H(X) = -\sum p_i \log p_i\)</span>
-3. 计算联合直方图（数对应 <span class="arithmatex">\((x,y)\)</span> 的数量）</p>
+<p><strong>题目</strong>：</p>
+<ol>
+<li>画出配准流程图</li>
+<li>给定两个矩阵，分别计算熵 <span class="arithmatex">\(H(X) = -\sum p_i \log p_i\)</span></li>
+<li>计算联合直方图（数对应 <span class="arithmatex">\((x,y)\)</span> 的数量）</li>
+</ol>
 <p><strong>解答</strong>：</p>
 <p><strong>(1) 配准流程图</strong></p>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0614/lm0oa5p0.webp" /></p>
-<p>核心三大步骤：
-1. 定义变换类型（刚性/仿射/非线性）
-2. 定义相似度指标（SSD/CC/MI）
-3. 优化变换参数使相似度最大化</p>
+<p>核心三大步骤：</p>
+<ol>
+<li>定义变换类型（刚性/仿射/非线性）</li>
+<li>定义相似度指标（SSD/CC/MI）</li>
+<li>优化变换参数使相似度最大化</li>
+</ol>
 <p><strong>(2) 熵的计算示例</strong></p>
 <p>假设给矩阵 <span class="arithmatex">\(X = \begin{bmatrix} 1 &amp; 2 \\ 2 &amp; 3 \end{bmatrix}\)</span>，灰度值及频数为：<span class="arithmatex">\(p(1) = \frac{1}{4}\)</span>，<span class="arithmatex">\(p(2) = \frac{2}{4} = \frac{1}{2}\)</span>，<span class="arithmatex">\(p(3) = \frac{1}{4}\)</span></p>
 <div class="arithmatex">\[
 H(X) = -\frac{1}{4}\log\frac{1}{4} - \frac{1}{2}\log\frac{1}{2} - \frac{1}{4}\log\frac{1}{4} = \frac{1}{2}\log 4 + \frac{1}{2}\log 2 = \frac{3}{2}\log 2
 \]</div>
 <p><strong>(3) 联合直方图的计算方法</strong></p>
-<p>对于两个相同大小的图像 <span class="arithmatex">\(X\)</span> 和 <span class="arithmatex">\(Y\)</span>：
-1. 初始化一个 <span class="arithmatex">\(L \times L\)</span> 的矩阵 <span class="arithmatex">\(H[i,j] = 0\)</span>（<span class="arithmatex">\(L\)</span> 为灰度级数）
-2. 遍历所有像素位置 <span class="arithmatex">\((m,n)\)</span>：<span class="arithmatex">\(H[X(m,n), Y(m,n)] \mathrel{+}= 1\)</span>
-3. 归一化得到联合概率：<span class="arithmatex">\(p(i,j) = H[i,j] / \sum_{i,j} H[i,j]\)</span></p>
+<p>对于两个相同大小的图像 <span class="arithmatex">\(X\)</span> 和 <span class="arithmatex">\(Y\)</span>：</p>
+<ol>
+<li>初始化一个 <span class="arithmatex">\(L \times L\)</span> 的矩阵 <span class="arithmatex">\(H[i,j] = 0\)</span>（<span class="arithmatex">\(L\)</span> 为灰度级数）</li>
+<li>遍历所有像素位置 <span class="arithmatex">\((m,n)\)</span>：<span class="arithmatex">\(H[X(m,n), Y(m,n)] \mathrel{+}= 1\)</span></li>
+<li>归一化得到联合概率：<span class="arithmatex">\(p(i,j) = H[i,j] / \sum_{i,j} H[i,j]\)</span></li>
+</ol>
 <p><strong>示例</strong>：</p>
 <p>若 <span class="arithmatex">\(X = \begin{bmatrix} 1 &amp; 2 \\ 2 &amp; 1 \end{bmatrix}\)</span>，<span class="arithmatex">\(Y = \begin{bmatrix} 2 &amp; 1 \\ 1 &amp; 2 \end{bmatrix}\)</span></p>
-<p>联合直方图 <span class="arithmatex">\(H\)</span>：
-- <span class="arithmatex">\((1,2)\)</span>：<span class="arithmatex">\(X(0,0)=1, Y(0,0)=2\)</span> + <span class="arithmatex">\(X(1,1)=1, Y(1,1)=2\)</span> → 2 次
-- <span class="arithmatex">\((2,1)\)</span>：<span class="arithmatex">\(X(0,1)=2, Y(0,1)=1\)</span> + <span class="arithmatex">\(X(1,0)=2, Y(1,0)=1\)</span> → 2 次</p>
+<p>联合直方图 <span class="arithmatex">\(H\)</span>：</p>
+<ul>
+<li>
+<p><span class="arithmatex">\((1,2)\)</span>：<span class="arithmatex">\(X(0,0)=1, Y(0,0)=2\)</span> + <span class="arithmatex">\(X(1,1)=1, Y(1,1)=2\)</span> → 2 次</p>
+</li>
+<li>
+<p><span class="arithmatex">\((2,1)\)</span>：<span class="arithmatex">\(X(0,1)=2, Y(0,1)=1\)</span> + <span class="arithmatex">\(X(1,0)=2, Y(1,0)=1\)</span> → 2 次</p>
+</li>
+</ul>
 <div class="arithmatex">\[
 H = \begin{bmatrix} 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 2 \\ 0 &amp; 2 &amp; 0 \end{bmatrix}, \quad p = \begin{bmatrix} 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0.5 \\ 0 &amp; 0.5 &amp; 0 \end{bmatrix}
 \]</div>
@@ -9310,10 +9338,12 @@ H = \begin{bmatrix} 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 2 \\ 0 &amp; 2 &amp; 0 
 <hr />
 <h3 id="2021">六、仿射变换与双线性插值（2021 大题）</h3>
 <p><strong>知识点定位</strong>：线性变换 + 插值</p>
-<p><strong>题目</strong>：给定图像和一种仿射变换操作（旋转 + 平移），要求：
-1. 画出变换后的图像
-2. 写出仿射变换矩阵
-3. 用双线性插值计算变换后某一点的灰度值</p>
+<p><strong>题目</strong>：给定图像和一种仿射变换操作（旋转 + 平移），要求：</p>
+<ol>
+<li>画出变换后的图像</li>
+<li>写出仿射变换矩阵</li>
+<li>用双线性插值计算变换后某一点的灰度值</li>
+</ol>
 <p><strong>解答要点</strong>：</p>
 <p><strong>(1) 仿射变换矩阵</strong></p>
 <p>对于先旋转 <span class="arithmatex">\(\theta\)</span> 再平移 <span class="arithmatex">\((t_x, t_y)\)</span> 的操作，变换矩阵为：</p>
@@ -9333,9 +9363,11 @@ f(x', y') = (1-a)(1-b)f(0,0) + a(1-b)f(1,0) + (1-a)b f(0,1) + ab f(1,1)
 <hr />
 <h3 id="2020_1">七、空间变换的可互换性（2020 大题）</h3>
 <p><strong>知识点定位</strong>：线性变换 — 空间变换的复合</p>
-<p><strong>题目</strong>：对图像先做平移再做旋转（给定位移和角度），问：
-1. 这个操作是否可以互换（先旋转再平移得到相同结果）？
-2. 对于空间上某一个点，求其在平移+旋转得到的新坐标系下的坐标</p>
+<p><strong>题目</strong>：对图像先做平移再做旋转（给定位移和角度），问：</p>
+<ol>
+<li>这个操作是否可以互换（先旋转再平移得到相同结果）？</li>
+<li>对于空间上某一个点，求其在平移+旋转得到的新坐标系下的坐标</li>
+</ol>
 <p><strong>解答要点</strong>：</p>
 <p><strong>(1) 旋转和平移不可互换</strong></p>
 <p>一般而言，<strong>旋转和平移的复合顺序不可交换</strong>：</p>
