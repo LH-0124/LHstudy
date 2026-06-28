@@ -8014,25 +8014,25 @@
 <div class="arithmatex">\[
 R = R_z(\theta) \cdot R_x(\phi) \cdot R_y(\psi)
 \]</div>
-<p>绕 X 轴旋转 <span class="arithmatex">\(\phi\)</span>：</p>
+<p>绕 X 轴逆时针旋转 <span class="arithmatex">\(\phi\)</span>：</p>
 <div class="arithmatex">\[R_x(\phi) = 
 \begin{bmatrix} 
 1 &amp; 0 &amp; 0 \\ 
-0 &amp; \cos\phi &amp; \sin\phi \\ 
-0 &amp; -\sin\phi &amp; \cos\phi 
+0 &amp; \cos\phi &amp; -\sin\phi \\ 
+0 &amp; \sin\phi &amp; \cos\phi 
 \end{bmatrix}\]</div>
-<p>绕 Y 轴旋转 <span class="arithmatex">\(\psi\)</span>：</p>
+<p>绕 Y 轴逆时针旋转 <span class="arithmatex">\(\psi\)</span>：</p>
 <div class="arithmatex">\[R_y(\psi) = 
 \begin{bmatrix} 
-\cos\psi &amp; 0 &amp; -\sin\psi \\ 
+\cos\psi &amp; 0 &amp; \sin\psi \\ 
 0 &amp; 1 &amp; 0 \\ 
-\sin\psi &amp; 0 &amp; \cos\psi 
+-\sin\psi &amp; 0 &amp; \cos\psi 
 \end{bmatrix}\]</div>
-<p>绕 Z 轴旋转 <span class="arithmatex">\(\theta\)</span>：</p>
+<p>绕 Z 轴逆时针旋转 <span class="arithmatex">\(\theta\)</span>：</p>
 <div class="arithmatex">\[R_z(\theta) = 
 \begin{bmatrix} 
-\cos\theta &amp; \sin\theta &amp; 0 \\ 
--\sin\theta &amp; \cos\theta &amp; 0 \\ 
+\cos\theta &amp; -\sin\theta &amp; 0 \\ 
+\sin\theta &amp; \cos\theta &amp; 0 \\ 
 0 &amp; 0 &amp; 1 \end{bmatrix}\]</div>
 <h3 id="25-3-d">2.5 3-D 仿射变换</h3>
 <div class="arithmatex">\[
@@ -8156,10 +8156,8 @@ p(r_k) = \frac{n_k}{N}, \quad N = \sum_{k=0}^{L-1} n_k
 <div class="admonition warning">
 <p class="admonition-title">直方图的特性</p>
 <ul>
-<li>直方图<strong>不包含空间位置信息</strong>（丢失了像素在哪里）<ul>
+<li>直方图<strong>不包含空间位置信息</strong>（丢失了像素在哪里）</li>
 <li><strong>不同的图像可以有相同的直方图</strong></li>
-</ul>
-</li>
 </ul>
 </div>
 <h3 id="42">4.2 直方图的统计量</h3>
