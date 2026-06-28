@@ -8527,8 +8527,8 @@ G(u,v) = F(u,v) + N(u,v)
 </ol>
 <p><strong>两级判断</strong>：</p>
 <ul>
-<li><strong>Level A</strong>：检查 <span class="arithmatex">\(z_{\text{med}}\)</span> 是否为脉冲 → 若不是，转 Level B；若是，增大窗口 → 若窗口已达上限 <span class="arithmatex">\(S_{\max}\)</span>，输出 <span class="arithmatex">\(z_{\text{med}}\)</span></li>
-<li><strong>Level B</strong>：检查 <span class="arithmatex">\(z_{xy}\)</span> 是否为脉冲 → 若不是，输出 <span class="arithmatex">\(z_{xy}\)</span>（保留原像素）；若是，输出 <span class="arithmatex">\(z_{\text{med}}\)</span>（用中值替代）</li>
+<li><strong>Level A</strong>：检查 <span class="arithmatex">\(z_{\text{med}}\)</span> （中位数）是否为脉冲 → 若不是，转 Level B；若是，增大窗口 → 若窗口已达上限 <span class="arithmatex">\(S_{\max}\)</span>，输出 <span class="arithmatex">\(z_{\text{med}}\)</span></li>
+<li><strong>Level B</strong>：检查 <span class="arithmatex">\(z_{xy}\)</span> （中心像素）是否为脉冲 → 若不是，输出 <span class="arithmatex">\(z_{xy}\)</span>（保留原像素）；若是，输出 <span class="arithmatex">\(z_{\text{med}}\)</span>（用中值替代）</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">AMF 的关键优势</p>

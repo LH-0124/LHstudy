@@ -8721,11 +8721,7 @@ g(x,y) = \begin{cases} 0, &amp; f(x,y) \leq T_1 \\ 1, &amp; T_1 &lt; f(x,y) \leq
 <p><strong>分块处理</strong>：将图像划分为子图像，为每个子图像独立确定阈值</p>
 </li>
 <li>
-<p><strong>分类处理</strong>：</p>
-</li>
-<li>灰度方差 <span class="arithmatex">\(&lt; T_1\)</span> 的子图像：不包含目标边界 → 合并后统一处理</li>
-<li>
-<p>灰度方差 <span class="arithmatex">\(&gt; T_2\)</span> 的子图像：包含目标边界 → 独立阈值处理</p>
+<p><strong>分类处理</strong>：灰度方差 <span class="arithmatex">\(&lt; T_1\)</span> 的子图像：不包含目标边界 → 合并后统一处理；灰度方差 <span class="arithmatex">\(&gt; T_2\)</span> 的子图像：包含目标边界 → 独立阈值处理</p>
 </li>
 <li>
 <p><strong>基于局部图像属性</strong>：<span class="arithmatex">\(T = T(x,y, p(x,y))\)</span>，利用局部标准差和均值动态确定阈值</p>
@@ -8776,18 +8772,24 @@ g(x,y) = \begin{cases} 0, &amp; f(x,y) \leq T_1 \\ 1, &amp; T_1 &lt; f(x,y) \leq
 <h3 id="52-region-splitting-merging">5.2 区域分裂与合并（Region Splitting &amp; Merging）</h3>
 <p><img alt="" src="https://file.cc98.org/v4-upload/d/2026/0614/04lzfnum.webp" /></p>
 <p>使用<strong>四叉树（Quadtree）</strong>结构：</p>
-<p><strong>分裂</strong>：
-- 从整个区域开始
-- 如果 <span class="arithmatex">\(Q(R) = \text{FALSE}\)</span>（不均匀），将区域分为四个象限
-- 对每个象限递归应用此规则
-- 直到达到最小子区域尺寸</p>
-<p><strong>合并</strong>：
-- 如果仅分裂，相邻且属性相同的区域不会被合并
-- 检查相邻区域，如果 <span class="arithmatex">\(Q(R_i \cup R_j) = \text{TRUE}\)</span>，则合并</p>
-<p><strong>算法</strong>：
-1. 若 <span class="arithmatex">\(Q(R) = \text{FALSE}\)</span>，分裂为 4 个不相交象限
-2. 对满足 <span class="arithmatex">\(Q\)</span> 的相邻区域进行合并
-3. 无可合并和可分裂时停止</p>
+<p><strong>分裂</strong>：</p>
+<ul>
+<li>从整个区域开始</li>
+<li>如果 <span class="arithmatex">\(Q(R) = \text{FALSE}\)</span>（不均匀），将区域分为四个象限</li>
+<li>对每个象限递归应用此规则</li>
+<li>直到达到最小子区域尺寸</li>
+</ul>
+<p><strong>合并</strong>：</p>
+<ul>
+<li>如果仅分裂，相邻且属性相同的区域不会被合并</li>
+<li>检查相邻区域，如果 <span class="arithmatex">\(Q(R_i \cup R_j) = \text{TRUE}\)</span>，则合并</li>
+</ul>
+<p><strong>算法</strong>：</p>
+<ol>
+<li>若 <span class="arithmatex">\(Q(R) = \text{FALSE}\)</span>，分裂为 4 个不相交象限</li>
+<li>对满足 <span class="arithmatex">\(Q\)</span> 的相邻区域进行合并</li>
+<li>无可合并和可分裂时停止</li>
+</ol>
 <h3 id="53-watershed-segmentation">5.3 分水岭算法（Watershed Segmentation）</h3>
 <p>将灰度图像视为 3D 地形（<span class="arithmatex">\(x\)</span> 坐标、<span class="arithmatex">\(y\)</span> 坐标、灰度值为高度）：</p>
 <table>
