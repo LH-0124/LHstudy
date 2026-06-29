@@ -6199,15 +6199,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#ssd" class="md-nav__link">
-    <span class="md-ellipsis">
-      九、配准中 SSD 的梯度下降优化（自编计算题）
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -8003,15 +7994,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#ssd" class="md-nav__link">
-    <span class="md-ellipsis">
-      九、配准中 SSD 的梯度下降优化（自编计算题）
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -9456,41 +9438,6 @@ f(x', y') = (1-a)(1-b)f(0,0) + a(1-b)f(1,0) + (1-a)b f(0,1) + ab f(1,1)
 <p><strong>题目</strong>："不同分辨率图像配准采用什么变换？"</p>
 <p><strong>答案</strong>：<strong>相似变换（Similarity Transformation）</strong> 或 <strong>仿射变换（Affine Transformation）</strong>。</p>
 <p><strong>解释</strong>：不同分辨率的图像之间除了位置和角度的差异，还存在<strong>尺度（缩放）</strong>的差异。刚性变换（6 自由度）无法处理缩放，因此至少需要相似变换（7 自由度，包含均匀缩放）或仿射变换（12 自由度，可处理各向异性缩放）。</p>
-<hr />
-<h3 id="ssd">九、配准中 SSD 的梯度下降优化（自编计算题）</h3>
-<p><strong>题目</strong>：将 <span class="arithmatex">\(3 \times 3\)</span> 的参考图像 <span class="arithmatex">\(F\)</span> 和浮动图像 <span class="arithmatex">\(M\)</span> 进行平移配准（仅 <span class="arithmatex">\(x\)</span> 方向平移），已知：</p>
-<div class="arithmatex">\[
-F = \begin{bmatrix} 10 &amp; 20 &amp; 30 \\ 10 &amp; 20 &amp; 30 \\ 10 &amp; 20 &amp; 30 \end{bmatrix}, \quad M = \begin{bmatrix} 20 &amp; 30 &amp; 40 \\ 20 &amp; 30 &amp; 40 \\ 20 &amp; 30 &amp; 40 \end{bmatrix}
-\]</div>
-<p>假设以 SSD 为相似度指标（取最小化），初始平移 <span class="arithmatex">\(t_x = 0\)</span>，学习率 <span class="arithmatex">\(\alpha = 0.5\)</span>。</p>
-<ol>
-<li>写出 SSD 关于 <span class="arithmatex">\(t_x\)</span> 的表达式（假设使用线性插值填充边界外像素为 <span class="arithmatex">\(0\)</span>）</li>
-<li>用中心差分法（<span class="arithmatex">\(\delta = 0.5\)</span>）计算第一次迭代的数值梯度</li>
-<li>执行一次梯度下降更新，求出 <span class="arithmatex">\(t_x^{(1)}\)</span></li>
-</ol>
-<p><strong>解答</strong>：</p>
-<p><strong>(1) SSD 表达式</strong></p>
-<p>在平移 <span class="arithmatex">\(t_x\)</span> 下，<span class="arithmatex">\(M'(x) = M(x - t_x)\)</span>。SSD 定义为：</p>
-<div class="arithmatex">\[
-SSD(t_x) = \frac{1}{9} \sum_{x=1}^{3} \sum_{y=1}^{3} (F(x,y) - M'(x,y))^2
-\]</div>
-<p><strong>(2) 数值梯度计算</strong></p>
-<p>在 <span class="arithmatex">\(t_x = 0\)</span> 处，<span class="arithmatex">\(M' = M\)</span>。</p>
-<div class="arithmatex">\[
-SSD(0) = \frac{1}{9} \sum_{i=1}^{3} \sum_{j=1}^{3} (10 - 20)^2 \times \cdots
-\]</div>
-<p>观察两矩阵：<span class="arithmatex">\(F\)</span> 和 <span class="arithmatex">\(M\)</span> 的对应位置差恒为 <span class="arithmatex">\(-10\)</span>。</p>
-<div class="arithmatex">\[
-SSD(0) = \frac{1}{9} \times 9 \times (-10)^2 = 100
-\]</div>
-<p>计算 <span class="arithmatex">\(SSD(+\delta) = SSD(0.5)\)</span>：<span class="arithmatex">\(M\)</span> 向右平移 0.5 → 插值后约等于向右移动半个像素。简化起见，<span class="arithmatex">\(M'(t_x=0.5)\)</span> 的像素值接近但略有偏移。由于此处为简化计算，令 <span class="arithmatex">\(M'(0.5) \approx M\)</span>（实际上取 <span class="arithmatex">\(t_x = 0.5\)</span> 时仅边界像素发生变化）。</p>
-<p>更为精确：在 <span class="arithmatex">\(t_x = 0.5\)</span> 时，<span class="arithmatex">\(M(0,y)\)</span> 在原始 <span class="arithmatex">\(M\)</span> 的第 0 和第 1 列之间线性插值。由于 <span class="arithmatex">\(M\)</span> 各列相同（20, 30, 40），平移后的 <span class="arithmatex">\(M'\)</span> 与 <span class="arithmatex">\(M\)</span> 差别极小。<strong>简化处理</strong>：取 <span class="arithmatex">\(SSD(0.5) \approx SSD(0) = 100\)</span>，则梯度接近 <span class="arithmatex">\(0\)</span>。</p>
-<p><strong>(3) 梯度下降更新</strong></p>
-<p>此题实际说明了一个重要现象：当 <span class="arithmatex">\(F\)</span> 和 <span class="arithmatex">\(M\)</span> 在平移方向上灰度分布均匀一致时，SSD 对平移的梯度很小，配准可能无法有效收敛。这正是多分辨率策略和适当初始化的必要性所在。</p>
-<div class="admonition tip">
-<p class="admonition-title">梯度下降的实际考量</p>
-<p>在实际配准中，如果初始位置离真实解太远，梯度信号可能很弱。解决方案：（1）使用多分辨率金字塔在粗尺度上获得强梯度信号；（2）使用更好的初始化（如质心对齐）。</p>
-</div>
 
 
 
