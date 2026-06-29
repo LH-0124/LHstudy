@@ -8324,7 +8324,7 @@ MI(I_1, I_2) = H(I_1) + H(I_2) - H(I_1, I_2)
 </ul>
 </li>
 <li>
-<p>**多模态配准 **</p>
+<p><strong>多模态配准</strong></p>
 <ul>
 <li>互信息<strong>最大化</strong></li>
 <li>归一化互信息<strong>最大化</strong></li>
@@ -9119,10 +9119,12 @@ x + y = \frac{5\pi}{6} + 0 = \frac{5\pi}{6}
 <li><strong>CC</strong>：Pearson 相关系数，适用于同模态线性差异</li>
 <li><strong>MI</strong>：<span class="arithmatex">\(H(I_1) + H(I_2) - H(I_1,I_2)\)</span>，跨模态金标准</li>
 </ol>
-<p><strong>关键实现细节</strong>：
-- 使用掩膜（Mask）排除背景噪声（阈值 <span class="arithmatex">\(&gt;10\)</span>）
-- MI 通过 <code>np.histogram2d</code> 计算联合直方图，再转为联合概率分布
-- 避免 <span class="arithmatex">\(\log 0\)</span>：仅对 <span class="arithmatex">\(p(x,y) &gt; 0\)</span> 的位置求和</p>
+<p><strong>关键实现细节</strong>：</p>
+<ul>
+<li>使用掩膜（Mask）排除背景噪声（阈值 <span class="arithmatex">\(&gt;10\)</span>）</li>
+<li>MI 通过 <code>np.histogram2d</code> 计算联合直方图，再转为联合概率分布</li>
+<li>避免 <span class="arithmatex">\(\log 0\)</span>：仅对 <span class="arithmatex">\(p(x,y) &gt; 0\)</span> 的位置求和</li>
+</ul>
 <p><strong>关键发现</strong>：</p>
 <table>
 <thead>
@@ -9227,10 +9229,12 @@ x + y = \frac{5\pi}{6} + 0 = \frac{5\pi}{6}
 <hr />
 <h3 id="project-2-bonuspowell">Project 2 Bonus：Powell 无梯度优化</h3>
 <p><strong>改进策略</strong>：用 Powell 算法（无梯度方向集法）替代 SGD，并在模内用 SSD、模间用 MI。</p>
-<p><strong>Powell 算法原理</strong>：
-- 不需要计算目标函数的导数
-- 在一组共轭方向上独立进行一维线搜索
-- 天生适合处理不平滑的目标函数（如 MI）</p>
+<p><strong>Powell 算法原理</strong>：</p>
+<ul>
+<li>不需要计算目标函数的导数</li>
+<li>在一组共轭方向上独立进行一维线搜索</li>
+<li>天生适合处理不平滑的目标函数（如 MI）</li>
+</ul>
 <p><strong>改进效果</strong>：</p>
 <table>
 <thead>
