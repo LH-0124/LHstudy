@@ -9006,10 +9006,10 @@ W(s) = \frac{1}{1 + S_\eta(s)/S_f(s)}
 <h4 id="7_3">题 7：时域卷积核的频域对应</h4>
 <p><strong>题目</strong>：时域卷积 <span class="arithmatex">\(f(x,y) - f(x+1,y) - f(x,y+1)\)</span> 对应什么频域卷积核</p>
 <p><strong>解析</strong>：对空间域卷积核做傅里叶变换。</p>
-<p>时域核可写为：
-$$
-h = \begin{bmatrix} 0 &amp; -1 \ -1 &amp; 1 \end{bmatrix} \quad \text{原点在 (0,0)}
-$$</p>
+<p>时域核可写为：</p>
+<div class="arithmatex">\[
+h = \begin{bmatrix} 0 &amp; -1 \\ -1 &amp; 1 \end{bmatrix} \quad \text{原点在 (0,0)}
+\]</div>
 <p>其频率域响应：
 $$
 H(u,v) = 1 - e^{-j2\pi u} - e^{-j2\pi v}
