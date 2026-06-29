@@ -9270,34 +9270,13 @@ x + y = \frac{5\pi}{6} + 0 = \frac{5\pi}{6}
 <p><strong>Mattes 互信息（Mattes MI）</strong>：用 B-spline 核密度估计使 MI 曲面<strong>连续可导</strong>，打破了传统离散 MI 无法用梯度下降的魔咒</p>
 </li>
 <li>
-<p><strong>正则化步长梯度下降（Regular Step Gradient Descent）</strong>：</p>
+<p><strong>正则化步长梯度下降（Regular Step Gradient Descent）</strong>：梯度方向一致 → 维持步长；梯度方向反转（跨越极小值）→ 步长自动减半；无需手工调整学习率衰减</p>
 </li>
 <li>
-<p>梯度方向一致 → 维持步长</p>
+<p><strong>多分辨率金字塔（Multi-resolution Pyramid）</strong>：<code>ShrinkFactors = [4, 2, 1]</code>：先 <span class="arithmatex">\(4\times\)</span> 降采样粗配准 → <span class="arithmatex">\(2\times\)</span> → 原始分辨率微调；粗分辨率上快速跨越局部极小值，细分辨率上精准收敛</p>
 </li>
 <li>
-<p>梯度方向反转（跨越极小值）→ 步长自动减半</p>
-</li>
-<li>
-<p>无需手工调整学习率衰减</p>
-</li>
-<li>
-<p><strong>多分辨率金字塔（Multi-resolution Pyramid）</strong>：</p>
-</li>
-<li>
-<p><code>ShrinkFactors = [4, 2, 1]</code>：先 <span class="arithmatex">\(4\times\)</span> 降采样粗配准 → <span class="arithmatex">\(2\times\)</span> → 原始分辨率微调</p>
-</li>
-<li>
-<p>粗分辨率上快速跨越局部极小值，细分辨率上精准收敛</p>
-</li>
-<li>
-<p><strong>物理空间参数缩放（Physical Shift Scaling）</strong>：</p>
-</li>
-<li>
-<p>自动均衡角度（弧度量级）与平移（像素量级）的更新步长</p>
-</li>
-<li>
-<p>解决了手动 SGD 无法处理参数量纲失衡的问题</p>
+<p><strong>物理空间参数缩放（Physical Shift Scaling）</strong>：自动均衡角度（弧度量级）与平移（像素量级）的更新步长；解决了手动 SGD 无法处理参数量纲失衡的问题</p>
 </li>
 </ol>
 <p><strong>对比结果</strong>：</p>
