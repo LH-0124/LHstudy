@@ -8788,8 +8788,8 @@ A \ominus B = \{z \mid (B)_z \subseteq A\}
 <hr />
 <h3 id="22-1-10">2.2 判断题（每题 1 分，共 10 题）</h3>
 <h4 id="1_2">题 1：频域对称——在频域上水平方向和竖直方向对称</h4>
-<p><strong>答案</strong>：正确（对于实值图像）</p>
-<p><strong>解析</strong>：实值图像的傅里叶变换具有<strong>共轭对称性</strong>：<span class="arithmatex">\(F(u,v) = F^*(-u, -v)\)</span>。这意味着幅度谱关于原点中心对称，即水平和竖直方向均对称。</p>
+<p><strong>答案</strong>：错误，为共轭对称</p>
+<p><strong>解析</strong>：实值图像的傅里叶变换具有<strong>共轭对称性</strong>：<span class="arithmatex">\(F(u,v) = F^*(-u, -v)\)</span>。这意味着幅度谱关于原点共轭中心对称。</p>
 <hr />
 <h4 id="2_2">题 2：直方图均衡化改变亮度，不能改变对比度</h4>
 <p><strong>答案</strong>：错误</p>
@@ -8919,7 +8919,7 @@ $$</p>
 </tbody>
 </table>
 <p><strong>应用</strong>：图像去模糊（运动模糊、离焦模糊）、图像复原。</p>
-<p><strong>(3) 给定 <span class="arithmatex">\(H(s)=1\)</span>、功率谱和噪声幅值，计算维纳滤波并判断滤波类型</strong></p>
+<p><strong>(3) 给定 <span class="arithmatex">\(H(s)=1\)</span>、功率谱和噪声幅值，画出图像，判断这是高通低通还是带通</strong></p>
 <p>当 <span class="arithmatex">\(H(s)=1\)</span> 时，<span class="arithmatex">\(|H|^2 = 1\)</span>，维纳滤波简化为：</p>
 <div class="arithmatex">\[
 W(s) = \frac{1}{1 + S_\eta(s)/S_f(s)}
@@ -9006,11 +9006,7 @@ W(s) = \frac{1}{1 + S_\eta(s)/S_f(s)}
 <h4 id="7_3">题 7：时域卷积核的频域对应</h4>
 <p><strong>题目</strong>：时域卷积 <span class="arithmatex">\(f(x,y) - f(x+1,y) - f(x,y+1)\)</span> 对应什么频域卷积核</p>
 <p><strong>解析</strong>：对空间域卷积核做傅里叶变换。</p>
-<p>时域核可写为：</p>
-<div class="arithmatex">\[
-h = \begin{bmatrix} 0 &amp; -1 \\ -1 &amp; 1 \end{bmatrix} \quad \text{原点在 (0,0)}
-\]</div>
-<p>其频率域响应：
+<p>傅里叶变换后可得频率域响应：
 $$
 H(u,v) = 1 - e^{-j2\pi u} - e^{-j2\pi v}
 $$</p>
@@ -9022,7 +9018,7 @@ $$</p>
 <p><strong>解析</strong>：伽马变换 <span class="arithmatex">\(s = c r^\gamma\)</span> 的性质：</p>
 <ul>
 <li><span class="arithmatex">\(\gamma &lt; 1\)</span>：拉伸暗区，压缩亮区（提升暗部对比度）</li>
-<li><span class="arithmatex">\(\gamma &gt; 1\)</span>：拉伸亮区，压缩暗区</li>
+<li><span class="arithmatex">\(\gamma &gt; 1\)</span>：拉伸亮区，压缩暗区（提升亮区对比度）</li>
 <li><span class="arithmatex">\(\gamma = 1\)</span>：线性变换（恒等）</li>
 <li>是<strong>非线性</strong>变换</li>
 </ul>
