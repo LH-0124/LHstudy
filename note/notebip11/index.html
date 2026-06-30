@@ -10367,11 +10367,13 @@ L_{t-1} \propto \left\| \boldsymbol{\mu}_t(\boldsymbol{x}_t, \boldsymbol{x}_0) -
 <hr />
 <h3 id="2024-cnn">2024 年选择题：CNN 相关</h3>
 <p><strong>题目</strong>：关于 CNN 的选择题（具体选项暂缺）。</p>
-<p><strong>涉及知识点</strong>（根据题目位置和上下文推断）：
-- CNN 的基本结构（Conv → ReLU → Pool → ... → FC）
-- 各层的作用（卷积提取特征、池化下采样、全连接分类）
-- 常见激活函数（ReLU、Sigmoid、Tanh）
-- CNN 的训练方式（梯度下降 + 反向传播）</p>
+<p><strong>涉及知识点</strong>（根据题目位置和上下文推断）：</p>
+<ul>
+<li>CNN 的基本结构（Conv → ReLU → Pool → ... → FC）</li>
+<li>各层的作用（卷积提取特征、池化下采样、全连接分类）</li>
+<li>常见激活函数（ReLU、Sigmoid、Tanh）</li>
+<li>CNN 的训练方式（梯度下降 + 反向传播）</li>
+</ul>
 <p>建议重点复习本文第三至五章内容。</p>
 <hr />
 <h3 id="2023-cnn">2023 年选择题：CNN 的性质</h3>
@@ -10705,8 +10707,6 @@ q(\boldsymbol{x}_t | \boldsymbol{x}_{t-1}) = \mathcal{N}(\boldsymbol{x}_t; \sqrt
 p_{\boldsymbol{\theta}}(\boldsymbol{x}_{t-1} | \boldsymbol{x}_t) = \mathcal{N}(\boldsymbol{x}_{t-1}; \boldsymbol{\mu}_{\boldsymbol{\theta}}(\boldsymbol{x}_t, t), \sigma_t^2 \boldsymbol{I})
 \]</div>
 <p>用神经网络 <span class="arithmatex">\(\boldsymbol{\theta}\)</span> 预测每一步的均值（或等效地，预测所加的噪声），通过最小化 <span class="arithmatex">\(\|\boldsymbol{\mu}_t - \boldsymbol{\mu}_{\boldsymbol{\theta}}\|^2\)</span> 来训练。因为前向过程的每一步是可解析计算的（<span class="arithmatex">\(\boldsymbol{x}_t = \sqrt{\bar{\alpha}_t} \boldsymbol{x}_0 + \sqrt{1 - \bar{\alpha}_t} \boldsymbol{\epsilon}\)</span>），逆向过程可以被神经网络有效近似。</p>
-<!-- 建议插入PPT截图：Lecture15 Page 108-109，前向扩散+逆向去噪的全过程示意图，插入位置：此处 -->
-
 <p><strong>(2) k 空间条件注入策略</strong></p>
 <p>MRI 欠采样的物理模型（频域约束）：</p>
 <p>设 <span class="arithmatex">\(\boldsymbol{y}\)</span> 为欠采样的 k 空间数据，<span class="arithmatex">\(\boldsymbol{M}\)</span> 为采样掩膜，<span class="arithmatex">\(\mathcal{F}\)</span> 为傅里叶变换，则：</p>
